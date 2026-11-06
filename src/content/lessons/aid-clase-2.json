@@ -1,0 +1,91 @@
+{
+ "id": "aid-clase-2",
+ "title": "Clase 2 · Árboles, clusters, canasta y MBR",
+ "src": "videos/aid/aid-clase-2.mp4",
+ "poster": "videos/aid/aid-clase-2.jpg",
+ "minutes": 14.4,
+ "chapters": [
+  {
+   "part": "arbol",
+   "title": "Árboles de decisión",
+   "at": 14.5
+  },
+  {
+   "part": "ex:aid-e4",
+   "title": "Error de un árbol de decisión",
+   "at": 110.1
+  },
+  {
+   "part": "cluster",
+   "title": "Detección de clusters",
+   "at": 181.9
+  },
+  {
+   "part": "canasta",
+   "title": "Canasta de mercado (reglas de asociación)",
+   "at": 306.1
+  },
+  {
+   "part": "ex:aid-e1",
+   "title": "Canasta de mercado: soporte, confianza y lift",
+   "at": 424.9
+  },
+  {
+   "part": "ex:aid-e2",
+   "title": "Elegir la mejor regla: la confianza alta no alcanza",
+   "at": 529.9
+  },
+  {
+   "part": "mbr",
+   "title": "Razonamiento basado en memoria (MBR)",
+   "at": 623.1
+  },
+  {
+   "part": "ex:aid-e3",
+   "title": "MBR: clasificar un cliente nuevo con 3 vecinos",
+   "at": 722.3
+  }
+ ],
+ "shorts": {
+  "arbol": {
+   "src": "videos/aid/aid-clase-2.mp4#t=14.5,110.5",
+   "poster": "videos/aid/p/aid-clase-2-arbol.jpg",
+   "minutes": 1.6
+  },
+  "ex:aid-e4": {
+   "src": "videos/aid/aid-clase-2.mp4#t=110.1,182.3",
+   "poster": "videos/aid/p/aid-clase-2-ex-aid-e4.jpg",
+   "minutes": 1.2
+  },
+  "cluster": {
+   "src": "videos/aid/aid-clase-2.mp4#t=181.9,281.0",
+   "poster": "videos/aid/p/aid-clase-2-cluster.jpg",
+   "minutes": 1.65
+  },
+  "canasta": {
+   "src": "videos/aid/aid-clase-2.mp4#t=306.1,425.3",
+   "poster": "videos/aid/p/aid-clase-2-canasta.jpg",
+   "minutes": 1.99
+  },
+  "ex:aid-e1": {
+   "src": "videos/aid/aid-clase-2.mp4#t=424.9,530.3",
+   "poster": "videos/aid/p/aid-clase-2-ex-aid-e1.jpg",
+   "minutes": 1.76
+  },
+  "ex:aid-e2": {
+   "src": "videos/aid/aid-clase-2.mp4#t=529.9,623.5",
+   "poster": "videos/aid/p/aid-clase-2-ex-aid-e2.jpg",
+   "minutes": 1.56
+  },
+  "mbr": {
+   "src": "videos/aid/aid-clase-2.mp4#t=623.1,722.7",
+   "poster": "videos/aid/p/aid-clase-2-mbr.jpg",
+   "minutes": 1.66
+  },
+  "ex:aid-e3": {
+   "src": "videos/aid/aid-clase-2.mp4#t=722.3,827.3",
+   "poster": "videos/aid/p/aid-clase-2-ex-aid-e3.jpg",
+   "minutes": 1.75
+  }
+ }
+}

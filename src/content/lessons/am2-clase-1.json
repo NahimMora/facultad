@@ -1,0 +1,141 @@
+{
+ "id": "am2-clase-1",
+ "title": "Final completo: una y dos variables",
+ "src": "videos/am2/am2-clase-1.mp4",
+ "poster": "videos/am2/am2-clase-1.jpg",
+ "minutes": 12.9,
+ "chapters": [
+  {
+   "part": "a1",
+   "title": "Aplicación de la derivada: extremos y concavidad",
+   "at": 23.8
+  },
+  {
+   "part": "ex:am2-e1",
+   "title": "Final (A) · concavidad, inflexión e integral",
+   "at": 94.1
+  },
+  {
+   "part": "a2",
+   "title": "Estudio completo de funciones",
+   "at": 162.9
+  },
+  {
+   "part": "a3",
+   "title": "Límites indeterminados: regla de L'Hôpital",
+   "at": 207.7
+  },
+  {
+   "part": "ex:am2-e4",
+   "title": "Final · límite 1^∞ / ∞⁰",
+   "at": 268.3
+  },
+  {
+   "part": "a4",
+   "title": "Métodos de integración",
+   "at": 321.5
+  },
+  {
+   "part": "a5",
+   "title": "Integrales definidas, impropias y áreas",
+   "at": 373.5
+  },
+  {
+   "part": "a6",
+   "title": "Funciones de dos variables: dominio",
+   "at": 450.2
+  },
+  {
+   "part": "ex:am2-e2",
+   "title": "Final · dominio y su área",
+   "at": 497.5
+  },
+  {
+   "part": "a7",
+   "title": "Límite doble",
+   "at": 558.1
+  },
+  {
+   "part": "a8",
+   "title": "Derivadas parciales y direccionales",
+   "at": 592.4
+  },
+  {
+   "part": "a9",
+   "title": "Extremos de funciones de dos variables",
+   "at": 628.1
+  },
+  {
+   "part": "ex:am2-e3",
+   "title": "Final · extremos con parámetro",
+   "at": 677.5
+  }
+ ],
+ "shorts": {
+  "a1": {
+   "src": "videos/am2/am2-clase-1.mp4#t=23.8,94.5",
+   "poster": "videos/am2/p/am2-clase-1-a1.jpg",
+   "minutes": 1.18
+  },
+  "ex:am2-e1": {
+   "src": "videos/am2/am2-clase-1.mp4#t=94.1,163.2",
+   "poster": "videos/am2/p/am2-clase-1-ex-am2-e1.jpg",
+   "minutes": 1.15
+  },
+  "a2": {
+   "src": "videos/am2/am2-clase-1.mp4#t=162.9,208.1",
+   "poster": "videos/am2/p/am2-clase-1-a2.jpg",
+   "minutes": 0.75
+  },
+  "a3": {
+   "src": "videos/am2/am2-clase-1.mp4#t=207.7,268.7",
+   "poster": "videos/am2/p/am2-clase-1-a3.jpg",
+   "minutes": 1.02
+  },
+  "ex:am2-e4": {
+   "src": "videos/am2/am2-clase-1.mp4#t=268.3,321.9",
+   "poster": "videos/am2/p/am2-clase-1-ex-am2-e4.jpg",
+   "minutes": 0.89
+  },
+  "a4": {
+   "src": "videos/am2/am2-clase-1.mp4#t=321.5,374.0",
+   "poster": "videos/am2/p/am2-clase-1-a4.jpg",
+   "minutes": 0.88
+  },
+  "a5": {
+   "src": "videos/am2/am2-clase-1.mp4#t=373.5,450.5",
+   "poster": "videos/am2/p/am2-clase-1-a5.jpg",
+   "minutes": 1.28
+  },
+  "a6": {
+   "src": "videos/am2/am2-clase-1.mp4#t=450.2,497.9",
+   "poster": "videos/am2/p/am2-clase-1-a6.jpg",
+   "minutes": 0.8
+  },
+  "ex:am2-e2": {
+   "src": "videos/am2/am2-clase-1.mp4#t=497.5,558.5",
+   "poster": "videos/am2/p/am2-clase-1-ex-am2-e2.jpg",
+   "minutes": 1.02
+  },
+  "a7": {
+   "src": "videos/am2/am2-clase-1.mp4#t=558.1,592.8",
+   "poster": "videos/am2/p/am2-clase-1-a7.jpg",
+   "minutes": 0.58
+  },
+  "a8": {
+   "src": "videos/am2/am2-clase-1.mp4#t=592.4,628.5",
+   "poster": "videos/am2/p/am2-clase-1-a8.jpg",
+   "minutes": 0.6
+  },
+  "a9": {
+   "src": "videos/am2/am2-clase-1.mp4#t=628.1,678.0",
+   "poster": "videos/am2/p/am2-clase-1-a9.jpg",
+   "minutes": 0.83
+  },
+  "ex:am2-e3": {
+   "src": "videos/am2/am2-clase-1.mp4#t=677.5,738.0",
+   "poster": "videos/am2/p/am2-clase-1-ex-am2-e3.jpg",
+   "minutes": 1.01
+  }
+ }
+}

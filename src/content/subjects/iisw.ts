@@ -1,6 +1,7 @@
 import type { Question, SubjectContent, TheoryBlock, VideoItem, WorkedExercise } from '../types';
 import port from '../banks/iisw-port.json';
 import { VIDEOS } from '../videos/iisw';
+import { EX_SCENES, SCENES } from '../visual/iisw';
 
 /**
  * IISW · final. Módulos 1–7: redacción propia sobre los apuntes de la cátedra y los temas de finales viejos.
@@ -139,5 +140,24 @@ const content: SubjectContent = {
     { t: '2ª mitad', d: 'CU (actores externos), descripción, secuencia (interfaz → control → entidad), pruebas, tipos de sistemas, reingeniería y métodos formales: ver los módulos 8 a 12.' },
   ],
 };
+
+content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] ?? b.scenes }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.lessons = [
+  {
+    id: 'iisw-clase-1', examId: 'final', title: 'Final · primera mitad: módulos 1 a 7',
+    summary: 'Definiciones, cualidades y principios; ciclos de vida; Scrum; técnicas de extracción; diagrama de actividad y BPMN; ingeniería de requerimientos y SRS.',
+    intro: [
+      'Esta clase cubre la primera mitad de Introducción a la Ingeniería de Software para el final: los módulos 1 a 7. La segunda mitad, casos de uso y secuencia, ya tiene sus videos.',
+      'Vamos a ver qué es la ingeniería de software, cualidades y principios, ciclos de vida, Scrum, cómo se extraen requerimientos, el modelado de procesos y la especificación.',
+    ],
+    parts: ['m1-def', 'm1-cual', 'm1-princ', 'm2-ciclos', 'm3-agiles', 'm4-extraccion', 'm5-modelado', 'm6-ir', 'm7-srs', 'ex:iswf-e1'],
+    outro: [
+      'Sistema = software + hardware + gente + procedimientos manuales. Oportunidad = entregar a tiempo. Alta cohesión y bajo acoplamiento.',
+      'Cascada: el cliente ve todo al final (lo subsana el incremental). Espiral = riesgos. UP: inicio, elaboración, construcción, transición.',
+      'Pirámide: cerradas → abiertas; embudo: al revés. SRS: comportamiento externo, sin costos ni cronogramas; cuantificar sí cambia la solución.',
+    ],
+  },
+];
 
 export default content;

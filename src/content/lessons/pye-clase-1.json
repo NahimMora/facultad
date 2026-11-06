@@ -1,0 +1,71 @@
+{
+ "id": "pye-clase-1",
+ "title": "Final · Clase 1: descriptiva, probabilidad y distribuciones",
+ "src": "videos/pye/pye-clase-1.mp4",
+ "poster": "videos/pye/pye-clase-1.jpg",
+ "minutes": 8.5,
+ "chapters": [
+  {
+   "part": "p1",
+   "title": "Estadística descriptiva",
+   "at": 18.7
+  },
+  {
+   "part": "p2",
+   "title": "Probabilidad",
+   "at": 156.8
+  },
+  {
+   "part": "ex:pye-e3",
+   "title": "Probabilidad total",
+   "at": 218.5
+  },
+  {
+   "part": "p3",
+   "title": "Variables discretas: binomial y Poisson",
+   "at": 287.3
+  },
+  {
+   "part": "p4",
+   "title": "Distribución normal",
+   "at": 343.6
+  },
+  {
+   "part": "p5",
+   "title": "Suma de variables y Teorema Central del Límite",
+   "at": 407.2
+  }
+ ],
+ "shorts": {
+  "p1": {
+   "src": "videos/pye/pye-clase-1.mp4#t=18.7,124.4",
+   "poster": "videos/pye/p/pye-clase-1-p1.jpg",
+   "minutes": 1.76
+  },
+  "p2": {
+   "src": "videos/pye/pye-clase-1.mp4#t=156.8,218.9",
+   "poster": "videos/pye/p/pye-clase-1-p2.jpg",
+   "minutes": 1.04
+  },
+  "ex:pye-e3": {
+   "src": "videos/pye/pye-clase-1.mp4#t=218.5,287.7",
+   "poster": "videos/pye/p/pye-clase-1-ex-pye-e3.jpg",
+   "minutes": 1.15
+  },
+  "p3": {
+   "src": "videos/pye/pye-clase-1.mp4#t=287.3,344.0",
+   "poster": "videos/pye/p/pye-clase-1-p3.jpg",
+   "minutes": 0.94
+  },
+  "p4": {
+   "src": "videos/pye/pye-clase-1.mp4#t=343.6,407.7",
+   "poster": "videos/pye/p/pye-clase-1-p4.jpg",
+   "minutes": 1.07
+  },
+  "p5": {
+   "src": "videos/pye/pye-clase-1.mp4#t=407.2,446.7",
+   "poster": "videos/pye/p/pye-clase-1-p5.jpg",
+   "minutes": 0.66
+  }
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "id": "aid-clase-3",
+ "title": "Clase 3 · CRISP-DM, Text y Web Mining",
+ "src": "videos/aid/aid-clase-3.mp4",
+ "poster": "videos/aid/aid-clase-3.jpg",
+ "minutes": 4.9,
+ "chapters": [
+  {
+   "part": "crisp",
+   "title": "Metodología CRISP-DM",
+   "at": 14.1
+  },
+  {
+   "part": "text",
+   "title": "Text Mining",
+   "at": 126.9
+  },
+  {
+   "part": "web",
+   "title": "Web Mining",
+   "at": 175.4
+  }
+ ],
+ "shorts": {
+  "crisp": {
+   "src": "videos/aid/aid-clase-3.mp4#t=14.1,102.7",
+   "poster": "videos/aid/p/aid-clase-3-crisp.jpg",
+   "minutes": 1.48
+  },
+  "text": {
+   "src": "videos/aid/aid-clase-3.mp4#t=126.9,175.8",
+   "poster": "videos/aid/p/aid-clase-3-text.jpg",
+   "minutes": 0.81
+  },
+  "web": {
+   "src": "videos/aid/aid-clase-3.mp4#t=175.4,230.1",
+   "poster": "videos/aid/p/aid-clase-3-web.jpg",
+   "minutes": 0.91
+  }
+ }
+}

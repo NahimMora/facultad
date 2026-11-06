@@ -1,5 +1,6 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/ca';
+import { EX_SCENES, SCENES } from '../visual/ca';
 
 /** CA · final. Redacción propia sobre los apuntes de la cátedra (Debian) y las preguntas de finales 2023 y 2025 (Drive). */
 const F = 'preguntas de final 2023 y julio 2025 (Drive de estudiantes)';
@@ -128,5 +129,24 @@ const content: SubjectContent = {
     { t: 'Bash', d: '#!/bin/bash · bash s.sh o ./s.sh · $1 $2 $# $@ $0 $? · if [ … ]; then … fi · $HOME $USER $PATH.' },
   ],
 };
+
+content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.lessons = [
+  {
+    id: 'ca-clase-1', examId: 'final', title: 'Final completo: administrar Linux',
+    summary: 'Directorios, terminal, apt y redirecciones, redes y SSH, usuarios y sudoers, permisos, discos y fstab, links, procesos, arranque y scripting.',
+    intro: [
+      'Esta es la clase completa para el final de Computación Aplicada: administración de Linux de punta a punta, con los archivos y comandos que preguntan.',
+      'Vamos a ver la estructura de directorios, la terminal, paquetes y redirecciones, redes, usuarios, permisos, discos, procesos, el arranque y scripting en bash.',
+    ],
+    parts: ['c1', 'c2', 'c3', 'c4', 'ex:ca-e3', 'c5', 'c6', 'c7', 'ex:ca-e2', 'c8', 'c9', 'c10', 'ex:ca-e1'],
+    outro: [
+      '/root es el home de root · apt resuelve dependencias, dpkg no · > pisa, >> agrega · DNS en /etc/resolv.conf · SSH puerto 22.',
+      'passwd: usuario:x:UID:GID:comentario:home:shell · sudoers con visudo · 755 = rwxr-xr-x · fstab: 6 campos.',
+      'Hard link = mismo inodo; soft link = ruta · nice −20 a 19 · GRUB: /etc/default/grub + update-grub · $1, $#, $@, $?.',
+    ],
+  },
+];
 
 export default content;

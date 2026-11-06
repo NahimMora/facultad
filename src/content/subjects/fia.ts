@@ -1,5 +1,6 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/fia';
+import { EX_SCENES, SCENES } from '../visual/fia';
 
 /** FIA · final (módulos 1 a 12). Redacción propia sobre los apuntes de la cátedra y los temas de finales 2023–2025. */
 const F = 'finales anteriores (Drive de estudiantes)';
@@ -154,5 +155,24 @@ const content: SubjectContent = {
     { t: 'Agentes y robots', d: 'Sensores/efectores · racional ≠ omnisciente · reactivo vs inteligente · multiagente. Automatización ⊃ robótica.' },
   ],
 };
+
+content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.lessons = [
+  {
+    id: 'fia-clase-1', examId: 'final', title: 'Final completo: los 12 módulos',
+    summary: 'IA, ML y DL; búsqueda en amplitud y profundidad; Prolog; sistemas expertos; lógica difusa; neuronas y perceptrón; genéticos y meméticos; agentes y robótica.',
+    intro: [
+      'Esta es la clase completa para el final de Fundamentos de la Inteligencia Artificial: los doce módulos, con lo que tomaron en los finales de 2023 a 2025.',
+      'Vamos a ir en orden: qué es la IA, búsqueda, Prolog, sistemas expertos, lógica difusa, redes neuronales y perceptrón, algoritmos genéticos y meméticos, agentes y robótica.',
+    ],
+    parts: ['f1', 'f2', 'f3', 'ex:fia-e1', 'f4', 'f5', 'f6', 'f7', 'f8', 'ex:fia-e2', 'f9', 'f10', 'f11', 'f12'],
+    outro: [
+      'Amplitud: completa y óptima, mucha memoria. Profundidad: poca memoria, ni completa ni óptima. Formalización = árbol de causalidad → reglas IF-THEN.',
+      'Difusa: verdad en [0, 1]. Activación = lo no lineal sobre la suma ponderada. Perceptrón: solo separable (XOR no). Mutación = diversidad.',
+      'Meméticos = evolutivo + búsqueda local. La automatización (sin intervención humana) incluye a la robótica.',
+    ],
+  },
+];
 
 export default content;

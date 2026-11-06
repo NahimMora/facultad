@@ -1,5 +1,6 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/sd1';
+import { EX_SCENES, SCENES } from '../visual/sd1';
 
 /** SD I · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y los temas de final (Drive). */
 const F = 'temas de final de la cátedra (Drive de estudiantes)';
@@ -117,5 +118,24 @@ const content: SubjectContent = {
     { t: 'Secuenciales', d: 'D copia · T cambia si 1 · JK 11 cambia · SR 11 prohibido · contador T: sube Tᵢ = producto de Q inferiores; baja = producto de Q\' inferiores.' },
   ],
 };
+
+content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.lessons = [
+  {
+    id: 'sd1-clase-1', examId: 'final', title: 'Final completo: de los bits a los contadores',
+    summary: 'Complemento a 2 y overflow, compuertas y De Morgan, formas canónicas, Karnaugh, hardware, MUX y sumador/restador, flip-flops y contadores, con los ejercicios del final.',
+    intro: [
+      'Esta es la clase completa para el final de Sistemas Digitales I: de la numeración binaria hasta los contadores con flip-flops, con los ejercicios que toman en el final resueltos.',
+      'Vamos a ver complemento a 2, compuertas, formas canónicas, Karnaugh, parámetros de hardware, multiplexores y el sumador/restador, flip-flops y contadores.',
+    ],
+    parts: ['s1', 's2', 's3', 's4', 'ex:sd1-e1', 's5', 's6', 'ex:sd1-e2', 's7', 's8', 'ex:sd1-e3'],
+    outro: [
+      'C2: invertir y sumar 1; el carry final se descarta; el error es el overflow (V = Cₙ₋₁ ⊕ Cₙ). De Morgan: (AB)’ = A’ + B’.',
+      'Karnaugh en Gray: grupos de 2ᵏ, los bordes son vecinos. Sumador/restador: XOR con M y M como Cin.',
+      'FF D copia en el flanco; T cambia con 1; JK 11 cambia. Contador T: un bit cambia cuando todos los de abajo están en 1 (subiendo) o en 0 (bajando).',
+    ],
+  },
+];
 
 export default content;

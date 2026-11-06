@@ -1,0 +1,121 @@
+{
+ "id": "bd-clase-1",
+ "title": "Final completo: diseño, álgebra y SQL",
+ "src": "videos/bd/bd-clase-1.mp4",
+ "poster": "videos/bd/bd-clase-1.jpg",
+ "minutes": 13.2,
+ "chapters": [
+  {
+   "part": "b1",
+   "title": "Sistema de base de datos",
+   "at": 23.8
+  },
+  {
+   "part": "b2",
+   "title": "Modelo entidad-relación (DER)",
+   "at": 81.9
+  },
+  {
+   "part": "b3",
+   "title": "Modelado avanzado",
+   "at": 138.5
+  },
+  {
+   "part": "ex:bd-e1",
+   "title": "Final · DER de paseos guiados",
+   "at": 178.3
+  },
+  {
+   "part": "b4",
+   "title": "Modelo relacional y normalización",
+   "at": 246.2
+  },
+  {
+   "part": "ex:bd-e2",
+   "title": "Final · normalizar consultas veterinarias hasta 3FN",
+   "at": 336.8
+  },
+  {
+   "part": "b5",
+   "title": "Álgebra relacional",
+   "at": 433.6
+  },
+  {
+   "part": "ex:bd-e3",
+   "title": "Final · álgebra relacional",
+   "at": 519.7
+  },
+  {
+   "part": "b6",
+   "title": "SQL: definición de datos y actualización",
+   "at": 582.2
+  },
+  {
+   "part": "b7",
+   "title": "SQL: consultas",
+   "at": 614.7
+  },
+  {
+   "part": "ex:bd-e4",
+   "title": "Final · SQL",
+   "at": 679.7
+  }
+ ],
+ "shorts": {
+  "b1": {
+   "src": "videos/bd/bd-clase-1.mp4#t=23.8,82.3",
+   "poster": "videos/bd/p/bd-clase-1-b1.jpg",
+   "minutes": 0.97
+  },
+  "b2": {
+   "src": "videos/bd/bd-clase-1.mp4#t=81.9,138.9",
+   "poster": "videos/bd/p/bd-clase-1-b2.jpg",
+   "minutes": 0.95
+  },
+  "b3": {
+   "src": "videos/bd/bd-clase-1.mp4#t=138.5,178.7",
+   "poster": "videos/bd/p/bd-clase-1-b3.jpg",
+   "minutes": 0.67
+  },
+  "ex:bd-e1": {
+   "src": "videos/bd/bd-clase-1.mp4#t=178.3,246.7",
+   "poster": "videos/bd/p/bd-clase-1-ex-bd-e1.jpg",
+   "minutes": 1.14
+  },
+  "b4": {
+   "src": "videos/bd/bd-clase-1.mp4#t=246.2,337.2",
+   "poster": "videos/bd/p/bd-clase-1-b4.jpg",
+   "minutes": 1.52
+  },
+  "ex:bd-e2": {
+   "src": "videos/bd/bd-clase-1.mp4#t=336.8,406.2",
+   "poster": "videos/bd/p/bd-clase-1-ex-bd-e2.jpg",
+   "minutes": 1.16
+  },
+  "b5": {
+   "src": "videos/bd/bd-clase-1.mp4#t=433.6,520.1",
+   "poster": "videos/bd/p/bd-clase-1-b5.jpg",
+   "minutes": 1.44
+  },
+  "ex:bd-e3": {
+   "src": "videos/bd/bd-clase-1.mp4#t=519.7,582.6",
+   "poster": "videos/bd/p/bd-clase-1-ex-bd-e3.jpg",
+   "minutes": 1.05
+  },
+  "b6": {
+   "src": "videos/bd/bd-clase-1.mp4#t=582.2,615.1",
+   "poster": "videos/bd/p/bd-clase-1-b6.jpg",
+   "minutes": 0.55
+  },
+  "b7": {
+   "src": "videos/bd/bd-clase-1.mp4#t=614.7,680.1",
+   "poster": "videos/bd/p/bd-clase-1-b7.jpg",
+   "minutes": 1.09
+  },
+  "ex:bd-e4": {
+   "src": "videos/bd/bd-clase-1.mp4#t=679.7,734.7",
+   "poster": "videos/bd/p/bd-clase-1-ex-bd-e4.jpg",
+   "minutes": 0.92
+  }
+ }
+}

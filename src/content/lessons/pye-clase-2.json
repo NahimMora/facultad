@@ -1,0 +1,71 @@
+{
+ "id": "pye-clase-2",
+ "title": "Final · Clase 2: inferencia, pruebas y regresión",
+ "src": "videos/pye/pye-clase-2.mp4",
+ "poster": "videos/pye/pye-clase-2.jpg",
+ "minutes": 9.2,
+ "chapters": [
+  {
+   "part": "p6",
+   "title": "Inferencia: intervalos y prueba de hipótesis",
+   "at": 16.9
+  },
+  {
+   "part": "p7",
+   "title": "Comparación de dos poblaciones",
+   "at": 188.3
+  },
+  {
+   "part": "ex:pye-e1",
+   "title": "Final · remuneraciones por sector (CV, percentil y prueba de hipótesis)",
+   "at": 224.7
+  },
+  {
+   "part": "p8",
+   "title": "Datos categóricos y pruebas no paramétricas",
+   "at": 313.3
+  },
+  {
+   "part": "p9",
+   "title": "Regresión y correlación lineal",
+   "at": 366.5
+  },
+  {
+   "part": "ex:pye-e2",
+   "title": "Final · regresión de CO₂ y población (corregir afirmaciones falsas)",
+   "at": 439.6
+  }
+ ],
+ "shorts": {
+  "p6": {
+   "src": "videos/pye/pye-clase-2.mp4#t=16.9,156.4",
+   "poster": "videos/pye/p/pye-clase-2-p6.jpg",
+   "minutes": 2.33
+  },
+  "p7": {
+   "src": "videos/pye/pye-clase-2.mp4#t=188.3,225.1",
+   "poster": "videos/pye/p/pye-clase-2-p7.jpg",
+   "minutes": 0.61
+  },
+  "ex:pye-e1": {
+   "src": "videos/pye/pye-clase-2.mp4#t=224.7,313.7",
+   "poster": "videos/pye/p/pye-clase-2-ex-pye-e1.jpg",
+   "minutes": 1.48
+  },
+  "p8": {
+   "src": "videos/pye/pye-clase-2.mp4#t=313.3,366.9",
+   "poster": "videos/pye/p/pye-clase-2-p8.jpg",
+   "minutes": 0.89
+  },
+  "p9": {
+   "src": "videos/pye/pye-clase-2.mp4#t=366.5,439.9",
+   "poster": "videos/pye/p/pye-clase-2-p9.jpg",
+   "minutes": 1.22
+  },
+  "ex:pye-e2": {
+   "src": "videos/pye/pye-clase-2.mp4#t=439.6,517.0",
+   "poster": "videos/pye/p/pye-clase-2-ex-pye-e2.jpg",
+   "minutes": 1.29
+  }
+ }
+}
