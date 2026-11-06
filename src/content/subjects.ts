@@ -62,7 +62,7 @@ export const SUBJECTS: Subject[] = [
     focus: { examId: 'p2', note: 'Preparar el 2º parcial: Data Mining (módulos 8 a 12).' },
     material: { apuntes: 27, parciales: 3, practica: 4, clases: 1, nota: 'Presentaciones de los 12 módulos (Blackboard), instructivos de Weka para el TP y 51 preguntas de autoevaluaciones del 1er parcial.' },
     missing: [
-      'Video del profesor del módulo 8 y grabaciones de Zoom posteriores al 1er parcial (para sumar lo que se dijo en clase)',
+      'Grabaciones de clases posteriores al 1er parcial (en Zoom solo hay una de 6 minutos)',
       'Modelo de 2º parcial o parciales viejos del 2º parcial',
       'Fecha exacta del 2º parcial',
     ],
@@ -204,9 +204,9 @@ export const SUBJECTS: Subject[] = [
       { id: 'p2', name: '2º parcial (asincrónico)', kind: 'parcial', state: 'rendido', modules: ['m8', 'm9', 'm10', 'm11', 'm12'] },
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
     ],
-    focus: { examId: 'final', note: 'Regularizada. Hay un video de 30 minutos del 2º parcial hecho localmente para reutilizar.' },
+    focus: { examId: 'final', note: 'Final: teoría de los 12 módulos, preguntas con el formato de los finales 2023–2025 (opción múltiple, V/F, completar) y ejercicios.' },
     material: { apuntes: 13, parciales: 2, practica: 3, clases: 2, nota: 'Incluye hoja de ruta, syllabus y la carpeta de trabajo del video del 2º parcial. Además: 5 finales viejos (2023 a dic-2025) del Drive de estudiantes.' },
-    missing: [FINAL_FORMAT_MISSING, 'Enunciado del 2º parcial (si lo tenés)', 'Apuntes de algoritmos evolutivos, híbridos, agentes y robótica (módulos 9 a 12)'],
+    missing: [FINAL_FORMAT_MISSING, 'Videos del final: en preparación'],
   },
   {
     id: 'arq',

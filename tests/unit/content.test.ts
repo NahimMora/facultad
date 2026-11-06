@@ -4,10 +4,11 @@ import type { SubjectContent } from '../../src/content/types';
 import aid from '../../src/content/subjects/aid';
 import itc from '../../src/content/subjects/itc';
 import iisw from '../../src/content/subjects/iisw';
+import fia from '../../src/content/subjects/fia';
 import { shuffledIndices } from '../../src/lib/shuffle';
 import { countdownLabel, daysUntil } from '../../src/lib/dates';
 
-const CONTENT: SubjectContent[] = [aid, itc, iisw];
+const CONTENT: SubjectContent[] = [aid, itc, iisw, fia];
 
 describe('registro de materias', () => {
   it('tiene las 11 materias con id único', () => {
