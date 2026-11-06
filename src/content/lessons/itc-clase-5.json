@@ -1,0 +1,101 @@
+{
+ "id": "itc-clase-5",
+ "title": "LAN: Ethernet, Wi-Fi y switches",
+ "src": "videos/itc/itc-clase-5.mp4",
+ "poster": "videos/itc/itc-clase-5.jpg",
+ "minutes": 17.0,
+ "chapters": [
+  {
+   "part": "eth",
+   "title": "Ethernet: qué es y cómo evolucionó",
+   "at": 20.1
+  },
+  {
+   "part": "frame",
+   "title": "El frame Ethernet y las direcciones MAC",
+   "at": 189.7
+  },
+  {
+   "part": "csma",
+   "title": "CSMA/CD, colisiones y backoff",
+   "at": 326.2
+  },
+  {
+   "part": "ex:itc-e7",
+   "title": "Backoff exponencial binario truncado",
+   "at": 432.1
+  },
+  {
+   "part": "fullduplex",
+   "title": "Full duplex, control de flujo y autonegociación",
+   "at": 500.7
+  },
+  {
+   "part": "wifi",
+   "title": "LAN inalámbricas: IEEE 802.11 (Wi-Fi)",
+   "at": 613.5
+  },
+  {
+   "part": "medios",
+   "title": "Medios: par trenzado y fibra",
+   "at": 711.3
+  },
+  {
+   "part": "equipos",
+   "title": "Equipos de interconexión por capa",
+   "at": 784.3
+  },
+  {
+   "part": "switch",
+   "title": "Cómo trabaja un switch",
+   "at": 879.5
+  }
+ ],
+ "shorts": {
+  "eth": {
+   "src": "videos/itc/itc-clase-5.mp4#t=20.1,190.1",
+   "poster": "videos/itc/p/itc-clase-5-eth.jpg",
+   "minutes": 2.83
+  },
+  "frame": {
+   "src": "videos/itc/itc-clase-5.mp4#t=189.7,326.6",
+   "poster": "videos/itc/p/itc-clase-5-frame.jpg",
+   "minutes": 2.28
+  },
+  "csma": {
+   "src": "videos/itc/itc-clase-5.mp4#t=326.2,432.5",
+   "poster": "videos/itc/p/itc-clase-5-csma.jpg",
+   "minutes": 1.77
+  },
+  "ex:itc-e7": {
+   "src": "videos/itc/itc-clase-5.mp4#t=432.1,501.1",
+   "poster": "videos/itc/p/itc-clase-5-ex-itc-e7.jpg",
+   "minutes": 1.15
+  },
+  "fullduplex": {
+   "src": "videos/itc/itc-clase-5.mp4#t=500.7,613.9",
+   "poster": "videos/itc/p/itc-clase-5-fullduplex.jpg",
+   "minutes": 1.89
+  },
+  "wifi": {
+   "src": "videos/itc/itc-clase-5.mp4#t=613.5,711.7",
+   "poster": "videos/itc/p/itc-clase-5-wifi.jpg",
+   "minutes": 1.64
+  },
+  "medios": {
+   "src": "videos/itc/itc-clase-5.mp4#t=711.3,784.7",
+   "poster": "videos/itc/p/itc-clase-5-medios.jpg",
+   "minutes": 1.22
+  },
+  "equipos": {
+   "src": "videos/itc/itc-clase-5.mp4#t=784.3,879.9",
+   "poster": "videos/itc/p/itc-clase-5-equipos.jpg",
+   "minutes": 1.59
+  },
+  "switch": {
+   "src": "videos/itc/itc-clase-5.mp4#t=879.5,980.7",
+   "poster": "videos/itc/p/itc-clase-5-switch.jpg",
+   "minutes": 1.69
+  }
+ }
+}

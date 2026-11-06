@@ -1,0 +1,161 @@
+{
+ "id": "arq-clase-1",
+ "title": "Final completo: de los datos al procesador",
+ "src": "videos/arq/arq-clase-1.mp4",
+ "poster": "videos/arq/arq-clase-1.jpg",
+ "minutes": 12.0,
+ "chapters": [
+  {
+   "part": "r1",
+   "title": "Sistemas numéricos y desbordes",
+   "at": 26.3
+  },
+  {
+   "part": "ex:arq-e1",
+   "title": "Final · overflow con y sin signo (4 bits)",
+   "at": 84.9
+  },
+  {
+   "part": "r2",
+   "title": "Números reales y códigos",
+   "at": 117.1
+  },
+  {
+   "part": "ex:arq-e2",
+   "title": "IEEE 754: −6,5 en precisión simple",
+   "at": 170.7
+  },
+  {
+   "part": "r3",
+   "title": "El computador y la ALU",
+   "at": 204.2
+  },
+  {
+   "part": "r4",
+   "title": "Memorias físicas",
+   "at": 240.4
+  },
+  {
+   "part": "r5",
+   "title": "Memoria caché",
+   "at": 283.0
+  },
+  {
+   "part": "r6",
+   "title": "Memoria virtual",
+   "at": 354.9
+  },
+  {
+   "part": "r7",
+   "title": "Unidad de control y ciclo de instrucción",
+   "at": 399.6
+  },
+  {
+   "part": "ex:arq-e3",
+   "title": "Final · ciclo de instrucción",
+   "at": 450.0
+  },
+  {
+   "part": "r8",
+   "title": "Paralelismo y procesadores",
+   "at": 484.8
+  },
+  {
+   "part": "r9",
+   "title": "Buses",
+   "at": 531.5
+  },
+  {
+   "part": "r10",
+   "title": "Entrada/salida e interrupciones",
+   "at": 560.7
+  },
+  {
+   "part": "r11",
+   "title": "Ensamblador 8086 (debug)",
+   "at": 605.9
+  },
+  {
+   "part": "r12",
+   "title": "Nuevas tecnologías",
+   "at": 651.3
+  }
+ ],
+ "shorts": {
+  "r1": {
+   "src": "videos/arq/arq-clase-1.mp4#t=26.3,85.3",
+   "poster": "videos/arq/p/arq-clase-1-r1.jpg",
+   "minutes": 0.98
+  },
+  "ex:arq-e1": {
+   "src": "videos/arq/arq-clase-1.mp4#t=84.9,117.5",
+   "poster": "videos/arq/p/arq-clase-1-ex-arq-e1.jpg",
+   "minutes": 0.54
+  },
+  "r2": {
+   "src": "videos/arq/arq-clase-1.mp4#t=117.1,171.1",
+   "poster": "videos/arq/p/arq-clase-1-r2.jpg",
+   "minutes": 0.9
+  },
+  "ex:arq-e2": {
+   "src": "videos/arq/arq-clase-1.mp4#t=170.7,204.5",
+   "poster": "videos/arq/p/arq-clase-1-ex-arq-e2.jpg",
+   "minutes": 0.56
+  },
+  "r3": {
+   "src": "videos/arq/arq-clase-1.mp4#t=204.2,240.9",
+   "poster": "videos/arq/p/arq-clase-1-r3.jpg",
+   "minutes": 0.61
+  },
+  "r4": {
+   "src": "videos/arq/arq-clase-1.mp4#t=240.4,283.5",
+   "poster": "videos/arq/p/arq-clase-1-r4.jpg",
+   "minutes": 0.72
+  },
+  "r5": {
+   "src": "videos/arq/arq-clase-1.mp4#t=283.0,355.3",
+   "poster": "videos/arq/p/arq-clase-1-r5.jpg",
+   "minutes": 1.2
+  },
+  "r6": {
+   "src": "videos/arq/arq-clase-1.mp4#t=354.9,400.0",
+   "poster": "videos/arq/p/arq-clase-1-r6.jpg",
+   "minutes": 0.75
+  },
+  "r7": {
+   "src": "videos/arq/arq-clase-1.mp4#t=399.6,450.5",
+   "poster": "videos/arq/p/arq-clase-1-r7.jpg",
+   "minutes": 0.85
+  },
+  "ex:arq-e3": {
+   "src": "videos/arq/arq-clase-1.mp4#t=450.0,485.2",
+   "poster": "videos/arq/p/arq-clase-1-ex-arq-e3.jpg",
+   "minutes": 0.59
+  },
+  "r8": {
+   "src": "videos/arq/arq-clase-1.mp4#t=484.8,531.9",
+   "poster": "videos/arq/p/arq-clase-1-r8.jpg",
+   "minutes": 0.78
+  },
+  "r9": {
+   "src": "videos/arq/arq-clase-1.mp4#t=531.5,561.1",
+   "poster": "videos/arq/p/arq-clase-1-r9.jpg",
+   "minutes": 0.49
+  },
+  "r10": {
+   "src": "videos/arq/arq-clase-1.mp4#t=560.7,606.3",
+   "poster": "videos/arq/p/arq-clase-1-r10.jpg",
+   "minutes": 0.76
+  },
+  "r11": {
+   "src": "videos/arq/arq-clase-1.mp4#t=605.9,651.7",
+   "poster": "videos/arq/p/arq-clase-1-r11.jpg",
+   "minutes": 0.76
+  },
+  "r12": {
+   "src": "videos/arq/arq-clase-1.mp4#t=651.3,677.1",
+   "poster": "videos/arq/p/arq-clase-1-r12.jpg",
+   "minutes": 0.43
+  }
+ }
+}

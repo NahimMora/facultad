@@ -1,0 +1,131 @@
+{
+ "id": "sym-clase-1",
+ "title": "Final completo: organización, gestión y sistemas",
+ "src": "videos/sym/sym-clase-1.mp4",
+ "poster": "videos/sym/sym-clase-1.jpg",
+ "minutes": 8.7,
+ "chapters": [
+  {
+   "part": "y1",
+   "title": "Tipos de organización",
+   "at": 21.5
+  },
+  {
+   "part": "y2",
+   "title": "Puestos y equipos",
+   "at": 63.4
+  },
+  {
+   "part": "y3",
+   "title": "Poder y autoridad",
+   "at": 98.2
+  },
+  {
+   "part": "y4",
+   "title": "La dirección",
+   "at": 138.3
+  },
+  {
+   "part": "y5",
+   "title": "Planificación y control",
+   "at": 178.7
+  },
+  {
+   "part": "y6",
+   "title": "El proceso administrativo",
+   "at": 223.1
+  },
+  {
+   "part": "y7",
+   "title": "Teoría de sistemas",
+   "at": 258.6
+  },
+  {
+   "part": "y8",
+   "title": "Administración de proyectos",
+   "at": 290.6
+  },
+  {
+   "part": "y9",
+   "title": "Sistemas de información",
+   "at": 346.1
+  },
+  {
+   "part": "y10",
+   "title": "Análisis, diseño e implementación",
+   "at": 387.1
+  },
+  {
+   "part": "y11",
+   "title": "Proceso de desarrollo de sistemas",
+   "at": 425.5
+  },
+  {
+   "part": "y12",
+   "title": "Comunicación oral y escrita",
+   "at": 457.1
+  }
+ ],
+ "shorts": {
+  "y1": {
+   "src": "videos/sym/sym-clase-1.mp4#t=21.5,63.7",
+   "poster": "videos/sym/p/sym-clase-1-y1.jpg",
+   "minutes": 0.7
+  },
+  "y2": {
+   "src": "videos/sym/sym-clase-1.mp4#t=63.4,98.6",
+   "poster": "videos/sym/p/sym-clase-1-y2.jpg",
+   "minutes": 0.59
+  },
+  "y3": {
+   "src": "videos/sym/sym-clase-1.mp4#t=98.2,138.7",
+   "poster": "videos/sym/p/sym-clase-1-y3.jpg",
+   "minutes": 0.67
+  },
+  "y4": {
+   "src": "videos/sym/sym-clase-1.mp4#t=138.3,179.1",
+   "poster": "videos/sym/p/sym-clase-1-y4.jpg",
+   "minutes": 0.68
+  },
+  "y5": {
+   "src": "videos/sym/sym-clase-1.mp4#t=178.7,223.5",
+   "poster": "videos/sym/p/sym-clase-1-y5.jpg",
+   "minutes": 0.75
+  },
+  "y6": {
+   "src": "videos/sym/sym-clase-1.mp4#t=223.1,259.0",
+   "poster": "videos/sym/p/sym-clase-1-y6.jpg",
+   "minutes": 0.6
+  },
+  "y7": {
+   "src": "videos/sym/sym-clase-1.mp4#t=258.6,291.0",
+   "poster": "videos/sym/p/sym-clase-1-y7.jpg",
+   "minutes": 0.54
+  },
+  "y8": {
+   "src": "videos/sym/sym-clase-1.mp4#t=290.6,346.5",
+   "poster": "videos/sym/p/sym-clase-1-y8.jpg",
+   "minutes": 0.93
+  },
+  "y9": {
+   "src": "videos/sym/sym-clase-1.mp4#t=346.1,387.5",
+   "poster": "videos/sym/p/sym-clase-1-y9.jpg",
+   "minutes": 0.69
+  },
+  "y10": {
+   "src": "videos/sym/sym-clase-1.mp4#t=387.1,425.9",
+   "poster": "videos/sym/p/sym-clase-1-y10.jpg",
+   "minutes": 0.65
+  },
+  "y11": {
+   "src": "videos/sym/sym-clase-1.mp4#t=425.5,457.5",
+   "poster": "videos/sym/p/sym-clase-1-y11.jpg",
+   "minutes": 0.53
+  },
+  "y12": {
+   "src": "videos/sym/sym-clase-1.mp4#t=457.1,483.9",
+   "poster": "videos/sym/p/sym-clase-1-y12.jpg",
+   "minutes": 0.45
+  }
+ }
+}
