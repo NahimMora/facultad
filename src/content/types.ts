@@ -1,3 +1,5 @@
+import type { VisScene, VisSpec } from '../vis/types';
+
 /**
  * Modelo de datos de la plataforma.
  * - `Subject` (en subjects.ts) es liviano y siempre se carga: nombre, estado, módulos, exámenes, qué falta.
@@ -68,6 +70,8 @@ export interface TheoryBlock {
   table?: { head: string[]; rows: string[][] };
   /** Lo que suelen preguntar / trampa típica. */
   trap?: string;
+  /** Recorridos visuales paso a paso (lo principal del bloque). */
+  scenes?: VisScene[];
 }
 
 export interface McqQuestion {
@@ -78,6 +82,8 @@ export interface McqQuestion {
   options: string[];
   answer: number;
   explain: string;
+  /** Diagrama de apoyo para la pregunta. */
+  vis?: VisSpec;
   /** Explicación específica de por qué cada opción incorrecta está mal (mismo índice que options). */
   why?: (string | null)[];
   source?: string;
@@ -90,6 +96,7 @@ export interface TfQuestion {
   prompt: string;
   answer: boolean;
   explain: string;
+  vis?: VisSpec;
   source?: string;
 }
 
@@ -102,6 +109,8 @@ export interface WorkedExercise {
   statement: string;
   steps: { title: string; body: string }[];
   result?: string;
+  /** Resolución visual paso a paso. */
+  scenes?: VisScene[];
 }
 
 export interface VideoItem {
@@ -115,6 +124,33 @@ export interface VideoItem {
   transcript?: string;
 }
 
+/** Clase completa en video (10-15 min) armada con los bloques de teoría y ejercicios, en orden. */
+export interface Lesson {
+  /** id del video: '<materia>-clase-<n>' */
+  id: string;
+  examId: string;
+  title: string;
+  /** Qué se ve, en una línea. */
+  summary: string;
+  /** Narración de apertura (cada frase = un paso). */
+  intro: string[];
+  /** Secuencia: id de bloque de teoría, 'ex:<id>' para ejercicio, 'q:<id>' para pregunta de repaso. */
+  parts: string[];
+  /** Cierre. */
+  outro: string[];
+}
+
+/** Lo que deja el render de una clase (scripts/slice_lesson.py): video largo + cortos por bloque. */
+export interface LessonMedia {
+  id: string;
+  title: string;
+  src: string;
+  poster: string;
+  minutes: number;
+  chapters: { part: string; title: string; at: number }[];
+  shorts: Record<string, { src: string; poster: string; minutes: number }>;
+}
+
 export interface SubjectContent {
   subjectId: string;
   theory: TheoryBlock[];
@@ -122,6 +158,7 @@ export interface SubjectContent {
   exercises: WorkedExercise[];
   videos: VideoItem[];
   cheatsheet: { t: string; d: string }[];
+  lessons?: Lesson[];
 }
 
 export const emptyContent = (subjectId: string): SubjectContent => ({ subjectId, theory: [], questions: [], exercises: [], videos: [], cheatsheet: [] });

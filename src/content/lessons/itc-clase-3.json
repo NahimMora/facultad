@@ -1,0 +1,51 @@
+{
+ "id": "itc-clase-3",
+ "title": "Clase 3 · Transporte: UDP, TCP, ventana y NAT",
+ "src": "videos/itc/itc-clase-3.mp4",
+ "poster": "videos/itc/itc-clase-3.jpg",
+ "minutes": 8.6,
+ "chapters": [
+  {
+   "part": "transporte",
+   "title": "Capa de transporte: puertos, sockets, UDP",
+   "at": 15.3
+  },
+  {
+   "part": "tcp",
+   "title": "TCP: confiable, orientado a conexión, flujo de bytes",
+   "at": 130.8
+  },
+  {
+   "part": "ventana",
+   "title": "Stop-and-wait, pipelining y ventana deslizante",
+   "at": 286.2
+  },
+  {
+   "part": "nat",
+   "title": "MSS, NAT/PAT y port forwarding",
+   "at": 373.3
+  }
+ ],
+ "shorts": {
+  "transporte": {
+   "src": "videos/itc/itc-clase-3.mp4#t=15.3,131.2",
+   "poster": "videos/itc/p/itc-clase-3-transporte.jpg",
+   "minutes": 1.93
+  },
+  "tcp": {
+   "src": "videos/itc/itc-clase-3.mp4#t=130.8,261.7",
+   "poster": "videos/itc/p/itc-clase-3-tcp.jpg",
+   "minutes": 2.18
+  },
+  "ventana": {
+   "src": "videos/itc/itc-clase-3.mp4#t=286.2,373.7",
+   "poster": "videos/itc/p/itc-clase-3-ventana.jpg",
+   "minutes": 1.46
+  },
+  "nat": {
+   "src": "videos/itc/itc-clase-3.mp4#t=373.3,457.9",
+   "poster": "videos/itc/p/itc-clase-3-nat.jpg",
+   "minutes": 1.41
+  }
+ }
+}

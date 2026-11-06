@@ -1,0 +1,71 @@
+{
+ "id": "itc-clase-4",
+ "title": "Clase 4 · Congestión, DHCP, DNS, correo y HTTP",
+ "src": "videos/itc/itc-clase-4.mp4",
+ "poster": "videos/itc/itc-clase-4.jpg",
+ "minutes": 10.6,
+ "chapters": [
+  {
+   "part": "congestion",
+   "title": "Control de congestión en TCP",
+   "at": 16.2
+  },
+  {
+   "part": "ex:itc-e6",
+   "title": "Ventana de congestión de TCP paso a paso",
+   "at": 114.4
+  },
+  {
+   "part": "dhcp",
+   "title": "DHCP",
+   "at": 226.9
+  },
+  {
+   "part": "dns",
+   "title": "DNS",
+   "at": 290.5
+  },
+  {
+   "part": "mail",
+   "title": "Correo electrónico: SMTP, POP, IMAP, MIME",
+   "at": 441.9
+  },
+  {
+   "part": "http",
+   "title": "HTTP y FTP",
+   "at": 528.0
+  }
+ ],
+ "shorts": {
+  "congestion": {
+   "src": "videos/itc/itc-clase-4.mp4#t=16.2,114.8",
+   "poster": "videos/itc/p/itc-clase-4-congestion.jpg",
+   "minutes": 1.64
+  },
+  "ex:itc-e6": {
+   "src": "videos/itc/itc-clase-4.mp4#t=114.4,199.0",
+   "poster": "videos/itc/p/itc-clase-4-ex-itc-e6.jpg",
+   "minutes": 1.41
+  },
+  "dhcp": {
+   "src": "videos/itc/itc-clase-4.mp4#t=226.9,290.9",
+   "poster": "videos/itc/p/itc-clase-4-dhcp.jpg",
+   "minutes": 1.07
+  },
+  "dns": {
+   "src": "videos/itc/itc-clase-4.mp4#t=290.5,417.4",
+   "poster": "videos/itc/p/itc-clase-4-dns.jpg",
+   "minutes": 2.11
+  },
+  "mail": {
+   "src": "videos/itc/itc-clase-4.mp4#t=441.9,528.4",
+   "poster": "videos/itc/p/itc-clase-4-mail.jpg",
+   "minutes": 1.44
+  },
+  "http": {
+   "src": "videos/itc/itc-clase-4.mp4#t=528.0,598.5",
+   "poster": "videos/itc/p/itc-clase-4-http.jpg",
+   "minutes": 1.18
+  }
+ }
+}

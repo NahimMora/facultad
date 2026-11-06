@@ -3,6 +3,7 @@ import type { Question } from '../content/types';
 import { load, save } from '../lib/storage';
 import { shuffledIndices } from '../lib/shuffle';
 import { Rich } from './Rich';
+import { StaticVis } from './Walkthrough';
 
 type Answers = Record<string, number | boolean>;
 
@@ -59,6 +60,7 @@ function QuestionCard({ q, n, tag, v, onPick }: { q: Question; n: number; tag?: 
         {answered && <span className={`qscore ${right ? 'ok' : 'bad'}`}>{right ? '✔ Correcta' : '✘ Incorrecta'}</span>}
       </header>
       <p className="qprompt"><Rich text={q.prompt} /></p>
+      {q.vis && <StaticVis v={q.vis} />}
       <div className={`opts ${q.type === 'tf' ? 'tf' : ''}`}>
         {opts.map((o) => {
           const cls = answered ? (o.value === q.answer ? 'right' : o.value === v ? 'wrong' : '') : '';

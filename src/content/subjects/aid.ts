@@ -1,5 +1,6 @@
 import type { SubjectContent } from '../types';
 import { VIDEOS } from '../videos/aid';
+import { EX_SCENES, SCENES } from '../visual/aid';
 
 /**
  * AID · 2º parcial (módulos 8 a 12): Data Mining.
@@ -344,5 +345,52 @@ const content: SubjectContent = {
     { t: 'Web mining', d: '**Content** (text, hypertext, markup, multimedia) · **Structure** (topología de links) · **Usage** (sesiones y hábitos). Debilidad: no se sabe el fin de sesión y la caché local no queda registrada.' },
   ],
 };
+
+content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.lessons = [
+  {
+    id: 'aid-clase-1', examId: 'p2', title: 'Clase 1 · Data Mining: tareas, modos y medición',
+    summary: 'Definición, las 6 tareas, círculo virtuoso, top-down y bottom-up, directa e indirecta, cómo medir un modelo, estadística y Chi cuadrado.',
+    intro: [
+      'Bienvenido a la primera clase del segundo parcial de Análisis de la Información y la Decisión. Vamos a ver todo el módulo 8, de introducción al data mining.',
+      'El recorrido: qué es el data mining, sus seis tareas y qué herramienta hace cada una, el círculo virtuoso, los modos de aplicación, cómo medir un modelo, los conceptos estadísticos con un Chi cuadrado resuelto, y un caso real.',
+    ],
+    parts: ['dm-def', 'dm-tareas', 'q:aid-q03', 'dm-circulo', 'dm-modos', 'dm-medir', 'dm-estad', 'ex:aid-e5', 'dm-casos'],
+    outro: [
+      'Tareas: clasificación, estimación (hoy), predicción (futuro), afinidad, clustering, descripción. Solo las redes neuronales estiman.',
+      'Top-down = testeo de hipótesis; bottom-up = búsqueda de conocimiento (directa con objetivo, indirecta sin). Descriptivo: simple (MDL); predictivo: preciso; comparar con LIFT.',
+      'En la próxima clase: árboles, clusters, canasta de mercado y MBR, con ejercicios.',
+    ],
+  },
+  {
+    id: 'aid-clase-2', examId: 'p2', title: 'Clase 2 · Árboles, clusters, canasta y MBR',
+    summary: 'Las cuatro herramientas con ejercicios resueltos: error de un árbol, K-means, soporte/confianza/lift y vecinos más cercanos.',
+    intro: [
+      'Segunda clase: las cuatro herramientas de data mining de la cursada, cada una con un ejercicio resuelto.',
+      'Vamos a ver árboles de decisión, detección de clusters, canasta de mercado y razonamiento basado en memoria.',
+    ],
+    parts: ['arbol', 'ex:aid-e4', 'cluster', 'q:aid-q27', 'canasta', 'ex:aid-e1', 'ex:aid-e2', 'mbr', 'ex:aid-e3'],
+    outro: [
+      'Árbol: directa, reglas, expresividad alta; error = Σ error de hoja × peso. CART 2 ramas, CHAID Chi², C4.5 n ramas y poda pesimista.',
+      'Cluster: indirecta, expresividad baja; K-means fija k, jerárquico no. Canasta: soporte, confianza, lift (< 1 → la negada). MBR: distancia + combinación, democrática o ponderada.',
+      'En la última clase: CRISP-DM, text mining y web mining.',
+    ],
+  },
+  {
+    id: 'aid-clase-3', examId: 'p2', title: 'Clase 3 · CRISP-DM, Text y Web Mining',
+    summary: 'Las 6 fases de CRISP-DM con sus tareas, text mining en dos etapas y los tres tipos de web mining.',
+    intro: [
+      'Tercera y última clase del segundo parcial: la metodología CRISP-DM y la minería de texto y de la web.',
+      'Son temas cortos pero muy preguntados: el orden de las fases y a qué fase pertenece cada tarea.',
+    ],
+    parts: ['crisp', 'q:aid-q44', 'text', 'web', 'q:aid-q43'],
+    outro: [
+      'CRISP-DM: negocio → datos (calidad) → preparación (limpiar, integrar) → modelado → evaluación → implementación (monitoreo, reporte final).',
+      'Text mining: preprocesamiento + descubrimiento; ambigüedad; qué y por qué. Web mining: contenido, estructura y uso; la caché local no se registra.',
+      'Ahora hacé la práctica de la web hasta llegar al 80 % de aciertos.',
+    ],
+  },
+];
 
 export default content;

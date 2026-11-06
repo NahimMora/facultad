@@ -1,0 +1,71 @@
+{
+ "id": "itc-clase-2",
+ "title": "Clase 2 · Ruteo, CIDR, VLSM, ARP e ICMP",
+ "src": "videos/itc/itc-clase-2.mp4",
+ "poster": "videos/itc/itc-clase-2.jpg",
+ "minutes": 9.9,
+ "chapters": [
+  {
+   "part": "ruteo",
+   "title": "Ruteo (reenvío) y tablas de ruteo",
+   "at": 15.6
+  },
+  {
+   "part": "vlsm",
+   "title": "VLSM, CIDR y supernetting",
+   "at": 106.4
+  },
+  {
+   "part": "ex:itc-e4",
+   "title": "Guía 5.2 · Ej. 5: supernetting de un ISP",
+   "at": 158.0
+  },
+  {
+   "part": "ex:itc-e5",
+   "title": "VLSM: repartir 192.168.1.0/24",
+   "at": 254.1
+  },
+  {
+   "part": "arp",
+   "title": "ARP",
+   "at": 344.6
+  },
+  {
+   "part": "icmp",
+   "title": "ICMP, ping y traceroute",
+   "at": 449.9
+  }
+ ],
+ "shorts": {
+  "ruteo": {
+   "src": "videos/itc/itc-clase-2.mp4#t=15.6,106.8",
+   "poster": "videos/itc/p/itc-clase-2-ruteo.jpg",
+   "minutes": 1.52
+  },
+  "vlsm": {
+   "src": "videos/itc/itc-clase-2.mp4#t=106.4,158.4",
+   "poster": "videos/itc/p/itc-clase-2-vlsm.jpg",
+   "minutes": 0.87
+  },
+  "ex:itc-e4": {
+   "src": "videos/itc/itc-clase-2.mp4#t=158.0,254.5",
+   "poster": "videos/itc/p/itc-clase-2-ex-itc-e4.jpg",
+   "minutes": 1.61
+  },
+  "ex:itc-e5": {
+   "src": "videos/itc/itc-clase-2.mp4#t=254.1,345.0",
+   "poster": "videos/itc/p/itc-clase-2-ex-itc-e5.jpg",
+   "minutes": 1.52
+  },
+  "arp": {
+   "src": "videos/itc/itc-clase-2.mp4#t=344.6,423.5",
+   "poster": "videos/itc/p/itc-clase-2-arp.jpg",
+   "minutes": 1.31
+  },
+  "icmp": {
+   "src": "videos/itc/itc-clase-2.mp4#t=449.9,536.5",
+   "poster": "videos/itc/p/itc-clase-2-icmp.jpg",
+   "minutes": 1.44
+  }
+ }
+}

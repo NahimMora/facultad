@@ -1,5 +1,6 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/am2';
+import { EX_SCENES, SCENES } from '../visual/am2';
 
 /** AM II · final. Redacción propia; ejercicios tomados de los modelos de final 2026 y resueltos acá. */
 const F = 'modelos de final 2026 (Drive de estudiantes)';
@@ -113,5 +114,24 @@ const content: SubjectContent = {
     { t: 'Extremos en ℝ²', d: 'Fₓ = Fᵧ = 0 · H = FₓₓFᵧᵧ − Fₓᵧ² · H > 0: Fₓₓ > 0 mín, < 0 máx · H < 0 ensilladura · H = 0 no decide.' },
   ],
 };
+
+content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.lessons = [
+  {
+    id: 'am2-clase-1', examId: 'final', title: 'Final completo: una y dos variables',
+    summary: 'Extremos y concavidad, estudio de funciones, L’Hôpital, integración, impropias, dominios, límite doble, gradiente y hessiano, con los ejercicios de los modelos 2026.',
+    intro: [
+      'Esta es la clase completa para el final de Análisis Matemático II, armada sobre los modelos de final 2026. Todo se ve en gráficos.',
+      'Primero una variable: extremos, concavidad, estudio de funciones, la regla de L’Hôpital e integrales. Después dos variables: dominio, límite doble, derivadas parciales y extremos con el hessiano.',
+    ],
+    parts: ['a1', 'ex:am2-e1', 'a2', 'a3', 'ex:am2-e4', 'a4', 'a5', 'a6', 'ex:am2-e2', 'a7', 'a8', 'a9', 'ex:am2-e3'],
+    outro: [
+      "f' = 0 → críticos; f'' > 0 mínimo, f'' < 0 máximo; inflexión si f'' cambia de signo. L’Hôpital solo con 0/0 o ∞/∞.",
+      'Impropias: revisá si el denominador se anula dentro del intervalo. Dominio: ≥ 0, > 0, ≠ 0; borde lleno o punteado.',
+      'Dos variables: H = Fₓₓ·Fᵧᵧ − Fₓᵧ²; H > 0 y Fₓₓ > 0 mínimo, Fₓₓ < 0 máximo, H < 0 ensilladura.',
+    ],
+  },
+];
 
 export default content;

@@ -1,5 +1,6 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/pye';
+import { EX_SCENES, SCENES } from '../visual/pye';
 
 /** PyE · final. Redacción propia sobre el teórico/práctico de la cátedra y los modelos de final 2022–2025. */
 const F = 'modelos de final de la cátedra (Drive de estudiantes)';
@@ -120,5 +121,38 @@ const content: SubjectContent = {
     { t: 'Regresión', d: 'b: cambio de y por unidad de x · a: y con x = 0 · r² = % de variación explicada (r² = r²) · asociación, NO causalidad · útil si r² > 0,5.' },
   ],
 };
+
+content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.lessons = [
+  {
+    id: 'pye-clase-1', examId: 'final', title: 'Final · Clase 1: descriptiva, probabilidad y distribuciones',
+    summary: 'Forma, CV y percentiles; probabilidad, independencia, total y Bayes; binomial, Poisson, normal y TCL.',
+    intro: [
+      'Primera clase para el final de Probabilidad y Estadística: la primera mitad de la materia, con los gráficos que conviene tener en la cabeza.',
+      'Vamos a ver la forma de una distribución y el coeficiente de variación, probabilidad con un árbol de Bayes, binomial y Poisson, la normal y el Teorema Central del Límite.',
+    ],
+    parts: ['p1', 'q:pye-03', 'p2', 'ex:pye-e3', 'p3', 'p4', 'p5', 'q:pye-15'],
+    outro: [
+      'Asimetría positiva: Mo < Me < x̄. CV = s/x̄ (mayor, más heterogéneo). P(k): el k % está por debajo.',
+      'Independientes: P(A∩B) = P(A)P(B). Total y Bayes con árbol. Binomial: n·p; Poisson: media = varianza = λ.',
+      'Normal: 68–95–99,7 y Z = (x − μ)/σ. TCL: x̄ ≈ N(μ, σ/√n).',
+    ],
+  },
+  {
+    id: 'pye-clase-2', examId: 'final', title: 'Final · Clase 2: inferencia, pruebas y regresión',
+    summary: 'Intervalos de confianza, prueba de hipótesis y errores, qué prueba usar, Chi cuadrado y regresión, con los ejercicios del final.',
+    intro: [
+      'Segunda clase para el final: la parte de inferencia, que es la que más pesa en los modelos de final.',
+      'Vamos a ver intervalos de confianza, pruebas de hipótesis con sus errores, cómo elegir la prueba, Chi cuadrado, regresión, y dos ejercicios de finales resueltos.',
+    ],
+    parts: ['p6', 'q:pye-16', 'p7', 'ex:pye-e1', 'p8', 'p9', 'ex:pye-e2'],
+    outro: [
+      'IC: "con X % de confianza la MEDIA poblacional está entre a y b". H1 = lo que quiero probar; p-v < α → rechazo H0.',
+      'Rechacé → posible error tipo I; no rechacé → tipo II. Grupos distintos → independientes; mismos individuos → apareadas.',
+      'Regresión: b es el cambio por unidad, r² el % de variación explicada, y nunca causalidad.',
+    ],
+  },
+];
 
 export default content;

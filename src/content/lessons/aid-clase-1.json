@@ -1,0 +1,91 @@
+{
+ "id": "aid-clase-1",
+ "title": "Clase 1 · Data Mining: tareas, modos y medición",
+ "src": "videos/aid/aid-clase-1.mp4",
+ "poster": "videos/aid/aid-clase-1.jpg",
+ "minutes": 12.0,
+ "chapters": [
+  {
+   "part": "dm-def",
+   "title": "Qué es el Data Mining",
+   "at": 24.8
+  },
+  {
+   "part": "dm-tareas",
+   "title": "Las 6 tareas del Data Mining",
+   "at": 111.3
+  },
+  {
+   "part": "dm-circulo",
+   "title": "Herramientas y círculo virtuoso",
+   "at": 231.4
+  },
+  {
+   "part": "dm-modos",
+   "title": "Modos de aplicación: top-down y bottom-up",
+   "at": 303.5
+  },
+  {
+   "part": "dm-medir",
+   "title": "Medir la efectividad del modelo",
+   "at": 395.9
+  },
+  {
+   "part": "dm-estad",
+   "title": "Conceptos estadísticos que entran",
+   "at": 478.4
+  },
+  {
+   "part": "ex:aid-e5",
+   "title": "Chi cuadrado: ¿el sexo influye en la compra?",
+   "at": 568.2
+  },
+  {
+   "part": "dm-casos",
+   "title": "Casos de ejemplo",
+   "at": 640.4
+  }
+ ],
+ "shorts": {
+  "dm-def": {
+   "src": "videos/aid/aid-clase-1.mp4#t=24.8,111.7",
+   "poster": "videos/aid/p/aid-clase-1-dm-def.jpg",
+   "minutes": 1.45
+  },
+  "dm-tareas": {
+   "src": "videos/aid/aid-clase-1.mp4#t=111.3,211.4",
+   "poster": "videos/aid/p/aid-clase-1-dm-tareas.jpg",
+   "minutes": 1.67
+  },
+  "dm-circulo": {
+   "src": "videos/aid/aid-clase-1.mp4#t=231.4,303.9",
+   "poster": "videos/aid/p/aid-clase-1-dm-circulo.jpg",
+   "minutes": 1.21
+  },
+  "dm-modos": {
+   "src": "videos/aid/aid-clase-1.mp4#t=303.5,396.4",
+   "poster": "videos/aid/p/aid-clase-1-dm-modos.jpg",
+   "minutes": 1.55
+  },
+  "dm-medir": {
+   "src": "videos/aid/aid-clase-1.mp4#t=395.9,478.8",
+   "poster": "videos/aid/p/aid-clase-1-dm-medir.jpg",
+   "minutes": 1.38
+  },
+  "dm-estad": {
+   "src": "videos/aid/aid-clase-1.mp4#t=478.4,568.6",
+   "poster": "videos/aid/p/aid-clase-1-dm-estad.jpg",
+   "minutes": 1.5
+  },
+  "ex:aid-e5": {
+   "src": "videos/aid/aid-clase-1.mp4#t=568.2,640.8",
+   "poster": "videos/aid/p/aid-clase-1-ex-aid-e5.jpg",
+   "minutes": 1.21
+  },
+  "dm-casos": {
+   "src": "videos/aid/aid-clase-1.mp4#t=640.4,689.7",
+   "poster": "videos/aid/p/aid-clase-1-dm-casos.jpg",
+   "minutes": 0.82
+  }
+ }
+}

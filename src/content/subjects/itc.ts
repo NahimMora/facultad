@@ -1,6 +1,7 @@
 import type { SubjectContent } from '../types';
 import { VIDEOS } from '../videos/itc';
 import { BANCO, BANCO_EJERCICIOS } from '../banks/itc-banco';
+import { EX_SCENES, SCENES } from '../visual/itc';
 
 /**
  * ITc · 2º parcial (unidades 4 a 7 = módulos 6 a 13).
@@ -507,5 +508,80 @@ const content: SubjectContent = {
     { t: 'Aplicación', d: 'DHCP: DORA; automático, dinámico (lease) o manual. DNS: recursiva (cliente) / iterativa (servidores) / inversa (in-addr.arpa); A, MX, NS, CNAME, PTR, SOA. Mail: SMTP envía; POP3 descarga y borra; IMAP carpetas; MIME adjuntos. HTTP: sin estado; GET, HEAD, POST, PUT, DELETE.' },
   ],
 };
+
+content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.lessons = [
+  {
+    id: 'itc-clase-1', examId: 'p2', title: 'Clase 1 · IP, clases y subnetting',
+    summary: 'Encapsulamiento, encabezado IPv4, clases, direcciones especiales, máscaras, subnetting e IPv6, con ejercicios de la guía 5.2.',
+    intro: [
+      'Bienvenido a la primera clase del segundo parcial de Introducción a las Comunicaciones. Vamos a ver todo lo de direccionamiento IP, con diagramas que se arman paso a paso.',
+      'Este es el recorrido: primero cómo viaja un dato a través de las capas, después las direcciones IPv4 y sus clases, el subnetting con ejercicios de la guía, y al final IPv6.',
+    ],
+    parts: ['ip', 'clases', 'ex:itc-e1', 'subnet', 'ex:itc-e2', 'ex:itc-e3', 'q:itc-q26', 'ipv6', 'q:itc-q31'],
+    outro: [
+      'Red = IP AND máscara · broadcast = host todo en 1 · hosts = 2ⁿ − 2 · salto = 256 − máscara.',
+      'Privadas: 10/8, 172.16/12, 192.168/16. IPv6: 128 bits, "::" una sola vez, sin broadcast.',
+      'En la próxima clase: ruteo, CIDR, VLSM, ARP e ICMP. Antes, resolvé los ejercicios de subnetting de la web sin mirar la solución.',
+    ],
+  },
+  {
+    id: 'itc-clase-2', examId: 'p2', title: 'Clase 2 · Ruteo, CIDR, VLSM, ARP e ICMP',
+    summary: 'Tablas de ruteo, fragmentación, agregación de rutas y longest match, supernetting y VLSM resueltos, ARP, ping y traceroute.',
+    intro: [
+      'Segunda clase: cómo se mueve un datagrama de red en red, y los protocolos que lo ayudan.',
+      'Vamos a ver tablas de ruteo, fragmentación, CIDR y supernetting, VLSM resuelto, ARP, e ICMP con ping y traceroute.',
+    ],
+    parts: ['ruteo', 'vlsm', 'ex:itc-e4', 'ex:itc-e5', 'arp', 'q:itc-q40', 'icmp', 'q:itc-q43'],
+    outro: [
+      'Router: mira la IP destino y su tabla (d = directa, i = indirecta) · longest match.',
+      'Supernetting: bits comunes de izquierda a derecha. VLSM: de mayor a menor. ARP: request broadcast, reply unicast; fuera de la red → MAC del gateway.',
+      'ICMP: echo 8 y 0 (ping), 3 inalcanzable, 5 redirect, 11 time exceeded (traceroute).',
+    ],
+  },
+  {
+    id: 'itc-clase-3', examId: 'p2', title: 'Clase 3 · Transporte: UDP, TCP, ventana y NAT',
+    summary: 'TCP vs UDP, puertos y sockets, handshake, números de secuencia y ACK, cierre, ventana deslizante, NAT/PAT y port forwarding.',
+    intro: [
+      'Tercera clase: la capa de transporte, la que lleva los datos de una aplicación a otra.',
+      'Vamos a comparar TCP y UDP, ver puertos y sockets, el handshake, cómo numera TCP los bytes, la ventana deslizante y NAT.',
+    ],
+    parts: ['transporte', 'tcp', 'q:itc-q50', 'ventana', 'nat', 'q:itc-q56'],
+    outro: [
+      'UDP: 8 bytes, sin conexión, rápido. TCP: PAR, SYN → SYN+ACK → ACK, seq = primer byte, ACK = próximo byte esperado.',
+      'Ventana deslizante = control de flujo (receive window). PAT: muchas privadas comparten una pública cambiando puertos.',
+      'En la última clase: congestión y los protocolos de aplicación.',
+    ],
+  },
+  {
+    id: 'itc-clase-4', examId: 'p2', title: 'Clase 4 · Congestión, DHCP, DNS, correo y HTTP',
+    summary: 'Slow start, umbral, AIMD, timeout vs 3 ACK duplicados, DORA, árbol DNS y consultas, SMTP/POP3/IMAP, HTTP.',
+    intro: [
+      'Última clase del segundo parcial: control de congestión en TCP y los servicios de la capa de aplicación.',
+      'Vamos a ver la ventana de congestión con un ejercicio completo, y después DHCP, DNS, correo electrónico y HTTP.',
+    ],
+    parts: ['congestion', 'ex:itc-e6', 'q:itc-q54', 'dhcp', 'dns', 'q:itc-q64', 'mail', 'http'],
+    outro: [
+      'Slow start ×2 hasta el umbral, después +1. Pérdida: umbral = mitad; timeout → 1 MSS; 3 ACK dup → CongWin = umbral.',
+      'DHCP: DORA, UDP 67/68. DNS: recursiva (cliente) e iterativa (servidores); MX = correo. SMTP envía (TCP 25); POP3 descarga y borra; IMAP carpetas. HTTP sin estado.',
+      'Ahora hacé la práctica de la web: con un 80 % de aciertos estás listo para el parcial.',
+    ],
+  },
+  {
+    id: 'itc-clase-5', examId: 'p1', title: 'LAN: Ethernet, Wi-Fi y switches',
+    summary: 'Evolución de Ethernet, frame y MAC, CSMA/CD y backoff, full duplex, Wi-Fi, medios, equipos por capa y switches.',
+    intro: [
+      'Esta clase repasa las LAN: Ethernet, Wi-Fi, los medios y los equipos de interconexión. Entró en el primer parcial y vuelve en el final.',
+      'Vamos a ver la evolución de Ethernet, el frame, CSMA/CD con un ejercicio de backoff, full duplex, Wi-Fi, medios, y cómo trabaja un switch.',
+    ],
+    parts: ['eth', 'frame', 'csma', 'ex:itc-e7', 'fullduplex', 'wifi', 'medios', 'equipos', 'switch'],
+    outro: [
+      'Frame: destino, origen, tipo o longitud (≤ 1500 longitud, ≥ 1536 tipo), datos 46–1500, FCS. MAC: 1er byte par unicast, impar multicast.',
+      'CSMA/CD: IFG, jam de 32 bits, backoff k × 51,2 µs, 16 intentos. Full duplex: sin CSMA/CD.',
+      'Hub: un dominio de colisión. Switch: uno por puerto; aprende de la MAC origen. Router: separa broadcast.',
+    ],
+  },
+];
 
 export default content;

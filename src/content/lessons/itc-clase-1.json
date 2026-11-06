@@ -1,0 +1,81 @@
+{
+ "id": "itc-clase-1",
+ "title": "Clase 1 · IP, clases y subnetting",
+ "src": "videos/itc/itc-clase-1.mp4",
+ "poster": "videos/itc/itc-clase-1.jpg",
+ "minutes": 15.1,
+ "chapters": [
+  {
+   "part": "ip",
+   "title": "Protocolo IP y el modelo TCP/IP",
+   "at": 22.5
+  },
+  {
+   "part": "clases",
+   "title": "Direcciones IPv4: clases, especiales y privadas",
+   "at": 115.1
+  },
+  {
+   "part": "ex:itc-e1",
+   "title": "Guía 5.2 · Ej. 1 a 3: clase, red/host y máscara por defecto",
+   "at": 240.3
+  },
+  {
+   "part": "subnet",
+   "title": "Máscaras y subnetting",
+   "at": 340.2
+  },
+  {
+   "part": "ex:itc-e2",
+   "title": "Guía 5.2 · Ej. 4a: subnetting de 210.100.56.0",
+   "at": 480.2
+  },
+  {
+   "part": "ex:itc-e3",
+   "title": "Guía 5.2 · Ej. 4b: 126 subredes en 118.0.0.0",
+   "at": 585.5
+  },
+  {
+   "part": "ipv6",
+   "title": "IPv6",
+   "at": 701.5
+  }
+ ],
+ "shorts": {
+  "ip": {
+   "src": "videos/itc/itc-clase-1.mp4#t=22.5,115.5",
+   "poster": "videos/itc/p/itc-clase-1-ip.jpg",
+   "minutes": 1.55
+  },
+  "clases": {
+   "src": "videos/itc/itc-clase-1.mp4#t=115.1,240.7",
+   "poster": "videos/itc/p/itc-clase-1-clases.jpg",
+   "minutes": 2.09
+  },
+  "ex:itc-e1": {
+   "src": "videos/itc/itc-clase-1.mp4#t=240.3,340.7",
+   "poster": "videos/itc/p/itc-clase-1-ex-itc-e1.jpg",
+   "minutes": 1.67
+  },
+  "subnet": {
+   "src": "videos/itc/itc-clase-1.mp4#t=340.2,480.6",
+   "poster": "videos/itc/p/itc-clase-1-subnet.jpg",
+   "minutes": 2.34
+  },
+  "ex:itc-e2": {
+   "src": "videos/itc/itc-clase-1.mp4#t=480.2,586.0",
+   "poster": "videos/itc/p/itc-clase-1-ex-itc-e2.jpg",
+   "minutes": 1.76
+  },
+  "ex:itc-e3": {
+   "src": "videos/itc/itc-clase-1.mp4#t=585.5,652.6",
+   "poster": "videos/itc/p/itc-clase-1-ex-itc-e3.jpg",
+   "minutes": 1.12
+  },
+  "ipv6": {
+   "src": "videos/itc/itc-clase-1.mp4#t=701.5,830.8",
+   "poster": "videos/itc/p/itc-clase-1-ipv6.jpg",
+   "minutes": 2.16
+  }
+ }
+}

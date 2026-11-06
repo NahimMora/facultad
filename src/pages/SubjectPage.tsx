@@ -1,21 +1,23 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { allModules, examModules, subjectById } from '../content/subjects';
-import { emptyContent, type Exam, type Subject, type SubjectContent } from '../content/types';
-import { hasContent, loadContent } from '../content/loaders';
+import { emptyContent, type Exam, type LessonMedia, type Subject, type SubjectContent } from '../content/types';
+import { hasContent, loadContent, loadLessonMedia } from '../content/loaders';
 import { ModuleTracker } from '../components/ModuleTracker';
 import { ExamDate } from '../components/ExamDate';
 import { Quiz } from '../components/Quiz';
-import { CheatsheetView, ExercisesView, TheoryView, VideosView } from '../components/Study';
+import { CheatsheetView, ExercisesView, shortsOf, TheoryView, VideosView } from '../components/Study';
+import { IntensiveView } from '../components/Intensive';
 import { keys } from '../lib/storage';
 
 const TABS = [
-  { id: 'resumen', label: 'Resumen' },
-  { id: 'teoria', label: 'Teoría' },
+  { id: 'intensivo', label: 'Repaso intensivo' },
+  { id: 'teoria', label: 'Teoría visual' },
   { id: 'practica', label: 'Práctica' },
   { id: 'ejercicios', label: 'Ejercicios' },
   { id: 'videos', label: 'Videos' },
   { id: 'machete', label: 'Machete' },
+  { id: 'resumen', label: 'Módulos y fechas' },
   { id: 'falta', label: 'Qué falta' },
 ] as const;
 type TabId = (typeof TABS)[number]['id'];
@@ -33,9 +35,12 @@ function SubjectView({ s }: { s: Subject }) {
   const [params, setParams] = useSearchParams();
   const ready = hasContent(s.id);
   const [content, setContent] = useState<SubjectContent>(() => emptyContent(s.id));
-  const counts: Record<TabId, number> = { resumen: 1, falta: 1, teoria: content.theory.length, practica: content.questions.length, ejercicios: content.exercises.length, videos: content.videos.length, machete: content.cheatsheet.length };
+  const [media, setMedia] = useState<LessonMedia[]>([]);
+  const shorts = useMemo(() => shortsOf(media), [media]);
+  const counts: Record<TabId, number> = { intensivo: content.theory.length + content.questions.length, resumen: 1, falta: 1, teoria: content.theory.length, practica: content.questions.length, ejercicios: content.exercises.length, videos: content.videos.length + media.length, machete: content.cheatsheet.length };
   const visibleTabs = TABS.filter((t) => counts[t.id] > 0);
-  const tab = (visibleTabs.find((t) => t.id === params.get('tab'))?.id ?? 'resumen') as TabId;
+  const tab = (visibleTabs.find((t) => t.id === params.get('tab'))?.id ?? (ready ? 'intensivo' : 'resumen')) as TabId;
+  const focus = params.get('tema');
   const examId = s.exams.some((e) => e.id === params.get('examen')) ? params.get('examen')! : s.focus.examId;
   const exam = s.exams.find((e) => e.id === examId)!;
   const mods = useMemo(() => examModules(s, examId).map((m) => m.id), [s, examId]);
@@ -44,14 +49,24 @@ function SubjectView({ s }: { s: Subject }) {
     if (!ready) return;
     let alive = true;
     loadContent(s.id).then((c) => { if (alive) setContent(c); });
+    loadLessonMedia(s.id).then((m) => { if (alive) setMedia(m); });
     return () => { alive = false; };
   }, [s.id, ready]);
 
-  const go = (next: Partial<{ tab: TabId; examen: string }>) => {
+  // abrir un tema o ejercicio concreto (?tema=<id>) cuando ya cargó el contenido
+  useEffect(() => {
+    if (!focus) return;
+    const el = document.getElementById(focus);
+    if (el) requestAnimationFrame(() => el.scrollIntoView({ block: 'start' }));
+  }, [focus, tab, content]);
+
+  const go = (next: Partial<{ tab: TabId; examen: string; tema: string }>) => {
     const p = new URLSearchParams(params);
     if (next.tab) p.set('tab', next.tab);
     if (next.examen) p.set('examen', next.examen);
-    setParams(p, { replace: true });
+    if (next.tema) p.set('tema', next.tema); else p.delete('tema');
+    setParams(p, { replace: !next.tema });
+    if (!next.tema) window.scrollTo({ top: 0 });
   };
 
   const studyExams = s.exams.filter((e) => e.kind !== 'tp');
@@ -124,15 +139,17 @@ function SubjectView({ s }: { s: Subject }) {
         </>
       )}
 
-      {tab === 'teoria' && <TheoryView subject={s} content={content} modules={mods} />}
+      {tab === 'intensivo' && <IntensiveView s={s} exam={exam} content={content} media={media} mods={mods}
+        openTopic={(id) => go({ tab: 'teoria', tema: `t-${id}` })} openExercise={(id) => go({ tab: 'ejercicios', tema: `e-${id}` })} />}
+      {tab === 'teoria' && <TheoryView subject={s} content={content} modules={mods} shorts={shorts} />}
       {tab === 'practica' && (
         <section>
           <p className="hint">Opción múltiple y verdadero o falso. Al tocar una respuesta ves si está bien y por qué.</p>
           <Quiz key={examId} storageKey={keys.quiz(s.id, examId)} items={content.questions.filter((q) => mods.includes(q.module))} tagOf={(q) => modTitle(q.module)} />
         </section>
       )}
-      {tab === 'ejercicios' && <ExercisesView content={content} modules={mods} />}
-      {tab === 'videos' && <VideosView content={content} modules={mods} />}
+      {tab === 'ejercicios' && <ExercisesView content={content} modules={mods} shorts={shorts} />}
+      {tab === 'videos' && <VideosView content={content} modules={mods} media={media.filter((m) => (content.lessons ?? []).some((l) => l.id === m.id && l.examId === examId))} />}
       {tab === 'machete' && <CheatsheetView content={content} />}
       {tab === 'falta' && (
         <section className="card">

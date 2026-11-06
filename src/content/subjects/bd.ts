@@ -1,5 +1,6 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/bd';
+import { EX_SCENES, SCENES } from '../visual/bd';
 
 /** BD · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y un final resuelto (2024). */
 const F = 'final 2024 resuelto (Drive de estudiantes)';
@@ -132,5 +133,24 @@ const content: SubjectContent = {
     { t: 'SQL', d: 'WHERE filtra filas · HAVING filtra grupos (COUNT) · LIKE \'X%\' · IS NULL · BETWEEN incluye extremos · "nunca" → NOT IN / NOT EXISTS · UPDATE … WHERE campo IN (SELECT …).' },
   ],
 };
+
+content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.lessons = [
+  {
+    id: 'bd-clase-1', examId: 'final', title: 'Final completo: diseño, álgebra y SQL',
+    summary: 'Sistema y ANSI-SPARC, DER con pata de gallo, normalización hasta 3FN, álgebra relacional y SQL, con los cuatro ejercicios del final 2024.',
+    intro: [
+      'Esta es la clase completa para el final de Base de Datos. El final tiene cuatro partes: DER, normalización, álgebra relacional y SQL, y las vamos a ver en ese orden, con los ejercicios del final 2024 resueltos.',
+      'Arrancamos por el sistema de base de datos, después el modelo entidad-relación y la normalización, y cerramos con álgebra relacional y SQL.',
+    ],
+    parts: ['b1', 'b2', 'b3', 'ex:bd-e1', 'b4', 'ex:bd-e2', 'q:bd-18', 'b5', 'ex:bd-e3', 'b6', 'b7', 'ex:bd-e4', 'q:bd-21'],
+    outro: [
+      '1:N → la PK del lado 1 viaja como FK al lado N. N:M → entidad intermedia. 1FN sin grupos repetitivos · 2FN sin parciales · 3FN sin transitivas.',
+      'σ filtra filas, π columnas, ⨝ combina; "y" → ∩, "no" → todos − los que sí. FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY.',
+      'Escribí siempre los supuestos del DER y practicá con las preguntas de la web hasta el 80 %.',
+    ],
+  },
+];
 
 export default content;
