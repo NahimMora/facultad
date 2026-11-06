@@ -382,7 +382,7 @@ export const SUBJECTS: Subject[] = [
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay apuntes de casi todos los temas, guías, TP de ejercitación y TP integrador.' },
     material: { apuntes: 10, parciales: 1, practica: 13, clases: 1, nota: 'Además: finales 2023 (con resolución) y 2025 del Drive de estudiantes.' },
-    missing: [FINAL_FORMAT_MISSING, 'Hoja de ruta', 'Enunciado del 2º parcial (si hubo)', 'Apunte de máquinas de estado'],
+    missing: [FINAL_FORMAT_MISSING, 'Enunciado del 2º parcial (si hubo)'],
   },
   {
     id: 'ca',
