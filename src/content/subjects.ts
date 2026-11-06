@@ -8,7 +8,6 @@ import type { Subject } from './types';
  */
 
 const FINAL_FORMAT_MISSING = 'Modalidad del final (escrito u oral, teórico o práctico, sincrónico o asincrónico, qué se puede usar)';
-const FINAL_MODELS_MISSING = 'Finales viejos o modelos de final (fotos o PDF)';
 
 export const SUBJECTS: Subject[] = [
   /* ===================== CURSANDO ===================== */
@@ -114,7 +113,7 @@ export const SUBJECTS: Subject[] = [
           { text: 'Se abre el martes y queda disponible hasta el viernes a las 14 h. El 1er parcial duraba 2 horas y se podía tener el material a mano.', source: 'clases del 03/11 y del 06/10', sure: true },
           { text: 'Ejercicios típicos: clase de una IPv4, parte de red y de host, máscara por defecto y **al menos 2 de subnetting** como los de la guía 5.2 (210.100.56.0 con 6 subredes; 118.0.0.0 con 126 subredes).', source: 'clase del 03/11 (guía 5.2 en Blackboard)', sure: true },
           { text: 'Remarcó entender bien **control de congestión vs. control de flujo** y que **IP es no orientado a conexión**.', source: 'clases del 03/11 y del 20/10', sure: true },
-          { text: 'El 1er parcial combinó consignas de desarrollo y cálculo con alguna de opción múltiple; el 2º probablemente siga ese formato.', source: '1er parcial del 13/10', sure: false },
+          { text: 'El 2º parcial de años anteriores fue de **17 preguntas de opción múltiple** en Blackboard (algunas con varias respuestas correctas), sacadas del mismo banco que está en la práctica. El 1er parcial de este año, en cambio, tuvo mucho desarrollo y cálculo, así que hay que llevar las dos cosas preparadas.', source: '2º parcial de años anteriores (Drive de estudiantes) + 1er parcial del 13/10', sure: false },
         ],
       },
       { id: 'final', name: 'Final (oral, entran todos los temas)', kind: 'final', state: 'pendiente', modules: [] },
@@ -166,8 +165,8 @@ export const SUBJECTS: Subject[] = [
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
     ],
     focus: { examId: 'final', note: 'Regularizada. El 2º parcial ya tiene plataforma propia con videos; falta integrar la primera mitad para el final.' },
-    material: { apuntes: 7, parciales: 4, practica: 9, clases: 3, nota: 'Incluye teoría, práctica, autoevaluación y parciales viejos ya procesados.' },
-    missing: [FINAL_FORMAT_MISSING, FINAL_MODELS_MISSING, 'Apuntes de los módulos 1 a 7 en PDF (para la primera mitad)'],
+    material: { apuntes: 7, parciales: 4, practica: 9, clases: 3, nota: 'Incluye teoría, práctica, autoevaluación y parciales viejos ya procesados. Además: 4 finales viejos del Drive de estudiantes.' },
+    missing: [FINAL_FORMAT_MISSING, 'Apuntes de los módulos 1 a 7 en PDF (para la primera mitad)'],
     links: [{ label: 'Plataforma del 2º parcial (videos, práctica y modo urgente)', url: 'https://nahimmora.github.io/iisw-parcial2/' }],
   },
   {
@@ -206,8 +205,8 @@ export const SUBJECTS: Subject[] = [
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay un video de 30 minutos del 2º parcial hecho localmente para reutilizar.' },
-    material: { apuntes: 13, parciales: 2, practica: 3, clases: 2, nota: 'Incluye hoja de ruta, syllabus y la carpeta de trabajo del video del 2º parcial.' },
-    missing: [FINAL_FORMAT_MISSING, FINAL_MODELS_MISSING, 'Enunciado del 2º parcial (si lo tenés)', 'Apuntes de algoritmos evolutivos, híbridos, agentes y robótica (módulos 9 a 12)'],
+    material: { apuntes: 13, parciales: 2, practica: 3, clases: 2, nota: 'Incluye hoja de ruta, syllabus y la carpeta de trabajo del video del 2º parcial. Además: 5 finales viejos (2023 a dic-2025) del Drive de estudiantes.' },
+    missing: [FINAL_FORMAT_MISSING, 'Enunciado del 2º parcial (si lo tenés)', 'Apuntes de algoritmos evolutivos, híbridos, agentes y robótica (módulos 9 a 12)'],
   },
   {
     id: 'arq',
@@ -236,8 +235,8 @@ export const SUBJECTS: Subject[] = [
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
     ],
     focus: { examId: 'final', note: 'Regularizada. La segunda mitad ya está analizada (plan pedagógico local); falta material de la primera.' },
-    material: { apuntes: 1, parciales: 1, practica: 1, clases: 6, nota: 'Teoría del 2º parcial (142 páginas) y 6 clases grabadas.' },
-    missing: [FINAL_FORMAT_MISSING, FINAL_MODELS_MISSING, 'Apuntes de la primera mitad (organización, memoria, caché, memoria virtual)', 'Programa u hoja de ruta de la materia'],
+    material: { apuntes: 1, parciales: 1, practica: 1, clases: 6, nota: 'Teoría del 2º parcial (142 páginas) y 6 clases grabadas. Además: 8 finales viejos (2020 a 2023) del Drive de estudiantes.' },
+    missing: [FINAL_FORMAT_MISSING, 'Apuntes de la primera mitad (organización, memoria, caché, memoria virtual)', 'Programa u hoja de ruta de la materia'],
   },
   {
     id: 'pye',
@@ -268,8 +267,8 @@ export const SUBJECTS: Subject[] = [
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay teórico y práctico completos de la cátedra, modelos de 2º parcial con respuestas y 10 clases grabadas.' },
-    material: { apuntes: 7, parciales: 8, practica: 3, clases: 11 },
-    missing: [FINAL_FORMAT_MISSING, FINAL_MODELS_MISSING, 'Tabla o fórmulas permitidas en el final (si dan una)'],
+    material: { apuntes: 7, parciales: 8, practica: 3, clases: 11, nota: 'Además: finales viejos corregidos (2022 a 2024) del Drive de estudiantes.' },
+    missing: [FINAL_FORMAT_MISSING, 'Tabla o fórmulas permitidas en el final (si dan una)'],
   },
   {
     id: 'bd',
@@ -298,8 +297,8 @@ export const SUBJECTS: Subject[] = [
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay apuntes, parciales, recuperatorio y 7 clases de SQL y álgebra grabadas.' },
-    material: { apuntes: 11, parciales: 5, practica: 9, clases: 7 },
-    missing: [FINAL_FORMAT_MISSING, FINAL_MODELS_MISSING, 'Programa u hoja de ruta (para confirmar el orden de los módulos)'],
+    material: { apuntes: 11, parciales: 5, practica: 9, clases: 7, nota: 'Además: finales viejos (2022 a jul-2026, uno resuelto) del Drive de estudiantes.' },
+    missing: [FINAL_FORMAT_MISSING, 'Programa u hoja de ruta (para confirmar el orden de los módulos)'],
   },
   {
     id: 'sym',
@@ -335,8 +334,8 @@ export const SUBJECTS: Subject[] = [
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay módulos 1 a 7, apuntes de sistemas de información, casos de estudio y resúmenes del 2º parcial.' },
-    material: { apuntes: 22, parciales: 3, practica: 3, clases: 0 },
-    missing: [FINAL_FORMAT_MISSING, FINAL_MODELS_MISSING, 'Hoja de ruta (para confirmar los módulos 1, 8 y 9)', 'Parciales que rendiste (enunciados)'],
+    material: { apuntes: 22, parciales: 3, practica: 3, clases: 0, nota: 'Además: 3 finales viejos del Drive de estudiantes.' },
+    missing: [FINAL_FORMAT_MISSING, 'Hoja de ruta (para confirmar los módulos 1, 8 y 9)', 'Parciales que rendiste (enunciados)'],
   },
   {
     id: 'sd1',
@@ -366,8 +365,8 @@ export const SUBJECTS: Subject[] = [
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay apuntes de casi todos los temas, guías, TP de ejercitación y TP integrador.' },
-    material: { apuntes: 10, parciales: 1, practica: 13, clases: 1 },
-    missing: [FINAL_FORMAT_MISSING, FINAL_MODELS_MISSING, 'Hoja de ruta', 'Enunciado del 2º parcial (si hubo)', 'Apunte de máquinas de estado'],
+    material: { apuntes: 10, parciales: 1, practica: 13, clases: 1, nota: 'Además: finales 2023 (con resolución) y 2025 del Drive de estudiantes.' },
+    missing: [FINAL_FORMAT_MISSING, 'Hoja de ruta', 'Enunciado del 2º parcial (si hubo)', 'Apunte de máquinas de estado'],
   },
   {
     id: 'ca',
@@ -394,8 +393,8 @@ export const SUBJECTS: Subject[] = [
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay apuntes de los módulos 1 a 7, clases grabadas de los módulos 3 a 7 y el TP integrador.' },
-    material: { apuntes: 7, parciales: 0, practica: 2, clases: 5 },
-    missing: [FINAL_FORMAT_MISSING, FINAL_MODELS_MISSING, 'Parciales que rendiste (no hay ninguno)', 'Apunte de scripting (si es un módulo aparte)', 'Hoja de ruta'],
+    material: { apuntes: 7, parciales: 0, practica: 2, clases: 5, nota: 'Además: final 2023 y julio 2025 del Drive de estudiantes.' },
+    missing: [FINAL_FORMAT_MISSING, 'Parciales que rendiste (no hay ninguno)', 'Apunte de scripting (si es un módulo aparte)', 'Hoja de ruta'],
   },
   {
     id: 'am2',
@@ -425,8 +424,8 @@ export const SUBJECTS: Subject[] = [
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay apuntes, guías, los dos parciales y una ejercitación de repaso.' },
-    material: { apuntes: 10, parciales: 5, practica: 7, clases: 1 },
-    missing: [FINAL_FORMAT_MISSING, FINAL_MODELS_MISSING, 'Hoja de ruta (para confirmar módulos 3, 5, 6, 9 y 10)', 'Respuestas de las guías de los módulos 2 a 8'],
+    material: { apuntes: 10, parciales: 5, practica: 7, clases: 1, nota: 'Además: finales 2023 y modelos de final 2026 del Drive de estudiantes.' },
+    missing: [FINAL_FORMAT_MISSING, 'Hoja de ruta (para confirmar módulos 3, 5, 6, 9 y 10)', 'Respuestas de las guías de los módulos 2 a 8'],
   },
 ];
 

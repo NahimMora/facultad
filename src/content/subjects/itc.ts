@@ -1,4 +1,5 @@
 import type { SubjectContent } from '../types';
+import { BANCO, BANCO_EJERCICIOS } from '../banks/itc-banco';
 
 /**
  * ITc · 2º parcial (unidades 4 a 7 = módulos 6 a 13).
@@ -396,6 +397,7 @@ const content: SubjectContent = {
     { id: 'itc-q70', module: 'm13', type: 'mcq', prompt: 'HTTP es un protocolo **sin estado**. Esto significa que:', options: ['No usa TCP', 'No guarda información de las conexiones o peticiones anteriores', 'No tiene métodos', 'Solo transfiere texto'], answer: 1, explain: 'Cada petición es independiente; el servidor no recuerda las anteriores (para eso se agregan cookies o sesiones a nivel de aplicación).' },
     { id: 'itc-q71', module: 'm13', type: 'mcq', prompt: 'El método HTTP que devuelve **solo los encabezados**, sin el cuerpo, es:', options: ['GET', 'HEAD', 'POST', 'TRACE'], answer: 1, explain: '**HEAD** es como GET pero sin el cuerpo. POST envía datos (formularios) y TRACE devuelve lo que recibió el servidor (depuración).' },
     { id: 'itc-q72', module: 'm13', type: 'mcq', prompt: 'Las 3 partes de la URL https://www.palermo.edu/index.html son:', options: ['Protocolo, nombre DNS del host y ruta', 'IP, puerto y MAC', 'Dominio, zona y registro', 'Método, versión y código'], answer: 0, explain: '**https** (protocolo) · **www.palermo.edu** (host, que se resuelve por DNS) · **/index.html** (ruta).' },
+    ...BANCO,
   ],
 
   exercises: [
@@ -480,6 +482,7 @@ const content: SubjectContent = {
       ],
       result: 'El rango se **duplica** con cada colisión (hasta n = 10). Tras **16 intentos** el frame se descarta.',
     },
+    ...BANCO_EJERCICIOS,
   ],
 
   videos: [],
