@@ -1,4 +1,5 @@
 import type { SubjectContent } from '../types';
+import { VIDEOS } from '../videos/aid';
 
 /**
  * AID · 2º parcial (módulos 8 a 12): Data Mining.
@@ -325,7 +326,7 @@ const content: SubjectContent = {
     },
   ],
 
-  videos: [],
+  videos: VIDEOS,
 
   cheatsheet: [
     { t: 'Definición DM', d: 'Exploración y análisis, automático o semiautomático, de datos para descubrir **patrones y reglas**. Se busca un resultado **accionable**.' },

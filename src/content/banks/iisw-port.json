@@ -1,0 +1,2912 @@
+{
+ "theory": [
+  {
+   "id": "ch1-t0",
+   "module": "m8",
+   "title": "1. De la narrativa a la lista de requerimientos",
+   "points": [
+    "Una narrativa describe cómo funciona un negocio. Tu primer trabajo es separar **qué tiene que hacer el sistema** (requerimientos funcionales) de las **restricciones** sobre cómo hacerlo (no funcionales).",
+    "**Requerimiento funcional:** Describe **qué hace** el sistema: entradas, salidas y cómo responde a cada estímulo. Ej.: registrar el préstamo de un libro.",
+    "**Requerimiento no funcional:** Describe una **restricción o atributo de calidad**: rendimiento, seguridad, plataforma. Ej.: responder consultas en menos de 5 segundos.",
+    "**Formato de la lista que usa la profesora:** En el ejemplo del servicio técnico la lista es corta, en letras a), b), c)… y cada ítem empieza con **\"El sistema debe gestionar…\"** o **\"El sistema debe proveer…\"**, nombrando un proceso de negocio completo (registro de clientes, solicitudes de reparación, devoluciones, listado mensual).",
+    "**Un ítem por proceso de negocio**, no por pantalla ni por botón.",
+    "Verbo de gestión + objeto del negocio: \"El sistema debe gestionar los préstamos de libros\".",
+    "Nada de tecnología (\"base de datos\", \"login\", \"servidor\") salvo que el enunciado lo pida como restricción.",
+    "Cada requerimiento debería poder rastrearse luego a uno o más casos de uso."
+   ],
+   "table": {
+    "head": [
+     "Narrativa Kameral (idea)",
+     "Requerimiento"
+    ],
+    "rows": [
+     [
+      "Las personas se asocian pagando una cuota anual",
+      "a) El sistema debe gestionar el alta de socios."
+     ],
+     [
+      "El socio retira un libro por vez, hasta 10 días",
+      "b) El sistema debe gestionar la solicitud (retiro) de libros."
+     ],
+     [
+      "El bibliotecario recibe la devolución y controla el vencimiento",
+      "c) El sistema debe gestionar la devolución de libros."
+     ],
+     [
+      "El coordinador revisa vencidos y avisa por mail",
+      "d) El sistema debe proveer un informe de préstamos vencidos."
+     ]
+    ]
+   },
+   "trap": "**Lo que dijo Taboada.** En Kameral \"están las cuatro funciones básicas: alta, devolución, solicitud e informe. **Son los cuatro requerimientos**\". Es decir: la lista y los casos de uso se corresponden."
+  },
+  {
+   "id": "ch1-t1",
+   "module": "m8",
+   "title": "2. Qué es un caso de uso",
+   "points": [
+    "Según Jacobson, Rumbaugh y Booch, un caso de uso describe **un conjunto de secuencias de acciones (con variantes) que el sistema ejecuta para producir un resultado observable de valor para un actor**.",
+    "Se dibuja como una **elipse** con el nombre adentro.",
+    "El nombre empieza con un **verbo en infinitivo** seguido del objeto principal: *Registrar préstamo*, *Devolver libro*.",
+    "Se nombra **desde el punto de vista de quien lo usa**.",
+    "Deja claro qué hará el sistema y, por omisión, **qué no hará**.",
+    "Origen: Ivar Jacobson, 1987, método OOSE; hoy forma parte de UML."
+   ],
+   "trap": "**La versión corta de la cátedra.** El caso de uso es **el objetivo que quiere lograr el actor** al interactuar con el sistema. \"Nuestro actor socio quiere retirar un libro\" → caso de uso Solicitar libro."
+  },
+  {
+   "id": "ch1-t2",
+   "module": "m8",
+   "title": "3. Actores: quién está afuera",
+   "points": [
+    "Un actor es **alguien o algo que interactúa con el sistema**: personas, organizaciones, unidades u otros sistemas. Se dibuja como un muñeco de palo con su **rol** debajo.",
+    "¿Quién usa el sistema?",
+    "¿Quién necesita que el sistema le brinde información?",
+    "¿Quién provee información al sistema?",
+    "¿Qué otros sistemas interactúan con él?",
+    "¿Quién lo instala, prepara y mantiene?",
+    "**Un solo actor inicia cada caso de uso:** Si más de un actor puede iniciarlo, se resuelve con **herencia entre actores**: un actor general (A) y actores hijos (B, C) unidos con una flecha de punta triangular hueca hacia el padre."
+   ],
+   "table": {
+    "head": [
+     "",
+     "Actor primario",
+     "Actor secundario"
+    ],
+    "rows": [
+     [
+      "Rol",
+      "**Inicia** el caso de uso para lograr un objetivo",
+      "Es **requerido / usado** por el caso de uso"
+     ],
+     [
+      "Ejemplo Kameral",
+      "Socio en *Solicitar libro*",
+      "Socio que **recibe el mail** en *Informe de préstamos*"
+     ],
+     [
+      "Notación de la cátedra",
+      "(P) en el cuadro",
+      "(S) en el cuadro"
+     ]
+    ]
+   },
+   "trap": "**Rol, nunca nombre propio.** Se escribe el rol (\"Socio\", \"Bibliotecario\"), no \"Juan Pérez\", porque una misma persona puede actuar con roles distintos: como **empleado** registra su entrada, como **bibliotecario** carga libros nuevos."
+  },
+  {
+   "id": "ch1-t3",
+   "module": "m8",
+   "title": "4. La regla de oro de la cátedra: modelar el negocio",
+   "points": [
+    "Si todo empieza en el bibliotecario, \"estás pensando en una computadora; nosotros pensamos en el negocio\". El socio **ingresa al proceso**, y el bibliotecario es parte de ese proceso."
+   ],
+   "table": {
+    "head": [
+     "",
+     "Pensando en la computadora (✘)",
+     "Pensando en el negocio (✔)"
+    ],
+    "rows": [
+     [
+      "Actor de \"Solicitar libro\"",
+      "Bibliotecario (el que teclea)",
+      "**Socio** (el que quiere el libro)"
+     ],
+     [
+      "Casos de uso",
+      "Login, ABM socios, Consultar stock…",
+      "Alta de socio, Solicitar libro, Devolver libro, Informe"
+     ],
+     [
+      "Supermercado",
+      "Repositor, personal de limpieza",
+      "**Cliente** que entra, toma mercadería y paga"
+     ]
+    ]
+   },
+   "trap": "**Visión de negocio.** Taboada: \"nosotros modelamos el negocio. Hay un sistema y hay **entidades externas**\". En Kameral los actores son **persona no asociada, socio y coordinador**. \"Cuando pongo el bibliotecario, **es parte del sistema**, porque procesa las acciones e interactúa con estos actores.\" **Corrección real a un trabajo práctico.** A un grupo que puso como actores a las áreas internas (Ventas, Depósito…) se le corrigió: deberían aparecer **\"cliente compra mercadería\"**, **\"compras genera orden de compra a proveedor\"** y **\"proveedor entrega mercadería\"**: \"no se ven estos actores\" y \"no están bien las conexiones\"."
+  },
+  {
+   "id": "ch1-t4",
+   "module": "m8",
+   "title": "5. El diagrama de casos de uso",
+   "points": [
+    "Muestra **el conjunto de casos de uso, los actores y sus relaciones**. Un rectángulo marca la **frontera** entre el sistema y su entorno, con el nombre del sistema en su borde interno. Los actores quedan **afuera** del rectángulo y los casos de uso **adentro**.",
+    "Se pueden usar rectángulos menores para agrupar casos de uso por subsistema. Las relaciones «include» y «extend» se estudian en el capítulo 2; **no son necesarias en la práctica del parcial**."
+   ],
+   "table": {
+    "head": [
+     "Elemento",
+     "Cómo se dibuja",
+     "Error típico"
+    ],
+    "rows": [
+     [
+      "Sistema",
+      "Rectángulo con nombre",
+      "Olvidarlo o poner actores adentro"
+     ],
+     [
+      "Caso de uso",
+      "Elipse, verbo infinitivo + objeto",
+      "Nombres de pantallas: \"Menú principal\""
+     ],
+     [
+      "Actor",
+      "Muñeco, rol debajo, fuera del sistema",
+      "Empleado interno o nombre propio"
+     ],
+     [
+      "Asociación",
+      "Línea actor–caso de uso",
+      "Actor sin línea o línea a un caso que no usa"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ch1-t5",
+   "module": "m8",
+   "title": "6. Procedimiento para el parcial (ejemplo trabajado)",
+   "points": [
+    "Narrativa de la biblioteca Kameral (resumen): una biblioteca histórica asocia personas que pagan una cuota anual en la sede, atendidas por un bibliotecario. El socio retira un solo libro por vez, pidiéndolo al bibliotecario, con un plazo de 10 días; si la cuota está impaga se le puede cobrar en ese momento. Periódicamente el coordinador revisa préstamos vencidos y le manda un mail al socio. Al recibir una devolución, el bibliotecario verifica si estaba vencida y, en ese caso, inhabilita al socio por un mes.",
+    "**Leé por párrafos** y marcá cada proceso (como hizo Taboada coloreando el texto).",
+    "**Buscá entidades externas**: ¿quién viene de afuera a pedir, entregar o recibir algo? → Persona no asociada, Socio, Coordinador.",
+    "**Descartá a quienes atienden**: el bibliotecario procesa → parte del sistema.",
+    "**Un caso de uso por objetivo del actor**: asociarse, retirar un libro, devolverlo, recibir/emitir el informe.",
+    "**Nombrá con verbo + objeto** y numerá: CU1 Alta de socio, CU2 Solicitar libro, CU3 Devolver libro, CU4 Informe de préstamos.",
+    "**Dibujá** frontera, elipses adentro, actores afuera y **conectá** cada actor con los casos en que participa.",
+    "**Escribí la lista** de requerimientos: un \"El sistema debe gestionar…\" por cada proceso.",
+    "**Controlá**: ¿cada CU tiene un único iniciador? ¿algún actor quedó sin línea? ¿hay algún empleado como actor?",
+    "**Nivel justo:** Kameral se resuelve con **4** casos de uso. Si tu diagrama tiene 15 elipses de ABM y consultas, bajaste demasiado de nivel."
+   ]
+  },
+  {
+   "id": "ch2-t0",
+   "module": "m8",
+   "title": "1. Qué es la descripción de un caso de uso",
+   "points": [
+    "Cada caso de uso es una **descripción de las posibles secuencias de interacciones entre el sistema y sus actores** para alcanzar un objetivo. El diagrama lo muestra como una elipse; el **cuadro descriptivo** detalla esas interacciones.",
+    "El **nombre** del cuadro tiene que coincidir con el de la elipse del diagrama.",
+    "Se indica **quién inicia** el caso (actor primario) y quién más participa.",
+    "Primero se escribe el **curso normal**: cómo sería si todos los controles salieran bien.",
+    "Después, en cada paso donde algo puede fallar, aparece un **curso alternativo**."
+   ]
+  },
+  {
+   "id": "ch2-t1",
+   "module": "m8",
+   "title": "2. El formato que usa la cátedra",
+   "points": [
+    "La teoría también muestra un formato más completo (identificador, actor principal y secundario, descripción \"el sistema deberá comportarse tal como se describe\", secuencia normal, postcondición, excepciones \"si <condición>, el sistema…, a continuación este caso de uso continúa/aborta\", importancia y comentarios). Cualquiera de los dos sirve si tiene los elementos esenciales."
+   ],
+   "table": {
+    "head": [
+     "Campo",
+     "Qué va",
+     "Pista"
+    ],
+    "rows": [
+     [
+      "Id",
+      "CU-02, CU_2…",
+      "El mismo número que en el diagrama"
+     ],
+     [
+      "Nombre",
+      "Igual que en la elipse",
+      "Verbo en infinitivo + objeto"
+     ],
+     [
+      "Actores",
+      "Socio (P) · Servicio Técnico (S)",
+      "(P) inicia · (S) es requerido"
+     ],
+     [
+      "Objetivo",
+      "Qué quiere lograr el actor",
+      "\"Retirar un libro por parte de un socio\""
+     ],
+     [
+      "Precondición",
+      "Qué debe cumplirse antes",
+      "\"Cliente abonado\", \"Tiene el libro a retirar\""
+     ],
+     [
+      "Postcondición",
+      "Cómo queda todo si termina bien",
+      "\"Libro registrado\", \"Emitido el nro. de cliente\""
+     ],
+     [
+      "Flujo normal",
+      "Pasos numerados: actor y sistema",
+      "Reglas R1 bajo el paso que valida · termina en **FCU**"
+     ],
+     [
+      "Alternativa",
+      "Numerada desde el paso donde surge",
+      "2.1, 2.2, 2.3 FCU"
+     ]
+    ]
+   },
+   "trap": "**FCU y R1.** En los ejemplos de la cátedra el flujo termina con **FCU** (fin de caso de uso) y la validación se explicita con una regla debajo del paso: **\"R1 = no tenga un retiro registrado sin devolución\"**."
+  },
+  {
+   "id": "ch2-t2",
+   "module": "m8",
+   "title": "3. Curso normal",
+   "points": [
+    "Describe el camino en que **todo sale bien**.",
+    "Incluye **lo que hace el actor y lo que hace el sistema**, alternando.",
+    "Pasos **numerados** y cortos, en presente: \"Socio solicita…\", \"Sistema valida…\".",
+    "Cada control importante lleva su **regla** (R1, R2…) para que se entienda qué se valida.",
+    "Termina con **FCU**."
+   ],
+   "trap": "**Corrección de Blanco.** \"Entrega el libro\" en realidad significa que **el sistema entrega la información**; no se entrega nada físico. Describí lo que hace el sistema."
+  },
+  {
+   "id": "ch2-t3",
+   "module": "m8",
+   "title": "4. Cursos alternativos",
+   "points": [
+    "Una vez escrito el curso normal, se revisa en qué pasos puede surgir algo que **obligue a cambiar el curso de acción**. La alternativa se numera con el **número del paso donde ocurre**: si el problema aparece en el paso 2, la alternativa es **2.1**, después **2.2**, etc.",
+    "**Alternativa ≠ error de sistema:** Las alternativas surgen de la **narrativa**: socio con préstamo pendiente, datos incorrectos, aparato que no corresponde al abono, aparato no reparado aún. Buscá en el enunciado frases como \"si…\", \"en caso de…\", \"en caso contrario…\"."
+   ],
+   "table": {
+    "head": [
+     "",
+     "Curso normal",
+     "Alternativa"
+    ],
+    "rows": [
+     [
+      "Numeración",
+      "1, 2, 3, 4, FCU",
+      "2.1, 2.2, 2.3 (desde el paso 2)"
+     ],
+     [
+      "Contenido",
+      "Todo sale bien",
+      "Qué pasa si falla el control"
+     ],
+     [
+      "Cómo termina",
+      "FCU",
+      "FCU (aborta) o \"continúa en el paso n\""
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ch2-t4",
+   "module": "m8",
+   "title": "5. Relaciones entre casos de uso: «include» y «extend»",
+   "points": [
+    "Se identifican al **refinar** el modelo, después de tener los casos de uso principales, y **solo pueden darse entre casos de uso**. En ambos casos el caso relacionado **debe ser un caso de uso en sí mismo**."
+   ],
+   "table": {
+    "head": [
+     "",
+     "«extend» (extensión)",
+     "«include» (uso)"
+    ],
+    "rows": [
+     [
+      "Cuándo",
+      "Una parte de la funcionalidad **no siempre ocurre**",
+      "Un **escenario común** a más de un caso de uso"
+     ],
+     [
+      "Ejemplo de la teoría",
+      "Cenar ← Tomar café (Jacobson)",
+      "Registrar préstamo y Registrar devolución → Consultar socio"
+     ],
+     [
+      "¿Es un error o excepción?",
+      "No: simplemente puede darse o no",
+      "No: siempre se ejecuta como parte del base"
+     ],
+     [
+      "Suele aparecer",
+      "Al analizar variantes",
+      "Después de especificar varios casos"
+     ]
+    ]
+   },
+   "trap": "**Para el parcial práctico.** Taboada: \"por el nivel de práctica que buscamos no nos metemos ni en el include ni en el extend\". **Pueden aparecer en la parte teórica.**"
+  },
+  {
+   "id": "ch2-t5",
+   "module": "m8",
+   "title": "6. Procedimiento para el parcial",
+   "points": [
+    "Elegí (o te asignan) **un caso de uso** del diagrama y copiá su **Id y nombre** exactos.",
+    "Escribí **Actores** con (P) y (S), el **Objetivo** en una línea, la **Precondición** y la **Postcondición**.",
+    "Releé el párrafo de la narrativa de ese proceso y escribí el **curso normal**: pedido del actor → validaciones del sistema (con R1) → registro → respuesta al actor → **FCU**.",
+    "Por cada \"si…/en caso contrario\" del enunciado, una **alternativa** numerada desde ese paso.",
+    "Controlá que **cada paso tenga sujeto** (actor o sistema) y que el orden sea el que después vas a dibujar en la secuencia."
+   ]
+  },
+  {
+   "id": "ch3-t0",
+   "module": "m10",
+   "title": "1. Qué muestra un diagrama de secuencia",
+   "points": [
+    "La **interacción entre objetos desde un punto de vista temporal**.",
+    "Cómo **colaboran** un grupo de objetos para realizar una actividad.",
+    "Generalmente **atrapa el comportamiento de un caso de uso** en particular.",
+    "La **secuencia de mensajes**, con su objeto emisor y receptor, para realizar una tarea.",
+    "Pertenece al **modelo de análisis**, que se empieza a desarrollar una vez aprobado el modelo de requerimientos. Este modelo estructura el sistema **independientemente del ambiente de implementación**: se enfoca en su estructura lógica, no en pantallas ni en código."
+   ],
+   "trap": "**Para qué sirve (Taboada).** Aplica el principio de **separación de incumbencias**: saber qué entidades internas tienen responsabilidad en cada escenario. \"Dentro de dos años, en diseño, cada uno de estos se puede convertir en una clase y cada mensaje en un método; pero no es este nivel\"."
+  },
+  {
+   "id": "ch3-t1",
+   "module": "m10",
+   "title": "2. Los tres estereotipos del patrón de análisis",
+   "points": [
+    "Los objetos de interfaz se identifican fácilmente **leyendo la descripción del caso de uso** (cada interacción con un actor).",
+    "Los objetos de entidad \"suelen ser obvios\": los sustantivos del negocio cuya información persiste (Socios, Libros, Abonos, Solicitudes).",
+    "Se pone **un control** como base; puede haber más de uno."
+   ],
+   "table": {
+    "head": [
+     "Estereotipo",
+     "Símbolo",
+     "Responsabilidad",
+     "Ejemplo Kameral"
+    ],
+    "rows": [
+     [
+      "**Interfaz**",
+      "Círculo con una \"T\" acostada a la izquierda",
+      "Comunica actores y sistema (entradas y salidas). **Es el único que recibe mensajes del actor.** Captura datos pero **no los procesa**.",
+      "Préstamo"
+     ],
+     [
+      "**Control**",
+      "Círculo con flecha arriba",
+      "Coordina el caso de uso: sabe cómo responder la solicitud, marca dónde empieza y dónde termina. **No guarda información.** Opera sobre entidades y devuelve el resultado a la interfaz.",
+      "Retirar"
+     ],
+     [
+      "**Entidad**",
+      "Círculo subrayado",
+      "Modela la información que el sistema maneja en el tiempo: **sobrevive a los casos de uso**. Suele corresponder a conceptos del mundo real.",
+      "Socios, Libros"
+     ]
+    ]
+   },
+   "trap": "**Cómo lo explicó Blanco.** Si un actor tiene que comunicarse con el sistema, **sí o sí** lo hace a través de un objeto de interfaz. La interfaz solo captura los datos y se los pasa al **control**, que sabe cómo responder. El control no guarda datos: por eso le pide a las **entidades** lo que necesita o les pide que guarden el resultado."
+  },
+  {
+   "id": "ch3-t2",
+   "module": "m10",
+   "title": "3. Elementos del diagrama",
+   "points": [
+    "**Línea de vida:** Línea vertical punteada debajo de cada objeto.",
+    "**Mensaje:** Flecha del **emisor al receptor** con el **nombre** del mensaje (puede incluir parámetros, restricciones o valor de retorno). **Las flechas más altas ocurren antes.**",
+    "**Período de actividad:** Rectángulo sobre la línea de vida: el tiempo que el objeto tarda en ejecutar una acción. (Opcional en la práctica.)",
+    "**Mensaje recursivo:** Mensaje de un objeto a sí mismo; se representa duplicando el rectángulo de activación, como si el objeto se activara varias veces. Ej.: Validar().",
+    "**Condición:** Entre corchetes antes del mensaje: **solo si es verdadera se ejecuta**. Puede escribirse en lenguaje coloquial: [hay producto].",
+    "**Iteración:** Asterisco antes de la condición: ***[hay vencidos]** — el mensaje se repite mientras la condición sea verdadera."
+   ]
+  },
+  {
+   "id": "ch3-t4",
+   "module": "m10",
+   "title": "5. Ejemplo trabajado: Kameral · Solicitar libro",
+   "points": [
+    "**Datos de las entidades (consigna 20/10):** **Socios**: nro. de socio, nombre, DNI, estado de la cuota, inhabilitado hasta, retiro vigente (libro y fecha). **Libros**: código, título, autor, estado (disponible/prestado). Detallarlos ayuda a justificar cada \"Dame…()\" y \"Registrar…()\"."
+   ],
+   "table": {
+    "head": [
+     "Paso de la descripción",
+     "Mensajes",
+     "Por qué ese emisor y receptor"
+    ],
+    "rows": [
+     [
+      "1 Socio solicita el retiro",
+      "Socio → Préstamo: Solicitar libro()",
+      "El actor solo puede hablarle a la interfaz"
+     ],
+     [
+      "2 Se valida al socio (R1)",
+      "Préstamo → Retirar: Validar socio()",
+      "La interfaz captura y delega al control"
+     ],
+     [
+      "",
+      "Retirar → Socios: Dame socio() · Retirar → Libros: Dame libro()",
+      "El control no tiene datos: los pide a las entidades"
+     ],
+     [
+      "",
+      "Retirar → Retirar: Validar()",
+      "El control compara (mensaje recursivo)"
+     ],
+     [
+      "2.1–2.3 Alternativa",
+      "Retirar → Préstamo: [retiro sin devolución] Mensaje error()",
+      "La alternativa aparece en el mismo diagrama, con condición"
+     ],
+     [
+      "3 Se registra el retiro",
+      "Retirar → Socios / Libros: [válido] Registrar retiro()",
+      "Guardar es tarea de las entidades, ordenada por el control"
+     ],
+     [
+      "4 Se entrega al socio",
+      "Retirar → Préstamo → Socio: Entregar libro()",
+      "La respuesta vuelve por la interfaz"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ch3-t5",
+   "module": "m10",
+   "title": "6. Con actor secundario: servicio técnico",
+   "points": [
+    "Cuando el caso de uso tiene un actor secundario (Servicio Técnico), el diagrama **empieza en una interfaz** para el actor primario y **termina en otra interfaz** que se comunica con el secundario, ubicado en el **extremo derecho**."
+   ]
+  },
+  {
+   "id": "ch3-t6",
+   "module": "m10",
+   "title": "7. Diagramas de colaboración e interacción (teoría)",
+   "points": [
+    "Ambos son **diagramas de interacción**: existen esos dos tipos y **el usuario elige cuál emplear**. Taboada contó su origen: con las tarjetas CRC se pensaba \"quién puede colaborar conmigo\" más que \"qué mensaje viene después de otro\"."
+   ],
+   "table": {
+    "head": [
+     "",
+     "Secuencia",
+     "Colaboración"
+    ],
+    "rows": [
+     [
+      "Información",
+      "Mensajes entre objetos",
+      "**La misma** que el de secuencia"
+     ],
+     [
+      "Cómo se ordena",
+      "Por la posición vertical de las flechas",
+      "Los mensajes se **numeran** para indicar la secuencia"
+     ],
+     [
+      "Objetos",
+      "En fila, con línea de vida",
+      "Únicos, unidos por **links**, con los mensajes sobre ellos"
+     ],
+     [
+      "Selección e iteración",
+      "[condición] y *",
+      "Se denotan **igual**"
+     ],
+     [
+      "En el parcial",
+      "Práctica y teoría",
+      "Solo teoría (no se toma en la práctica)"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ch3-t7",
+   "module": "m10",
+   "title": "8. Procedimiento para el parcial",
+   "points": [
+    "Tené a la vista **la descripción** del caso de uso (es el guion).",
+    "Ubicá al **actor primario** a la izquierda, con su rol.",
+    "Creá **una interfaz** para ese actor y **un control** para el caso de uso.",
+    "Leé los sustantivos cuya información se consulta o guarda → **entidades**.",
+    "Si hay **actor secundario**: otra interfaz y el actor en el extremo derecho.",
+    "Dibujá las **líneas de vida**.",
+    "Recorré la descripción paso a paso y dibujá **cada mensaje**: actor→interfaz, interfaz→control, control→entidades, control→sí mismo para validar.",
+    "Agregá la **alternativa** con su **[condición]** en el lugar donde ocurre.",
+    "Terminá con la **respuesta** control→interfaz→actor (y la notificación al secundario si corresponde).",
+    "Controlá: **tres estereotipos**, actor solo con interfaz, mismo orden que la descripción, nombres en todas las flechas."
+   ]
+  },
+  {
+   "id": "ch4-t0",
+   "module": "m8",
+   "title": "1. Prototipación de requerimientos",
+   "points": [
+    "**Prototipo:** Modelo o maqueta de las **interfaces entre el sistema y el usuario**. Simula los aspectos más visuales (entradas, salidas, elementos gráficos) y la **interactividad**, buscando la mayor similitud con el sistema final.",
+    "Muchos errores provienen de una **comunicación deficiente** entre usuario y analista al obtener requisitos. Son de los más caros porque se ven **tarde** y multiplican el costo inicial. Los problemas típicos: requisitos **incompletos, ambiguos o inconsistentes**.",
+    "Definir a qué usuarios va dirigido y responder a sus necesidades.",
+    "Usar conceptos, términos y simbología familiares.",
+    "Mantener coherencia dentro del sistema y con otros existentes.",
+    "Agrupar las funciones en forma lógica.",
+    "Mostrar el estado de ejecución de las funciones.",
+    "Obstaculizar acciones que puedan destruir datos.",
+    "Generar diálogos eficientes.",
+    "**Gordon y Bieman (1995), 39 proyectos:** Beneficios: mejor **usabilidad**, mayor **coherencia** entre necesidades y sistema, **diseño** de mejor calidad, mejor **mantenimiento** y **menos esfuerzo** de desarrollo. La forma de evitar problemas posteriores es una buena gestión del proceso de requerimientos."
+   ],
+   "table": {
+    "head": [
+     "",
+     "Cuándo conviene",
+     "Principal desventaja"
+    ],
+    "rows": [
+     [
+      "Situación",
+      "Requerimientos que **cambian rápido**; cliente poco abierto a dar una lista completa; ni cliente ni equipo conocen el área",
+      "Es imposible saber desde el comienzo **cuánto tiempo** llevará un producto aceptable (no se sabe cuántas iteraciones harán falta)"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ch4-t1",
+   "module": "m8",
+   "title": "2. Diseño centrado en el usuario y mockups",
+   "points": [
+    "Al determinar requerimientos se revisan primero los aspectos **más visibles** y se trabaja con los usuarios: qué verá el cliente y qué interacciones tendrá. Es la herramienta para obtener **feedback** y acordar los requerimientos."
+   ],
+   "table": {
+    "head": [
+     "",
+     "Prototipo",
+     "Mockup"
+    ],
+    "rows": [
+     [
+      "Qué es",
+      "Maqueta que **simula la interactividad**",
+      "Representación visual **estática** de un diseño"
+     ],
+     [
+      "Muestra",
+      "Entradas, salidas y comportamiento",
+      "Estructura de la información, contenidos y funciones básicas"
+     ],
+     [
+      "Ejemplo",
+      "Pantallas que responden a acciones",
+      "Un video se representa con una imagen y un ícono de reproducción"
+     ],
+     [
+      "Uso",
+      "Acordar requerimientos",
+      "Que el equipo visualice el diseño y pedir feedback al cliente"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ch4-t2",
+   "module": "m8",
+   "title": "3. Historias de usuario",
+   "points": [
+    "**Historia de usuario:** Descripción de una funcionalidad **desde el punto de vista del usuario o cliente**, en párrafos breves (idealmente hasta dos oraciones) cargados en tarjetas.",
+    "**Formato:** **Como** (rol) **yo quiero** (algo) **para** (beneficiarme). Ej.: \"Como bibliotecario de la institución quiero revisar el historial de préstamos para identificar los libros con mayor demanda para reponer\".",
+    "Para comprender un caso de uso se **narran historias**: cómo se alcanza el objetivo y cómo se manejan los problemas. Los **casos de uso 2.0** (Ivar Jacobson) proponen narrativas más livianas: las historias ayudan a entender el caso de uso y a **implementarlo porción por porción**.",
+    "**Épica:** Historia de usuario **tan grande** que difícilmente se implemente en una iteración: hay que **desagregarla** en historias menores."
+   ],
+   "table": {
+    "head": [
+     "Pregunta",
+     "Responde"
+    ],
+    "rows": [
+     [
+      "¿Quién es el beneficiario?",
+      "Interesados/actores que se benefician"
+     ],
+     [
+      "¿Qué se quiere hacer?",
+      "Visión de alto nivel de la funcionalidad"
+     ],
+     [
+      "¿Cuál es el beneficio?",
+      "El \"por qué\": valor de negocio"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ch5-t0",
+   "module": "m9",
+   "title": "1. Traza de requerimientos",
+   "points": [
+    "Parte del **SRS**: si se establece claramente dónde se originó cada requerimiento, sirve para referenciarlo en las etapas futuras."
+   ],
+   "table": {
+    "head": [
+     "",
+     "Trazabilidad remota",
+     "Trazabilidad futura"
+    ],
+    "rows": [
+     [
+      "Mira hacia",
+      "Las fases **previas** al desarrollo: el origen o fuente del requerimiento",
+      "Las fases **posteriores** del desarrollo"
+     ],
+     [
+      "Necesita",
+      "Registrar la fuente",
+      "Que cada requerimiento tenga un **nombre o referencia única**"
+     ],
+     [
+      "Cobra importancia",
+      "Cuando el software pasa a **operación y mantenimiento**: identificar qué requerimientos afecta un cambio",
+      "Durante diseño, código y pruebas"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ch5-t1",
+   "module": "m9",
+   "title": "2. Revisión y aceptación",
+   "points": [
+    "La **prueba de aceptación** la realizan los **usuarios** para verificar que el sistema se ajusta a sus requerimientos. Los casos de prueba se basan en la especificación: es una técnica de **caja negra**.",
+    "Determinar el rol del usuario.",
+    "Definir los criterios de aceptación.",
+    "Desarrollar un plan de aceptación.",
+    "Ejecutar el plan de aceptación.",
+    "Determinar decisiones de aceptación.",
+    "Se lleva a cabo con **datos proporcionados por el cliente** (reales, no ficticios). Esa diferencia puede disparar errores del sistema o revelar errores en los requerimientos.",
+    "**ISTQB:** Pruebas **formales** respecto de las necesidades del usuario, los requisitos y los procesos de negocio, para determinar si el sistema cumple los **criterios de aceptación** y permitir que el usuario, cliente u otra entidad autorizada decida si **acepta o no** el sistema.",
+    "Las pruebas de aceptación **basadas en los requerimientos** son pruebas de **validación y no de búsqueda de defectos**: buscan demostrar que el sistema implementó correctamente lo establecido. Ej.: para \"el usuario podrá consultar un producto indicando un dato\", probar con un producto existente, uno inexistente y un dato que coincida con varios productos."
+   ]
+  },
+  {
+   "id": "ch5-t3",
+   "module": "m9",
+   "title": "4. Estrategias de prueba",
+   "points": [
+    "La estrategia define el **enfoque** y los **objetivos generales** de las pruebas: qué **fases** seguir y qué **clases de prueba** hacer en cada una, además de técnicas, herramientas y criterios de satisfacción y finalización. Se basa en lo definido en los requisitos.",
+    "Tipos de prueba que pueden ejecutarse: **recuperación, seguridad, resistencia o stress, rendimiento, aceptación y regresión**."
+   ],
+   "table": {
+    "head": [
+     "Fase",
+     "Qué prueba"
+    ],
+    "rows": [
+     [
+      "**Unidad**",
+      "Un módulo o componente; generalmente lo hace **quien lo construyó**"
+     ],
+     [
+      "**Integración**",
+      "Grupos de módulos interconectados: detectar **fallos en la interacción**"
+     ],
+     [
+      "**Sistema**",
+      "El sistema en un **ambiente similar al real** (puede ser parte de un sistema mayor)"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ch5-t4",
+   "module": "m9",
+   "title": "5. Testing ágil",
+   "points": [
+    "Práctica de prueba en proyectos ágiles que incorpora técnicas como la **programación extrema (XP)**, trata el desarrollo como cliente de las pruebas y enfatiza el **diseño de prueba primero**: el equipo diseña las pruebas mientras analiza (ISTQB).",
+    "Comunicación continua: requisitos, pruebas y comportamiento esperado se definen en conjunto.",
+    "Cada miembro posee varios roles; **todos tienen habilidades de probador** → desaparece la fase de pruebas de los métodos tradicionales.",
+    "El probador ágil integra las necesidades del interesado y transforma historias de usuario en parámetros de prueba.",
+    "**Factor de éxito**: automatizar las pruebas de **regresión**; también deberían automatizarse las de **aceptación**."
+   ],
+   "table": {
+    "head": [
+     "Rol",
+     "Descripción"
+    ],
+    "rows": [
+     [
+      "Tester",
+      "Puede desempeñar varios roles; desarrolla y ejecuta pruebas"
+     ],
+     [
+      "Interesado",
+      "Persona o entidad que, apoyada en un analista, propone resolver un problema; elabora el discurso de los requisitos"
+     ],
+     [
+      "Equipo ágil",
+      "Expertos en software y en el dominio del negocio, trabajando hacia un fin en iteraciones cortas"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ch6-t0",
+   "module": "m11",
+   "title": "1. Sistema y sistema de información",
+   "points": [
+    "**Sistema:** Conjunto de elementos que se relacionan para alcanzar un fin.",
+    "**Sistema de información:** Según Schach, logra un **resultado empresarial**: recopila, manipula, almacena y crea reportes de información sobre las actividades del negocio para ayudar a la administración a manejar las operaciones.",
+    "Hay muchas clasificaciones; la materia se enfoca en **tiempo real, distribuidos y embebidos**."
+   ]
+  },
+  {
+   "id": "ch6-t1",
+   "module": "m11",
+   "title": "2. Sistemas de tiempo real",
+   "points": [
+    "Interactúan con el entorno de forma **rápida** y responden **en el tiempo dictado o especificado**.",
+    "El intervalo entre entrada y salida suele ser **muy pequeño**.",
+    "Su eficiencia depende de la **exactitud** de los resultados **y del momento** en que los entregan.",
+    "Característica principal: la **predictibilidad**.",
+    "Son más complejos de lo que parece: las interacciones entre componentes afectan el resultado temporal y cualquier cambio puede generar alteraciones impensadas.",
+    "Requieren técnicas de análisis, diseño y prueba poco usadas en otras áreas.",
+    "Se acoplan al mundo externo y operan en condiciones de rendimiento muy rigurosas.",
+    "Los afectan hardware, software, sistema operativo, requisitos y diseño.",
+    "Uso habitual: **control de entornos**, a veces con sensores.",
+    "Elementos: integración y rendimiento, manejo de interrupciones, bases de datos de tiempo real, **sistemas operativos de tiempo real** (importan los procesos, no el usuario; ej. VxWorks, Solaris, Lynx OS), lenguajes de tiempo real, sincronización y comunicación de tareas."
+   ],
+   "table": {
+    "head": [
+     "Fases de diseño",
+     ""
+    ],
+    "rows": [
+     [
+      "1",
+      "Identificar todas las tareas y las restricciones temporales que deben cumplirse"
+     ],
+     [
+      "2",
+      "Codificar los programas que ejecutarán las tareas"
+     ],
+     [
+      "3",
+      "Medir el tiempo de cómputo de cada tarea y analizar la planificación"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ch6-t2",
+   "module": "m11",
+   "title": "3. Sistemas distribuidos",
+   "points": [
+    "**Sommerville (2005):** El procesamiento de información se distribuye sobre **varias computadoras** en vez de estar confinado a una única máquina. \"En la actualidad, prácticamente todos los grandes sistemas informáticos son distribuidos.\"",
+    "Computadoras separadas físicamente, cada una con su hardware y software, conectadas por una red; se diseñan como **un sistema único con múltiples destinatarios**. El fallo de una no implica el fallo del sistema completo."
+   ],
+   "table": {
+    "head": [
+     "Ventaja",
+     "Detalle"
+    ],
+    "rows": [
+     [
+      "Compartir recursos",
+      "Hardware y software: impresoras, discos"
+     ],
+     [
+      "Sistemas abiertos",
+      "Protocolos estándar: combinar equipos de distintos proveedores"
+     ],
+     [
+      "Concurrencia",
+      "Procesos concurrentes"
+     ],
+     [
+      "Escalabilidad",
+      "Nuevos recursos, según la red"
+     ],
+     [
+      "Tolerancia a fallos",
+      "Si falla una computadora no cae toda la red (servicio algo degradado)"
+     ]
+    ]
+   },
+   "trap": "**Pruebas.** Probar sistemas distribuidos (p. ej. cliente-servidor) cuesta **más tiempo y dinero** que sistemas independientes: influyen la red, plataformas heterogéneas, etc. (tema de la autoevaluación)."
+  },
+  {
+   "id": "ch6-t3",
+   "module": "m11",
+   "title": "4. Sistemas embebidos",
+   "points": [
+    "Las funciones del software **no suelen estar a la vista** del usuario.",
+    "Realizan **una o pocas funciones**, generalmente en **tiempo real**.",
+    "Componentes en una **placa base**; pueden no parecer computadoras (reloj de taxi, microondas, reloj digital).",
+    "Se suelen programar en **lenguaje ensamblador** sobre el microprocesador.",
+    "Fabricación **masiva** para reducir costos; **procesador y memoria pequeños**.",
+    "Un fallo en un elemento obliga a **reparar o reemplazar la placa** entera.",
+    "Sus controladores pueden ser **más lentos** que los de una PC."
+   ],
+   "table": {
+    "head": [
+     "",
+     "Tiempo real",
+     "Embebido"
+    ],
+    "rows": [
+     [
+      "Se define por",
+      "Responder a tiempo, de forma predecible",
+      "Estar oculto en un dispositivo con pocas funciones"
+     ],
+     [
+      "Relación",
+      "Puede no ser embebido (control industrial en PC)",
+      "Generalmente es de tiempo real"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ch7-t0",
+   "module": "m12",
+   "title": "1. Evolución y mantenimiento",
+   "points": [
+    "Una vez desarrollado, un sistema inevitablemente sufre **modificaciones para adaptarse a cambios del entorno** y seguir siendo útil. Las organizaciones dependen de esos sistemas y deben seguir invirtiendo en mantenerlos o evolucionarlos. Problema: si el sistema es útil se le pedirá que se adapte, y esa adaptación **degrada su estructura** en forma paulatina.",
+    "**Mantenimiento:** Cambiar algo del sistema **después de entregado** al cliente: desde corregir un error en una línea de código hasta corregir errores de diseño o incorporar nuevos requerimientos.",
+    "Costos **altos**: agregar funcionalidad con el sistema funcionando es mucho más caro que durante el desarrollo.",
+    "Introducir cambios **inevitablemente introduce defectos**."
+   ]
+  },
+  {
+   "id": "ch7-t1",
+   "module": "m12",
+   "title": "2. Reingeniería",
+   "points": [
+    "Proceso mediante el cual se busca **mejorar un software existente**. Las sucesivas modificaciones hacen estragos en programas que quizá estaban optimizados; la reingeniería mejora su estructura y comprensión.",
+    "**Sommerville:** Puede implicar **redocumentar** el sistema, **organizarlo y reestructurarlo**, **traducirlo** a un lenguaje más moderno y **modificar y actualizar la estructura y valores de los datos**. Generalmente se hace **sin cambiar su funcionalidad ni su arquitectura**."
+   ],
+   "table": {
+    "head": [
+     "",
+     "Reingeniería",
+     "Sistema nuevo desde cero"
+    ],
+    "rows": [
+     [
+      "Riesgo",
+      "**Menor**",
+      "Alto, sobre todo en sistemas críticos: un retraso puede causar daños severos"
+     ],
+     [
+      "Costo",
+      "**Menor** (aunque tiene costo)",
+      "Siempre mayor"
+     ]
+    ]
+   }
+  },
+  {
+   "id": "ch7-t2",
+   "module": "m12",
+   "title": "3. Métodos formales",
+   "points": [
+    "**Métodos formales:** Técnicas con **bases matemáticas** para describir las propiedades del sistema; dan marcos conceptuales para **especificar, desarrollar y verificar** sistemas de manera rigurosa y no ad hoc (Encyclopedia of Software Engineering).",
+    "En ingenierías como la electrónica o la civil se usan técnicas matemáticas; en software, aunque desde los 80 se los señaló como el camino para mejorar la calidad, **no se incorporaron a todos los desarrollos**:",
+    "Otras herramientas lograron avances en calidad: nuevas metodologías, lenguajes orientados a objetos, administración de configuraciones.",
+    "El mercado prioriza la **interfaz con el usuario** y los **desarrollos rápidos**, y las especificaciones formales no son aptas para ninguna de las dos.",
+    "Los métodos formales **no son escalables**: exitosos en aplicaciones críticas pequeñas; se descontrolan si el tamaño crece."
+   ]
+  },
+  {
+   "id": "ch7-t3",
+   "module": "m12",
+   "title": "4. Aproximaciones y lenguajes",
+   "points": [
+    "**Puntos clave:** Complementan las especificaciones informales por ser **precisas y no ambiguas**; **fuerzan a analizar los requerimientos temprano**, cuando corregir es menos costoso; son excelentes para **sistemas críticos** donde se prioriza seguridad y confiabilidad."
+   ],
+   "table": {
+    "head": [
+     "",
+     "Algebraica",
+     "Basada en modelos"
+    ],
+    "rows": [
+     [
+      "Idea",
+      "Describe el sistema mediante **operaciones y sus relaciones**",
+      "Construye un **modelo** con conjuntos y sucesiones; indica cómo cada operación **modifica el estado**"
+     ],
+     [
+      "Útil para",
+      "Especificar **interfaces** (clases de objetos, tipos abstractos de datos): **oculta el estado**",
+      "Mostrar el **estado** y simplificar el **comportamiento** con pre y postcondiciones"
+     ],
+     [
+      "Secuencial",
+      "Larch, OBJ",
+      "Z, VDM, B"
+     ],
+     [
+      "Concurrente",
+      "Lotos",
+      "CSP, redes de Petri"
+     ]
+    ]
+   }
+  }
+ ],
+ "questions": [
+  {
+   "id": "c1q1",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "Según la definición de Jacobson, Rumbaugh y Booch, un caso de uso es…",
+   "options": [
+    "Un conjunto de secuencias de acciones, con variantes, que ejecuta el sistema para producir un resultado observable de valor para un actor",
+    "La pantalla con la que el usuario interactúa para cargar datos",
+    "Una lista de funciones técnicas que debe programar el equipo",
+    "El conjunto de actores que participan de un proceso de negocio"
+   ],
+   "answer": 0,
+   "explain": "La clave es \"resultado observable de valor para un actor\": el caso de uso se define por el objetivo, no por pantallas ni funciones técnicas.",
+   "why": [
+    null,
+    "Eso es más cercano a un prototipo o mockup, no a un caso de uso.",
+    "Un caso de uso describe interacción con valor para un actor, no tareas de programación.",
+    null
+   ]
+  },
+  {
+   "id": "c1q2",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Si el actor es una persona, en el diagrama se coloca su nombre (por ejemplo, \"María López\") para identificarla con precisión.",
+   "answer": false,
+   "explain": "Se coloca el ROL que representa (\"Socio\", \"Bibliotecario\"), porque una misma persona puede interactuar con roles distintos."
+  },
+  {
+   "id": "c1q4",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "¿Qué caracteriza a un actor secundario?",
+   "options": [
+    "Es requerido por el caso de uso, por ejemplo para notificarlo, pero no lo inicia",
+    "Es el actor menos importante del sistema",
+    "Inicia el caso de uso cuando el primario no está disponible",
+    "Es un empleado interno que procesa la acción"
+   ],
+   "answer": 0,
+   "explain": "Primario = inicia para lograr su objetivo. Secundario = es usado/requerido por el caso de uso (p. ej. el socio que recibe el mail del informe).",
+   "why": [
+    null,
+    null,
+    "Si dos actores pueden iniciar el mismo caso se usa herencia de actores, no \"secundario\".",
+    "Los empleados que procesan son parte del sistema según la cátedra."
+   ]
+  },
+  {
+   "id": "c1q5",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Cada caso de uso puede ser iniciado únicamente por un actor; si más de uno puede iniciarlo, se usa una relación de herencia entre actores.",
+   "answer": true,
+   "explain": "Es una regla explícita de la teoría: un único iniciador; varios iniciadores se resuelven generalizando en un actor padre."
+  },
+  {
+   "id": "c1q6",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "Narrativa: \"Una veterinaria atiende mascotas con turno. El dueño de la mascota pide turno por teléfono a la recepcionista, que lo agenda. El veterinario atiende y registra el diagnóstico. Una vez por mes el laboratorio externo envía los resultados de los análisis.\" Con el criterio de la cátedra, ¿quién NO debería ser actor?",
+   "options": [
+    "La recepcionista",
+    "El dueño de la mascota",
+    "El laboratorio externo",
+    "Ninguno: todos son actores"
+   ],
+   "answer": 0,
+   "explain": "La recepcionista atiende y procesa el pedido: es parte del sistema (como el bibliotecario en Kameral). El dueño pide el turno y el laboratorio es una organización externa que provee información.",
+   "why": [
+    null,
+    null,
+    "Un sistema u organización externa que provee información sí es actor.",
+    "Taboada: no todos los que aparecen son usuarios/actores; quien procesa es parte del sistema."
+   ]
+  },
+  {
+   "id": "c1q7-0",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Cuáles nombres son adecuados para un caso de uso?\n→ Registrar préstamo",
+   "answer": true,
+   "explain": "Verbo en infinitivo + objeto principal, desde el punto de vista de quien lo usa. Pantallas, tablas u oraciones completas no son nombres de casos de uso."
+  },
+  {
+   "id": "c1q7-1",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Cuáles nombres son adecuados para un caso de uso?\n→ Devolver libro",
+   "answer": true,
+   "explain": "Verbo en infinitivo + objeto principal, desde el punto de vista de quien lo usa. Pantallas, tablas u oraciones completas no son nombres de casos de uso."
+  },
+  {
+   "id": "c1q7-2",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Cuáles nombres son adecuados para un caso de uso?\n→ Pantalla de socios",
+   "answer": false,
+   "explain": "Una pantalla es interfaz, no un objetivo del actor."
+  },
+  {
+   "id": "c1q7-3",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Cuáles nombres son adecuados para un caso de uso?\n→ Base de datos de libros",
+   "answer": false,
+   "explain": "Es un componente técnico."
+  },
+  {
+   "id": "c1q7-4",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Cuáles nombres son adecuados para un caso de uso?\n→ Solicitar reparación",
+   "answer": true,
+   "explain": "Verbo en infinitivo + objeto principal, desde el punto de vista de quien lo usa. Pantallas, tablas u oraciones completas no son nombres de casos de uso."
+  },
+  {
+   "id": "c1q7-5",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Cuáles nombres son adecuados para un caso de uso?\n→ El bibliotecario carga el libro",
+   "answer": false,
+   "explain": "Es una oración con sujeto; además el sujeto es interno."
+  },
+  {
+   "id": "c1q8",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "¿Cuál es el ítem mejor formulado para la lista de requerimientos del parcial?",
+   "options": [
+    "El sistema debe gestionar las solicitudes de reparación",
+    "Crear la tabla Reparaciones con clave primaria",
+    "El botón \"Guardar\" debe ser azul",
+    "El técnico repara el aparato"
+   ],
+   "answer": 0,
+   "explain": "La profesora usa \"El sistema debe gestionar/proveer…\" + proceso de negocio. Lo demás es diseño técnico, detalle de interfaz o una descripción de la narrativa."
+  },
+  {
+   "id": "c1q9-0",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Observá el diagrama (líneas numeradas). ¿Qué errores tiene según el criterio de la cátedra?\n→ El bibliotecario figura como actor aunque es parte del sistema",
+   "answer": true,
+   "explain": "Kameral se modela con Persona no asociada, Socio y Coordinador como actores; el bibliotecario es interno; los actores llevan rol; \"login\" es técnico. El coordinador sí inicia el informe y el sistema sí lleva nombre."
+  },
+  {
+   "id": "c1q9-1",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Observá el diagrama (líneas numeradas). ¿Qué errores tiene según el criterio de la cátedra?\n→ El socio aparece con nombre propio en lugar de rol",
+   "answer": true,
+   "explain": "Kameral se modela con Persona no asociada, Socio y Coordinador como actores; el bibliotecario es interno; los actores llevan rol; \"login\" es técnico. El coordinador sí inicia el informe y el sistema sí lleva nombre."
+  },
+  {
+   "id": "c1q9-2",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Observá el diagrama (líneas numeradas). ¿Qué errores tiene según el criterio de la cátedra?\n→ \"Pantalla de login\" no es un caso de uso de negocio",
+   "answer": true,
+   "explain": "Kameral se modela con Persona no asociada, Socio y Coordinador como actores; el bibliotecario es interno; los actores llevan rol; \"login\" es técnico. El coordinador sí inicia el informe y el sistema sí lleva nombre."
+  },
+  {
+   "id": "c1q9-3",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Observá el diagrama (líneas numeradas). ¿Qué errores tiene según el criterio de la cátedra?\n→ Falta el actor que pide asociarse (persona no asociada)",
+   "answer": true,
+   "explain": "Kameral se modela con Persona no asociada, Socio y Coordinador como actores; el bibliotecario es interno; los actores llevan rol; \"login\" es técnico. El coordinador sí inicia el informe y el sistema sí lleva nombre."
+  },
+  {
+   "id": "c1q9-4",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Observá el diagrama (líneas numeradas). ¿Qué errores tiene según el criterio de la cátedra?\n→ El coordinador no debería estar conectado al informe",
+   "answer": false,
+   "explain": "El coordinador es quien inicia el informe de préstamos (CU4)."
+  },
+  {
+   "id": "c1q9-5",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Observá el diagrama (líneas numeradas). ¿Qué errores tiene según el criterio de la cátedra?\n→ El sistema no debería tener nombre",
+   "answer": false,
+   "explain": "La teoría indica escribir el nombre del sistema en el borde interno del rectángulo."
+  },
+  {
+   "id": "c1q12",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Para Kameral, un diagrama con 15 casos de uso (ABM de socios, ABM de libros, login, consultar stock, imprimir comprobante…) es más completo y por eso mejor para el parcial.",
+   "answer": false,
+   "explain": "La cátedra pide el proceso macro, de negocio. La solución docente de Kameral tiene 4 casos de uso. Bajar a ABM y funciones técnicas es pensar \"en la computadora\"."
+  },
+  {
+   "id": "c1q14",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "¿Cuál es un requerimiento NO funcional?",
+   "options": [
+    "Las consultas deben responderse en menos de cinco segundos",
+    "El sistema debe registrar los pedidos de los clientes",
+    "El sistema debe emitir el listado mensual de trabajos",
+    "El sistema debe gestionar la devolución de aparatos"
+   ],
+   "answer": 0,
+   "explain": "Un RNF expresa una restricción o atributo de calidad (rendimiento). Las otras opciones describen qué hace el sistema: son funcionales."
+  },
+  {
+   "id": "c1m1",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "Narrativa: \"En una cochera, el conductor deja su auto y el playero le entrega un ticket. Al retirarlo, el playero cobra según las horas. La administradora recibe cada noche el total recaudado.\" ¿Cuál es el conjunto correcto de actores?",
+   "options": [
+    "Conductor y Administradora",
+    "Playero y Administradora",
+    "Conductor, Playero y Administradora",
+    "Solo el Playero, porque es quien usa el sistema"
+   ],
+   "answer": 0,
+   "explain": "El playero atiende y procesa (parte del sistema). Los externos son el conductor (deja y retira) y la administradora (recibe el total).",
+   "why": [
+    null,
+    "Es el error que la cátedra corrigió en los TP: tomar al empleado que atiende como actor.",
+    null,
+    "Esa es la visión \"computadora\", no la de negocio."
+   ]
+  },
+  {
+   "id": "c1m2-0",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Para la cochera, ¿qué casos de uso tienen sentido a nivel de negocio?\n→ Ingresar vehículo",
+   "answer": true,
+   "explain": "Son los objetivos de los actores externos. Imprimir, ABM y login son detalles técnicos o internos."
+  },
+  {
+   "id": "c1m2-1",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Para la cochera, ¿qué casos de uso tienen sentido a nivel de negocio?\n→ Retirar vehículo",
+   "answer": true,
+   "explain": "Son los objetivos de los actores externos. Imprimir, ABM y login son detalles técnicos o internos."
+  },
+  {
+   "id": "c1m2-2",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Para la cochera, ¿qué casos de uso tienen sentido a nivel de negocio?\n→ Informar recaudación diaria",
+   "answer": true,
+   "explain": "Son los objetivos de los actores externos. Imprimir, ABM y login son detalles técnicos o internos."
+  },
+  {
+   "id": "c1m2-3",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Para la cochera, ¿qué casos de uso tienen sentido a nivel de negocio?\n→ Imprimir ticket en la impresora térmica",
+   "answer": false,
+   "explain": "Son los objetivos de los actores externos. Imprimir, ABM y login son detalles técnicos o internos."
+  },
+  {
+   "id": "c1m2-4",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Para la cochera, ¿qué casos de uso tienen sentido a nivel de negocio?\n→ ABM de tarifas",
+   "answer": false,
+   "explain": "Son los objetivos de los actores externos. Imprimir, ABM y login son detalles técnicos o internos."
+  },
+  {
+   "id": "c1m2-5",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Para la cochera, ¿qué casos de uso tienen sentido a nivel de negocio?\n→ Iniciar sesión del playero",
+   "answer": false,
+   "explain": "Son los objetivos de los actores externos. Imprimir, ABM y login son detalles técnicos o internos."
+  },
+  {
+   "id": "c1m3",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "En el diagrama de casos de uso, el rectángulo indica la frontera entre el sistema y su entorno; los actores se ubican fuera de él.",
+   "answer": true,
+   "explain": "Casos de uso adentro, actores afuera, nombre del sistema en el borde interno."
+  },
+  {
+   "id": "c1m4",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "En una biblioteca universitaria, tanto alumnos como docentes pueden solicitar libros. ¿Cómo se modela correctamente?",
+   "options": [
+    "Un actor general \"Usuario de biblioteca\" que inicia Solicitar libro, del que heredan Alumno y Docente",
+    "Alumno y Docente conectados ambos como primarios a Solicitar libro",
+    "Dos casos de uso iguales, uno por actor, con el mismo nombre",
+    "Docente como actor secundario de Alumno"
+   ],
+   "answer": 0,
+   "explain": "Un caso de uso tiene un único iniciador; varios iniciadores se resuelven con herencia de actores."
+  },
+  {
+   "id": "c1m6",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "En el servicio técnico de la profesora, cuando un cliente solicita una reparación \"se le avisa al Servicio Técnico de la nueva solicitud\". En ese caso de uso, el Servicio Técnico es…",
+   "options": [
+    "Actor secundario",
+    "Actor primario",
+    "Parte interna del sistema, sin representación",
+    "Un caso de uso incluido"
+   ],
+   "answer": 0,
+   "explain": "En la resolución de la profesora: \"Actores: Cliente (P), Soporte Técnico (S)\". El cliente inicia; el servicio técnico es notificado."
+  },
+  {
+   "id": "c1m7",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "En la resolución de Kameral, los requerimientos y los casos de uso se corresponden: cada función básica del negocio aparece como un caso de uso.",
+   "answer": true,
+   "explain": "Taboada: \"están las 4 funciones básicas: alta, devolución, solicitud e informe. Son los 4 requerimientos\"."
+  },
+  {
+   "id": "c2q1",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "El nombre en el cuadro de descripción debe coincidir con el nombre del caso de uso en el diagrama.",
+   "answer": true,
+   "explain": "La teoría lo indica explícitamente: identifica a qué caso de uso corresponde el cuadro."
+  },
+  {
+   "id": "c2q2",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "¿Qué describe el curso normal?",
+   "options": [
+    "La secuencia de interacciones cuando todas las condiciones y controles salen bien",
+    "Solo las acciones que realiza el actor",
+    "Los errores técnicos que puede tener el sistema",
+    "El orden en que se programan las pantallas"
+   ],
+   "answer": 0,
+   "explain": "Es el camino \"feliz\" e incluye tanto lo que hace el actor como lo que hace el sistema.",
+   "why": [
+    null,
+    "La teoría pide incluir lo que hace el actor y lo que hace el sistema.",
+    null,
+    null
+   ]
+  },
+  {
+   "id": "c2q3",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "En el curso normal, el paso 3 valida que el aparato corresponda al abono. ¿Cómo se numera la alternativa si no corresponde?",
+   "options": [
+    "3.1",
+    "1",
+    "A",
+    "4"
+   ],
+   "answer": 0,
+   "explain": "La alternativa se numera desde el paso donde se produce: 3.1, 3.2…"
+  },
+  {
+   "id": "c2q6-0",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Qué problemas tiene este cuadro?\n→ El actor primario es un empleado interno en vez del socio",
+   "answer": true,
+   "explain": "Es la visión \"computadora\": actor interno, pantallas, sin reglas ni numeración docente. El problema no es la cantidad de pasos."
+  },
+  {
+   "id": "c2q6-1",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Qué problemas tiene este cuadro?\n→ El nombre no coincide con el caso de uso del diagrama (Solicitar libro)",
+   "answer": true,
+   "explain": "Es la visión \"computadora\": actor interno, pantallas, sin reglas ni numeración docente. El problema no es la cantidad de pasos."
+  },
+  {
+   "id": "c2q6-2",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Qué problemas tiene este cuadro?\n→ Describe pantallas y botones en lugar de la interacción de negocio",
+   "answer": true,
+   "explain": "Es la visión \"computadora\": actor interno, pantallas, sin reglas ni numeración docente. El problema no es la cantidad de pasos."
+  },
+  {
+   "id": "c2q6-3",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Qué problemas tiene este cuadro?\n→ La alternativa no está numerada desde el paso donde ocurre",
+   "answer": true,
+   "explain": "Es la visión \"computadora\": actor interno, pantallas, sin reglas ni numeración docente. El problema no es la cantidad de pasos."
+  },
+  {
+   "id": "c2q6-4",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Qué problemas tiene este cuadro?\n→ Falta FCU y faltan pre y postcondición",
+   "answer": true,
+   "explain": "Es la visión \"computadora\": actor interno, pantallas, sin reglas ni numeración docente. El problema no es la cantidad de pasos."
+  },
+  {
+   "id": "c2q6-5",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Qué problemas tiene este cuadro?\n→ Tiene demasiados pasos",
+   "answer": false,
+   "explain": "Son tres pasos: el problema es qué describen, no cuántos son."
+  },
+  {
+   "id": "c2q8",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "Según la teoría, un caso de uso extiende a otro cuando…",
+   "options": [
+    "Tiene una parte de la funcionalidad que no siempre ocurre",
+    "Es un escenario común a varios casos de uso",
+    "Representa un error o una excepción del caso base",
+    "Lo inicia un actor secundario"
+   ],
+   "answer": 0,
+   "explain": "Ejemplo de Jacobson: Cenar puede extenderse con Tomar café; no es un error, simplemente puede darse o no.",
+   "why": [
+    null,
+    "Eso describe la relación de uso («include»).",
+    "La teoría aclara que la extensión no es un error ni una excepción.",
+    null
+   ]
+  },
+  {
+   "id": "c2q9",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "La relación de uso («include») se da cuando…",
+   "options": [
+    "Un caso de uso está incluido en otro y es un escenario común a más de un caso",
+    "Una funcionalidad puede o no ocurrir",
+    "Dos actores inician el mismo caso de uso",
+    "Un caso de uso se divide en historias de usuario"
+   ],
+   "answer": 0,
+   "explain": "Suele aparecer después de especificar varios casos, como funcionalidad común (Consultar socio para préstamo y devolución)."
+  },
+  {
+   "id": "c2q10",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Las relaciones de extensión y uso pueden darse entre un actor y un caso de uso.",
+   "answer": false,
+   "explain": "Se presentan únicamente entre casos de uso, y ambos deben ser casos de uso en sí mismos."
+  },
+  {
+   "id": "c2q11",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "En la práctica del parcial es obligatorio representar al menos un «include» o un «extend» en el diagrama de casos de uso.",
+   "answer": false,
+   "explain": "Taboada: por el nivel de práctica que buscan no se meten ni con include ni con extend."
+  },
+  {
+   "id": "c2q12",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "Para \"Solicitar alta\" del servicio técnico, ¿cuál es la postcondición adecuada?",
+   "options": [
+    "Emitido el número de cliente",
+    "La persona posee aparatos telefónicos",
+    "Sistema valida la información",
+    "Datos incorrectos"
+   ],
+   "answer": 0,
+   "explain": "La postcondición es el estado al terminar bien. Poseer aparatos es precondición; validar es un paso; datos incorrectos es una alternativa."
+  },
+  {
+   "id": "c2q14",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "¿Por qué la cátedra pide la descripción del mismo caso de uso que el diagrama de secuencia?",
+   "options": [
+    "Para verificar que la secuencia se corresponda en orden con la descripción",
+    "Porque la descripción reemplaza al diagrama de casos de uso",
+    "Porque así se evalúa la ortografía",
+    "Porque el diagrama de secuencia no tiene alternativas"
+   ],
+   "answer": 0,
+   "explain": "Blanco: tiene que haber coherencia entre la descripción y la secuencia; sin la descripción no pueden validar que esté bien aplicada."
+  },
+  {
+   "id": "c2m1",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "Curso normal: 1 Cliente pide turno; 2 Sistema verifica disponibilidad; 3 Sistema registra el turno; 4 FCU. Si no hay disponibilidad, la alternativa correcta es…",
+   "options": [
+    "2.1 No hay turno disponible · 2.2 Sistema informa y ofrece otra fecha · 2.3 FCU",
+    "1.1 No hay turno · FCU",
+    "A) No hay turno",
+    "5. No hay turno · FCU"
+   ],
+   "answer": 0,
+   "explain": "La falta de disponibilidad se detecta en el paso 2."
+  },
+  {
+   "id": "c2m2-0",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Qué elementos debe tener el cuadro según el formato de la cátedra?\n→ Id y Nombre",
+   "answer": true,
+   "explain": "El diseño de pantallas corresponde a prototipos/mockups, no a la descripción del caso de uso."
+  },
+  {
+   "id": "c2m2-1",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Qué elementos debe tener el cuadro según el formato de la cátedra?\n→ Actores con (P)/(S)",
+   "answer": true,
+   "explain": "El diseño de pantallas corresponde a prototipos/mockups, no a la descripción del caso de uso."
+  },
+  {
+   "id": "c2m2-2",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Qué elementos debe tener el cuadro según el formato de la cátedra?\n→ Objetivo",
+   "answer": true,
+   "explain": "El diseño de pantallas corresponde a prototipos/mockups, no a la descripción del caso de uso."
+  },
+  {
+   "id": "c2m2-3",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Qué elementos debe tener el cuadro según el formato de la cátedra?\n→ Precondición y Postcondición",
+   "answer": true,
+   "explain": "El diseño de pantallas corresponde a prototipos/mockups, no a la descripción del caso de uso."
+  },
+  {
+   "id": "c2m2-4",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Qué elementos debe tener el cuadro según el formato de la cátedra?\n→ Flujo normal y Alternativa",
+   "answer": true,
+   "explain": "El diseño de pantallas corresponde a prototipos/mockups, no a la descripción del caso de uso."
+  },
+  {
+   "id": "c2m2-5",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Qué elementos debe tener el cuadro según el formato de la cátedra?\n→ Diseño de la pantalla",
+   "answer": false,
+   "explain": "El diseño de pantallas corresponde a prototipos/mockups, no a la descripción del caso de uso."
+  },
+  {
+   "id": "c2m3",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "En la descripción del curso normal debe incluirse tanto lo que hará el actor como lo que hará el sistema, y los pasos deben numerarse.",
+   "answer": true,
+   "explain": "Es lo que indica la teoría."
+  },
+  {
+   "id": "c2m4",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "En una biblioteca, si al pedir un libro la cuota está impaga, se cobra en ese momento. En teoría, ¿qué relación representaría mejor \"Cobrar cuota\" respecto de \"Solicitar libro\"?",
+   "options": [
+    "«extend»: no siempre ocurre",
+    "«include»: siempre ocurre en varios casos",
+    "Herencia de actores",
+    "Asociación con el socio solamente"
+   ],
+   "answer": 0,
+   "explain": "Solo ocurre si la cuota está impaga: funcionalidad que puede darse o no. (En la práctica del parcial no se exige representarlo)."
+  },
+  {
+   "id": "c2m7",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "¿Cuál de estos pasos está mal redactado para el flujo normal?",
+   "options": [
+    "Presionar el botón Guardar",
+    "Sistema registra el retiro del libro",
+    "Socio solicita el retiro de un libro",
+    "Sistema valida al socio"
+   ],
+   "answer": 0,
+   "explain": "Describe un detalle de interfaz sin sujeto; los pasos dicen quién hace qué a nivel de negocio."
+  },
+  {
+   "id": "c3q1",
+   "module": "m10",
+   "type": "mcq",
+   "prompt": "El diagrama de secuencia muestra principalmente…",
+   "options": [
+    "La interacción entre objetos desde un punto de vista temporal",
+    "La estructura de la base de datos",
+    "Los actores y casos de uso del sistema",
+    "El diseño de las pantallas"
+   ],
+   "answer": 0,
+   "explain": "Representa la secuencia de mensajes (emisor y receptor) para realizar una tarea, generalmente un caso de uso."
+  },
+  {
+   "id": "c3q3",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "En un diagrama de secuencia, las flechas ubicadas más arriba se ejecutan antes que las de abajo.",
+   "answer": true,
+   "explain": "El orden temporal está dado por la altura de la flecha."
+  },
+  {
+   "id": "c3q4",
+   "module": "m10",
+   "type": "mcq",
+   "prompt": "¿Qué significa *[hay vencidos] antes de un mensaje?",
+   "options": [
+    "El mensaje se repite mientras haya vencidos",
+    "El mensaje se ejecuta una sola vez si hay vencidos",
+    "El mensaje es opcional para el usuario",
+    "El mensaje devuelve una lista de vencidos"
+   ],
+   "answer": 0,
+   "explain": "El asterisco indica iteración: se repite mientras la condición sea verdadera. Sin asterisco, [condición] ejecuta el mensaje solo si es verdadera."
+  },
+  {
+   "id": "c3q5-0",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "Observá este diagrama de Solicitar libro. ¿Qué errores tiene?\n→ El actor le envía un mensaje directamente a una entidad (1)",
+   "answer": true,
+   "explain": "El actor solo habla con la interfaz; el control debe pedir los datos y validar antes de registrar; la respuesta debe volver interfaz → actor. Sí hay control (Retirar)."
+  },
+  {
+   "id": "c3q5-1",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "Observá este diagrama de Solicitar libro. ¿Qué errores tiene?\n→ Falta la validación del socio por parte del control antes de registrar",
+   "answer": true,
+   "explain": "El actor solo habla con la interfaz; el control debe pedir los datos y validar antes de registrar; la respuesta debe volver interfaz → actor. Sí hay control (Retirar)."
+  },
+  {
+   "id": "c3q5-2",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "Observá este diagrama de Solicitar libro. ¿Qué errores tiene?\n→ No aparece ningún objeto de control",
+   "answer": false,
+   "explain": "Retirar es un objeto de control."
+  },
+  {
+   "id": "c3q5-3",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "Observá este diagrama de Solicitar libro. ¿Qué errores tiene?\n→ La respuesta no llega al actor",
+   "answer": true,
+   "explain": "El actor solo habla con la interfaz; el control debe pedir los datos y validar antes de registrar; la respuesta debe volver interfaz → actor. Sí hay control (Retirar)."
+  },
+  {
+   "id": "c3q5-4",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "Observá este diagrama de Solicitar libro. ¿Qué errores tiene?\n→ El orden no coincide con la descripción (el actor pide datos antes de solicitar)",
+   "answer": true,
+   "explain": "El actor solo habla con la interfaz; el control debe pedir los datos y validar antes de registrar; la respuesta debe volver interfaz → actor. Sí hay control (Retirar)."
+  },
+  {
+   "id": "c3q6",
+   "module": "m10",
+   "type": "mcq",
+   "prompt": "¿Cuál es el error principal de este diagrama?",
+   "options": [
+    "No tiene objeto de control: la interfaz está procesando el caso de uso",
+    "Tiene demasiadas entidades",
+    "El actor debería estar en el medio",
+    "Faltan los períodos de actividad"
+   ],
+   "answer": 0,
+   "explain": "Todo diagrama debe tener los tres tipos; la interfaz captura pero no procesa. Los períodos de actividad son opcionales en la práctica.",
+   "why": [
+    null,
+    null,
+    null,
+    "Blanco: si no hacen los períodos de actividad se toma igual."
+   ]
+  },
+  {
+   "id": "c3q9",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "Como en la descripción, en el diagrama de secuencia el curso normal y la alternativa se dibujan en diagramas separados.",
+   "answer": false,
+   "explain": "Taboada: en la secuencia la alternativa aparece en el medio, con condición; es una sola de punta a punta."
+  },
+  {
+   "id": "c3q10",
+   "module": "m10",
+   "type": "mcq",
+   "prompt": "En Solicitar reparación hay que avisar al Servicio Técnico (actor secundario). ¿Cómo se representa?",
+   "options": [
+    "Con otra interfaz al final que se comunica con el Servicio Técnico, ubicado en el extremo derecho",
+    "Con el Servicio Técnico en el medio del diagrama, junto al control",
+    "Con una entidad \"Servicio Técnico\" que recibe el mensaje",
+    "No se representa: los secundarios no aparecen en la secuencia"
+   ],
+   "answer": 0,
+   "explain": "Taboada: empieza en una interfaz y termina en otra; los actores siempre en los extremos (Blanco)."
+  },
+  {
+   "id": "c3q11-0",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "Comparado con la descripción del CU-02, ¿qué está mal en este diagrama?\n→ Registra el retiro (3) antes de obtener y validar al socio (4 y 5)",
+   "answer": true,
+   "explain": "El orden debe seguir la descripción: pedir datos, validar, y recién registrar; además falta la alternativa [retiro sin devolución] y Libros nunca participa. Que el actor esté a la izquierda es correcto, no un error."
+  },
+  {
+   "id": "c3q11-1",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "Comparado con la descripción del CU-02, ¿qué está mal en este diagrama?\n→ No muestra la alternativa del socio con retiro pendiente",
+   "answer": true,
+   "explain": "El orden debe seguir la descripción: pedir datos, validar, y recién registrar; además falta la alternativa [retiro sin devolución] y Libros nunca participa. Que el actor esté a la izquierda es correcto, no un error."
+  },
+  {
+   "id": "c3q11-2",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "Comparado con la descripción del CU-02, ¿qué está mal en este diagrama?\n→ Le falta la entidad Libros en los mensajes",
+   "answer": true,
+   "explain": "El orden debe seguir la descripción: pedir datos, validar, y recién registrar; además falta la alternativa [retiro sin devolución] y Libros nunca participa. Que el actor esté a la izquierda es correcto, no un error."
+  },
+  {
+   "id": "c3q11-3",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "Comparado con la descripción del CU-02, ¿qué está mal en este diagrama?\n→ El actor está bien ubicado a la izquierda",
+   "answer": false,
+   "explain": "Eso es correcto, no un error."
+  },
+  {
+   "id": "c3q12",
+   "module": "m10",
+   "type": "mcq",
+   "prompt": "Respecto del diagrama de secuencia, el de colaboración…",
+   "options": [
+    "Muestra la misma información, pero con objetos unidos por links y mensajes numerados",
+    "Muestra información diferente: los atributos de cada objeto",
+    "No permite representar condiciones ni iteraciones",
+    "Reemplaza al diagrama de casos de uso"
+   ],
+   "answer": 0,
+   "explain": "La diferencia es gráfica; selección e iteración se denotan igual."
+  },
+  {
+   "id": "c3q13",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "El período de actividad se representa con un rectángulo sobre la línea de vida y en la práctica del parcial es obligatorio dibujarlo.",
+   "answer": false,
+   "explain": "Se representa así, pero la cátedra aclaró que si se omite en la práctica se acepta igual."
+  },
+  {
+   "id": "c3q15",
+   "module": "m10",
+   "type": "mcq",
+   "prompt": "En una narrativa, el sistema debe \"registrar la reparación con su costo\". ¿Qué objeto guarda ese costo?",
+   "options": [
+    "Una entidad (p. ej. Solicitudes o Reparaciones)",
+    "El control",
+    "La interfaz",
+    "El actor Servicio Técnico"
+   ],
+   "answer": 0,
+   "explain": "La información que persiste se guarda en entidades; el control no recuerda datos."
+  },
+  {
+   "id": "c3m1",
+   "module": "m10",
+   "type": "mcq",
+   "prompt": "Un alumno dibuja: Cliente → Turnos (entidad): Pedir turno(). ¿Qué corrección corresponde?",
+   "options": [
+    "El cliente debe hablar con una interfaz, que delega en un control, que consulta la entidad Turnos",
+    "Está bien porque Turnos tiene la información",
+    "Hay que agregar un período de actividad",
+    "Turnos debería ser un actor"
+   ],
+   "answer": 0,
+   "explain": "Actor → Interfaz → Control → Entidad."
+  },
+  {
+   "id": "c3m2-0",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "¿Qué condiciones debe cumplir todo diagrama de secuencia según la cátedra?\n→ Tener objetos de interfaz, control y entidad",
+   "answer": true,
+   "explain": "Los períodos de actividad son opcionales en la práctica."
+  },
+  {
+   "id": "c3m2-1",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "¿Qué condiciones debe cumplir todo diagrama de secuencia según la cátedra?\n→ Seguir el orden de la descripción del caso de uso",
+   "answer": true,
+   "explain": "Los períodos de actividad son opcionales en la práctica."
+  },
+  {
+   "id": "c3m2-2",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "¿Qué condiciones debe cumplir todo diagrama de secuencia según la cátedra?\n→ Ubicar los actores en los extremos",
+   "answer": true,
+   "explain": "Los períodos de actividad son opcionales en la práctica."
+  },
+  {
+   "id": "c3m2-3",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "¿Qué condiciones debe cumplir todo diagrama de secuencia según la cátedra?\n→ Incluir obligatoriamente períodos de actividad",
+   "answer": false,
+   "explain": "Los períodos de actividad son opcionales en la práctica."
+  },
+  {
+   "id": "c3m2-4",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "¿Qué condiciones debe cumplir todo diagrama de secuencia según la cátedra?\n→ Mostrar la alternativa con su condición en el mismo diagrama",
+   "answer": true,
+   "explain": "Los períodos de actividad son opcionales en la práctica."
+  },
+  {
+   "id": "c3m3",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "Los objetos de entidad modelan información que el sistema debe manejar a lo largo del tiempo y que sobrevive a los casos de uso.",
+   "answer": true,
+   "explain": "Definición de la teoría."
+  },
+  {
+   "id": "c3m4",
+   "module": "m10",
+   "type": "mcq",
+   "prompt": "Los objetos de control…",
+   "options": [
+    "Modelan la funcionalidad que no se asigna naturalmente a la interfaz ni a la información",
+    "Representan las pantallas del sistema",
+    "Almacenan los datos de los usuarios",
+    "Son los actores internos"
+   ],
+   "answer": 0,
+   "explain": "Su comportamiento son operaciones sobre entidades, devolviendo el resultado a una interfaz."
+  },
+  {
+   "id": "c3m6",
+   "module": "m10",
+   "type": "mcq",
+   "prompt": "En el diagrama, \"[stock suficiente] Registrar venta()\" significa…",
+   "options": [
+    "Registrar venta se ejecuta solo si hay stock suficiente",
+    "Registrar venta se repite mientras haya stock",
+    "Registrar venta es un mensaje recursivo",
+    "Registrar venta devuelve el stock"
+   ],
+   "answer": 0,
+   "explain": "Los corchetes expresan una condición; el asterisco indicaría repetición."
+  },
+  {
+   "id": "c3m7",
+   "module": "m10",
+   "type": "tf",
+   "prompt": "Un actor puede ubicarse entre el objeto de control y las entidades si eso simplifica el dibujo.",
+   "answer": false,
+   "explain": "Los actores quedan siempre en los extremos; si hay otro actor, se agrega otra interfaz al final."
+  },
+  {
+   "id": "c3m8",
+   "module": "m10",
+   "type": "mcq",
+   "prompt": "La descripción dice: \"2 Sistema valida al socio · 3 Sistema registra el retiro\". En tu secuencia, Registrar retiro() aparece antes que Dame socio(). ¿Qué pasa en la corrección?",
+   "options": [
+    "Se considera incorrecto porque el orden no se corresponde con la descripción",
+    "Da igual, el orden de las flechas no importa",
+    "Es correcto si Registrar retiro tiene condición",
+    "Es correcto porque el diagrama de secuencia no se compara con la descripción"
+   ],
+   "answer": 0,
+   "explain": "Blanco: tiene que haber coherencia entre la descripción y el diagrama de secuencia; el orden vertical es el orden temporal."
+  },
+  {
+   "id": "c4q1",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "Un prototipo es…",
+   "options": [
+    "Un modelo o maqueta que muestra las interfaces entre el sistema y el usuario y simula su interactividad",
+    "La versión final del sistema con datos reales",
+    "Un documento con la lista de requerimientos",
+    "Una prueba de rendimiento del sistema"
+   ],
+   "answer": 0,
+   "explain": "Simula entradas, salidas y la interactividad buscando parecerse al sistema final."
+  },
+  {
+   "id": "c4q2",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "La principal desventaja de desarrollar un prototipo es que no puede conocerse desde el comienzo cuánto tiempo llevará obtener un producto aceptable para el cliente.",
+   "answer": true,
+   "explain": "No se sabe cuántas iteraciones de ida y vuelta serán necesarias."
+  },
+  {
+   "id": "c4q3-0",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿En qué situaciones resulta especialmente útil un prototipo?\n→ Requerimientos que cambian rápidamente",
+   "answer": true,
+   "explain": "Son las tres situaciones que menciona la teoría; con requisitos estables no hace falta y el prototipo justamente dificulta estimar tiempos."
+  },
+  {
+   "id": "c4q3-1",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿En qué situaciones resulta especialmente útil un prototipo?\n→ Cliente poco abierto a entregar una lista completa de requerimientos",
+   "answer": true,
+   "explain": "Son las tres situaciones que menciona la teoría; con requisitos estables no hace falta y el prototipo justamente dificulta estimar tiempos."
+  },
+  {
+   "id": "c4q3-2",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿En qué situaciones resulta especialmente útil un prototipo?\n→ Ni el cliente ni el equipo conocen bien el área de aplicación",
+   "answer": true,
+   "explain": "Son las tres situaciones que menciona la teoría; con requisitos estables no hace falta y el prototipo justamente dificulta estimar tiempos."
+  },
+  {
+   "id": "c4q3-3",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿En qué situaciones resulta especialmente útil un prototipo?\n→ Requerimientos totalmente estables y documentados",
+   "answer": false,
+   "explain": "Son las tres situaciones que menciona la teoría; con requisitos estables no hace falta y el prototipo justamente dificulta estimar tiempos."
+  },
+  {
+   "id": "c4q3-4",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿En qué situaciones resulta especialmente útil un prototipo?\n→ Cuando se necesita estimar exactamente el tiempo del proyecto",
+   "answer": false,
+   "explain": "Son las tres situaciones que menciona la teoría; con requisitos estables no hace falta y el prototipo justamente dificulta estimar tiempos."
+  },
+  {
+   "id": "c4q4",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "¿Qué caracteriza a un mockup?",
+   "options": [
+    "Es una representación visual estática de un diseño",
+    "Simula toda la interactividad del sistema",
+    "Es código funcionando en producción",
+    "Es una historia de usuario con criterios de aceptación"
+   ],
+   "answer": 0,
+   "explain": "Muestra estructura y contenidos en forma estática (un video = imagen con ícono de play)."
+  },
+  {
+   "id": "c4q7",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "Una épica es…",
+   "options": [
+    "Una historia de usuario tan grande que debe dividirse en historias menores",
+    "La historia más importante del proyecto",
+    "Un caso de uso con include y extend",
+    "Un prototipo de alta fidelidad"
+   ],
+   "answer": 0,
+   "explain": "Difícilmente se implementa en una iteración, por eso se desagrega."
+  },
+  {
+   "id": "c4q8",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "\"Como usuario quiero que el sistema sea fácil de usar.\" ¿Qué atributo INVEST incumple más claramente?",
+   "options": [
+    "Comprobable",
+    "Independiente",
+    "Negociable",
+    "Valorable"
+   ],
+   "answer": 0,
+   "explain": "\"Fácil de usar\" no brinda información para probarlo: no hay criterio de verificación."
+  },
+  {
+   "id": "c4q9-0",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Según Gordon y Bieman (1995), ¿qué beneficios trae el prototipado?\n→ Mejor usabilidad",
+   "answer": true,
+   "explain": "Las pruebas siguen siendo necesarias."
+  },
+  {
+   "id": "c4q9-1",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Según Gordon y Bieman (1995), ¿qué beneficios trae el prototipado?\n→ Mayor coherencia entre necesidades y sistema",
+   "answer": true,
+   "explain": "Las pruebas siguen siendo necesarias."
+  },
+  {
+   "id": "c4q9-2",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Según Gordon y Bieman (1995), ¿qué beneficios trae el prototipado?\n→ Diseño de mejor calidad",
+   "answer": true,
+   "explain": "Las pruebas siguen siendo necesarias."
+  },
+  {
+   "id": "c4q9-3",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Según Gordon y Bieman (1995), ¿qué beneficios trae el prototipado?\n→ Mejor mantenimiento",
+   "answer": true,
+   "explain": "Las pruebas siguen siendo necesarias."
+  },
+  {
+   "id": "c4q9-4",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Según Gordon y Bieman (1995), ¿qué beneficios trae el prototipado?\n→ Menor esfuerzo de desarrollo",
+   "answer": true,
+   "explain": "Las pruebas siguen siendo necesarias."
+  },
+  {
+   "id": "c4q9-5",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Según Gordon y Bieman (1995), ¿qué beneficios trae el prototipado?\n→ Eliminación total de las pruebas",
+   "answer": false,
+   "explain": "Las pruebas siguen siendo necesarias."
+  },
+  {
+   "id": "c4q10",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Según los casos de uso 2.0, las historias de usuario permiten implementar un caso de uso porción por porción.",
+   "answer": true,
+   "explain": "Jacobson propone narrativas livianas; cada historia captura una parte del caso de uso."
+  },
+  {
+   "id": "c4m1",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "El mockup simula la interactividad completa del sistema con los usuarios.",
+   "answer": false,
+   "explain": "Es estático; quien simula la interactividad es el prototipo."
+  },
+  {
+   "id": "c4m2",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "Una historia que depende de que otra se haya implementado antes incumple…",
+   "options": [
+    "Independiente",
+    "Estimable",
+    "Valorable",
+    "Comprobable"
+   ],
+   "answer": 0,
+   "explain": "Debe ser autosuficiente."
+  },
+  {
+   "id": "c4m3",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "Las tres preguntas que responde una historia de usuario son…",
+   "options": [
+    "Quién es el beneficiario, qué se quiere hacer y cuál es el beneficio",
+    "Cuánto cuesta, cuándo se entrega y quién la programa",
+    "Qué pantalla, qué botón y qué color",
+    "Precondición, curso normal y postcondición"
+   ],
+   "answer": 0,
+   "explain": "Beneficiario, funcionalidad y valor de negocio."
+  },
+  {
+   "id": "c4m4-0",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Cuáles son pautas para desarrollar un prototipo?\n→ Usar términos familiares para los usuarios",
+   "answer": true,
+   "explain": "Los tecnicismos van contra la pauta de usar simbología familiar."
+  },
+  {
+   "id": "c4m4-1",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Cuáles son pautas para desarrollar un prototipo?\n→ Obstaculizar acciones destructivas de datos",
+   "answer": true,
+   "explain": "Los tecnicismos van contra la pauta de usar simbología familiar."
+  },
+  {
+   "id": "c4m4-2",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Cuáles son pautas para desarrollar un prototipo?\n→ Mostrar el estado de ejecución de las funciones",
+   "answer": true,
+   "explain": "Los tecnicismos van contra la pauta de usar simbología familiar."
+  },
+  {
+   "id": "c4m4-3",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Cuáles son pautas para desarrollar un prototipo?\n→ Agrupar funciones de forma lógica",
+   "answer": true,
+   "explain": "Los tecnicismos van contra la pauta de usar simbología familiar."
+  },
+  {
+   "id": "c4m4-4",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "¿Cuáles son pautas para desarrollar un prototipo?\n→ Usar la mayor cantidad posible de tecnicismos",
+   "answer": false,
+   "explain": "Los tecnicismos van contra la pauta de usar simbología familiar."
+  },
+  {
+   "id": "c4m5",
+   "module": "m8",
+   "type": "tf",
+   "prompt": "Que una historia sea \"negociable\" significa que puede cambiarse hasta que forme parte de una iteración.",
+   "answer": true,
+   "explain": "Definición de la teoría."
+  },
+  {
+   "id": "c4m6",
+   "module": "m8",
+   "type": "mcq",
+   "prompt": "Un cliente sabe exactamente lo que quiere, los requisitos están firmados y son estables. ¿Prototipar es lo más indicado para reducir riesgos?",
+   "options": [
+    "No especialmente: el prototipo rinde más con requisitos cambiantes o dominio desconocido",
+    "Sí, siempre es obligatorio",
+    "Sí, porque permite estimar el tiempo con precisión",
+    "No, porque los prototipos están prohibidos con requisitos firmados"
+   ],
+   "answer": 0,
+   "explain": "Las situaciones donde conviene son otras; además el prototipo dificulta estimar el tiempo."
+  },
+  {
+   "id": "c5q2",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "La prueba de aceptación es realizada por los usuarios y es una técnica de caja negra basada en la especificación de requerimientos.",
+   "answer": true,
+   "explain": "Definición de la teoría."
+  },
+  {
+   "id": "c5q4",
+   "module": "m9",
+   "type": "mcq",
+   "prompt": "Las pruebas de aceptación basadas en los requerimientos son…",
+   "options": [
+    "Pruebas de validación, no de búsqueda de defectos",
+    "Pruebas de unidad hechas por el programador",
+    "Pruebas de stress con datos ficticios",
+    "Pruebas que reemplazan a la verificación"
+   ],
+   "answer": 0,
+   "explain": "Buscan demostrar que el sistema implementó correctamente los requerimientos establecidos."
+  },
+  {
+   "id": "c5q6",
+   "module": "m9",
+   "type": "mcq",
+   "prompt": "¿Qué permite la trazabilidad \"hacia atrás desde los requerimientos\"?",
+   "options": [
+    "Conocer por qué existe cada requerimiento del SRS",
+    "Saber qué componentes satisfacen cada requerimiento",
+    "Que cada comportamiento del software refiera el requerimiento que satisface",
+    "Probar la integración de módulos"
+   ],
+   "answer": 0,
+   "explain": "Hacia atrás desde = hacia su origen.",
+   "why": [
+    null,
+    "Eso es hacia adelante desde los requerimientos.",
+    "Eso es hacia atrás hasta los requerimientos.",
+    null
+   ]
+  },
+  {
+   "id": "c5q7",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "Cuando el software pasa a ser operado y mantenido, la trazabilidad remota cobra más importancia.",
+   "answer": true,
+   "explain": "Al modificar diseño o código hay que identificar los requerimientos afectados."
+  },
+  {
+   "id": "c5q8-0",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "¿Cuáles son tipos de prueba que pueden ejecutarse en el sistema según la teoría?\n→ Recuperación",
+   "answer": true,
+   "explain": "Prototipación no es un tipo de prueba (también se menciona aceptación)."
+  },
+  {
+   "id": "c5q8-1",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "¿Cuáles son tipos de prueba que pueden ejecutarse en el sistema según la teoría?\n→ Seguridad",
+   "answer": true,
+   "explain": "Prototipación no es un tipo de prueba (también se menciona aceptación)."
+  },
+  {
+   "id": "c5q8-2",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "¿Cuáles son tipos de prueba que pueden ejecutarse en el sistema según la teoría?\n→ Resistencia o stress",
+   "answer": true,
+   "explain": "Prototipación no es un tipo de prueba (también se menciona aceptación)."
+  },
+  {
+   "id": "c5q8-3",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "¿Cuáles son tipos de prueba que pueden ejecutarse en el sistema según la teoría?\n→ Rendimiento",
+   "answer": true,
+   "explain": "Prototipación no es un tipo de prueba (también se menciona aceptación)."
+  },
+  {
+   "id": "c5q8-4",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "¿Cuáles son tipos de prueba que pueden ejecutarse en el sistema según la teoría?\n→ Regresión",
+   "answer": true,
+   "explain": "Prototipación no es un tipo de prueba (también se menciona aceptación)."
+  },
+  {
+   "id": "c5q8-5",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "¿Cuáles son tipos de prueba que pueden ejecutarse en el sistema según la teoría?\n→ Prototipación",
+   "answer": false,
+   "explain": "Prototipación no es un tipo de prueba (también se menciona aceptación)."
+  },
+  {
+   "id": "c5q9",
+   "module": "m9",
+   "type": "mcq",
+   "prompt": "Según la teoría, el factor de éxito del testing ágil es…",
+   "options": [
+    "Automatizar las pruebas de regresión",
+    "Tener una fase de pruebas separada al final",
+    "Que solo el tester pruebe",
+    "Eliminar las pruebas de aceptación"
+   ],
+   "answer": 0,
+   "explain": "Además deberían automatizarse las de aceptación. En ágil todos son probadores y desaparece la fase separada."
+  },
+  {
+   "id": "c5q10",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "En un equipo ágil, la fase de pruebas tradicional desaparece porque todos los miembros son probadores.",
+   "answer": true,
+   "explain": "Es lo que plantea la teoría."
+  },
+  {
+   "id": "c5q12",
+   "module": "m9",
+   "type": "mcq",
+   "prompt": "Requerimiento: \"el usuario podrá consultar un producto indicando un dato\". ¿Qué conjunto de pruebas de aceptación propone la teoría?",
+   "options": [
+    "Producto existente, producto inexistente y dato que coincida con varios productos",
+    "Solo un producto existente",
+    "Probar el código de la función de búsqueda línea por línea",
+    "Medir el tiempo de respuesta con 10.000 usuarios"
+   ],
+   "answer": 0,
+   "explain": "Cubren los comportamientos esperados desde la especificación (caja negra)."
+  },
+  {
+   "id": "c5m1",
+   "module": "m9",
+   "type": "mcq",
+   "prompt": "Revisar con el cliente que el SRS refleje lo que realmente necesita es una actividad de…",
+   "options": [
+    "Validación",
+    "Verificación",
+    "Prueba de unidad",
+    "Regresión"
+   ],
+   "answer": 0,
+   "explain": "¿Construimos el producto correcto?"
+  },
+  {
+   "id": "c5m2",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "La prueba de aceptación se realiza con datos ficticios preparados por el equipo de desarrollo.",
+   "answer": false,
+   "explain": "Se usan datos proporcionados por el cliente (reales)."
+  },
+  {
+   "id": "c5m3",
+   "module": "m9",
+   "type": "mcq",
+   "prompt": "La prueba que busca fallos en la interacción entre componentes es la de…",
+   "options": [
+    "Integración",
+    "Unidad",
+    "Aceptación",
+    "Recuperación"
+   ],
+   "answer": 0,
+   "explain": "Revisa grupos de módulos interconectados."
+  },
+  {
+   "id": "c5m4",
+   "module": "m9",
+   "type": "mcq",
+   "prompt": "La trazabilidad futura necesita, sobre todo, que…",
+   "options": [
+    "Cada requerimiento tenga un nombre o referencia única",
+    "Los usuarios ejecuten el plan de aceptación",
+    "Se automatice la regresión",
+    "Se registre el costo de cada módulo"
+   ],
+   "answer": 0,
+   "explain": "Para poder referenciarlo en fases posteriores."
+  },
+  {
+   "id": "c5m5-0",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "¿Qué roles giran alrededor de la prueba ágil?\n→ Tester",
+   "answer": true,
+   "explain": "Son los tres roles de la teoría."
+  },
+  {
+   "id": "c5m5-1",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "¿Qué roles giran alrededor de la prueba ágil?\n→ Interesado",
+   "answer": true,
+   "explain": "Son los tres roles de la teoría."
+  },
+  {
+   "id": "c5m5-2",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "¿Qué roles giran alrededor de la prueba ágil?\n→ Equipo ágil",
+   "answer": true,
+   "explain": "Son los tres roles de la teoría."
+  },
+  {
+   "id": "c5m5-3",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "¿Qué roles giran alrededor de la prueba ágil?\n→ Auditor externo obligatorio",
+   "answer": false,
+   "explain": "Son los tres roles de la teoría."
+  },
+  {
+   "id": "c5m6",
+   "module": "m9",
+   "type": "tf",
+   "prompt": "La estrategia de prueba define el enfoque, los objetivos, las fases y las clases de prueba, basándose en lo definido en los requisitos.",
+   "answer": true,
+   "explain": "También técnicas, herramientas y criterios de finalización."
+  },
+  {
+   "id": "c6q1",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "Un sistema es un conjunto de elementos relacionados entre sí, con un objetivo o grupo de objetivos en común.",
+   "answer": true,
+   "explain": "Definición base (también en la autoevaluación)."
+  },
+  {
+   "id": "c6q2",
+   "module": "m11",
+   "type": "mcq",
+   "prompt": "La correctitud de los resultados y el tiempo de respuesta en que se brindan es más crítico para los…",
+   "options": [
+    "Sistemas de tiempo real",
+    "Sistemas embebidos",
+    "Sistemas distribuidos",
+    "Sistemas de información administrativos"
+   ],
+   "answer": 0,
+   "explain": "Su eficiencia depende de la exactitud y del momento de entrega."
+  },
+  {
+   "id": "c6q3",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "Los sistemas distribuidos están casi fuera de uso en el mercado actual.",
+   "answer": false,
+   "explain": "Sommerville: prácticamente todos los grandes sistemas informáticos son distribuidos."
+  },
+  {
+   "id": "c6q4",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "El costo y el tiempo de las pruebas en sistemas distribuidos, como las arquitecturas cliente-servidor, es mayor que en sistemas independientes.",
+   "answer": true,
+   "explain": "Intervienen la red y plataformas diversas."
+  },
+  {
+   "id": "c6q5",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "Un sistema embebido se emplea para controlar máquinas o equipos, puede ser un circuito integrado que forma parte del sistema y quedar oculto para quien lo usa, como en un reloj digital.",
+   "answer": true,
+   "explain": "Funciones no visibles, placa, pocas funciones."
+  },
+  {
+   "id": "c6q6",
+   "module": "m11",
+   "type": "mcq",
+   "prompt": "¿Cuál es la característica principal de los sistemas de tiempo real?",
+   "options": [
+    "La predictibilidad",
+    "La portabilidad",
+    "La escalabilidad",
+    "La interfaz gráfica"
+   ],
+   "answer": 0,
+   "explain": "Así lo indica la teoría."
+  },
+  {
+   "id": "c6q8-0",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Cuáles son ventajas de los sistemas distribuidos?\n→ Compartir hardware y software",
+   "answer": true,
+   "explain": "Las pruebas son más costosas, no más baratas."
+  },
+  {
+   "id": "c6q8-1",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Cuáles son ventajas de los sistemas distribuidos?\n→ Basarse en sistemas abiertos con protocolos estándar",
+   "answer": true,
+   "explain": "Las pruebas son más costosas, no más baratas."
+  },
+  {
+   "id": "c6q8-2",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Cuáles son ventajas de los sistemas distribuidos?\n→ Ejecutar procesos concurrentes",
+   "answer": true,
+   "explain": "Las pruebas son más costosas, no más baratas."
+  },
+  {
+   "id": "c6q8-3",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Cuáles son ventajas de los sistemas distribuidos?\n→ Escalabilidad",
+   "answer": true,
+   "explain": "Las pruebas son más costosas, no más baratas."
+  },
+  {
+   "id": "c6q8-4",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Cuáles son ventajas de los sistemas distribuidos?\n→ Mayor tolerancia a fallos",
+   "answer": true,
+   "explain": "Las pruebas son más costosas, no más baratas."
+  },
+  {
+   "id": "c6q8-5",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Cuáles son ventajas de los sistemas distribuidos?\n→ Pruebas más baratas que un sistema independiente",
+   "answer": false,
+   "explain": "Las pruebas son más costosas, no más baratas."
+  },
+  {
+   "id": "c6q9-0",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Qué características tienen los sistemas embebidos?\n→ Fabricación masiva para reducir costos",
+   "answer": true,
+   "explain": "Sus funciones no suelen estar a la vista del usuario."
+  },
+  {
+   "id": "c6q9-1",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Qué características tienen los sistemas embebidos?\n→ Procesador y memoria relativamente pequeños",
+   "answer": true,
+   "explain": "Sus funciones no suelen estar a la vista del usuario."
+  },
+  {
+   "id": "c6q9-2",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Qué características tienen los sistemas embebidos?\n→ Un fallo implica reparar o reemplazar la placa",
+   "answer": true,
+   "explain": "Sus funciones no suelen estar a la vista del usuario."
+  },
+  {
+   "id": "c6q9-3",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Qué características tienen los sistemas embebidos?\n→ Controladores posiblemente más lentos que una PC",
+   "answer": true,
+   "explain": "Sus funciones no suelen estar a la vista del usuario."
+  },
+  {
+   "id": "c6q9-4",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Qué características tienen los sistemas embebidos?\n→ Siempre tienen una interfaz gráfica compleja",
+   "answer": false,
+   "explain": "Sus funciones no suelen estar a la vista del usuario."
+  },
+  {
+   "id": "c6q10",
+   "module": "m11",
+   "type": "mcq",
+   "prompt": "En los sistemas operativos de tiempo real, ¿qué tiene mayor importancia?",
+   "options": [
+    "Los procesos",
+    "El usuario",
+    "La interfaz",
+    "El almacenamiento en la nube"
+   ],
+   "answer": 0,
+   "explain": "En los SOTR no importa el usuario sino los procesos."
+  },
+  {
+   "id": "c6q12",
+   "module": "m11",
+   "type": "mcq",
+   "prompt": "Según Schach, un sistema de información…",
+   "options": [
+    "Recopila, manipula, almacena y reporta información de las actividades del negocio para ayudar a la administración",
+    "Controla dispositivos físicos en tiempo real",
+    "Es un conjunto de computadoras conectadas por red",
+    "Es software programado en ensamblador"
+   ],
+   "answer": 0,
+   "explain": "Logra un resultado empresarial."
+  },
+  {
+   "id": "c6m1",
+   "module": "m11",
+   "type": "mcq",
+   "prompt": "El controlador del airbag de un auto es, principalmente…",
+   "options": [
+    "Embebido y de tiempo real",
+    "Distribuido",
+    "Un sistema de información administrativo",
+    "Ninguno de los anteriores"
+   ],
+   "answer": 0,
+   "explain": "Oculto, una función, respuesta en tiempo estricto."
+  },
+  {
+   "id": "c6m2",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "En un sistema distribuido, el fallo de una computadora implica necesariamente la caída de todo el sistema.",
+   "answer": false,
+   "explain": "Tolerancia a fallos: puede seguir con un servicio algo degradado."
+  },
+  {
+   "id": "c6m3",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "Los sistemas embebidos suelen programarse en lenguaje ensamblador sobre el microprocesador.",
+   "answer": true,
+   "explain": "Así lo indica la teoría."
+  },
+  {
+   "id": "c6m4",
+   "module": "m11",
+   "type": "mcq",
+   "prompt": "Un sistema que da el resultado correcto pero un segundo tarde, en un contexto de tiempo real…",
+   "options": [
+    "Es ineficiente: también importa el momento de entrega",
+    "Es eficiente porque el resultado es correcto",
+    "Se convierte en distribuido",
+    "Es un sistema embebido"
+   ],
+   "answer": 0,
+   "explain": "La eficiencia incluye el tiempo de respuesta."
+  },
+  {
+   "id": "c6m5",
+   "module": "m11",
+   "type": "mcq",
+   "prompt": "Según Sommerville, en un sistema distribuido…",
+   "options": [
+    "El procesamiento se distribuye sobre varias computadoras",
+    "Todo se procesa en una única máquina potente",
+    "El usuario no interviene nunca",
+    "No se usan protocolos estándar"
+   ],
+   "answer": 0,
+   "explain": "Definición de Sommerville (2005)."
+  },
+  {
+   "id": "c6m6-0",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Qué elementos componen un sistema de tiempo real?\n→ Manejo de interrupciones",
+   "answer": true,
+   "explain": "También integración y rendimiento, y lenguajes de tiempo real."
+  },
+  {
+   "id": "c6m6-1",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Qué elementos componen un sistema de tiempo real?\n→ Bases de datos de tiempo real",
+   "answer": true,
+   "explain": "También integración y rendimiento, y lenguajes de tiempo real."
+  },
+  {
+   "id": "c6m6-2",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Qué elementos componen un sistema de tiempo real?\n→ Sistemas operativos de tiempo real",
+   "answer": true,
+   "explain": "También integración y rendimiento, y lenguajes de tiempo real."
+  },
+  {
+   "id": "c6m6-3",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Qué elementos componen un sistema de tiempo real?\n→ Sincronización y comunicación de tareas",
+   "answer": true,
+   "explain": "También integración y rendimiento, y lenguajes de tiempo real."
+  },
+  {
+   "id": "c6m6-4",
+   "module": "m11",
+   "type": "tf",
+   "prompt": "¿Qué elementos componen un sistema de tiempo real?\n→ Historias de usuario",
+   "answer": false,
+   "explain": "También integración y rendimiento, y lenguajes de tiempo real."
+  },
+  {
+   "id": "c7q1",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "La reingeniería generalmente se realiza sin cambiar la funcionalidad ni la arquitectura del sistema.",
+   "answer": true,
+   "explain": "Busca mejorar estructura y comprensión."
+  },
+  {
+   "id": "c7q2-0",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "Según Sommerville, la reingeniería puede implicar…\n→ Redocumentar el sistema",
+   "answer": true,
+   "explain": "No apunta a agregar funcionalidad."
+  },
+  {
+   "id": "c7q2-1",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "Según Sommerville, la reingeniería puede implicar…\n→ Organizarlo y reestructurarlo",
+   "answer": true,
+   "explain": "No apunta a agregar funcionalidad."
+  },
+  {
+   "id": "c7q2-2",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "Según Sommerville, la reingeniería puede implicar…\n→ Traducirlo a un lenguaje más moderno",
+   "answer": true,
+   "explain": "No apunta a agregar funcionalidad."
+  },
+  {
+   "id": "c7q2-3",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "Según Sommerville, la reingeniería puede implicar…\n→ Modificar la estructura y valores de los datos",
+   "answer": true,
+   "explain": "No apunta a agregar funcionalidad."
+  },
+  {
+   "id": "c7q2-4",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "Según Sommerville, la reingeniería puede implicar…\n→ Agregar nuevos casos de uso de negocio",
+   "answer": false,
+   "explain": "No apunta a agregar funcionalidad."
+  },
+  {
+   "id": "c7q3",
+   "module": "m12",
+   "type": "mcq",
+   "prompt": "¿Qué ventajas tiene la reingeniería frente a desarrollar un sistema completamente nuevo?",
+   "options": [
+    "Menor riesgo y menor costo",
+    "Mayor funcionalidad y nueva arquitectura",
+    "Elimina la necesidad de mantenimiento",
+    "No tiene ningún costo"
+   ],
+   "answer": 0,
+   "explain": "Tiene costo, pero siempre menor que un sistema nuevo; y reduce el riesgo en sistemas críticos."
+  },
+  {
+   "id": "c7q4",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "Incorporar una nueva funcionalidad durante el mantenimiento suele ser más barato que hacerlo durante el desarrollo.",
+   "answer": false,
+   "explain": "Es mucho más costoso con el sistema funcionando, y además introduce defectos."
+  },
+  {
+   "id": "c7q5",
+   "module": "m12",
+   "type": "mcq",
+   "prompt": "Los métodos formales son…",
+   "options": [
+    "Técnicas con bases matemáticas para describir propiedades del sistema",
+    "Reuniones formales con el cliente",
+    "Formularios estándar para documentar casos de uso",
+    "Pruebas de aceptación con datos reales"
+   ],
+   "answer": 0,
+   "explain": "Permiten especificar, desarrollar y verificar en forma rigurosa."
+  },
+  {
+   "id": "c7q6-0",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "¿Por qué no se incorporaron los métodos formales a todos los desarrollos?\n→ Otras técnicas lograron avances en calidad",
+   "answer": true,
+   "explain": "Son precisos y justamente ideales para sistemas críticos."
+  },
+  {
+   "id": "c7q6-1",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "¿Por qué no se incorporaron los métodos formales a todos los desarrollos?\n→ El mercado prioriza la interfaz de usuario y la rapidez",
+   "answer": true,
+   "explain": "Son precisos y justamente ideales para sistemas críticos."
+  },
+  {
+   "id": "c7q6-2",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "¿Por qué no se incorporaron los métodos formales a todos los desarrollos?\n→ No son escalables",
+   "answer": true,
+   "explain": "Son precisos y justamente ideales para sistemas críticos."
+  },
+  {
+   "id": "c7q6-3",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "¿Por qué no se incorporaron los métodos formales a todos los desarrollos?\n→ Son ambiguos",
+   "answer": false,
+   "explain": "Son precisos y justamente ideales para sistemas críticos."
+  },
+  {
+   "id": "c7q6-4",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "¿Por qué no se incorporaron los métodos formales a todos los desarrollos?\n→ No sirven para sistemas críticos",
+   "answer": false,
+   "explain": "Son precisos y justamente ideales para sistemas críticos."
+  },
+  {
+   "id": "c7q8",
+   "module": "m12",
+   "type": "mcq",
+   "prompt": "La aproximación basada en modelos…",
+   "options": [
+    "Usa construcciones como conjuntos y sucesiones e indica cómo las operaciones modifican el estado",
+    "Describe el sistema solo con operaciones y relaciones, ocultando el estado",
+    "Se usa solo para interfaces gráficas",
+    "No admite pre ni postcondiciones"
+   ],
+   "answer": 0,
+   "explain": "Muestra el estado; se basa en pre y postcondiciones.",
+   "why": [
+    null,
+    "Esa es la algebraica.",
+    null,
+    null
+   ]
+  },
+  {
+   "id": "c7q9",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "Las especificaciones algebraicas son útiles para especificar interfaces porque ocultan el estado y se basan en las relaciones entre operaciones.",
+   "answer": true,
+   "explain": "Interfaces como conjuntos de clases o tipos abstractos de datos."
+  },
+  {
+   "id": "c7q10-0",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "¿Cuáles son puntos clave de los métodos de especificación formal?\n→ Complementan las especificaciones informales por ser precisos y no ambiguos",
+   "answer": true,
+   "explain": "No reemplazan las pruebas."
+  },
+  {
+   "id": "c7q10-1",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "¿Cuáles son puntos clave de los métodos de especificación formal?\n→ Fuerzan a analizar los requerimientos en una etapa inicial",
+   "answer": true,
+   "explain": "No reemplazan las pruebas."
+  },
+  {
+   "id": "c7q10-2",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "¿Cuáles son puntos clave de los métodos de especificación formal?\n→ Son excelentes para sistemas críticos",
+   "answer": true,
+   "explain": "No reemplazan las pruebas."
+  },
+  {
+   "id": "c7q10-3",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "¿Cuáles son puntos clave de los métodos de especificación formal?\n→ Reemplazan completamente a las pruebas",
+   "answer": false,
+   "explain": "No reemplazan las pruebas."
+  },
+  {
+   "id": "c7m1",
+   "module": "m12",
+   "type": "mcq",
+   "prompt": "VDM pertenece a la aproximación…",
+   "options": [
+    "Basada en modelos, sistemas secuenciales",
+    "Algebraica, sistemas concurrentes",
+    "Basada en modelos, sistemas concurrentes",
+    "Algebraica, sistemas secuenciales"
+   ],
+   "answer": 0,
+   "explain": "Z, VDM y B: modelos secuenciales."
+  },
+  {
+   "id": "c7m2",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "Los métodos formales son fácilmente escalables a sistemas de gran tamaño.",
+   "answer": false,
+   "explain": "No son escalables: se descontrolan cuando el tamaño crece."
+  },
+  {
+   "id": "c7m3",
+   "module": "m12",
+   "type": "mcq",
+   "prompt": "El mantenimiento refiere a…",
+   "options": [
+    "Cambiar algo del sistema después de haberlo entregado al cliente",
+    "Las pruebas previas a la entrega",
+    "La redacción del SRS",
+    "El diseño de prototipos"
+   ],
+   "answer": 0,
+   "explain": "Desde corregir una línea hasta nuevos requerimientos."
+  },
+  {
+   "id": "c7m4",
+   "module": "m12",
+   "type": "mcq",
+   "prompt": "Las redes de Petri corresponden a la aproximación…",
+   "options": [
+    "Basada en modelos, concurrente",
+    "Algebraica, secuencial",
+    "Algebraica, concurrente",
+    "Basada en modelos, secuencial"
+   ],
+   "answer": 0,
+   "explain": "CSP y redes de Petri: modelos concurrentes."
+  },
+  {
+   "id": "c7m5",
+   "module": "m12",
+   "type": "tf",
+   "prompt": "Introducir cambios o nuevas funcionalidades en un sistema inevitablemente introduce defectos en él.",
+   "answer": true,
+   "explain": "Afirmación de la teoría."
+  },
+  {
+   "id": "c7m6",
+   "module": "m12",
+   "type": "mcq",
+   "prompt": "Una empresa depende de un sistema crítico viejo y difícil de mantener. ¿Qué argumento de la teoría apoya la reingeniería en lugar de reemplazarlo?",
+   "options": [
+    "Disminuye el riesgo de un retraso que podría causar daños severos y cuesta menos",
+    "Permite cambiar toda la arquitectura sin costo",
+    "Elimina la necesidad de documentar",
+    "Garantiza que no aparezcan defectos"
+   ],
+   "answer": 0,
+   "explain": "Menor riesgo y menor costo."
+  }
+ ],
+ "videos": [
+  {
+   "id": "ch1-v1",
+   "module": "m8",
+   "title": "De la narrativa al diagrama de casos de uso",
+   "src": "https://nahimmora.github.io/iisw-parcial2/videos/ch1-casos-de-uso.mp4",
+   "poster": "https://nahimmora.github.io/iisw-parcial2/videos/ch1-casos-de-uso.jpg",
+   "minutes": 7,
+   "transcript": "Kameral paso a paso: requerimientos, actores externos, frontera, casos de uso y conexiones; errores típicos y una variante nueva."
+  },
+  {
+   "id": "ch2-v1",
+   "module": "m8",
+   "title": "Cómo escribir la descripción de un caso de uso",
+   "src": "https://nahimmora.github.io/iisw-parcial2/videos/ch2-descripcion-cu.mp4",
+   "poster": "https://nahimmora.github.io/iisw-parcial2/videos/ch2-descripcion-cu.jpg",
+   "minutes": 6,
+   "transcript": "Del óvalo al cuadro: campos, curso normal con R1 y FCU, alternativas numeradas, include y extend, errores típicos y un ejemplo nuevo."
+  },
+  {
+   "id": "ch3-v1",
+   "module": "m10",
+   "title": "Diagrama de secuencia paso a paso",
+   "src": "https://nahimmora.github.io/iisw-parcial2/videos/ch3-secuencia.mp4",
+   "poster": "https://nahimmora.github.io/iisw-parcial2/videos/ch3-secuencia.jpg",
+   "minutes": 10,
+   "transcript": "Kameral de la narrativa a la última flecha: estereotipos, líneas de vida, cada mensaje con su motivo, alternativa con condición, comparación con la descripción, errores y una variante con actor secundario."
+  },
+  {
+   "id": "ch4-v1",
+   "module": "m8",
+   "title": "Prototipos, mockups e historias de usuario",
+   "src": "https://nahimmora.github.io/iisw-parcial2/videos/ch4-prototipos-hu.mp4",
+   "poster": "https://nahimmora.github.io/iisw-parcial2/videos/ch4-prototipos-hu.jpg",
+   "minutes": 4,
+   "transcript": "Por qué prototipar, cuándo conviene, desventaja y beneficios; mockup; historias de usuario, épicas e INVEST con un ejercicio."
+  },
+  {
+   "id": "ch5-v1",
+   "module": "m9",
+   "title": "Trazabilidad, aceptación, V&V y testing",
+   "src": "https://nahimmora.github.io/iisw-parcial2/videos/ch5-pruebas.mp4",
+   "poster": "https://nahimmora.github.io/iisw-parcial2/videos/ch5-pruebas.jpg",
+   "minutes": 5,
+   "transcript": "Direcciones de trazabilidad, 5 pasos de aceptación, Boehm, fases y tipos de prueba, testing ágil."
+  },
+  {
+   "id": "ch6-v1",
+   "module": "m11",
+   "title": "Tiempo real, distribuidos y embebidos",
+   "src": "https://nahimmora.github.io/iisw-parcial2/videos/ch6-tipos-sistemas.mp4",
+   "poster": "https://nahimmora.github.io/iisw-parcial2/videos/ch6-tipos-sistemas.jpg",
+   "minutes": 3,
+   "transcript": "Definiciones, características, fases de diseño, ventajas y cómo distinguirlos."
+  },
+  {
+   "id": "ch7-v1",
+   "module": "m12",
+   "title": "Mantenimiento, reingeniería y métodos formales",
+   "src": "https://nahimmora.github.io/iisw-parcial2/videos/ch7-reingenieria-formales.mp4",
+   "poster": "https://nahimmora.github.io/iisw-parcial2/videos/ch7-reingenieria-formales.jpg",
+   "minutes": 3,
+   "transcript": "Evolución y degradación, mantenimiento, reingeniería y por qué conviene, métodos formales, aproximaciones y lenguajes."
+  }
+ ]
+}

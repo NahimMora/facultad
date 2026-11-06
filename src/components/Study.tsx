@@ -60,11 +60,12 @@ export function VideosView({ content, modules }: { content: SubjectContent; modu
   const vids = content.videos.filter((v) => !v.module || modules.includes(v.module));
   if (!vids.length) return <p className="empty">Todavía no hay videos para estos módulos.</p>;
   const base = import.meta.env.BASE_URL;
+  const abs = (u: string) => (/^https?:/.test(u) ? u : base + u);
   return (
     <div className="videos">
       {vids.map((v) => (
         <figure key={v.id} className="video">
-          <video controls preload="none" playsInline src={base + v.src} poster={v.poster ? base + v.poster : undefined} />
+          <video controls preload="none" playsInline src={abs(v.src)} poster={v.poster ? abs(v.poster) : undefined} />
           <figcaption><b>{v.title}</b> <span className="hint">· {v.minutes} min</span></figcaption>
           {v.transcript && <details><summary>Transcripción</summary><p className="transcript">{v.transcript}</p></details>}
         </figure>

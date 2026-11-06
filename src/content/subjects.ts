@@ -164,9 +164,9 @@ export const SUBJECTS: Subject[] = [
       { id: 'p2', name: '2º parcial', kind: 'parcial', state: 'rendido', modules: ['m8', 'm9', 'm10', 'm11', 'm12'] },
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
     ],
-    focus: { examId: 'final', note: 'Regularizada. El 2º parcial ya tiene plataforma propia con videos; falta integrar la primera mitad para el final.' },
+    focus: { examId: 'final', note: 'Final: teoría y preguntas de los 12 módulos, los 7 videos del 2º parcial y ejercicios tipo final (BPMN, lista de requerimientos, errores de CU, entidades).' },
     material: { apuntes: 7, parciales: 4, practica: 9, clases: 3, nota: 'Incluye teoría, práctica, autoevaluación y parciales viejos ya procesados. Además: 4 finales viejos del Drive de estudiantes.' },
-    missing: [FINAL_FORMAT_MISSING, 'Apuntes de los módulos 1 a 7 en PDF (para la primera mitad)'],
+    missing: [FINAL_FORMAT_MISSING, 'Videos de la primera mitad (módulos 1 a 7): en preparación'],
     links: [{ label: 'Plataforma del 2º parcial (videos, práctica y modo urgente)', url: 'https://nahimmora.github.io/iisw-parcial2/' }],
   },
   {

@@ -1,4 +1,5 @@
 import type { SubjectContent } from '../types';
+import { VIDEOS } from '../videos/itc';
 import { BANCO, BANCO_EJERCICIOS } from '../banks/itc-banco';
 
 /**
@@ -485,7 +486,7 @@ const content: SubjectContent = {
     ...BANCO_EJERCICIOS,
   ],
 
-  videos: [],
+  videos: VIDEOS,
 
   cheatsheet: [
     { t: 'Frame Ethernet', d: 'V2: preámbulo 8 · dest 6 · origen 6 · **Tipo** · datos 46–1500 · FCS 4. 802.3: preámbulo 7 + SFD 1 · **Longitud**. Campo ≤ 1500 → longitud; ≥ 1536 → EtherType.' },
