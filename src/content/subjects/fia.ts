@@ -1,4 +1,5 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
+import { VIDEOS } from '../videos/fia';
 
 /** FIA · final (módulos 1 a 12). Redacción propia sobre los apuntes de la cátedra y los temas de finales 2023–2025. */
 const F = 'finales anteriores (Drive de estudiantes)';
@@ -137,7 +138,7 @@ const exercises: WorkedExercise[] = [
 
 const content: SubjectContent = {
   subjectId: 'fia',
-  theory, questions, exercises, videos: [],
+  theory, questions, exercises, videos: VIDEOS,
   cheatsheet: [
     { t: 'IA ⊃ ML ⊃ DL', d: 'ML: el usuario define características; DL: la red aprende qué atributos importan. ML: supervisado, no supervisado, refuerzo.' },
     { t: 'Problema', d: 'Entidad que desea algo y no conoce la secuencia de acciones. Espacio de estados ⊃ árbol de exploración.' },

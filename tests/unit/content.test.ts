@@ -5,10 +5,17 @@ import aid from '../../src/content/subjects/aid';
 import itc from '../../src/content/subjects/itc';
 import iisw from '../../src/content/subjects/iisw';
 import fia from '../../src/content/subjects/fia';
+import pye from '../../src/content/subjects/pye';
+import bd from '../../src/content/subjects/bd';
+import am2 from '../../src/content/subjects/am2';
+import sd1 from '../../src/content/subjects/sd1';
+import ca from '../../src/content/subjects/ca';
+import sym from '../../src/content/subjects/sym';
+import arq from '../../src/content/subjects/arq';
 import { shuffledIndices } from '../../src/lib/shuffle';
 import { countdownLabel, daysUntil } from '../../src/lib/dates';
 
-const CONTENT: SubjectContent[] = [aid, itc, iisw, fia];
+const CONTENT: SubjectContent[] = [aid, itc, iisw, fia, pye, bd, am2, sd1, ca, sym, arq];
 
 describe('registro de materias', () => {
   it('tiene las 11 materias con id único', () => {
@@ -62,8 +69,8 @@ describe('contenido de estudio', () => {
     });
 
     it(`${c.subjectId}: cada módulo del 2º parcial tiene teoría y preguntas`, () => {
-      const p2 = s.exams.find((e) => e.id === 'p2')!;
-      for (const m of p2.modules) {
+      const p2 = s.exams.find((e) => e.id === 'p2');
+      for (const m of p2?.modules ?? []) {
         expect(c.theory.some((t) => t.module === m), `teoría ${m}`).toBe(true);
         expect(c.questions.some((q) => q.module === m), `preguntas ${m}`).toBe(true);
       }

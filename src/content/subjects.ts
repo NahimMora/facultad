@@ -166,7 +166,7 @@ export const SUBJECTS: Subject[] = [
     ],
     focus: { examId: 'final', note: 'Final: teoría y preguntas de los 12 módulos, los 7 videos del 2º parcial y ejercicios tipo final (BPMN, lista de requerimientos, errores de CU, entidades).' },
     material: { apuntes: 7, parciales: 4, practica: 9, clases: 3, nota: 'Incluye teoría, práctica, autoevaluación y parciales viejos ya procesados. Además: 4 finales viejos del Drive de estudiantes.' },
-    missing: [FINAL_FORMAT_MISSING, 'Videos de la primera mitad (módulos 1 a 7): en preparación'],
+    missing: [FINAL_FORMAT_MISSING],
     links: [{ label: 'Plataforma del 2º parcial (videos, práctica y modo urgente)', url: 'https://nahimmora.github.io/iisw-parcial2/' }],
   },
   {
@@ -206,7 +206,7 @@ export const SUBJECTS: Subject[] = [
     ],
     focus: { examId: 'final', note: 'Final: teoría de los 12 módulos, preguntas con el formato de los finales 2023–2025 (opción múltiple, V/F, completar) y ejercicios.' },
     material: { apuntes: 13, parciales: 2, practica: 3, clases: 2, nota: 'Incluye hoja de ruta, syllabus y la carpeta de trabajo del video del 2º parcial. Además: 5 finales viejos (2023 a dic-2025) del Drive de estudiantes.' },
-    missing: [FINAL_FORMAT_MISSING, 'Videos del final: en preparación'],
+    missing: [FINAL_FORMAT_MISSING],
   },
   {
     id: 'arq',
@@ -218,7 +218,12 @@ export const SUBJECTS: Subject[] = [
     icon: '🖥️',
     units: [
       { title: 'Primera mitad (1er parcial)', modules: [
-        { id: 't1', label: 'Tema', title: 'Organización del computador y memoria (a confirmar)', topics: ['Jerarquía de memoria', 'Caché', 'Memoria virtual'] },
+        { id: 'u2', label: 'Módulo 2', title: 'Sistemas numéricos' },
+        { id: 'u3', label: 'Módulo 3', title: 'Números reales y códigos', topics: ['IEEE 754', 'BCD, ASCII, paridad'] },
+        { id: 'u4', label: 'Módulo 4', title: 'El computador' },
+        { id: 'u5', label: 'Módulo 5', title: 'Unidad aritmético-lógica' },
+        { id: 'u6', label: 'Módulo 6', title: 'Memorias físicas' },
+        { id: 'u7', label: 'Módulo 7', title: 'Memoria caché y memoria virtual' },
       ] },
       { title: 'Segunda mitad (2º parcial)', modules: [
         { id: 't2', label: 'Tema', title: 'Unidad de control y ciclo de instrucción', topics: ['UC cableada, microprogramada e híbrida', 'IF → ID → OF → EX', 'Modos de direccionamiento'] },
@@ -230,13 +235,15 @@ export const SUBJECTS: Subject[] = [
       ] },
     ],
     exams: [
-      { id: 'p1', name: '1er parcial', kind: 'parcial', state: 'rendido', modules: ['t1'] },
+      { id: 'p1', name: '1er parcial', kind: 'parcial', state: 'rendido', modules: ['u2', 'u3', 'u4', 'u5', 'u6', 'u7'] },
       { id: 'p2', name: '2º parcial', kind: 'parcial', state: 'rendido', modules: ['t2', 't3', 't4', 't5', 't6', 't7'] },
-      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
+      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [], format: [
+        { text: 'Cuestionario en Blackboard: preguntas con varios ítems (a, b, c…) que se responden escribiendo (overflow, ciclo de instrucción, memorias…).', source: 'final 2023 (Drive)', sure: false },
+      ] },
     ],
-    focus: { examId: 'final', note: 'Regularizada. La segunda mitad ya está analizada (plan pedagógico local); falta material de la primera.' },
-    material: { apuntes: 1, parciales: 1, practica: 1, clases: 6, nota: 'Teoría del 2º parcial (142 páginas) y 6 clases grabadas. Además: 8 finales viejos (2020 a 2023) del Drive de estudiantes.' },
-    missing: [FINAL_FORMAT_MISSING, 'Apuntes de la primera mitad (organización, memoria, caché, memoria virtual)', 'Programa u hoja de ruta de la materia'],
+    focus: { examId: 'final', note: 'Regularizada. Hay apuntes de los módulos 2 a 14, 6 clases grabadas y finales viejos.' },
+    material: { apuntes: 14, parciales: 1, practica: 1, clases: 6, nota: 'Teoría del 2º parcial (142 páginas) y 6 clases grabadas. Además: 8 finales viejos (2020 a 2023) del Drive de estudiantes.' },
+    missing: ['Confirmar el formato del final actual (el último que hay es de 2023)'],
   },
   {
     id: 'pye',
@@ -264,7 +271,10 @@ export const SUBJECTS: Subject[] = [
     exams: [
       { id: 'p1', name: '1er parcial', kind: 'parcial', state: 'rendido', modules: ['u1', 'u2', 'u3', 'u4', 'u5'] },
       { id: 'p2', name: '2º parcial', kind: 'parcial', state: 'rendido', modules: ['u6', 'u7', 'u8', 'u9'] },
-      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
+      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [], format: [
+        { text: 'Escrito con ejercicios de desarrollo: te dan las salidas o los datos ya procesados (no hace falta Infostat) y pedís interpretar.', source: 'modelos de final 2022–2025 (Drive)', sure: false },
+        { text: 'Temas que se repiten: CV y percentiles, probabilidad con sucesos independientes, prueba de hipótesis con p-valor y tipo de error, IC, χ², regresión (corregir afirmaciones falsas).', source: 'modelos de final 2022–2025 (Drive)', sure: false },
+      ] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay teórico y práctico completos de la cátedra, modelos de 2º parcial con respuestas y 10 clases grabadas.' },
     material: { apuntes: 7, parciales: 8, practica: 3, clases: 11, nota: 'Además: finales viejos corregidos (2022 a 2024) del Drive de estudiantes.' },
@@ -283,7 +293,7 @@ export const SUBJECTS: Subject[] = [
         { id: 't1', label: 'Tema', title: 'Sistemas de bases de datos' },
         { id: 't2', label: 'Tema', title: 'Modelado de datos: DER' },
         { id: 't3', label: 'Tema', title: 'Modelado avanzado' },
-        { id: 't4', label: 'Tema', title: 'Transformación DER → modelo relacional' },
+        { id: 't4', label: 'Tema', title: 'Modelo relacional y normalización' },
       ] },
       { title: 'Lenguajes', modules: [
         { id: 't5', label: 'Tema', title: 'Álgebra relacional' },
@@ -294,7 +304,9 @@ export const SUBJECTS: Subject[] = [
     exams: [
       { id: 'p1', name: '1er parcial (+ recuperatorio)', kind: 'parcial', state: 'rendido', modules: ['t1', 't2', 't3', 't4', 't5'] },
       { id: 'p2', name: '2º parcial', kind: 'parcial', state: 'rendido', modules: ['t6', 't7'] },
-      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
+      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [], format: [
+        { text: 'Escrito práctico en 4 partes: DER (con supuestos), normalización hasta 3FN, álgebra relacional y SQL (consultas y UPDATE).', source: 'final 2024 resuelto (Drive)', sure: false },
+      ] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay apuntes, parciales, recuperatorio y 7 clases de SQL y álgebra grabadas.' },
     material: { apuntes: 11, parciales: 5, practica: 9, clases: 7, nota: 'Además: finales viejos (2022 a jul-2026, uno resuelto) del Drive de estudiantes.' },
@@ -310,7 +322,7 @@ export const SUBJECTS: Subject[] = [
     icon: '🏢',
     units: [
       { title: 'La organización y las personas', modules: [
-        { id: 'm1', label: 'Módulo 1', title: 'La organización (a confirmar)' },
+        { id: 'm1', label: 'Módulo 1', title: 'Tipos de organización' },
         { id: 'm2', label: 'Módulo 2', title: 'Descripción de puestos y tipos de equipos' },
         { id: 'm3', label: 'Módulo 3', title: 'Poder y autoridad' },
         { id: 'm4', label: 'Módulo 4', title: 'La dirección' },
@@ -319,10 +331,10 @@ export const SUBJECTS: Subject[] = [
         { id: 'm5', label: 'Módulo 5', title: 'La planificación y el control' },
         { id: 'm6', label: 'Módulo 6', title: 'El proceso administrativo' },
         { id: 'm7', label: 'Módulo 7', title: 'Teoría de sistemas' },
-        { id: 'm8', label: 'Módulo 8', title: 'Proceso administrativo y optimización de operaciones (a confirmar)' },
+        { id: 'm8', label: 'Módulo 8', title: 'La administración de proyectos' },
       ] },
       { title: 'Sistemas de información', modules: [
-        { id: 'm9', label: 'Módulo 9', title: 'Los sistemas de información en las empresas (a confirmar)' },
+        { id: 'm9', label: 'Módulo 9', title: 'Los sistemas de información (parte 1)' },
         { id: 'm10', label: 'Módulo 10', title: 'Sistemas de información (parte 2)' },
         { id: 'm11', label: 'Módulo 11', title: 'El proceso de desarrollo de sistemas de información' },
         { id: 'm12', label: 'Módulo 12', title: 'Comunicación oral y escrita' },
@@ -331,11 +343,13 @@ export const SUBJECTS: Subject[] = [
     exams: [
       { id: 'p1', name: '1er parcial', kind: 'parcial', state: 'rendido', modules: ['m1', 'm2', 'm3', 'm4', 'm5', 'm6'] },
       { id: 'p2', name: '2º parcial', kind: 'parcial', state: 'rendido', modules: ['m7', 'm8', 'm9', 'm10', 'm11', 'm12'] },
-      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
+      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [], format: [
+        { text: 'Cuestionario en Blackboard de unas 14 preguntas de opción múltiple y verdadero/falso sobre todos los módulos.', source: 'final 2023 (Drive)', sure: false },
+      ] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay módulos 1 a 7, apuntes de sistemas de información, casos de estudio y resúmenes del 2º parcial.' },
     material: { apuntes: 22, parciales: 3, practica: 3, clases: 0, nota: 'Además: 3 finales viejos del Drive de estudiantes.' },
-    missing: [FINAL_FORMAT_MISSING, 'Hoja de ruta (para confirmar los módulos 1, 8 y 9)', 'Parciales que rendiste (enunciados)'],
+    missing: ['Confirmar si el final sigue siendo un cuestionario en Blackboard'],
   },
   {
     id: 'sd1',
@@ -362,7 +376,9 @@ export const SUBJECTS: Subject[] = [
     exams: [
       { id: 'p1', name: '1er parcial', kind: 'parcial', state: 'rendido', modules: ['t1', 't2', 't3', 't4', 't5'] },
       { id: 'tpi', name: 'TP integrador', kind: 'tp', state: 'entregado', modules: [] },
-      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
+      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [], format: [
+        { text: 'Escrito práctico de 7 ejercicios: expresión → compuertas y tabla de verdad, forma canónica SOP, Karnaugh, sumador/restador, MUX 16:1 con MUX 4:1, señal de un flip-flop y contador con FF T.', source: 'temas de final de la cátedra (Drive)', sure: false },
+      ] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay apuntes de casi todos los temas, guías, TP de ejercitación y TP integrador.' },
     material: { apuntes: 10, parciales: 1, practica: 13, clases: 1, nota: 'Además: finales 2023 (con resolución) y 2025 del Drive de estudiantes.' },
@@ -385,16 +401,21 @@ export const SUBJECTS: Subject[] = [
         { id: 'm5', label: 'Módulo 5', title: 'Seguridad y accesos' },
         { id: 'm6', label: 'Módulo 6', title: 'Permisos de archivos' },
         { id: 'm7', label: 'Módulo 7', title: 'Sistema de archivos (filesystem)' },
-        { id: 'm8', label: 'Tema', title: 'Scripting y cron (a confirmar)' },
+        { id: 'm8', label: 'Módulo 8', title: 'Tareas y procesos' },
+        { id: 'm9', label: 'Módulo 9', title: 'Inicio del sistema (GRUB, systemd)' },
+        { id: 'm10', label: 'Módulo 10', title: 'Scripting en bash' },
       ] },
     ],
     exams: [
       { id: 'tpi', name: 'TP integrador (VM Debian)', kind: 'tp', state: 'entregado', modules: [] },
-      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
+      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [], format: [
+        { text: '2023: cuestionario en Blackboard de 10 preguntas para completar con el texto exacto (rutas, comandos).', source: 'final 2023 (Drive)', sure: true },
+        { text: 'Julio 2025: unas 25 preguntas conceptuales cortas (renice, SSH, visudo, fstab, bash, links, GRUB, kill…).', source: 'final julio 2025 (Drive)', sure: false },
+      ] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay apuntes de los módulos 1 a 7, clases grabadas de los módulos 3 a 7 y el TP integrador.' },
-    material: { apuntes: 7, parciales: 0, practica: 2, clases: 5, nota: 'Además: final 2023 y julio 2025 del Drive de estudiantes.' },
-    missing: [FINAL_FORMAT_MISSING, 'Parciales que rendiste (no hay ninguno)', 'Apunte de scripting (si es un módulo aparte)', 'Hoja de ruta'],
+    material: { apuntes: 10, parciales: 0, practica: 2, clases: 5, nota: 'Además: final 2023 y julio 2025 del Drive de estudiantes.' },
+    missing: ['Formato del final actual (los de 2023 y 2025 fueron distintos)'],
   },
   {
     id: 'am2',
@@ -408,6 +429,7 @@ export const SUBJECTS: Subject[] = [
       { title: 'Funciones de una variable', modules: [
         { id: 'm1', label: 'Módulo 1', title: 'Aplicación de las derivadas: extremos relativos, concavidad' },
         { id: 'm2', label: 'Módulo 2', title: 'Estudio completo de funciones' },
+        { id: 't-lh', label: 'Tema', title: 'Límites indeterminados: regla de L’Hôpital' },
         { id: 'm4', label: 'Módulo 4', title: 'Métodos de integración (integrales indefinidas)' },
         { id: 't-int', label: 'Tema', title: 'Integrales definidas e impropias' },
       ] },
@@ -421,11 +443,14 @@ export const SUBJECTS: Subject[] = [
     exams: [
       { id: 'p1', name: '1er parcial', kind: 'parcial', state: 'rendido', modules: ['m1', 'm2', 'm4', 't-int'] },
       { id: 'p2', name: '2º parcial', kind: 'parcial', state: 'rendido', modules: ['m7', 'm8', 't-der', 't-ext'] },
-      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
+      { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [], format: [
+        { text: 'Escrito de 100 puntos, se aprueba con 60. Los razonamientos deben figurar.', source: 'modelos de final 2026 (Drive)', sure: true },
+        { text: 'Ejercicios de desarrollo (concavidad e inflexión, integrales, límites con L’Hôpital, dominio y su área, extremos en dos variables) + una parte de opción múltiple o de verdadero/falso justificado.', source: 'modelos de final 2026 (Drive)', sure: false },
+      ] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay apuntes, guías, los dos parciales y una ejercitación de repaso.' },
     material: { apuntes: 10, parciales: 5, practica: 7, clases: 1, nota: 'Además: finales 2023 y modelos de final 2026 del Drive de estudiantes.' },
-    missing: [FINAL_FORMAT_MISSING, 'Hoja de ruta (para confirmar módulos 3, 5, 6, 9 y 10)', 'Respuestas de las guías de los módulos 2 a 8'],
+    missing: ['Fecha del final y si es presencial', 'Hoja de ruta (para confirmar módulos 3, 5, 6, 9 y 10)', 'Respuestas de las guías de los módulos 2 a 8'],
   },
 ];
 

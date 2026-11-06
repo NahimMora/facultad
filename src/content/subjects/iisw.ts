@@ -1,5 +1,6 @@
 import type { Question, SubjectContent, TheoryBlock, VideoItem, WorkedExercise } from '../types';
 import port from '../banks/iisw-port.json';
+import { VIDEOS } from '../videos/iisw';
 
 /**
  * IISW · final. Módulos 1–7: redacción propia sobre los apuntes de la cátedra y los temas de finales viejos.
@@ -125,7 +126,7 @@ const content: SubjectContent = {
   theory: [...theory, ...P.theory],
   questions: [...questions, ...P.questions],
   exercises,
-  videos: P.videos,
+  videos: [...VIDEOS, ...P.videos],
   cheatsheet: [
     { t: 'Sistema vs software', d: 'Sistema = software + hardware + gente + datos + documentación + procedimientos (manual y computarizado). Software = parte lógica.' },
     { t: 'Cualidades', d: 'Producto: correctitud, confiabilidad, robustez, performance, amigabilidad, verificabilidad, mantenibilidad, reusabilidad, portabilidad, interoperabilidad. Proceso: productividad, **oportunidad** (a tiempo), visibilidad.' },
