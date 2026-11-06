@@ -1,0 +1,141 @@
+{
+ "id": "ca-clase-1",
+ "title": "Final completo: administrar Linux",
+ "src": "videos/ca/ca-clase-1.mp4",
+ "poster": "videos/ca/ca-clase-1.jpg",
+ "minutes": 10.7,
+ "chapters": [
+  {
+   "part": "c1",
+   "title": "Instalación, máquina virtual y estructura de directorios",
+   "at": 20.2
+  },
+  {
+   "part": "c2",
+   "title": "La terminal",
+   "at": 82.5
+  },
+  {
+   "part": "c3",
+   "title": "Gestión de software y redirecciones",
+   "at": 107.1
+  },
+  {
+   "part": "c4",
+   "title": "Redes",
+   "at": 151.5
+  },
+  {
+   "part": "ex:ca-e3",
+   "title": "IP estática en Debian",
+   "at": 195.9
+  },
+  {
+   "part": "c5",
+   "title": "Usuarios, seguridad y accesos",
+   "at": 224.9
+  },
+  {
+   "part": "c6",
+   "title": "Permisos de archivos",
+   "at": 286.5
+  },
+  {
+   "part": "c7",
+   "title": "Sistema de archivos",
+   "at": 336.5
+  },
+  {
+   "part": "ex:ca-e2",
+   "title": "Disco nuevo montado al iniciar",
+   "at": 384.9
+  },
+  {
+   "part": "c8",
+   "title": "Tareas y procesos",
+   "at": 420.1
+  },
+  {
+   "part": "c9",
+   "title": "Inicio del sistema",
+   "at": 457.3
+  },
+  {
+   "part": "c10",
+   "title": "Scripting en bash",
+   "at": 510.5
+  },
+  {
+   "part": "ex:ca-e1",
+   "title": "Script con parámetros e if",
+   "at": 567.6
+  }
+ ],
+ "shorts": {
+  "c1": {
+   "src": "videos/ca/ca-clase-1.mp4#t=20.2,82.9",
+   "poster": "videos/ca/p/ca-clase-1-c1.jpg",
+   "minutes": 1.05
+  },
+  "c2": {
+   "src": "videos/ca/ca-clase-1.mp4#t=82.5,107.4",
+   "poster": "videos/ca/p/ca-clase-1-c2.jpg",
+   "minutes": 0.42
+  },
+  "c3": {
+   "src": "videos/ca/ca-clase-1.mp4#t=107.1,151.9",
+   "poster": "videos/ca/p/ca-clase-1-c3.jpg",
+   "minutes": 0.75
+  },
+  "c4": {
+   "src": "videos/ca/ca-clase-1.mp4#t=151.5,196.3",
+   "poster": "videos/ca/p/ca-clase-1-c4.jpg",
+   "minutes": 0.75
+  },
+  "ex:ca-e3": {
+   "src": "videos/ca/ca-clase-1.mp4#t=195.9,225.3",
+   "poster": "videos/ca/p/ca-clase-1-ex-ca-e3.jpg",
+   "minutes": 0.49
+  },
+  "c5": {
+   "src": "videos/ca/ca-clase-1.mp4#t=224.9,287.0",
+   "poster": "videos/ca/p/ca-clase-1-c5.jpg",
+   "minutes": 1.03
+  },
+  "c6": {
+   "src": "videos/ca/ca-clase-1.mp4#t=286.5,336.8",
+   "poster": "videos/ca/p/ca-clase-1-c6.jpg",
+   "minutes": 0.84
+  },
+  "c7": {
+   "src": "videos/ca/ca-clase-1.mp4#t=336.5,385.3",
+   "poster": "videos/ca/p/ca-clase-1-c7.jpg",
+   "minutes": 0.81
+  },
+  "ex:ca-e2": {
+   "src": "videos/ca/ca-clase-1.mp4#t=384.9,420.5",
+   "poster": "videos/ca/p/ca-clase-1-ex-ca-e2.jpg",
+   "minutes": 0.59
+  },
+  "c8": {
+   "src": "videos/ca/ca-clase-1.mp4#t=420.1,457.7",
+   "poster": "videos/ca/p/ca-clase-1-c8.jpg",
+   "minutes": 0.63
+  },
+  "c9": {
+   "src": "videos/ca/ca-clase-1.mp4#t=457.3,510.9",
+   "poster": "videos/ca/p/ca-clase-1-c9.jpg",
+   "minutes": 0.89
+  },
+  "c10": {
+   "src": "videos/ca/ca-clase-1.mp4#t=510.5,568.0",
+   "poster": "videos/ca/p/ca-clase-1-c10.jpg",
+   "minutes": 0.96
+  },
+  "ex:ca-e1": {
+   "src": "videos/ca/ca-clase-1.mp4#t=567.6,599.7",
+   "poster": "videos/ca/p/ca-clase-1-ex-ca-e1.jpg",
+   "minutes": 0.54
+  }
+ }
+}
