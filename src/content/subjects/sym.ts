@@ -1,5 +1,6 @@
 import type { Question, SubjectContent, TheoryBlock } from '../types';
 import { VIDEOS } from '../videos/sym';
+import { SCENES } from '../visual/sym';
 
 /** SyM · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y finales 2023 (Drive). */
 const A = 'autoevaluación de la cátedra';
@@ -132,5 +133,23 @@ const content: SubjectContent = {
     { t: 'SI', d: 'TPS transacciones · MIS informes rutinarios · DSS modelos "qué pasa si" · lógico (conceptual) vs físico (tecnología) · piloto = una sucursal.' },
   ],
 };
+
+content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
+content.lessons = [
+  {
+    id: 'sym-clase-1', examId: 'final', title: 'Final completo: organización, gestión y sistemas',
+    summary: 'Estructuras y Porter, puestos y equipos, poder, dirección, planificación y control, procesos, teoría de sistemas, proyectos, tipos de SI, desarrollo e implementación, comunicación.',
+    intro: [
+      'Esta es la clase completa para el final de Sistemas y Métodos: los doce módulos con los conceptos que aparecen en los cuestionarios de Blackboard.',
+      'Vamos de la organización a los sistemas: estructuras, equipos, poder, dirección, planificación, procesos, teoría de sistemas, proyectos, sistemas de información, implementación y comunicación.',
+    ],
+    parts: ['y1', 'y2', 'y3', 'y4', 'y5', 'y6', 'y7', 'y8', 'y9', 'y10', 'y11', 'y12'],
+    outro: [
+      'Matricial = mando múltiple · Porter: 5 fuerzas (no reguladores) · task force temporal, comité duradero · autoridad funcional = staff que impone su norma.',
+      'Maslow: fisiológicas, seguridad, sociales, estima, autorrealización · 9.1 = tareas · FODA: amenazas externas · Six Sigma: 3,4 por millón.',
+      'Proyecto: temporal y único · 24 h-persona con 2 personas de 8 h = 1,5 días · MIS informes predefinidos, DSS modelos · piloto = una sucursal.',
+    ],
+  },
+];
 
 export default content;

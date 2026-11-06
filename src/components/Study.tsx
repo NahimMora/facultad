@@ -29,7 +29,7 @@ export function TheoryView({ subject, content, modules, shorts }: { subject: Sub
           </div>
         ))}
       </nav>
-      {blocks.map((b) => <TheoryCard key={b.id} b={b} subject={subject} short={shorts[b.id]} />)}
+      {blocks.map((b) => <TheoryCard key={b.id} b={b} subject={subject} short={shorts[b.id] ?? b.video} />)}
     </div>
   );
 }

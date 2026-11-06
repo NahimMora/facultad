@@ -141,7 +141,11 @@ const content: SubjectContent = {
   ],
 };
 
-content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] ?? b.scenes }));
+content.theory = content.theory.map((b) => {
+  // los temas de la 2ª mitad vienen del sitio anterior: se les asocia el video de su capítulo (ch1-t3 → ch1-v1)
+  const v = P.videos.find((x) => x.id === `${b.id.split('-')[0]}-v1`);
+  return { ...b, scenes: SCENES[b.id] ?? b.scenes, video: v ? { src: v.src, poster: v.poster, minutes: v.minutes } : undefined };
+});
 content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
 content.lessons = [
   {

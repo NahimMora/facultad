@@ -1,41 +1,4 @@
-// Generado por scripts/videos_to_hub.py
+// Los videos cortos anteriores se reemplazaron por las clases en video (src/content/lessons).
 import type { VideoItem } from '../types';
 
-export const VIDEOS: VideoItem[] = [
- {
-  "id": "pye-1-descriptiva-probabilidad",
-  "module": "u1",
-  "title": "Final 1 · Descriptiva y probabilidad",
-  "src": "videos/pye/pye-1-descriptiva-probabilidad.mp4",
-  "poster": "videos/pye/pye-1-descriptiva-probabilidad.jpg",
-  "minutes": 2.6,
-  "transcript": "Probabilidad y Estadística, preparación del final. Video uno: estadística descriptiva y probabilidad, que es como arranca siempre el primer ejercicio.\n\nPrimero, el vocabulario. La población es el total, y sus medidas se llaman parámetros: mu, sigma, p. La muestra es una parte, y sus medidas son estadísticos: x barra, s, p sombrero.\n\nEl ejercicio clásico: dos sectores con medias distintas, y te preguntan dónde los datos son más heterogéneos. No se compara el desvío solo: se calcula el coeficiente de variación, desvío sobre media. Administración: trescientos noventa y seis sobre dos mil quinientos noventa, cero coma quince. Comercial: seiscientos sesenta y nueve sobre dos mil novecientos quince, cero coma veintitrés. Mayor coeficiente, más heterogéneo: comercial.\n\nY los percentiles. El percentil setenta y cinco es el valor por debajo del cual queda el setenta y cinco por ciento de los datos. Si te dan percentil setenta y cinco igual a dos mil ochocientos nueve, el setenta y cinco por ciento cobra menos que eso.\n\nLa forma. Simétrica: media, mediana y moda coinciden. Asimétrica positiva: la cola larga va a la derecha, y queda moda menor que mediana menor que media. Asimétrica negativa: al revés.\n\nProbabilidad. La unión: P de A más P de B menos la intersección. La condicional: P de A dado B es la intersección sobre P de B. Y si son independientes, la intersección es el producto, y la condicional queda igual a P de A: saber uno no cambia el otro.\n\nEjemplo del final: errores de respiración, cero veintisiete, y de postura, cero cuarenta y seis, independientes. La probabilidad de ambos es el producto: cero coma uno dos cuatro dos. Y si hubo error de respiración, la de postura sigue siendo cero cuarenta y seis.\n\nCuidado con la trampa: excluyentes no es lo mismo que independientes. Dos sucesos excluyentes no pueden ocurrir juntos, entonces son dependientes: que pase uno impide el otro.\n\nY probabilidad total con Bayes. Si el treinta por ciento viene de la zona A, que reclama un doce por ciento, y el setenta de la B, que reclama un dieciséis, la probabilidad de reclamo es cero coma ciento cuarenta y ocho. Y dado un reclamo, la probabilidad de que sea de A es cero treinta y seis sobre cero ciento cuarenta y ocho: cerca de cero veinticuatro.\n\nSiguiente video: las distribuciones binomial, Poisson y normal, y el teorema central del límite."
- },
- {
-  "id": "pye-2-distribuciones",
-  "module": "u3",
-  "title": "Final 2 · Distribuciones y TCL",
-  "src": "videos/pye/pye-2-distribuciones.mp4",
-  "poster": "videos/pye/pye-2-distribuciones.jpg",
-  "minutes": 1.6,
-  "transcript": "Video dos: distribuciones de probabilidad y el teorema central del límite.\n\nLas dos discretas. Binomial: n ensayos independientes con probabilidad de éxito constante, y contás éxitos. Esperanza n por p. Poisson: ocurrencias en un intervalo, de tiempo o espacio, con una tasa media lambda. Y en la Poisson, media y varianza son iguales.\n\nCómo elegir: llamadas por hora, autos por minuto, fallas por metro: Poisson. De diez piezas, cuántas defectuosas: binomial. Y si cambia el intervalo, lambda cambia en proporción: si llegan tres por hora, en media hora el lambda es uno coma cinco.\n\nLa normal: campana simétrica. Se estandariza con zeta igual a x menos mu, sobre sigma. Y la regla práctica: entre mu más menos un sigma, el sesenta y ocho por ciento; con dos sigma, el noventa y cinco; con tres sigma, el noventa y nueve coma siete.\n\nSuma de variables. La esperanza es lineal siempre. La varianza, si son independientes, suma los cuadrados de los coeficientes. Ojo: la varianza de X menos Y también es la suma de las varianzas.\n\nY el teorema central del límite: con muestras grandes, de treinta o más, la media muestral es aproximadamente normal, con media mu y desvío sigma sobre raíz de n. No importa cómo sea la población original. Por eso podemos hacer inferencia.\n\nSiguiente video: intervalos de confianza y prueba de hipótesis, el corazón del final."
- },
- {
-  "id": "pye-3-inferencia",
-  "module": "u6",
-  "title": "Final 3 · Intervalos y prueba de hipótesis",
-  "src": "videos/pye/pye-3-inferencia.mp4",
-  "poster": "videos/pye/pye-3-inferencia.jpg",
-  "minutes": 2.2,
-  "transcript": "Video tres: inferencia. Intervalos de confianza, prueba de hipótesis y comparación de poblaciones.\n\nIntervalo de confianza. La interpretación que piden: con una confianza del noventa por ciento, la media poblacional está entre dieciocho coma doce y diecinueve coma sesenta y ocho. Siempre sobre el parámetro, nunca \"el noventa por ciento de los productos\". Y si sigma es desconocido, se usa la t de Student.\n\nPrueba de hipótesis paso a paso. H uno es lo que querés probar, con mayor, menor o distinto. H cero lleva el igual. Comparás el p valor con alfa: si el p valor es menor que alfa, se rechaza H cero.\n\nLos errores. Tipo uno, con probabilidad alfa: rechazar H cero siendo verdadera. Tipo dos, con probabilidad beta: no rechazarla siendo falsa. Y la potencia, uno menos beta, es detectar que H cero es falsa. La clave del final: si rechazaste, el error posible es tipo uno; si no rechazaste, tipo dos. Y hay que explicarlo con las palabras del problema.\n\nEl ejercicio del final: comerciales contra administrativos, p valor cero cero cuarenta y uno, alfa cero cero cinco. Se rechaza H cero: los comerciales cobran significativamente más. Y el error posible es tipo uno: concluir que cobran más cuando en realidad no.\n\nQué prueba usar, que también lo preguntan. Dos grupos distintos de personas: diferencia de medias con muestras independientes, y antes la homogeneidad de varianzas. Las mismas personas antes y después: muestras apareadas. Una variable cualitativa contra una proporción histórica: chi cuadrado de bondad de ajuste, con categorías menos uno grados de libertad. Dos cualitativas: chi cuadrado de independencia.\n\nY la trampa de la autoevaluación: \"si alfa es menor que el p valor, se rechaza la hipótesis alternativa\". Falso. Si el p valor es mayor que alfa, no se rechaza H cero: no hay evidencia suficiente. La alternativa nunca \"se rechaza\".\n\nSiguiente y último video: regresión y correlación."
- },
- {
-  "id": "pye-4-regresion",
-  "module": "u9",
-  "title": "Final 4 · Regresión y correlación",
-  "src": "videos/pye/pye-4-regresion.mp4",
-  "poster": "videos/pye/pye-4-regresion.jpg",
-  "minutes": 1.7,
-  "transcript": "Video cuatro: regresión y correlación lineal. En el final te dan la salida del programa y te piden interpretar o corregir afirmaciones falsas.\n\nLa recta: y sombrero igual a a más b por x. La pendiente b: por cada unidad que aumenta x, y cambia b unidades en promedio. La ordenada a: el valor de y cuando x vale cero, que muchas veces no tiene sentido práctico. r mide fuerza y sentido, de menos uno a uno. Y r cuadrado es el porcentaje de la variación de y explicada por x.\n\nCuidado con las unidades. Si y sombrero es doce menos cero diecisiete x, con el precio en cientos de pesos y las ventas en cientos de unidades, por cada cien pesos de aumento las ventas bajan cero diecisiete cientos: diecisiete unidades.\n\nEl ejercicio del final dos mil veinticinco: corregir tres afirmaciones falsas sobre CO dos y población, con r igual a cero coma noventa y tres uno. \"El noventa y tres por ciento se explica\": falso, eso es r. r cuadrado da ochenta y seis coma siete por ciento. La ordenada se interpreta como el CO dos con cero habitantes, no al revés. Y la prueba de la pendiente muestra asociación lineal, nunca causalidad.\n\nY el criterio de la cátedra: el modelo sirve para pronosticar si r cuadrado supera cero coma cinco, y la prueba sobre la pendiente resultó significativa.\n\nResumen para el final: coeficiente de variación para heterogeneidad, p valor menor que alfa para rechazar, error tipo uno si rechazaste, y r cuadrado como porcentaje explicado. Practicá con los ejercicios y el banco de preguntas de esta sección. Éxitos."
- }
-];
+export const VIDEOS: VideoItem[] = [];

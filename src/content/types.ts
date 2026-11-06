@@ -72,6 +72,8 @@ export interface TheoryBlock {
   trap?: string;
   /** Recorridos visuales paso a paso (lo principal del bloque). */
   scenes?: VisScene[];
+  /** Video del tema cuando no sale de una clase (p. ej., los del sitio anterior de IISW). */
+  video?: { src: string; poster?: string; minutes: number };
 }
 
 export interface McqQuestion {

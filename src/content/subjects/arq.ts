@@ -1,5 +1,6 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/arq';
+import { EX_SCENES, SCENES } from '../visual/arq';
 
 /** Arq · final. Redacción propia sobre los apuntes de la cátedra (módulos 2 a 14) y finales 2022–2023 (Drive). */
 const F = 'final 2023 (Drive de estudiantes)';
@@ -138,5 +139,24 @@ const content: SubjectContent = {
     { t: 'E/S', d: 'sondeo · interrupciones (IRQ → ISR vía vector; NMI) · DMA sin CPU · física = segmento·16 + offset.' },
   ],
 };
+
+content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.lessons = [
+  {
+    id: 'arq-clase-1', examId: 'final', title: 'Final completo: de los datos al procesador',
+    summary: 'Overflow, IEEE 754, Von Neumann, memorias, caché, memoria virtual, ciclo de instrucción, pipeline, buses, E/S e interrupciones, 8086 y nuevas tecnologías.',
+    intro: [
+      'Esta es la clase completa para el final de Arquitectura de Computadores: las dos mitades de la materia, con los ejercicios que toman.',
+      'Primero los datos y la memoria: overflow, IEEE 754, Von Neumann, memorias, caché y memoria virtual. Después el procesador: ciclo de instrucción, pipeline, buses, entrada y salida, el 8086 y las tecnologías nuevas.',
+    ],
+    parts: ['r1', 'ex:arq-e1', 'r2', 'ex:arq-e2', 'r3', 'r4', 'r5', 'r6', 'r7', 'ex:arq-e3', 'r8', 'r9', 'r10', 'r11', 'r12'],
+    outro: [
+      'OF: con signo (mismo signo → signo contrario); CF: sin signo. IEEE 754: 1 + 8 (sesgo 127) + 23. −6,5 = C0D00000h.',
+      'SRAM caché, DRAM con refresco · directa = un lugar, asociativa = cualquiera, N vías = conjunto · write-back = sucio · page fault.',
+      'IF (CS:IP, little-endian) → ID (microprograma) → OF (puede no hacer falta) → EX (ALU) · pipeline k + n − 1 · DMA sin CPU.',
+    ],
+  },
+];
 
 export default content;

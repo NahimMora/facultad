@@ -1,0 +1,151 @@
+{
+ "id": "fia-clase-1",
+ "title": "Final completo: los 12 módulos",
+ "src": "videos/fia/fia-clase-1.mp4",
+ "poster": "videos/fia/fia-clase-1.jpg",
+ "minutes": 14.2,
+ "chapters": [
+  {
+   "part": "f1",
+   "title": "Qué es la IA y cómo evolucionó",
+   "at": 22.9
+  },
+  {
+   "part": "f2",
+   "title": "Relación con otras ciencias",
+   "at": 71.5
+  },
+  {
+   "part": "f3",
+   "title": "Problemas, espacio de estados y búsqueda",
+   "at": 102.3
+  },
+  {
+   "part": "ex:fia-e1",
+   "title": "Amplitud vs profundidad sobre un árbol",
+   "at": 189.0
+  },
+  {
+   "part": "f4",
+   "title": "Programación lógica: Prolog",
+   "at": 245.8
+  },
+  {
+   "part": "f5",
+   "title": "Sistemas basados en conocimiento y sistemas expertos",
+   "at": 289.1
+  },
+  {
+   "part": "f6",
+   "title": "Razonamiento aproximado: lógica difusa y probabilidad",
+   "at": 375.5
+  },
+  {
+   "part": "f7",
+   "title": "Redes neuronales artificiales",
+   "at": 429.6
+  },
+  {
+   "part": "f8",
+   "title": "Perceptrón",
+   "at": 488.7
+  },
+  {
+   "part": "ex:fia-e2",
+   "title": "Un paso de aprendizaje del perceptrón",
+   "at": 527.5
+  },
+  {
+   "part": "f9",
+   "title": "Algoritmos evolutivos y genéticos",
+   "at": 606.7
+  },
+  {
+   "part": "f10",
+   "title": "Algoritmos meméticos (híbridos)",
+   "at": 658.0
+  },
+  {
+   "part": "f11",
+   "title": "Agentes inteligentes",
+   "at": 713.3
+  },
+  {
+   "part": "f12",
+   "title": "Robótica",
+   "at": 749.9
+  }
+ ],
+ "shorts": {
+  "f1": {
+   "src": "videos/fia/fia-clase-1.mp4#t=22.9,71.9",
+   "poster": "videos/fia/p/fia-clase-1-f1.jpg",
+   "minutes": 0.82
+  },
+  "f2": {
+   "src": "videos/fia/fia-clase-1.mp4#t=71.5,102.7",
+   "poster": "videos/fia/p/fia-clase-1-f2.jpg",
+   "minutes": 0.52
+  },
+  "f3": {
+   "src": "videos/fia/fia-clase-1.mp4#t=102.3,189.4",
+   "poster": "videos/fia/p/fia-clase-1-f3.jpg",
+   "minutes": 1.45
+  },
+  "ex:fia-e1": {
+   "src": "videos/fia/fia-clase-1.mp4#t=189.0,246.2",
+   "poster": "videos/fia/p/fia-clase-1-ex-fia-e1.jpg",
+   "minutes": 0.95
+  },
+  "f4": {
+   "src": "videos/fia/fia-clase-1.mp4#t=245.8,289.5",
+   "poster": "videos/fia/p/fia-clase-1-f4.jpg",
+   "minutes": 0.73
+  },
+  "f5": {
+   "src": "videos/fia/fia-clase-1.mp4#t=289.1,375.9",
+   "poster": "videos/fia/p/fia-clase-1-f5.jpg",
+   "minutes": 1.45
+  },
+  "f6": {
+   "src": "videos/fia/fia-clase-1.mp4#t=375.5,430.0",
+   "poster": "videos/fia/p/fia-clase-1-f6.jpg",
+   "minutes": 0.91
+  },
+  "f7": {
+   "src": "videos/fia/fia-clase-1.mp4#t=429.6,489.2",
+   "poster": "videos/fia/p/fia-clase-1-f7.jpg",
+   "minutes": 0.99
+  },
+  "f8": {
+   "src": "videos/fia/fia-clase-1.mp4#t=488.7,527.9",
+   "poster": "videos/fia/p/fia-clase-1-f8.jpg",
+   "minutes": 0.65
+  },
+  "ex:fia-e2": {
+   "src": "videos/fia/fia-clase-1.mp4#t=527.5,607.1",
+   "poster": "videos/fia/p/fia-clase-1-ex-fia-e2.jpg",
+   "minutes": 1.33
+  },
+  "f9": {
+   "src": "videos/fia/fia-clase-1.mp4#t=606.7,658.5",
+   "poster": "videos/fia/p/fia-clase-1-f9.jpg",
+   "minutes": 0.86
+  },
+  "f10": {
+   "src": "videos/fia/fia-clase-1.mp4#t=658.0,713.7",
+   "poster": "videos/fia/p/fia-clase-1-f10.jpg",
+   "minutes": 0.93
+  },
+  "f11": {
+   "src": "videos/fia/fia-clase-1.mp4#t=713.3,750.3",
+   "poster": "videos/fia/p/fia-clase-1-f11.jpg",
+   "minutes": 0.62
+  },
+  "f12": {
+   "src": "videos/fia/fia-clase-1.mp4#t=749.9,816.1",
+   "poster": "videos/fia/p/fia-clase-1-f12.jpg",
+   "minutes": 1.1
+  }
+ }
+}

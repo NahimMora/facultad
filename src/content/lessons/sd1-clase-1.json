@@ -1,0 +1,121 @@
+{
+ "id": "sd1-clase-1",
+ "title": "Final completo: de los bits a los contadores",
+ "src": "videos/sd1/sd1-clase-1.mp4",
+ "poster": "videos/sd1/sd1-clase-1.jpg",
+ "minutes": 10.6,
+ "chapters": [
+  {
+   "part": "s1",
+   "title": "Numeración y aritmética binaria",
+   "at": 21.8
+  },
+  {
+   "part": "s2",
+   "title": "Compuertas y álgebra de Boole",
+   "at": 88.3
+  },
+  {
+   "part": "s3",
+   "title": "Funciones lógicas y formas canónicas",
+   "at": 142.7
+  },
+  {
+   "part": "s4",
+   "title": "Mapas de Karnaugh",
+   "at": 185.9
+  },
+  {
+   "part": "ex:sd1-e1",
+   "title": "Final · simplificar con Karnaugh",
+   "at": 238.6
+  },
+  {
+   "part": "s5",
+   "title": "Hardware digital",
+   "at": 284.4
+  },
+  {
+   "part": "s6",
+   "title": "Circuitos combinatorios y aritméticos",
+   "at": 323.3
+  },
+  {
+   "part": "ex:sd1-e2",
+   "title": "Final · sumador/restador: 3 − 5",
+   "at": 414.9
+  },
+  {
+   "part": "s7",
+   "title": "Biestables (latches y flip-flops)",
+   "at": 475.3
+  },
+  {
+   "part": "s8",
+   "title": "Contadores y máquinas de estado",
+   "at": 511.7
+  },
+  {
+   "part": "ex:sd1-e3",
+   "title": "Final · contador descendente 7 → 0 que se detiene",
+   "at": 555.9
+  }
+ ],
+ "shorts": {
+  "s1": {
+   "src": "videos/sd1/sd1-clase-1.mp4#t=21.8,88.7",
+   "poster": "videos/sd1/p/sd1-clase-1-s1.jpg",
+   "minutes": 1.12
+  },
+  "s2": {
+   "src": "videos/sd1/sd1-clase-1.mp4#t=88.3,143.1",
+   "poster": "videos/sd1/p/sd1-clase-1-s2.jpg",
+   "minutes": 0.91
+  },
+  "s3": {
+   "src": "videos/sd1/sd1-clase-1.mp4#t=142.7,186.3",
+   "poster": "videos/sd1/p/sd1-clase-1-s3.jpg",
+   "minutes": 0.73
+  },
+  "s4": {
+   "src": "videos/sd1/sd1-clase-1.mp4#t=185.9,239.0",
+   "poster": "videos/sd1/p/sd1-clase-1-s4.jpg",
+   "minutes": 0.88
+  },
+  "ex:sd1-e1": {
+   "src": "videos/sd1/sd1-clase-1.mp4#t=238.6,284.8",
+   "poster": "videos/sd1/p/sd1-clase-1-ex-sd1-e1.jpg",
+   "minutes": 0.77
+  },
+  "s5": {
+   "src": "videos/sd1/sd1-clase-1.mp4#t=284.4,323.7",
+   "poster": "videos/sd1/p/sd1-clase-1-s5.jpg",
+   "minutes": 0.65
+  },
+  "s6": {
+   "src": "videos/sd1/sd1-clase-1.mp4#t=323.3,415.3",
+   "poster": "videos/sd1/p/sd1-clase-1-s6.jpg",
+   "minutes": 1.53
+  },
+  "ex:sd1-e2": {
+   "src": "videos/sd1/sd1-clase-1.mp4#t=414.9,475.7",
+   "poster": "videos/sd1/p/sd1-clase-1-ex-sd1-e2.jpg",
+   "minutes": 1.01
+  },
+  "s7": {
+   "src": "videos/sd1/sd1-clase-1.mp4#t=475.3,512.1",
+   "poster": "videos/sd1/p/sd1-clase-1-s7.jpg",
+   "minutes": 0.61
+  },
+  "s8": {
+   "src": "videos/sd1/sd1-clase-1.mp4#t=511.7,556.3",
+   "poster": "videos/sd1/p/sd1-clase-1-s8.jpg",
+   "minutes": 0.74
+  },
+  "ex:sd1-e3": {
+   "src": "videos/sd1/sd1-clase-1.mp4#t=555.9,605.2",
+   "poster": "videos/sd1/p/sd1-clase-1-ex-sd1-e3.jpg",
+   "minutes": 0.82
+  }
+ }
+}

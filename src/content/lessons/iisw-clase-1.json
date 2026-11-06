@@ -1,0 +1,111 @@
+{
+ "id": "iisw-clase-1",
+ "title": "Final · primera mitad: módulos 1 a 7",
+ "src": "videos/iisw/iisw-clase-1.mp4",
+ "poster": "videos/iisw/iisw-clase-1.jpg",
+ "minutes": 11.7,
+ "chapters": [
+  {
+   "part": "m1-def",
+   "title": "Ingeniería de software: origen y definiciones",
+   "at": 22.7
+  },
+  {
+   "part": "m1-cual",
+   "title": "Cualidades del software (Ghezzi)",
+   "at": 90.1
+  },
+  {
+   "part": "m1-princ",
+   "title": "Principios de la ingeniería de software",
+   "at": 150.3
+  },
+  {
+   "part": "m2-ciclos",
+   "title": "Modelos de ciclo de vida",
+   "at": 202.1
+  },
+  {
+   "part": "m3-agiles",
+   "title": "Metodologías ágiles: XP y Scrum",
+   "at": 295.7
+  },
+  {
+   "part": "m4-extraccion",
+   "title": "Técnicas de extracción de requerimientos",
+   "at": 351.3
+  },
+  {
+   "part": "m5-modelado",
+   "title": "Modelado del negocio: diagrama de actividad y BPMN",
+   "at": 412.9
+  },
+  {
+   "part": "m6-ir",
+   "title": "Fundamentos de la ingeniería de requerimientos",
+   "at": 481.1
+  },
+  {
+   "part": "m7-srs",
+   "title": "Especificación de requerimientos (SRS)",
+   "at": 538.7
+  },
+  {
+   "part": "ex:iswf-e1",
+   "title": "Final · objetos entidad del caso \"Motores\"",
+   "at": 595.1
+  }
+ ],
+ "shorts": {
+  "m1-def": {
+   "src": "videos/iisw/iisw-clase-1.mp4#t=22.7,90.4",
+   "poster": "videos/iisw/p/iisw-clase-1-m1-def.jpg",
+   "minutes": 1.13
+  },
+  "m1-cual": {
+   "src": "videos/iisw/iisw-clase-1.mp4#t=90.1,150.7",
+   "poster": "videos/iisw/p/iisw-clase-1-m1-cual.jpg",
+   "minutes": 1.01
+  },
+  "m1-princ": {
+   "src": "videos/iisw/iisw-clase-1.mp4#t=150.3,202.5",
+   "poster": "videos/iisw/p/iisw-clase-1-m1-princ.jpg",
+   "minutes": 0.87
+  },
+  "m2-ciclos": {
+   "src": "videos/iisw/iisw-clase-1.mp4#t=202.1,296.1",
+   "poster": "videos/iisw/p/iisw-clase-1-m2-ciclos.jpg",
+   "minutes": 1.57
+  },
+  "m3-agiles": {
+   "src": "videos/iisw/iisw-clase-1.mp4#t=295.7,351.7",
+   "poster": "videos/iisw/p/iisw-clase-1-m3-agiles.jpg",
+   "minutes": 0.93
+  },
+  "m4-extraccion": {
+   "src": "videos/iisw/iisw-clase-1.mp4#t=351.3,413.3",
+   "poster": "videos/iisw/p/iisw-clase-1-m4-extraccion.jpg",
+   "minutes": 1.03
+  },
+  "m5-modelado": {
+   "src": "videos/iisw/iisw-clase-1.mp4#t=412.9,481.6",
+   "poster": "videos/iisw/p/iisw-clase-1-m5-modelado.jpg",
+   "minutes": 1.15
+  },
+  "m6-ir": {
+   "src": "videos/iisw/iisw-clase-1.mp4#t=481.1,539.1",
+   "poster": "videos/iisw/p/iisw-clase-1-m6-ir.jpg",
+   "minutes": 0.97
+  },
+  "m7-srs": {
+   "src": "videos/iisw/iisw-clase-1.mp4#t=538.7,595.5",
+   "poster": "videos/iisw/p/iisw-clase-1-m7-srs.jpg",
+   "minutes": 0.95
+  },
+  "ex:iswf-e1": {
+   "src": "videos/iisw/iisw-clase-1.mp4#t=595.1,666.3",
+   "poster": "videos/iisw/p/iisw-clase-1-ex-iswf-e1.jpg",
+   "minutes": 1.19
+  }
+ }
+}
