@@ -2,6 +2,7 @@ import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../t
 import { VIDEOS } from '../videos/am2';
 import { EX_SCENES, SCENES } from '../visual/am2';
 import { FINAL_EXERCISES, FINAL_SCENES } from '../visual/am2-final';
+import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/am2-repaso';
 
 /** AM II · final. Redacción propia; ejercicios tomados de los modelos de final 2026 y resueltos acá. */
 const F = 'modelos de final 2026 (Drive de estudiantes)';
@@ -105,7 +106,7 @@ const ex: WorkedExercise[] = [
 ];
 
 const content: SubjectContent = {
-  subjectId: 'am2', theory, questions: q, exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
+  subjectId: 'am2', theory, questions: [...q, ...REVIEW_QUESTIONS], exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
   cheatsheet: [
     { t: 'Una variable', d: 'f\' signo → crece/decrece · f\'\' signo → concavidad · inflexión: f\'\' CAMBIA de signo · verificar que el punto esté en la gráfica.' },
     { t: 'L\'Hôpital', d: 'solo 0/0 o ∞/∞ · 1^∞, ∞⁰, 0⁰ → L = e^(lim ln) · ln(e^(kx) + c)/x → k.' },
@@ -142,4 +143,5 @@ content.lessons = [
   },
 ];
 
+content.lessons.push(...REVIEW_LESSONS);
 export default content;

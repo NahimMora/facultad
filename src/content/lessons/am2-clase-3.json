@@ -1,0 +1,141 @@
+{
+ "id": "am2-clase-3",
+ "title": "Práctica visual: funciones y límites",
+ "src": "videos/am2/am2-clase-3.mp4",
+ "poster": "videos/am2/am2-clase-3.jpg",
+ "minutes": 13.2,
+ "chapters": [
+  {
+   "part": "q:am2-rep-1",
+   "title": "Para f(x)=x³, f′(0)=0. ¿Qué ocurre en x=0?",
+   "at": 30.6
+  },
+  {
+   "part": "q:am2-rep-2",
+   "title": "La función f(x)=|x| tiene un mínimo en cero. ¿Qué pasa con su derivada allí?",
+   "at": 96.7
+  },
+  {
+   "part": "q:am2-rep-3",
+   "title": "f es derivable y f′(x)<0 en todo un intervalo. ¿Qué conclusión corresponde allí?",
+   "at": 148.1
+  },
+  {
+   "part": "q:am2-rep-4",
+   "title": "Para f(x)=−eˣ, f″(x)<0 en todo R. ¿Eso produce un máximo local?",
+   "at": 195.1
+  },
+  {
+   "part": "q:am2-rep-5",
+   "title": "Buscás el máximo absoluto de f(x)=x en [0,1]. ¿Dónde está?",
+   "at": 249.9
+  },
+  {
+   "part": "q:am2-rep-6",
+   "title": "f(x)=(x²−1)/(x−1), con x distinto de 1. ¿Qué ocurre al acercarte a 1?",
+   "at": 301.1
+  },
+  {
+   "part": "q:am2-rep-7",
+   "title": "Para f(x)=x/√(x²+1), ¿cuáles son los límites en +∞ y −∞, respectivamente?",
+   "at": 371.1
+  },
+  {
+   "part": "q:am2-rep-8",
+   "title": "f(x)=x/(x²+1) tiene asíntota horizontal y=0. ¿Puede cruzarla?",
+   "at": 430.8
+  },
+  {
+   "part": "q:am2-rep-9",
+   "title": "¿Cuál es el dominio real de ln(x²−1)?",
+   "at": 486.7
+  },
+  {
+   "part": "q:am2-rep-10",
+   "title": "Para f(x)=(x²+1)/x, x distinto de 0, ¿qué recta describe su asíntota oblicua al infinito?",
+   "at": 534.8
+  },
+  {
+   "part": "q:am2-rep-11",
+   "title": "En lim x, entonces, 0 de cos(x)/(x+2), ¿qué hacés primero?",
+   "at": 591.7
+  },
+  {
+   "part": "q:am2-rep-12",
+   "title": "¿Cómo podés reescribir x·ln(x) al estudiar x, entonces, 0⁺ para aplicar L’Hôpital?",
+   "at": 646.9
+  },
+  {
+   "part": "q:am2-rep-13",
+   "title": "Para L=lim x, entonces, 0 de (1+x)^(1/x), ¿qué límite permite encontrar ln L?",
+   "at": 704.7
+  }
+ ],
+ "shorts": {
+  "q:am2-rep-1": {
+   "src": "videos/am2/am2-clase-3.mp4#t=30.6,97.1",
+   "poster": "videos/am2/p/am2-clase-3-q-am2-rep-1.jpg",
+   "minutes": 1.11
+  },
+  "q:am2-rep-2": {
+   "src": "videos/am2/am2-clase-3.mp4#t=96.7,148.5",
+   "poster": "videos/am2/p/am2-clase-3-q-am2-rep-2.jpg",
+   "minutes": 0.86
+  },
+  "q:am2-rep-3": {
+   "src": "videos/am2/am2-clase-3.mp4#t=148.1,195.5",
+   "poster": "videos/am2/p/am2-clase-3-q-am2-rep-3.jpg",
+   "minutes": 0.79
+  },
+  "q:am2-rep-4": {
+   "src": "videos/am2/am2-clase-3.mp4#t=195.1,250.4",
+   "poster": "videos/am2/p/am2-clase-3-q-am2-rep-4.jpg",
+   "minutes": 0.92
+  },
+  "q:am2-rep-5": {
+   "src": "videos/am2/am2-clase-3.mp4#t=249.9,301.5",
+   "poster": "videos/am2/p/am2-clase-3-q-am2-rep-5.jpg",
+   "minutes": 0.86
+  },
+  "q:am2-rep-6": {
+   "src": "videos/am2/am2-clase-3.mp4#t=301.1,371.5",
+   "poster": "videos/am2/p/am2-clase-3-q-am2-rep-6.jpg",
+   "minutes": 1.17
+  },
+  "q:am2-rep-7": {
+   "src": "videos/am2/am2-clase-3.mp4#t=371.1,431.2",
+   "poster": "videos/am2/p/am2-clase-3-q-am2-rep-7.jpg",
+   "minutes": 1.0
+  },
+  "q:am2-rep-8": {
+   "src": "videos/am2/am2-clase-3.mp4#t=430.8,487.1",
+   "poster": "videos/am2/p/am2-clase-3-q-am2-rep-8.jpg",
+   "minutes": 0.94
+  },
+  "q:am2-rep-9": {
+   "src": "videos/am2/am2-clase-3.mp4#t=486.7,535.2",
+   "poster": "videos/am2/p/am2-clase-3-q-am2-rep-9.jpg",
+   "minutes": 0.81
+  },
+  "q:am2-rep-10": {
+   "src": "videos/am2/am2-clase-3.mp4#t=534.8,592.1",
+   "poster": "videos/am2/p/am2-clase-3-q-am2-rep-10.jpg",
+   "minutes": 0.95
+  },
+  "q:am2-rep-11": {
+   "src": "videos/am2/am2-clase-3.mp4#t=591.7,647.3",
+   "poster": "videos/am2/p/am2-clase-3-q-am2-rep-11.jpg",
+   "minutes": 0.93
+  },
+  "q:am2-rep-12": {
+   "src": "videos/am2/am2-clase-3.mp4#t=646.9,705.1",
+   "poster": "videos/am2/p/am2-clase-3-q-am2-rep-12.jpg",
+   "minutes": 0.97
+  },
+  "q:am2-rep-13": {
+   "src": "videos/am2/am2-clase-3.mp4#t=704.7,760.9",
+   "poster": "videos/am2/p/am2-clase-3-q-am2-rep-13.jpg",
+   "minutes": 0.94
+  }
+ }
+}

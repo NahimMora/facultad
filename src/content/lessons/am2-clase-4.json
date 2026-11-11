@@ -1,0 +1,141 @@
+{
+ "id": "am2-clase-4",
+ "title": "Práctica visual: técnicas de cálculo y dominios",
+ "src": "videos/am2/am2-clase-4.mp4",
+ "poster": "videos/am2/am2-clase-4.jpg",
+ "minutes": 12.4,
+ "chapters": [
+  {
+   "part": "q:am2-rep-14",
+   "title": "Cuando L’Hôpital es aplicable a f/g, ¿qué cociente estudiás?",
+   "at": 30.6
+  },
+  {
+   "part": "q:am2-rep-15",
+   "title": "¿Cuál es una primitiva de 2x·e^(x²)?",
+   "at": 83.8
+  },
+  {
+   "part": "q:am2-rep-16",
+   "title": "¿Qué resultado corresponde a ∫x·eˣ dx?",
+   "at": 137.3
+  },
+  {
+   "part": "q:am2-rep-17",
+   "title": "En un intervalo que no contiene cero, ¿qué primitiva real general corresponde a 1/x?",
+   "at": 185.6
+  },
+  {
+   "part": "q:am2-rep-18",
+   "title": "Para descomponer 1/(x²−1), ¿qué forma es adecuada?",
+   "at": 239.1
+  },
+  {
+   "part": "q:am2-rep-19",
+   "title": "Tenés una candidata F para ∫f(x)dx. ¿Qué comprobación directa hacés?",
+   "at": 295.3
+  },
+  {
+   "part": "q:am2-rep-20",
+   "title": "Para f(x)=x en [−1,1], ¿qué diferencia hay entre la integral y el área geométrica bajo la gráfica respecto del eje?",
+   "at": 345.6
+  },
+  {
+   "part": "q:am2-rep-21",
+   "title": "¿Qué ocurre con ∫ desde 1 hasta +∞ de 1/x dx?",
+   "at": 407.5
+  },
+  {
+   "part": "q:am2-rep-22",
+   "title": "Una integral simétrica de 1/x alrededor de cero da 0 al quitar la misma distancia de ambos lados. ¿Eso demuestra convergencia impropia en [−1,1]?",
+   "at": 461.9
+  },
+  {
+   "part": "q:am2-rep-23",
+   "title": "Si G(x)=∫ de 0 a x de cos(t)dt, ¿cuál es G′(x)?",
+   "at": 521.3
+  },
+  {
+   "part": "q:am2-rep-24",
+   "title": "¿Qué relación hay entre ∫ de a a b de f e ∫ de b a a de f, si existen?",
+   "at": 569.6
+  },
+  {
+   "part": "q:am2-rep-25",
+   "title": "¿Qué dominio tiene F(x,y)=√(x+y)?",
+   "at": 615.9
+  },
+  {
+   "part": "q:am2-rep-26",
+   "title": "¿Qué región corresponde al dominio de ln(y−x²)?",
+   "at": 666.1
+  }
+ ],
+ "shorts": {
+  "q:am2-rep-14": {
+   "src": "videos/am2/am2-clase-4.mp4#t=30.6,84.2",
+   "poster": "videos/am2/p/am2-clase-4-q-am2-rep-14.jpg",
+   "minutes": 0.89
+  },
+  "q:am2-rep-15": {
+   "src": "videos/am2/am2-clase-4.mp4#t=83.8,137.7",
+   "poster": "videos/am2/p/am2-clase-4-q-am2-rep-15.jpg",
+   "minutes": 0.9
+  },
+  "q:am2-rep-16": {
+   "src": "videos/am2/am2-clase-4.mp4#t=137.3,186.0",
+   "poster": "videos/am2/p/am2-clase-4-q-am2-rep-16.jpg",
+   "minutes": 0.81
+  },
+  "q:am2-rep-17": {
+   "src": "videos/am2/am2-clase-4.mp4#t=185.6,239.4",
+   "poster": "videos/am2/p/am2-clase-4-q-am2-rep-17.jpg",
+   "minutes": 0.9
+  },
+  "q:am2-rep-18": {
+   "src": "videos/am2/am2-clase-4.mp4#t=239.1,295.7",
+   "poster": "videos/am2/p/am2-clase-4-q-am2-rep-18.jpg",
+   "minutes": 0.94
+  },
+  "q:am2-rep-19": {
+   "src": "videos/am2/am2-clase-4.mp4#t=295.3,346.0",
+   "poster": "videos/am2/p/am2-clase-4-q-am2-rep-19.jpg",
+   "minutes": 0.85
+  },
+  "q:am2-rep-20": {
+   "src": "videos/am2/am2-clase-4.mp4#t=345.6,408.0",
+   "poster": "videos/am2/p/am2-clase-4-q-am2-rep-20.jpg",
+   "minutes": 1.04
+  },
+  "q:am2-rep-21": {
+   "src": "videos/am2/am2-clase-4.mp4#t=407.5,462.3",
+   "poster": "videos/am2/p/am2-clase-4-q-am2-rep-21.jpg",
+   "minutes": 0.91
+  },
+  "q:am2-rep-22": {
+   "src": "videos/am2/am2-clase-4.mp4#t=461.9,521.7",
+   "poster": "videos/am2/p/am2-clase-4-q-am2-rep-22.jpg",
+   "minutes": 1.0
+  },
+  "q:am2-rep-23": {
+   "src": "videos/am2/am2-clase-4.mp4#t=521.3,570.0",
+   "poster": "videos/am2/p/am2-clase-4-q-am2-rep-23.jpg",
+   "minutes": 0.81
+  },
+  "q:am2-rep-24": {
+   "src": "videos/am2/am2-clase-4.mp4#t=569.6,616.4",
+   "poster": "videos/am2/p/am2-clase-4-q-am2-rep-24.jpg",
+   "minutes": 0.78
+  },
+  "q:am2-rep-25": {
+   "src": "videos/am2/am2-clase-4.mp4#t=615.9,666.4",
+   "poster": "videos/am2/p/am2-clase-4-q-am2-rep-25.jpg",
+   "minutes": 0.84
+  },
+  "q:am2-rep-26": {
+   "src": "videos/am2/am2-clase-4.mp4#t=666.1,716.7",
+   "poster": "videos/am2/p/am2-clase-4-q-am2-rep-26.jpg",
+   "minutes": 0.84
+  }
+ }
+}

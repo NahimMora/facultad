@@ -1,0 +1,131 @@
+{
+ "id": "am2-clase-5",
+ "title": "Práctica visual: dos variables y extremos",
+ "src": "videos/am2/am2-clase-5.mp4",
+ "poster": "videos/am2/am2-clase-5.jpg",
+ "minutes": 12.0,
+ "chapters": [
+  {
+   "part": "q:am2-rep-27",
+   "title": "¿Cuál es el dominio de 1/(x²+y²)?",
+   "at": 30.6
+  },
+  {
+   "part": "q:am2-rep-28",
+   "title": "Para F(x,y)=x²+y², ¿qué representa el nivel F=1 en el plano xy?",
+   "at": 80.7
+  },
+  {
+   "part": "q:am2-rep-29",
+   "title": "F(x,y)=xy/(x²+y²). Hacia (0,0), por y=0 da 0 y por y=x da 1/2. ¿Qué concluís?",
+   "at": 133.6
+  },
+  {
+   "part": "q:am2-rep-30",
+   "title": "Si |F(x,y)| menor o igual que √(x²+y²) cerca del origen, ¿qué podés concluir al acercarte a (0,0)?",
+   "at": 198.0
+  },
+  {
+   "part": "q:am2-rep-31",
+   "title": "Para F(x,y)=xy/(1+x²+y²), ¿cómo obtenés el límite en (0,0)?",
+   "at": 251.7
+  },
+  {
+   "part": "q:am2-rep-32",
+   "title": "Si F(x,y)=x²y+sin y, ¿cuál es Fₓ?",
+   "at": 306.3
+  },
+  {
+   "part": "q:am2-rep-33",
+   "title": "∇F=(1,2) y la dirección se da como v=(3,4). ¿Qué derivada direccional corresponde al versor de esa dirección?",
+   "at": 352.8
+  },
+  {
+   "part": "q:am2-rep-34",
+   "title": "En un punto ∇F=(3,4). ¿Cuál es el máximo de la derivada direccional entre versores?",
+   "at": 414.1
+  },
+  {
+   "part": "q:am2-rep-35",
+   "title": "¿Qué condición usual permite asegurar Fₓᵧ=Fᵧₓ en un punto por el teorema de Schwarz?",
+   "at": 466.9
+  },
+  {
+   "part": "q:am2-rep-36",
+   "title": "F(x,y)=x⁴+y⁴ tiene determinante hessiano 0 en el origen. ¿Qué ocurre realmente allí?",
+   "at": 518.6
+  },
+  {
+   "part": "q:am2-rep-37",
+   "title": "Maximizás F=x+y sujeto a x²+y²=1. ¿Qué valor máximo obtenés?",
+   "at": 572.4
+  },
+  {
+   "part": "q:am2-rep-38",
+   "title": "Para F=x²+y² en el disco x²+y² menor o igual que 1, ¿dónde se alcanza el máximo absoluto?",
+   "at": 630.9
+  }
+ ],
+ "shorts": {
+  "q:am2-rep-27": {
+   "src": "videos/am2/am2-clase-5.mp4#t=30.6,81.1",
+   "poster": "videos/am2/p/am2-clase-5-q-am2-rep-27.jpg",
+   "minutes": 0.84
+  },
+  "q:am2-rep-28": {
+   "src": "videos/am2/am2-clase-5.mp4#t=80.7,134.0",
+   "poster": "videos/am2/p/am2-clase-5-q-am2-rep-28.jpg",
+   "minutes": 0.89
+  },
+  "q:am2-rep-29": {
+   "src": "videos/am2/am2-clase-5.mp4#t=133.6,198.4",
+   "poster": "videos/am2/p/am2-clase-5-q-am2-rep-29.jpg",
+   "minutes": 1.08
+  },
+  "q:am2-rep-30": {
+   "src": "videos/am2/am2-clase-5.mp4#t=198.0,252.1",
+   "poster": "videos/am2/p/am2-clase-5-q-am2-rep-30.jpg",
+   "minutes": 0.9
+  },
+  "q:am2-rep-31": {
+   "src": "videos/am2/am2-clase-5.mp4#t=251.7,306.7",
+   "poster": "videos/am2/p/am2-clase-5-q-am2-rep-31.jpg",
+   "minutes": 0.92
+  },
+  "q:am2-rep-32": {
+   "src": "videos/am2/am2-clase-5.mp4#t=306.3,353.2",
+   "poster": "videos/am2/p/am2-clase-5-q-am2-rep-32.jpg",
+   "minutes": 0.78
+  },
+  "q:am2-rep-33": {
+   "src": "videos/am2/am2-clase-5.mp4#t=352.8,414.5",
+   "poster": "videos/am2/p/am2-clase-5-q-am2-rep-33.jpg",
+   "minutes": 1.03
+  },
+  "q:am2-rep-34": {
+   "src": "videos/am2/am2-clase-5.mp4#t=414.1,467.3",
+   "poster": "videos/am2/p/am2-clase-5-q-am2-rep-34.jpg",
+   "minutes": 0.89
+  },
+  "q:am2-rep-35": {
+   "src": "videos/am2/am2-clase-5.mp4#t=466.9,519.0",
+   "poster": "videos/am2/p/am2-clase-5-q-am2-rep-35.jpg",
+   "minutes": 0.87
+  },
+  "q:am2-rep-36": {
+   "src": "videos/am2/am2-clase-5.mp4#t=518.6,572.8",
+   "poster": "videos/am2/p/am2-clase-5-q-am2-rep-36.jpg",
+   "minutes": 0.9
+  },
+  "q:am2-rep-37": {
+   "src": "videos/am2/am2-clase-5.mp4#t=572.4,631.3",
+   "poster": "videos/am2/p/am2-clase-5-q-am2-rep-37.jpg",
+   "minutes": 0.98
+  },
+  "q:am2-rep-38": {
+   "src": "videos/am2/am2-clase-5.mp4#t=630.9,692.0",
+   "poster": "videos/am2/p/am2-clase-5-q-am2-rep-38.jpg",
+   "minutes": 1.02
+  }
+ }
+}

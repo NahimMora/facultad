@@ -440,7 +440,7 @@ function PrimView({ p, ctx }: { p: Prim; ctx: Ctx }): ReactNode {
           <G key={'h' + i} s={v.s} out={v.out} ctx={ctx}><line x1={p.x} y1={Y(v.y)} x2={p.x + p.w} y2={Y(v.y)} stroke={col(v.c, 'yellow')} strokeWidth={2.2} strokeDasharray="7 6" />{v.t && <text x={p.x + 6} y={Y(v.y) - 8} fontSize={17} fill={col(v.c, 'yellow')} fontWeight={700} fontFamily={FONT}>{v.t}</text>}</G>
         ))}
         {p.dots?.map((d, i) => (
-          <G key={'d' + i} s={d.s} out={d.out} ctx={ctx}><circle cx={X(d.x)} cy={Y(d.y)} r={6.5} fill={col(d.c, 'yellow')} stroke={VBG} strokeWidth={2} />{d.t && <text x={X(d.x) + 10} y={Y(d.y) - 10} fontSize={17} fill={col(d.c, 'yellow')} fontWeight={700} fontFamily={FONT}>{d.t}</text>}</G>
+          <G key={'d' + i} s={d.s} out={d.out} ctx={ctx}><circle cx={X(d.x)} cy={Y(d.y)} r={6.5} fill={d.open ? VBG : col(d.c, 'yellow')} stroke={d.open ? col(d.c, 'yellow') : VBG} strokeWidth={2} />{d.t && <text x={X(d.x) + 10} y={Y(d.y) - 10} fontSize={17} fill={col(d.c, 'yellow')} fontWeight={700} fontFamily={FONT}>{d.t}</text>}</G>
         ))}
       </>);
     }
