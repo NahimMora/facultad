@@ -2,6 +2,7 @@ import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../t
 import { VIDEOS } from '../videos/sd1';
 import { EX_SCENES, SCENES } from '../visual/sd1';
 import { FINAL_EXERCISES, FINAL_SCENES } from '../visual/sd1-final';
+import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/sd1-repaso';
 
 /** SD I · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y los temas de final (Drive). */
 const F = 'temas de final de la cátedra (Drive de estudiantes)';
@@ -109,7 +110,7 @@ const ex: WorkedExercise[] = [
 ];
 
 const content: SubjectContent = {
-  subjectId: 'sd1', theory, questions: q, exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
+  subjectId: 'sd1', theory, questions: [...q, ...REVIEW_QUESTIONS], exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
   cheatsheet: [
     { t: 'Numeración', d: 'C1: invertir · dos ceros · carry se suma · C2: invertir + 1 · carry se descarta · rango −2ⁿ⁻¹ … 2ⁿ⁻¹ − 1 · overflow = cambio de signo imposible.' },
     { t: 'Boole', d: 'De Morgan · A + AB = A · A + A\'B = A + B · A + BC = (A + B)(A + C) · XOR = A\'B + AB\' · NAND/NOR universales.' },
@@ -146,4 +147,5 @@ content.lessons = [
   },
 ];
 
+content.lessons.push(...REVIEW_LESSONS);
 export default content;

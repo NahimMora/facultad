@@ -1,0 +1,121 @@
+{
+ "id": "sd1-clase-4",
+ "title": "Práctica visual: Karnaugh y hardware",
+ "src": "videos/sd1/sd1-clase-4.mp4",
+ "poster": "videos/sd1/sd1-clase-4.jpg",
+ "minutes": 11.0,
+ "chapters": [
+  {
+   "part": "s4",
+   "title": "Mapas de Karnaugh",
+   "at": 30.6
+  },
+  {
+   "part": "q:sd1-rep-11",
+   "title": "Una función combinatoria tiene tres entradas binarias independientes. ¿Cuántas filas necesita su tabla completa?",
+   "at": 83.3
+  },
+  {
+   "part": "q:sd1-rep-12",
+   "title": "En variables ABC, el producto A'·B no menciona C. ¿Cuántos minitérminos representa al expandirlo?",
+   "at": 133.2
+  },
+  {
+   "part": "q:sd1-rep-13",
+   "title": "En un Karnaugh de tres variables con columnas BC=00,01,11,10, ¿son vecinas las celdas extremas de una misma fila?",
+   "at": 184.3
+  },
+  {
+   "part": "q:sd1-rep-14",
+   "title": "Dos celdas de Karnaugh solo se tocan en una esquina y difieren en dos bits. ¿Forman una pareja válida por sí solas?",
+   "at": 247.3
+  },
+  {
+   "part": "q:sd1-rep-15",
+   "title": "Marcaste seis unos en un solo rectángulo de Karnaugh. ¿Es un grupo válido para una implicante estándar?",
+   "at": 302.0
+  },
+  {
+   "part": "q:sd1-rep-16",
+   "title": "Todas las ocho celdas de un Karnaugh de tres variables valen 1. ¿Cuál es la función mínima?",
+   "at": 359.3
+  },
+  {
+   "part": "q:sd1-rep-17",
+   "title": "Una señal recibe una perturbación pequeña y todavía se interpreta con el mismo nivel lógico válido. ¿Qué propiedad permite analizar esa tolerancia?",
+   "at": 407.3
+  },
+  {
+   "part": "q:sd1-rep-18",
+   "title": "La entrada de una compuerta cambia, pero su salida válida aparece un tiempo después. ¿Qué magnitud describe ese intervalo?",
+   "at": 462.3
+  },
+  {
+   "part": "q:sd1-rep-19",
+   "title": "Conectás a una salida más entradas de las que admite su fan-out bajo las condiciones dadas. ¿Qué conclusión es correcta?",
+   "at": 516.1
+  },
+  {
+   "part": "q:sd1-rep-20",
+   "title": "Dos salidas conectadas al mismo bus intentan imponer 0 y 1 simultáneamente. ¿Qué diseño evita esa contención con tri-state?",
+   "at": 573.8
+  }
+ ],
+ "shorts": {
+  "s4": {
+   "src": "videos/sd1/sd1-clase-4.mp4#t=30.6,83.7",
+   "poster": "videos/sd1/p/sd1-clase-4-s4.jpg",
+   "minutes": 0.89
+  },
+  "q:sd1-rep-11": {
+   "src": "videos/sd1/sd1-clase-4.mp4#t=83.3,133.6",
+   "poster": "videos/sd1/p/sd1-clase-4-q-sd1-rep-11.jpg",
+   "minutes": 0.84
+  },
+  "q:sd1-rep-12": {
+   "src": "videos/sd1/sd1-clase-4.mp4#t=133.2,184.7",
+   "poster": "videos/sd1/p/sd1-clase-4-q-sd1-rep-12.jpg",
+   "minutes": 0.86
+  },
+  "q:sd1-rep-13": {
+   "src": "videos/sd1/sd1-clase-4.mp4#t=184.3,247.7",
+   "poster": "videos/sd1/p/sd1-clase-4-q-sd1-rep-13.jpg",
+   "minutes": 1.06
+  },
+  "q:sd1-rep-14": {
+   "src": "videos/sd1/sd1-clase-4.mp4#t=247.3,302.4",
+   "poster": "videos/sd1/p/sd1-clase-4-q-sd1-rep-14.jpg",
+   "minutes": 0.92
+  },
+  "q:sd1-rep-15": {
+   "src": "videos/sd1/sd1-clase-4.mp4#t=302.0,359.6",
+   "poster": "videos/sd1/p/sd1-clase-4-q-sd1-rep-15.jpg",
+   "minutes": 0.96
+  },
+  "q:sd1-rep-16": {
+   "src": "videos/sd1/sd1-clase-4.mp4#t=359.3,407.7",
+   "poster": "videos/sd1/p/sd1-clase-4-q-sd1-rep-16.jpg",
+   "minutes": 0.81
+  },
+  "q:sd1-rep-17": {
+   "src": "videos/sd1/sd1-clase-4.mp4#t=407.3,462.7",
+   "poster": "videos/sd1/p/sd1-clase-4-q-sd1-rep-17.jpg",
+   "minutes": 0.92
+  },
+  "q:sd1-rep-18": {
+   "src": "videos/sd1/sd1-clase-4.mp4#t=462.3,516.5",
+   "poster": "videos/sd1/p/sd1-clase-4-q-sd1-rep-18.jpg",
+   "minutes": 0.9
+  },
+  "q:sd1-rep-19": {
+   "src": "videos/sd1/sd1-clase-4.mp4#t=516.1,574.2",
+   "poster": "videos/sd1/p/sd1-clase-4-q-sd1-rep-19.jpg",
+   "minutes": 0.97
+  },
+  "q:sd1-rep-20": {
+   "src": "videos/sd1/sd1-clase-4.mp4#t=573.8,630.7",
+   "poster": "videos/sd1/p/sd1-clase-4-q-sd1-rep-20.jpg",
+   "minutes": 0.95
+  }
+ }
+}

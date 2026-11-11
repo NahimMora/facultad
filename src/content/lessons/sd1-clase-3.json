@@ -1,0 +1,121 @@
+{
+ "id": "sd1-clase-3",
+ "title": "Práctica visual: números y compuertas",
+ "src": "videos/sd1/sd1-clase-3.mp4",
+ "poster": "videos/sd1/sd1-clase-3.jpg",
+ "minutes": 11.1,
+ "chapters": [
+  {
+   "part": "s1",
+   "title": "Numeración y aritmética binaria",
+   "at": 30.6
+  },
+  {
+   "part": "q:sd1-rep-1",
+   "title": "El patrón binario 1010 1111 se interpreta sin signo. ¿Cuál es su escritura hexadecimal?",
+   "at": 97.1
+  },
+  {
+   "part": "q:sd1-rep-2",
+   "title": "¿Qué valor decimal tiene la fracción binaria 0,101₂?",
+   "at": 154.3
+  },
+  {
+   "part": "q:sd1-rep-3",
+   "title": "Sumás 1111₂ y 0001₂ con solo cuatro bits sin signo. ¿Qué ocurre?",
+   "at": 216.1
+  },
+  {
+   "part": "q:sd1-rep-4",
+   "title": "En complemento a dos de ocho bits, ¿qué peso tiene el bit más significativo?",
+   "at": 280.8
+  },
+  {
+   "part": "q:sd1-rep-5",
+   "title": "La tabla muestra salida 1 cuando las dos entradas son iguales y 0 cuando son distintas. ¿Qué función es?",
+   "at": 340.6
+  },
+  {
+   "part": "q:sd1-rep-6",
+   "title": "Conectás la misma señal A a las dos entradas de una NAND. ¿Qué salida obtenés?",
+   "at": 395.1
+  },
+  {
+   "part": "q:sd1-rep-7",
+   "title": "Unís las dos entradas de una NOR a la señal A. ¿A qué equivale?",
+   "at": 442.7
+  },
+  {
+   "part": "q:sd1-rep-8",
+   "title": "Aplicá De Morgan a NOT(A OR B). ¿Qué expresión equivalente obtenés?",
+   "at": 485.8
+  },
+  {
+   "part": "q:sd1-rep-9",
+   "title": "Usás orden ABC con A de peso 4. ¿Qué índice corresponde a la fila 101?",
+   "at": 534.3
+  },
+  {
+   "part": "q:sd1-rep-10",
+   "title": "Para la fila ABC=101 donde F=0, ¿qué maxitérmino se anula exactamente en esa fila?",
+   "at": 583.3
+  }
+ ],
+ "shorts": {
+  "s1": {
+   "src": "videos/sd1/sd1-clase-3.mp4#t=30.6,97.5",
+   "poster": "videos/sd1/p/sd1-clase-3-s1.jpg",
+   "minutes": 1.12
+  },
+  "q:sd1-rep-1": {
+   "src": "videos/sd1/sd1-clase-3.mp4#t=97.1,154.7",
+   "poster": "videos/sd1/p/sd1-clase-3-q-sd1-rep-1.jpg",
+   "minutes": 0.96
+  },
+  "q:sd1-rep-2": {
+   "src": "videos/sd1/sd1-clase-3.mp4#t=154.3,216.5",
+   "poster": "videos/sd1/p/sd1-clase-3-q-sd1-rep-2.jpg",
+   "minutes": 1.04
+  },
+  "q:sd1-rep-3": {
+   "src": "videos/sd1/sd1-clase-3.mp4#t=216.1,281.2",
+   "poster": "videos/sd1/p/sd1-clase-3-q-sd1-rep-3.jpg",
+   "minutes": 1.08
+  },
+  "q:sd1-rep-4": {
+   "src": "videos/sd1/sd1-clase-3.mp4#t=280.8,341.0",
+   "poster": "videos/sd1/p/sd1-clase-3-q-sd1-rep-4.jpg",
+   "minutes": 1.0
+  },
+  "q:sd1-rep-5": {
+   "src": "videos/sd1/sd1-clase-3.mp4#t=340.6,395.5",
+   "poster": "videos/sd1/p/sd1-clase-3-q-sd1-rep-5.jpg",
+   "minutes": 0.91
+  },
+  "q:sd1-rep-6": {
+   "src": "videos/sd1/sd1-clase-3.mp4#t=395.1,443.1",
+   "poster": "videos/sd1/p/sd1-clase-3-q-sd1-rep-6.jpg",
+   "minutes": 0.8
+  },
+  "q:sd1-rep-7": {
+   "src": "videos/sd1/sd1-clase-3.mp4#t=442.7,486.2",
+   "poster": "videos/sd1/p/sd1-clase-3-q-sd1-rep-7.jpg",
+   "minutes": 0.73
+  },
+  "q:sd1-rep-8": {
+   "src": "videos/sd1/sd1-clase-3.mp4#t=485.8,534.7",
+   "poster": "videos/sd1/p/sd1-clase-3-q-sd1-rep-8.jpg",
+   "minutes": 0.82
+  },
+  "q:sd1-rep-9": {
+   "src": "videos/sd1/sd1-clase-3.mp4#t=534.3,583.7",
+   "poster": "videos/sd1/p/sd1-clase-3-q-sd1-rep-9.jpg",
+   "minutes": 0.82
+  },
+  "q:sd1-rep-10": {
+   "src": "videos/sd1/sd1-clase-3.mp4#t=583.3,634.8",
+   "poster": "videos/sd1/p/sd1-clase-3-q-sd1-rep-10.jpg",
+   "minutes": 0.86
+  }
+ }
+}

@@ -1,0 +1,131 @@
+{
+ "id": "sd1-clase-5",
+ "title": "Práctica visual: circuitos y estados",
+ "src": "videos/sd1/sd1-clase-5.mp4",
+ "poster": "videos/sd1/sd1-clase-5.jpg",
+ "minutes": 12.5,
+ "chapters": [
+  {
+   "part": "s6",
+   "title": "Circuitos combinatorios y aritméticos",
+   "at": 30.6
+  },
+  {
+   "part": "s8",
+   "title": "Contadores y máquinas de estado",
+   "at": 122.3
+  },
+  {
+   "part": "q:sd1-rep-21",
+   "title": "Un MUX 4:1 asocia 00, entonces, I0, 01, entonces, I1, 10, entonces, I2 y 11, entonces, I3. Con selección 11, ¿qué entrada llega a la salida?",
+   "at": 166.4
+  },
+  {
+   "part": "q:sd1-rep-22",
+   "title": "Necesitás sumar dos bits y además el carry recibido de una etapa anterior. ¿Qué bloque corresponde?",
+   "at": 233.2
+  },
+  {
+   "part": "q:sd1-rep-23",
+   "title": "Un decodificador tiene salidas activas en alto y un enable que las desactiva todas. Si enable está inactivo, ¿qué esperás en las salidas?",
+   "at": 285.9
+  },
+  {
+   "part": "q:sd1-rep-24",
+   "title": "Una entrada de datos debe dirigirse a una de varias salidas según un selector. ¿Qué bloque cumple esa función?",
+   "at": 345.1
+  },
+  {
+   "part": "q:sd1-rep-25",
+   "title": "En un flip-flop T ideal, T=0 al llegar el flanco activo. ¿Qué ocurre con Q?",
+   "at": 397.0
+  },
+  {
+   "part": "q:sd1-rep-26",
+   "title": "Un latch D tiene enable activo y su salida puede seguir a D durante ese nivel. ¿En qué se diferencia de un flip-flop D disparado por flanco?",
+   "at": 448.7
+  },
+  {
+   "part": "q:sd1-rep-27",
+   "title": "Querés que un JK copie D en cada flanco. ¿Qué conexiones de entrada producen ese comportamiento ideal?",
+   "at": 506.9
+  },
+  {
+   "part": "q:sd1-rep-28",
+   "title": "Querés codificar siete estados distintos en binario. ¿Cuál es la cantidad mínima de flip-flops?",
+   "at": 562.1
+  },
+  {
+   "part": "q:sd1-rep-29",
+   "title": "Dos situaciones tienen el mismo estado actual pero distinta entrada, y el modelo permite salidas diferentes. ¿Qué tipo de salida describe?",
+   "at": 613.9
+  },
+  {
+   "part": "q:sd1-rep-30",
+   "title": "¿Qué caracteriza la conexión de reloj de los flip-flops de un contador síncrono ideal?",
+   "at": 668.7
+  }
+ ],
+ "shorts": {
+  "s6": {
+   "src": "videos/sd1/sd1-clase-5.mp4#t=30.6,122.7",
+   "poster": "videos/sd1/p/sd1-clase-5-s6.jpg",
+   "minutes": 1.53
+  },
+  "s8": {
+   "src": "videos/sd1/sd1-clase-5.mp4#t=122.3,166.8",
+   "poster": "videos/sd1/p/sd1-clase-5-s8.jpg",
+   "minutes": 0.74
+  },
+  "q:sd1-rep-21": {
+   "src": "videos/sd1/sd1-clase-5.mp4#t=166.4,233.6",
+   "poster": "videos/sd1/p/sd1-clase-5-q-sd1-rep-21.jpg",
+   "minutes": 1.12
+  },
+  "q:sd1-rep-22": {
+   "src": "videos/sd1/sd1-clase-5.mp4#t=233.2,286.3",
+   "poster": "videos/sd1/p/sd1-clase-5-q-sd1-rep-22.jpg",
+   "minutes": 0.88
+  },
+  "q:sd1-rep-23": {
+   "src": "videos/sd1/sd1-clase-5.mp4#t=285.9,345.5",
+   "poster": "videos/sd1/p/sd1-clase-5-q-sd1-rep-23.jpg",
+   "minutes": 0.99
+  },
+  "q:sd1-rep-24": {
+   "src": "videos/sd1/sd1-clase-5.mp4#t=345.1,397.4",
+   "poster": "videos/sd1/p/sd1-clase-5-q-sd1-rep-24.jpg",
+   "minutes": 0.87
+  },
+  "q:sd1-rep-25": {
+   "src": "videos/sd1/sd1-clase-5.mp4#t=397.0,449.2",
+   "poster": "videos/sd1/p/sd1-clase-5-q-sd1-rep-25.jpg",
+   "minutes": 0.87
+  },
+  "q:sd1-rep-26": {
+   "src": "videos/sd1/sd1-clase-5.mp4#t=448.7,507.3",
+   "poster": "videos/sd1/p/sd1-clase-5-q-sd1-rep-26.jpg",
+   "minutes": 0.98
+  },
+  "q:sd1-rep-27": {
+   "src": "videos/sd1/sd1-clase-5.mp4#t=506.9,562.5",
+   "poster": "videos/sd1/p/sd1-clase-5-q-sd1-rep-27.jpg",
+   "minutes": 0.93
+  },
+  "q:sd1-rep-28": {
+   "src": "videos/sd1/sd1-clase-5.mp4#t=562.1,614.3",
+   "poster": "videos/sd1/p/sd1-clase-5-q-sd1-rep-28.jpg",
+   "minutes": 0.87
+  },
+  "q:sd1-rep-29": {
+   "src": "videos/sd1/sd1-clase-5.mp4#t=613.9,669.1",
+   "poster": "videos/sd1/p/sd1-clase-5-q-sd1-rep-29.jpg",
+   "minutes": 0.92
+  },
+  "q:sd1-rep-30": {
+   "src": "videos/sd1/sd1-clase-5.mp4#t=668.7,723.1",
+   "poster": "videos/sd1/p/sd1-clase-5-q-sd1-rep-30.jpg",
+   "minutes": 0.91
+  }
+ }
+}
