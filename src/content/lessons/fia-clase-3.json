@@ -1,0 +1,161 @@
+{
+ "id": "fia-clase-3",
+ "title": "Práctica visual: quince decisiones de IA",
+ "src": "videos/fia/fia-clase-3.mp4",
+ "poster": "videos/fia/fia-clase-3.jpg",
+ "minutes": 14.7,
+ "chapters": [
+  {
+   "part": "q:fia-rep-1",
+   "title": "Entrenás un modelo con ejemplos y su respuesta deseada. ¿Qué modalidad de aprendizaje describís?",
+   "at": 30.6
+  },
+  {
+   "part": "q:fia-rep-2",
+   "title": "Necesitás representar incertidumbre mediante probabilidades. ¿Qué disciplina aporta esa herramienta formal a la IA?",
+   "at": 83.2
+  },
+  {
+   "part": "q:fia-rep-3",
+   "title": "Relacionás las conexiones de una red artificial con las sinapsis biológicas. ¿Qué disciplina aporta esa inspiración?",
+   "at": 139.7
+  },
+  {
+   "part": "q:fia-rep-4",
+   "title": "Un sistema debe analizar la estructura y el significado de expresiones del lenguaje humano. ¿Qué disciplina contribuye directamente?",
+   "at": 196.7
+  },
+  {
+   "part": "q:fia-rep-5",
+   "title": "Una búsqueda baja por una rama infinita y nunca explora una solución ubicada en otra rama. ¿Qué limitación muestra?",
+   "at": 254.3
+  },
+  {
+   "part": "q:fia-rep-6",
+   "title": "¿Puede unificarse par(X,X) con par(rojo,azul), siendo rojo y azul átomos distintos?",
+   "at": 312.9
+  },
+  {
+   "part": "q:fia-rep-7",
+   "title": "En un sistema experto, ¿dónde guardás los hechos particulares que estás evaluando en una consulta?",
+   "at": 373.0
+  },
+  {
+   "part": "q:fia-rep-8",
+   "title": "Convertís una medida nítida en grados de pertenencia a conjuntos difusos. ¿Qué etapa es?",
+   "at": 424.1
+  },
+  {
+   "part": "q:fia-rep-9",
+   "title": "Una red tiene conexiones que realimentan estados. ¿Qué describe esa recurrencia?",
+   "at": 477.7
+  },
+  {
+   "part": "q:fia-rep-10",
+   "title": "En un perceptrón, ¿para qué sirve el término de bias?",
+   "at": 529.9
+  },
+  {
+   "part": "q:fia-rep-11",
+   "title": "Un algoritmo genético termina al alcanzar el máximo de generaciones. ¿Qué podés asegurar solo por ese hecho?",
+   "at": 581.5
+  },
+  {
+   "part": "q:fia-rep-12",
+   "title": "Después de una búsqueda local, reemplazás el genotipo por la solución mejorada que podrá heredarse. ¿Qué enfoque describís?",
+   "at": 637.8
+  },
+  {
+   "part": "q:fia-rep-13",
+   "title": "Un agente modifica su comportamiento a partir de su propia experiencia. ¿Qué propiedad destaca el caso?",
+   "at": 690.9
+  },
+  {
+   "part": "q:fia-rep-14",
+   "title": "Una cámara mide el entorno y un motor mueve una rueda. ¿Qué relación es correcta?",
+   "at": 745.8
+  },
+  {
+   "part": "q:fia-rep-15",
+   "title": "Al modelar un problema de búsqueda, ¿qué función cumplen los operadores?",
+   "at": 802.3
+  }
+ ],
+ "shorts": {
+  "q:fia-rep-1": {
+   "src": "videos/fia/fia-clase-3.mp4#t=30.6,83.6",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-1.jpg",
+   "minutes": 0.88
+  },
+  "q:fia-rep-2": {
+   "src": "videos/fia/fia-clase-3.mp4#t=83.2,140.1",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-2.jpg",
+   "minutes": 0.95
+  },
+  "q:fia-rep-3": {
+   "src": "videos/fia/fia-clase-3.mp4#t=139.7,197.1",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-3.jpg",
+   "minutes": 0.96
+  },
+  "q:fia-rep-4": {
+   "src": "videos/fia/fia-clase-3.mp4#t=196.7,254.7",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-4.jpg",
+   "minutes": 0.97
+  },
+  "q:fia-rep-5": {
+   "src": "videos/fia/fia-clase-3.mp4#t=254.3,313.3",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-5.jpg",
+   "minutes": 0.98
+  },
+  "q:fia-rep-6": {
+   "src": "videos/fia/fia-clase-3.mp4#t=312.9,373.4",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-6.jpg",
+   "minutes": 1.01
+  },
+  "q:fia-rep-7": {
+   "src": "videos/fia/fia-clase-3.mp4#t=373.0,424.5",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-7.jpg",
+   "minutes": 0.86
+  },
+  "q:fia-rep-8": {
+   "src": "videos/fia/fia-clase-3.mp4#t=424.1,478.1",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-8.jpg",
+   "minutes": 0.9
+  },
+  "q:fia-rep-9": {
+   "src": "videos/fia/fia-clase-3.mp4#t=477.7,530.3",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-9.jpg",
+   "minutes": 0.88
+  },
+  "q:fia-rep-10": {
+   "src": "videos/fia/fia-clase-3.mp4#t=529.9,581.9",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-10.jpg",
+   "minutes": 0.87
+  },
+  "q:fia-rep-11": {
+   "src": "videos/fia/fia-clase-3.mp4#t=581.5,638.2",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-11.jpg",
+   "minutes": 0.95
+  },
+  "q:fia-rep-12": {
+   "src": "videos/fia/fia-clase-3.mp4#t=637.8,691.3",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-12.jpg",
+   "minutes": 0.89
+  },
+  "q:fia-rep-13": {
+   "src": "videos/fia/fia-clase-3.mp4#t=690.9,746.3",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-13.jpg",
+   "minutes": 0.92
+  },
+  "q:fia-rep-14": {
+   "src": "videos/fia/fia-clase-3.mp4#t=745.8,802.7",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-14.jpg",
+   "minutes": 0.95
+  },
+  "q:fia-rep-15": {
+   "src": "videos/fia/fia-clase-3.mp4#t=802.3,856.1",
+   "poster": "videos/fia/p/fia-clase-3-q-fia-rep-15.jpg",
+   "minutes": 0.9
+  }
+ }
+}

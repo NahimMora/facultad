@@ -2,6 +2,7 @@ import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../t
 import { VIDEOS } from '../videos/fia';
 import { EX_SCENES, SCENES } from '../visual/fia';
 import { FINAL_EXERCISES, FINAL_QUESTIONS, FINAL_SCENES } from '../visual/fia-final';
+import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/fia-repaso';
 
 /** FIA · final (módulos 1 a 12). Redacción propia sobre los apuntes de la cátedra y los temas de finales 2023–2025. */
 const F = 'finales anteriores (Drive de estudiantes)';
@@ -140,7 +141,7 @@ const exercises: WorkedExercise[] = [
 
 const content: SubjectContent = {
   subjectId: 'fia',
-  theory, questions: [...questions, ...FINAL_QUESTIONS], exercises: [...exercises, ...FINAL_EXERCISES], videos: VIDEOS,
+  theory, questions: [...questions, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: [...exercises, ...FINAL_EXERCISES], videos: VIDEOS,
   cheatsheet: [
     { t: 'IA ⊃ ML ⊃ DL', d: 'ML: el usuario define características; DL: la red aprende qué atributos importan. ML: supervisado, no supervisado, refuerzo.' },
     { t: 'Problema', d: 'Entidad que desea algo y no conoce la secuencia de acciones. Espacio de estados ⊃ árbol de exploración.' },
@@ -183,4 +184,5 @@ content.lessons = [
   },
 ];
 
+content.lessons.push(...REVIEW_LESSONS);
 export default content;
