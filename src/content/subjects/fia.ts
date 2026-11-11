@@ -1,3 +1,4 @@
+import { POCKET } from '../cheatsheets';
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/fia';
 import { EX_SCENES, SCENES } from '../visual/fia';
@@ -142,20 +143,7 @@ const exercises: WorkedExercise[] = [
 const content: SubjectContent = {
   subjectId: 'fia',
   theory, questions: [...questions, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: [...exercises, ...FINAL_EXERCISES], videos: VIDEOS,
-  cheatsheet: [
-    { t: 'IA ⊃ ML ⊃ DL', d: 'ML: el usuario define características; DL: la red aprende qué atributos importan. ML: supervisado, no supervisado, refuerzo.' },
-    { t: 'Problema', d: 'Entidad que desea algo y no conoce la secuencia de acciones. Espacio de estados ⊃ árbol de exploración.' },
-    { t: 'Búsqueda', d: 'Ciega: amplitud (completa y óptima, mucha memoria) · profundidad (poca memoria, no completa). Informada: ascenso en colina, haz, primero el mejor.' },
-    { t: 'Representación', d: 'Redes semánticas · guiones · marcos · reglas de producción.' },
-    { t: 'Prolog', d: 'Hechos, reglas, consultas · variables en mayúscula · unificación, instanciación, retroceso.' },
-    { t: 'Sistema experto', d: 'Base de reglas · motor de inferencias · memoria de trabajo · trazador de explicaciones. Adelante = datos/antecedentes; atrás = objetivo/consecuentes. Adquisición → conceptualización → **formalización (IF-THEN)** → implementación (shell) → validación.' },
-    { t: 'Difusa', d: 'Verdad en [0, 1] · función de pertenencia · fuzzificación → inferencia → defuzzificación. Redes bayesianas (DAG).' },
-    { t: 'Neurona', d: 'Dendritas = entradas · sinapsis = pesos · axón = salida · Net = Σxw (+bias) → función de activación · ocultas opcionales.' },
-    { t: 'Perceptrón', d: 'Lineal: 2 clases, linealmente separable (XOR no) · w += α·error·x · multicapa para más.' },
-    { t: 'Genéticos', d: 'Población, cromosoma, gen, fitness · selección, cruce, **mutación (diversidad)** · reemplazo destructivo/constructivo.' },
-    { t: 'Meméticos', d: 'Evolutivo + búsqueda local · exploración vs explotación · Lamarck (hereda) vs Baldwin (solo fitness).' },
-    { t: 'Agentes y robots', d: 'Sensores/efectores · racional ≠ omnisciente · reactivo vs inteligente · multiagente. Automatización ⊃ robótica.' },
-  ],
+  cheatsheet: POCKET['fia'],
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));

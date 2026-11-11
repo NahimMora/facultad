@@ -1,3 +1,4 @@
+import { POCKET } from '../cheatsheets';
 import type { Question, SubjectContent, TheoryBlock } from '../types';
 import { VIDEOS } from '../videos/bd';
 import { EX_SCENES, SCENES } from '../visual/bd';
@@ -105,14 +106,7 @@ const ex = FINAL_EXERCISES;
 
 const content: SubjectContent = {
   subjectId: 'bd', theory, questions: [...q, ...REVIEW_QUESTIONS], exercises: ex, videos: VIDEOS,
-  cheatsheet: [
-    { t: 'Sistema de BD', d: 'BD = datos + metadatos · sistema = BD + SGBD + aplicaciones + hardware + usuarios · DBA: backups y permisos · ANSI-SPARC: independencia lógica y física.' },
-    { t: 'DER', d: '|| uno y solo uno · o< cero o muchos · |< uno o muchos · N:M → entidad intermedia · escribir SUPUESTOS.' },
-    { t: 'Paso a tablas', d: '1:N → FK en el lado N · N:M → tabla con PK compuesta por las dos FK · atributo de la relación va en la intermedia.' },
-    { t: 'Normalización', d: '1FN sin grupos repetitivos · 2FN sin dependencias parciales (solo con PK compuesta) · 3FN sin transitivas.' },
-    { t: 'Álgebra', d: 'σ filas · π columnas · ⨝ junta · × sin requisitos · ∪ − ∩ compatibles con la unión · "NO" = diferencia · "Y" = intersección.' },
-    { t: 'SQL', d: 'WHERE filtra filas · HAVING filtra grupos (COUNT) · LIKE \'X%\' · IS NULL · BETWEEN incluye extremos · "nunca" → NOT IN / NOT EXISTS · UPDATE … WHERE campo IN (SELECT …).' },
-  ],
+  cheatsheet: POCKET['bd'],
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));

@@ -1,3 +1,4 @@
+import { POCKET } from '../cheatsheets';
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/am2';
 import { EX_SCENES, SCENES } from '../visual/am2';
@@ -107,14 +108,7 @@ const ex: WorkedExercise[] = [
 
 const content: SubjectContent = {
   subjectId: 'am2', theory, questions: [...q, ...REVIEW_QUESTIONS], exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
-  cheatsheet: [
-    { t: 'Una variable', d: 'f\' signo → crece/decrece · f\'\' signo → concavidad · inflexión: f\'\' CAMBIA de signo · verificar que el punto esté en la gráfica.' },
-    { t: 'L\'Hôpital', d: 'solo 0/0 o ∞/∞ · 1^∞, ∞⁰, 0⁰ → L = e^(lim ln) · ln(e^(kx) + c)/x → k.' },
-    { t: 'Integrales', d: 't = √x → dx = 2t dt · partes ∫u dv = uv − ∫v du · ∫₁^∞ 1/xᵖ converge si p > 1 (= 1/(p−1)) · ojo con denominadores que se anulan DENTRO del intervalo.' },
-    { t: 'Área', d: '∫ (arriba − abajo) entre los cortes · área del dominio = área entre las curvas frontera.' },
-    { t: 'Dominio en ℝ²', d: 'raíz par ≥ 0 · raíz par abajo > 0 · ln > 0 · elipse: dividir por el término independiente.' },
-    { t: 'Extremos en ℝ²', d: 'Fₓ = Fᵧ = 0 · H = FₓₓFᵧᵧ − Fₓᵧ² · H > 0: Fₓₓ > 0 mín, < 0 máx · H < 0 ensilladura · H = 0 no decide.' },
-  ],
+  cheatsheet: POCKET['am2'],
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));

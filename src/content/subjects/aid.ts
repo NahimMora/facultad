@@ -1,3 +1,4 @@
+import { POCKET } from '../cheatsheets';
 import type { SubjectContent } from '../types';
 import { VIDEOS } from '../videos/aid';
 import { EX_SCENES, SCENES } from '../visual/aid';
@@ -330,21 +331,7 @@ const content: SubjectContent = {
 
   videos: VIDEOS,
 
-  cheatsheet: [
-    { t: 'Definición DM', d: 'Exploración y análisis, automático o semiautomático, de datos para descubrir **patrones y reglas**. Se busca un resultado **accionable**.' },
-    { t: '6 tareas', d: 'Clasificación (clase predefinida) · Estimación (continua, se verifica hoy) · Predicción (se verifica en el futuro) · Afinidad/asociación · Clustering (grupos sin clases) · Descripción.' },
-    { t: 'Círculo virtuoso', d: 'Técnicas + poder computacional + **datos justos + área justa** → actuar → **medir** (planearlo desde el inicio; demorarlo es grave).' },
-    { t: 'Modos', d: '**Top-down** = testeo de hipótesis. **Bottom-up** = búsqueda de conocimiento: **directa** (hay objetivo; training/test/evaluación) o **indirecta** (sin objetivo).' },
-    { t: 'Medir modelos', d: 'Descriptivo → MDL, mejor simple. Predictivo → % de error. Comparar distintos → **lift → ROI**. Riesgos: sobreajuste, eliminar campos predictivos, poca explicabilidad.' },
-    { t: 'Fórmulas de reglas', d: 'Soporte = P(X∧Y) · Confianza = P(X∧Y)/P(X) · **Lift = P(X∧Y)/(P(X)·P(Y))**. Lift < 1 → usar la regla negada.' },
-    { t: 'Árbol', d: 'Directa · reglas raíz→hoja · expresividad alta. CART (2 ramas, menos preparación), CHAID (χ², más preparación), C4.5 (n ramas, poda pesimista), ID3. Error = Σ error_hoja × peso.' },
-    { t: 'Cluster', d: 'Indirecta · grupos · expresividad baja. K-means (k fijo, centroides al azar) vs jerárquicos (top-down/bottom-up). Centroide = objeto real más cercano a la media.' },
-    { t: 'Canasta', d: 'Directa e indirecta · reglas IF-THEN · expresividad alta. Apriori (con candidatos) vs FP-Tree (sin). Reglas accionables, triviales o inexplicables. Pruning = soporte mínimo.' },
-    { t: 'MBR', d: 'Directa · vecino más cercano · expresividad no presenta. Distancia (bien definida, identidad, conmutativa, triangular) + combinación (democrática o ponderada 1/d). Precisión y recall.' },
-    { t: 'CRISP-DM', d: 'Negocio → Comprensión de datos (recolectar, describir, explorar, **verificar calidad**) → Preparación (limpiar, construir, integrar, formatear) → Modelado → Evaluación → Implementación.' },
-    { t: 'Text mining', d: 'Información no cuantitativa y no estructurada · problema: ambigüedad del lenguaje · 2 etapas: preprocesamiento + descubrimiento · indirecto.' },
-    { t: 'Web mining', d: '**Content** (text, hypertext, markup, multimedia) · **Structure** (topología de links) · **Usage** (sesiones y hábitos). Debilidad: no se sabe el fin de sesión y la caché local no queda registrada.' },
-  ],
+  cheatsheet: POCKET['aid'],
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));

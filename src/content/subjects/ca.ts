@@ -1,3 +1,4 @@
+import { POCKET } from '../cheatsheets';
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/ca';
 import { EX_SCENES, SCENES } from '../visual/ca';
@@ -121,15 +122,7 @@ const ex: WorkedExercise[] = [
 
 const content: SubjectContent = {
   subjectId: 'ca', theory, questions: [...q, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
-  cheatsheet: [
-    { t: 'Rutas', d: '/etc/network/interfaces (+ interfaces.d) · /etc/resolv.conf DNS · /etc/hosts · /root · /etc/passwd · /etc/shadow · /etc/sudoers (visudo) · /etc/profile global · /etc/fstab · /etc/default/grub.' },
-    { t: 'Software', d: 'apt (repos, dependencias) · dpkg (.deb sueltos) · > pisa · >> agrega · 2> errores · | pipe.' },
-    { t: 'Usuarios', d: 'root UID 0 · sistema 1–999 · normales ≥ 1000 · usermod -aG sudo · visudo.' },
-    { t: 'Permisos', d: 'u g o · r4 w2 x1 · chmod o+r · 755 = rwxr-xr-x · SUID 4 · SGID 2 · sticky 1.' },
-    { t: 'Discos', d: 'ext4 · fdisk → mkfs.ext4 → mount · fstab: dispositivo, punto, tipo, opciones, dump, pass · hard link = inodo · soft link = ruta.' },
-    { t: 'Procesos e inicio', d: 'kill (15) · kill -9 · nice −20 … 19 · renice -n N -p PID · GRUB_TIMEOUT + update-grub · systemctl enable.' },
-    { t: 'Bash', d: '#!/bin/bash · bash s.sh o ./s.sh · $1 $2 $# $@ $0 $? · if [ … ]; then … fi · $HOME $USER $PATH.' },
-  ],
+  cheatsheet: POCKET['ca'],
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));

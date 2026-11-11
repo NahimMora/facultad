@@ -132,5 +132,5 @@ export function VideosView({ content, modules, media }: { content: SubjectConten
 
 export function CheatsheetView({ content }: { content: SubjectContent }) {
   if (!content.cheatsheet.length) return <p className="empty">Todavía no hay machete para esta materia.</p>;
-  return <dl className="cheat">{content.cheatsheet.map((c) => <div key={c.t}><dt>{c.t}</dt><dd><Rich text={c.d} /></dd></div>)}</dl>;
+  return <><p className="pocket-scope">Machete · toda la materia</p><dl className="cheat">{content.cheatsheet.map((c) => <div key={c.t}><dt>{c.t}</dt><dd><Rich text={c.d} /></dd></div>)}</dl></>;
 }

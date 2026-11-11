@@ -1,3 +1,4 @@
+import { POCKET } from '../cheatsheets';
 import type { SubjectContent } from '../types';
 import { VIDEOS } from '../videos/itc';
 import { BANCO, BANCO_EJERCICIOS } from '../banks/itc-banco';
@@ -490,24 +491,7 @@ const content: SubjectContent = {
 
   videos: VIDEOS,
 
-  cheatsheet: [
-    { t: 'Frame Ethernet', d: 'V2: preámbulo 8 · dest 6 · origen 6 · **Tipo** · datos 46–1500 · FCS 4. 802.3: preámbulo 7 + SFD 1 · **Longitud**. Campo ≤ 1500 → longitud; ≥ 1536 → EtherType.' },
-    { t: 'MAC', d: '48 bits. 1er byte par → unicast; impar → multicast; FF…FF → broadcast.' },
-    { t: 'CSMA/CD', d: 'IFG 96 bit-times · jam 32 bits · backoff k·51,2 µs con k ∈ [0, 2ⁿ−1], n ≤ 10 · se descarta tras 16 intentos. Full duplex = sin CSMA/CD.' },
-    { t: 'Dominios', d: 'Hub: 1 dominio de colisión. Switch: 1 dominio de colisión por puerto y 1 de broadcast. Router: separa broadcast. Regla 5-4-3.' },
-    { t: 'Switch', d: 'Aprende de la MAC **origen**; destino desconocido → inunda menos el puerto de entrada; broadcast → todos; loops → Spanning Tree 802.1D. Cut-through / store-and-forward / fragment-free (64 B).' },
-    { t: 'Wi-Fi', d: '802.11 · **CSMA/CA** (estación oculta) · BSS / ESS / IBSS (ad-hoc) · DCF / PCF · Wi-Fi 4 n, 5 ac, 6 ax.' },
-    { t: 'Clases IPv4', d: 'A 1–126 /8 · B 128–191 /16 · C 192–223 /24 · D 224–239 multicast · 127 loopback. Privadas: 10/8, 172.16/12, 192.168/16.' },
-    { t: 'Subnetting', d: 'Hosts = 2ⁿ − 2 · subredes útiles = 2ˢ − 2 · salto = 256 − máscara · red = IP AND máscara · broadcast = siguiente red − 1.' },
-    { t: 'Supernetting / CIDR', d: 'Bits comunes de izquierda a derecha → prefijo más corto. Ej.: 192.168.0–3.0/24 → 192.168.0.0/22. Longest match.' },
-    { t: 'IPv6', d: '128 bits · unicast / anycast / multicast · **sin broadcast** · "::" una sola vez · ::1 loopback · FE80::/10 link-local · FC00::/7 local · 2000::/3 global · 48 + 16 + 64 (EUI-64).' },
-    { t: 'ARP e ICMP', d: 'ARP: request broadcast, reply unicast; fuera de la red → MAC del gateway. ICMP (protocolo 1): echo 8/0 (ping), unreachable 3, redirect 5, time exceeded (traceroute).' },
-    { t: 'Puertos', d: '0–1023 well-known · 1024–49151 registrados · 49152+ efímeros. HTTP 80 · HTTPS 443 · SMTP 25 · POP3 110 · IMAP 143 · DNS 53 · DHCP 67/68 UDP · FTP 20/21.' },
-    { t: 'TCP', d: 'PAR · SYN → SYN+ACK → ACK · cierre FIN/ACK ×2 + TIME_WAIT · seq = 1er byte · ACK = próximo byte esperado · SYN y FIN consumen 1 nº. UDP: 8 bytes, sin conexión.' },
-    { t: 'Congestión', d: 'Slow start ×2 hasta el umbral → lineal. 3 ACK duplicados: umbral = cwnd/2, cwnd = umbral. Timeout: umbral = cwnd/2, cwnd = 1 MSS. Tahoe no distingue; Reno sí.' },
-    { t: 'NAT', d: 'Básico (1 IP) · múltiple (rango) · **PAT/overload** (también puertos: muchas privadas → 1 pública) · estático (publicar servidores) · port forwarding. Choca con FTP, SIP, IPsec.' },
-    { t: 'Aplicación', d: 'DHCP: DORA; automático, dinámico (lease) o manual. DNS: recursiva (cliente) / iterativa (servidores) / inversa (in-addr.arpa); A, MX, NS, CNAME, PTR, SOA. Mail: SMTP envía; POP3 descarga y borra; IMAP carpetas; MIME adjuntos. HTTP: sin estado; GET, HEAD, POST, PUT, DELETE.' },
-  ],
+  cheatsheet: POCKET['itc'],
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));

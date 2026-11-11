@@ -1,3 +1,4 @@
+import { POCKET } from '../cheatsheets';
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/sd1';
 import { EX_SCENES, SCENES } from '../visual/sd1';
@@ -111,14 +112,7 @@ const ex: WorkedExercise[] = [
 
 const content: SubjectContent = {
   subjectId: 'sd1', theory, questions: [...q, ...REVIEW_QUESTIONS], exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
-  cheatsheet: [
-    { t: 'Numeración', d: 'C1: invertir · dos ceros · carry se suma · C2: invertir + 1 · carry se descarta · rango −2ⁿ⁻¹ … 2ⁿ⁻¹ − 1 · overflow = cambio de signo imposible.' },
-    { t: 'Boole', d: 'De Morgan · A + AB = A · A + A\'B = A + B · A + BC = (A + B)(A + C) · XOR = A\'B + AB\' · NAND/NOR universales.' },
-    { t: 'Canónicas', d: 'SOP = Σm de los 1 · POS = ΠM de los 0 · estandarizar con (X + X\').' },
-    { t: 'Karnaugh', d: 'código Gray · grupos de 1, 2, 4, 8 · lo más grandes posible · 2ᵏ celdas eliminan k variables.' },
-    { t: 'Combinatorios', d: 'deco n → 2ⁿ · MUX 2ⁿ:1 · MUX 16:1 = 5 MUX 4:1 · sumador/restador: B ⊕ M y Cᵢₙ = M.' },
-    { t: 'Secuenciales', d: 'D copia · T cambia si 1 · JK 11 cambia · SR 11 prohibido · contador T: sube Tᵢ = producto de Q inferiores; baja = producto de Q\' inferiores.' },
-  ],
+  cheatsheet: POCKET['sd1'],
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));

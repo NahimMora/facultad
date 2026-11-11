@@ -1,3 +1,4 @@
+import { POCKET } from '../cheatsheets';
 import type { Question, SubjectContent, TheoryBlock } from '../types';
 import { VIDEOS } from '../videos/sym';
 import { SCENES } from '../visual/sym';
@@ -125,15 +126,7 @@ const q: Question[] = [
 
 const content: SubjectContent = {
   subjectId: 'sym', theory, questions: [...q, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: FINAL_EXERCISES, videos: VIDEOS,
-  cheatsheet: [
-    { t: 'Organización', d: 'formal = deliberada · matricial = mando múltiple · eficacia = lo correcto, eficiencia = pocos recursos · Porter: 5 fuerzas (sin reguladores).' },
-    { t: 'Equipos', d: 'task force temporal · comité duradero · equipo = sinergia · puesto formal vs rol.' },
-    { t: 'Poder', d: 'legítimo · recompensa · coercitivo · experto · referente · autoridad lineal / staff / funcional.' },
-    { t: 'Dirección', d: 'Maslow: fisiológicas, seguridad, sociales, estima, autorrealización · rejilla 9.1 tareas · negociación dura.' },
-    { t: 'Planificación', d: 'FODA (O y A externas) · cadena de valor (marketing y ventas = primaria) · BSC: financiera, clientes, procesos, aprendizaje.' },
-    { t: 'Proyectos', d: 'temporal y único · charter autoriza · WBS → paquete de trabajo · camino crítico sin holgura · esfuerzo ≠ duración · QA procesos, QC productos.' },
-    { t: 'SI', d: 'TPS transacciones · MIS informes rutinarios · DSS modelos "qué pasa si" · lógico (conceptual) vs físico (tecnología) · piloto = una sucursal.' },
-  ],
+  cheatsheet: POCKET['sym'],
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));

@@ -1,3 +1,4 @@
+import { POCKET } from '../cheatsheets';
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/arq';
 import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/arq-repaso';
@@ -131,16 +132,7 @@ const ex: WorkedExercise[] = [
 
 const content: SubjectContent = {
   subjectId: 'arq', theory, questions: [...q, ...REVIEW_QUESTIONS], exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
-  cheatsheet: [
-    { t: 'Desbordes', d: 'OF con signo: mismo signo → signo opuesto · nunca con signos distintos · CF sin signo · underflow: demasiado chico.' },
-    { t: 'IEEE 754 simple', d: '1 + 8 + 23 bits · sesgo 127 · valor (−1)ˢ·1,m·2^(e−127) · −6,5 = C0D00000h.' },
-    { t: 'Memorias', d: 'SRAM caché (rápida) · DRAM principal (refresco) · EPROM UV · EEPROM eléctrica por celda · Flash por bloques.' },
-    { t: 'Caché', d: 'localidad temporal/espacial · directa (un renglón) · asociativa (cualquiera) · N vías · LRU/FIFO · write-through vs write-back (bloque sucio).' },
-    { t: 'Memoria virtual', d: 'páginas y marcos · tabla de páginas · MMU · TLB · page fault → disco · swapping lento.' },
-    { t: 'Ciclo', d: 'IF (CS:IP, little-endian) → ID (microprograma, 1 ciclo por microtarea) → OF (puede omitirse) → EX (ALU).' },
-    { t: 'Paralelismo', d: 'pipeline k + n − 1 · riesgos estructurales, de datos, de control · superescalar IPC > 1 · Flynn: SIMD GPU, MIMD multinúcleo.' },
-    { t: 'E/S', d: 'sondeo · interrupciones (IRQ → ISR vía vector; NMI) · DMA sin CPU · física = segmento·16 + offset.' },
-  ],
+  cheatsheet: POCKET['arq'],
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));

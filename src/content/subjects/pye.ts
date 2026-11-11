@@ -1,3 +1,4 @@
+import { POCKET } from '../cheatsheets';
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/pye';
 import { EX_SCENES, SCENES } from '../visual/pye';
@@ -102,15 +103,7 @@ const ex: WorkedExercise[] = [
 
 const content: SubjectContent = {
   subjectId: 'pye', theory, questions: [...q, ...REVIEW_QUESTIONS], exercises: ex, videos: VIDEOS,
-  cheatsheet: [
-    { t: 'Descriptiva', d: 'CV = s/x̄ (mayor = más heterogéneo) · P(k): el k % está por debajo · asimetría positiva: Mo < Me < x̄.' },
-    { t: 'Probabilidad', d: 'Independientes: P(A∩B) = P(A)P(B), P(A/B) = P(A) · total: Σ P(R/Aᵢ)P(Aᵢ) · Bayes.' },
-    { t: 'Distribuciones', d: 'Binomial n·p · Poisson λ (media = varianza) · Normal Z = (x − μ)/σ · TCL: x̄ ~ N(μ, σ/√n).' },
-    { t: 'Prueba de hipótesis', d: 'H1 = lo que se quiere probar · p-v < α → rechazo H0 · rechacé → posible error I; no rechacé → posible error II · potencia = 1 − β.' },
-    { t: 'Qué prueba', d: '2 grupos distintos → independientes (antes homogeneidad) · mismos individuos → apareadas · cualitativas vs proporción → χ² bondad (k − 1 g.l.) · 2 cualitativas → χ² independencia.' },
-    { t: 'IC', d: '"Con confianza del X % la MEDIA poblacional está entre a y b". σ desconocido → t.' },
-    { t: 'Regresión', d: 'b: cambio de y por unidad de x · a: y con x = 0 · r² = % de variación explicada (r² = r²) · asociación, NO causalidad · útil si r² > 0,5.' },
-  ],
+  cheatsheet: POCKET['pye'],
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));

@@ -1,3 +1,4 @@
+import { POCKET } from '../cheatsheets';
 import type { Question, SubjectContent, TheoryBlock, VideoItem, WorkedExercise } from '../types';
 import port from '../banks/iisw-port.json';
 import { VIDEOS } from '../videos/iisw';
@@ -128,17 +129,7 @@ const content: SubjectContent = {
   questions: [...questions, ...P.questions],
   exercises,
   videos: [...VIDEOS, ...P.videos],
-  cheatsheet: [
-    { t: 'Sistema vs software', d: 'Sistema = software + hardware + gente + datos + documentación + procedimientos (manual y computarizado). Software = parte lógica.' },
-    { t: 'Cualidades', d: 'Producto: correctitud, confiabilidad, robustez, performance, amigabilidad, verificabilidad, mantenibilidad, reusabilidad, portabilidad, interoperabilidad. Proceso: productividad, **oportunidad** (a tiempo), visibilidad.' },
-    { t: 'Principios', d: 'Rigor/formalidad · separación de incumbencias · **modularidad (alta cohesión, bajo acoplamiento)** · abstracción · anticipación al cambio · generalización · incrementalidad.' },
-    { t: 'Ciclos de vida', d: 'Cascada (estable) · Espiral (RIESGOS) · Incremental (entregas operativas) · Prototipos (cliente no sabe) · Evolutivo · UP (Inicio, Elaboración, Construcción, Transición; iterativo e incremental).' },
-    { t: 'Scrum', d: 'Sprints 1–4 semanas · Product Owner (backlog) · Equipo autogestionado 7±2 · Scrum Master (coach, no jefe) · PO ≠ SM.' },
-    { t: 'Entrevista', d: 'Abiertas / cerradas / sondeo · Pirámide (cerradas→abiertas) · Embudo (abiertas→cerradas) · Diamante. Evitar tendenciosas y dobles.' },
-    { t: 'Ingeniería de requerimientos', d: 'Extracción → análisis → especificación (SRS) → validación. Comportamiento EXTERNO; no diseño.' },
-    { t: 'SRS (IEEE 830)', d: 'Correcta, no ambigua, completa, consistente, clasificada, verificable, modificable, trazable. Sin costos ni cronogramas ni diseño. Cuantificar sí cambia la solución.' },
-    { t: '2ª mitad', d: 'CU (actores externos), descripción, secuencia (interfaz → control → entidad), pruebas, tipos de sistemas, reingeniería y métodos formales: ver los módulos 8 a 12.' },
-  ],
+  cheatsheet: POCKET['iisw'],
 };
 
 content.theory = content.theory.map((b) => {

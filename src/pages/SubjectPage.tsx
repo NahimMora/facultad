@@ -73,21 +73,21 @@ function SubjectView({ s }: { s: Subject }) {
   const modTitle = (mid: string) => allModules(s).find((m) => m.id === mid)?.label;
 
   return (
-    <div className="page subject" style={{ ['--h' as string]: s.hue }}>
+    <div className={`page subject${tab === 'machete' ? ' pocket-page' : ''}`} style={{ ['--h' as string]: s.hue }}>
       <header className="shead">
         <Link to="/" className="back">← Inicio</Link>
         <h1><span aria-hidden>{s.icon}</span> {s.name}</h1>
         <p className="hint">{s.term} · {s.status === 'cursando' ? 'Cursando' : s.status === 'regular' ? 'Regularizada: falta el final' : 'Aprobada'}</p>
       </header>
 
-      <div className="exam-pick" role="group" aria-label="Preparar para">
+      {tab !== 'machete' && <div className="exam-pick" role="group" aria-label="Preparar para">
         <span>Preparar para:</span>
         {studyExams.map((e) => (
           <button key={e.id} type="button" className={`pill ${e.id === examId ? 'on' : ''}`} onClick={() => go({ examen: e.id })} aria-pressed={e.id === examId}>
             {e.name}{e.state === 'rendido' ? ' ✓' : ''}
           </button>
         ))}
-      </div>
+      </div>}
 
       <nav className="tabs" aria-label="Secciones">
         {visibleTabs.map((t) => (
