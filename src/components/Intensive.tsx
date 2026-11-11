@@ -2,6 +2,7 @@ import type { Exam, LessonMedia, Subject, SubjectContent } from '../content/type
 import { allModules } from '../content/subjects';
 import { keys } from '../lib/storage';
 import { Quiz } from './Quiz';
+import { MockExam } from './MockExam';
 import { Rich } from './Rich';
 import { CheatsheetView, LessonPlayer } from './Study';
 
@@ -28,6 +29,7 @@ export function IntensiveView({ s, exam, content, media, mods, openTopic, openEx
     { id: 'temas', t: 'Tema por tema, con diagramas', min: blocks.length * 3, show: blocks.length > 0 },
     { id: 'ejercicios', t: 'Ejercicios modelo', min: ex.length * 5, show: ex.length > 0 },
     { id: 'practica', t: 'Práctica con corrección', min: Math.round(qs.length * 0.7), show: qs.length > 0 },
+    { id: 'simulacro', t: 'Simulacro con cronómetro', min: 20, show: qs.length > 0 && s.id === 'aid' && exam.id === 'p2' },
     { id: 'machete', t: 'Machete final', min: 8, show: content.cheatsheet.length > 0 },
   ].filter((x) => x.show);
   const jump = (id: string) => document.getElementById(`int-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -92,6 +94,11 @@ export function IntensiveView({ s, exam, content, media, mods, openTopic, openEx
           <Quiz storageKey={keys.quiz(s.id, exam.id)} items={qs} tagOf={(q) => modTitle(q.module)} />
         </section>
       )}
+
+      {qs.length > 0 && s.id === 'aid' && exam.id === 'p2' && <section id="int-simulacro" className="card">
+        <h2>Simulacro con cronómetro</h2>
+        <MockExam key={`${s.id}-${exam.id}`} storageKey={`mock-${s.id}-${exam.id}`} items={qs} />
+      </section>}
 
       {content.cheatsheet.length > 0 && (
         <section id="int-machete" className="card">
