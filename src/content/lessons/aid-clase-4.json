@@ -1,0 +1,186 @@
+{
+ "id": "aid-clase-4",
+ "title": "Final: bases de BI, dimensiones y arquitecturas",
+ "src": "videos/aid/aid-clase-4.mp4",
+ "poster": "videos/aid/aid-clase-4.jpg",
+ "minutes": 15.0,
+ "chapters": [
+  {
+   "part": "q:aid-rep-1",
+   "title": "Distintas áreas conservan datos aislados y producen informes contradictorios. ¿Qué objetivo de BI responde al problema?",
+   "at": 16.3
+  },
+  {
+   "part": "q:aid-rep-2",
+   "title": "Registrar una venta individual y analizar ventas históricas por región son trabajos diferentes. ¿Qué correspondencia es correcta?",
+   "at": 108.5
+  },
+  {
+   "part": "q:aid-rep-3",
+   "title": "En un modelo de ventas, ¿qué representa normalmente importe frente a producto, tienda y fecha?",
+   "at": 166.2
+  },
+  {
+   "part": "q:aid-rep-4",
+   "title": "Antes de cargar una tabla de hechos, definís si cada fila representa una línea de venta o un resumen mensual. ¿Qué estás fijando?",
+   "at": 228.5
+  },
+  {
+   "part": "q:aid-rep-5",
+   "title": "El stock de varias tiendas se observa en distintas fechas. ¿Por qué no sumás todos los saldos diarios como si fueran ventas del período?",
+   "at": 280.6
+  },
+  {
+   "part": "q:aid-rep-6",
+   "title": "Un reporte muestra totales mensuales y abrís el detalle por día. ¿Qué operación de navegación realizás?",
+   "at": 336.5
+  },
+  {
+   "part": "q:aid-rep-7",
+   "title": "Cambiás un atributo de una fila de dimensión y reemplazás su valor anterior sin guardarlo. ¿Qué SCD básico aplicás?",
+   "at": 387.3
+  },
+  {
+   "part": "q:aid-rep-8",
+   "title": "Un cambio de atributo genera otra fila de dimensión, con nueva clave subrogada y vigencia propia. ¿Qué patrón SCD describe?",
+   "at": 438.7
+  },
+  {
+   "part": "q:aid-rep-9",
+   "title": "La información analítica se almacena en una base relacional como soporte de la solución OLAP. ¿Qué arquitectura corresponde?",
+   "at": 526.3
+  },
+  {
+   "part": "q:aid-rep-10",
+   "title": "Una solución usa estructuras multidimensionales para agregados y soporte relacional para detalle. ¿Qué enfoque del apunte combina ambos?",
+   "at": 583.7
+  },
+  {
+   "part": "q:aid-rep-11",
+   "title": "Ofrecés acceso a consultas y reportes del DW mediante navegador e intranet. ¿Qué integración describe el apunte?",
+   "at": 640.7
+  },
+  {
+   "part": "q:aid-rep-12",
+   "title": "Publicás reportes internos del DW mediante una aplicación web. ¿Qué aspecto seguís necesitando administrar?",
+   "at": 697.1
+  },
+  {
+   "part": "q:aid-rep-13",
+   "title": "Agrupás físicamente los valores de cada atributo, en lugar de guardar consecutivamente todos los atributos de una fila. ¿Qué organización es?",
+   "at": 755.0
+  },
+  {
+   "part": "q:aid-rep-14",
+   "title": "Una consulta agrega una sola medida sobre muchas filas. ¿Qué beneficio puede ofrecer el almacenamiento columnar?",
+   "at": 811.5
+  }
+ ],
+ "shorts": {
+  "q:aid-rep-1": {
+   "src": "videos/aid/aid-clase-4.mp4#t=16.3,108.9",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-1.jpg",
+   "minutes": 1.54
+  },
+  "q:aid-rep-2": {
+   "src": "videos/aid/aid-clase-4.mp4#t=108.5,166.5",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-2.jpg",
+   "minutes": 0.97
+  },
+  "q:aid-rep-3": {
+   "src": "videos/aid/aid-clase-4.mp4#t=166.2,228.9",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-3.jpg",
+   "minutes": 1.04
+  },
+  "q:aid-rep-4": {
+   "src": "videos/aid/aid-clase-4.mp4#t=228.5,281.0",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-4.jpg",
+   "minutes": 0.88
+  },
+  "q:aid-rep-5": {
+   "src": "videos/aid/aid-clase-4.mp4#t=280.6,336.9",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-5.jpg",
+   "minutes": 0.94
+  },
+  "q:aid-rep-6": {
+   "src": "videos/aid/aid-clase-4.mp4#t=336.5,387.6",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-6.jpg",
+   "minutes": 0.85
+  },
+  "q:aid-rep-7": {
+   "src": "videos/aid/aid-clase-4.mp4#t=387.3,439.1",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-7.jpg",
+   "minutes": 0.86
+  },
+  "q:aid-rep-8": {
+   "src": "videos/aid/aid-clase-4.mp4#t=438.7,526.7",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-8.jpg",
+   "minutes": 1.47
+  },
+  "q:aid-rep-9": {
+   "src": "videos/aid/aid-clase-4.mp4#t=526.3,584.2",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-9.jpg",
+   "minutes": 0.96
+  },
+  "q:aid-rep-10": {
+   "src": "videos/aid/aid-clase-4.mp4#t=583.7,641.2",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-10.jpg",
+   "minutes": 0.96
+  },
+  "q:aid-rep-11": {
+   "src": "videos/aid/aid-clase-4.mp4#t=640.7,697.5",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-11.jpg",
+   "minutes": 0.95
+  },
+  "q:aid-rep-12": {
+   "src": "videos/aid/aid-clase-4.mp4#t=697.1,755.4",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-12.jpg",
+   "minutes": 0.97
+  },
+  "q:aid-rep-13": {
+   "src": "videos/aid/aid-clase-4.mp4#t=755.0,811.8",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-13.jpg",
+   "minutes": 0.95
+  },
+  "q:aid-rep-14": {
+   "src": "videos/aid/aid-clase-4.mp4#t=811.5,871.7",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-14.jpg",
+   "minutes": 1.0
+  },
+  "repaso-m1": {
+   "src": "videos/aid/aid-clase-4.mp4#t=16.3,166.5",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-1.jpg",
+   "minutes": 2.5
+  },
+  "repaso-m2": {
+   "src": "videos/aid/aid-clase-4.mp4#t=166.2,281.0",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-3.jpg",
+   "minutes": 1.91
+  },
+  "repaso-m3": {
+   "src": "videos/aid/aid-clase-4.mp4#t=280.6,387.6",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-5.jpg",
+   "minutes": 1.78
+  },
+  "repaso-m4": {
+   "src": "videos/aid/aid-clase-4.mp4#t=387.3,526.7",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-7.jpg",
+   "minutes": 2.32
+  },
+  "repaso-m5": {
+   "src": "videos/aid/aid-clase-4.mp4#t=526.3,641.2",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-9.jpg",
+   "minutes": 1.91
+  },
+  "repaso-m6": {
+   "src": "videos/aid/aid-clase-4.mp4#t=640.7,755.4",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-11.jpg",
+   "minutes": 1.91
+  },
+  "repaso-m7": {
+   "src": "videos/aid/aid-clase-4.mp4#t=755.0,871.7",
+   "poster": "videos/aid/p/aid-clase-4-q-aid-rep-13.jpg",
+   "minutes": 1.94
+  }
+ }
+}

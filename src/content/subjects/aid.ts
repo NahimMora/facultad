@@ -1,6 +1,7 @@
 import type { SubjectContent } from '../types';
 import { VIDEOS } from '../videos/aid';
 import { EX_SCENES, SCENES } from '../visual/aid';
+import { REVIEW_QUESTIONS, REVIEW_THEORY, REVIEW_LESSONS } from '../visual/aid-repaso';
 
 /**
  * AID · 2º parcial (módulos 8 a 12): Data Mining.
@@ -392,5 +393,9 @@ content.lessons = [
     ],
   },
 ];
+
+content.questions.push(...REVIEW_QUESTIONS);
+content.theory.push(...REVIEW_THEORY);
+content.lessons.push(...REVIEW_LESSONS);
 
 export default content;
