@@ -1,0 +1,151 @@
+{
+ "id": "sym-clase-2",
+ "title": "Final resuelto paso a paso · catorce puntos",
+ "src": "videos/sym/sym-clase-2.mp4",
+ "poster": "videos/sym/sym-clase-2.jpg",
+ "minutes": 14.1,
+ "chapters": [
+  {
+   "part": "ex:sym-final-e1",
+   "title": "Final resuelto · 1 · Reglas del cursograma",
+   "at": 26.7
+  },
+  {
+   "part": "ex:sym-final-e2",
+   "title": "Final resuelto · 2 · Qué representa el cursograma",
+   "at": 86.4
+  },
+  {
+   "part": "ex:sym-final-e3",
+   "title": "Final resuelto · 3 · Habilidades del liderazgo",
+   "at": 141.4
+  },
+  {
+   "part": "ex:sym-final-e4",
+   "title": "Final resuelto · 4 · Decidir racionalmente",
+   "at": 197.7
+  },
+  {
+   "part": "ex:sym-final-e5",
+   "title": "Final resuelto · 5 · Equipo e interdependencia",
+   "at": 254.3
+  },
+  {
+   "part": "ex:sym-final-e6",
+   "title": "Final resuelto · 6 · Equipos formales",
+   "at": 316.1
+  },
+  {
+   "part": "ex:sym-final-e7",
+   "title": "Final resuelto · 7 · Estructura lineal",
+   "at": 369.9
+  },
+  {
+   "part": "ex:sym-final-e8",
+   "title": "Final resuelto · 8 · Comité y organigrama",
+   "at": 422.5
+  },
+  {
+   "part": "ex:sym-final-e9",
+   "title": "Final resuelto · 9 · Por qué hace falta control",
+   "at": 481.8
+  },
+  {
+   "part": "ex:sym-final-e10",
+   "title": "Final resuelto · 10 · División y departamentalización",
+   "at": 538.9
+  },
+  {
+   "part": "ex:sym-final-e11",
+   "title": "Final resuelto · 11 · Niveles de estrategia",
+   "at": 595.8
+  },
+  {
+   "part": "ex:sym-final-e12",
+   "title": "Final resuelto · 12 · Estabilidad y cambio",
+   "at": 653.3
+  },
+  {
+   "part": "ex:sym-final-e13",
+   "title": "Final resuelto · 13 · Grupo informal",
+   "at": 709.2
+  },
+  {
+   "part": "ex:sym-final-e14",
+   "title": "Final resuelto · 14 · Poder y autoridad",
+   "at": 766.1
+  }
+ ],
+ "shorts": {
+  "ex:sym-final-e1": {
+   "src": "videos/sym/sym-clase-2.mp4#t=26.7,86.8",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e1.jpg",
+   "minutes": 1.0
+  },
+  "ex:sym-final-e2": {
+   "src": "videos/sym/sym-clase-2.mp4#t=86.4,141.8",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e2.jpg",
+   "minutes": 0.92
+  },
+  "ex:sym-final-e3": {
+   "src": "videos/sym/sym-clase-2.mp4#t=141.4,198.1",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e3.jpg",
+   "minutes": 0.94
+  },
+  "ex:sym-final-e4": {
+   "src": "videos/sym/sym-clase-2.mp4#t=197.7,254.7",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e4.jpg",
+   "minutes": 0.95
+  },
+  "ex:sym-final-e5": {
+   "src": "videos/sym/sym-clase-2.mp4#t=254.3,316.5",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e5.jpg",
+   "minutes": 1.04
+  },
+  "ex:sym-final-e6": {
+   "src": "videos/sym/sym-clase-2.mp4#t=316.1,370.4",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e6.jpg",
+   "minutes": 0.9
+  },
+  "ex:sym-final-e7": {
+   "src": "videos/sym/sym-clase-2.mp4#t=369.9,422.9",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e7.jpg",
+   "minutes": 0.88
+  },
+  "ex:sym-final-e8": {
+   "src": "videos/sym/sym-clase-2.mp4#t=422.5,482.3",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e8.jpg",
+   "minutes": 1.0
+  },
+  "ex:sym-final-e9": {
+   "src": "videos/sym/sym-clase-2.mp4#t=481.8,539.3",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e9.jpg",
+   "minutes": 0.96
+  },
+  "ex:sym-final-e10": {
+   "src": "videos/sym/sym-clase-2.mp4#t=538.9,596.1",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e10.jpg",
+   "minutes": 0.95
+  },
+  "ex:sym-final-e11": {
+   "src": "videos/sym/sym-clase-2.mp4#t=595.8,653.7",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e11.jpg",
+   "minutes": 0.96
+  },
+  "ex:sym-final-e12": {
+   "src": "videos/sym/sym-clase-2.mp4#t=653.3,709.6",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e12.jpg",
+   "minutes": 0.94
+  },
+  "ex:sym-final-e13": {
+   "src": "videos/sym/sym-clase-2.mp4#t=709.2,766.5",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e13.jpg",
+   "minutes": 0.96
+  },
+  "ex:sym-final-e14": {
+   "src": "videos/sym/sym-clase-2.mp4#t=766.1,821.5",
+   "poster": "videos/sym/p/sym-clase-2-ex-sym-final-e14.jpg",
+   "minutes": 0.92
+  }
+ }
+}

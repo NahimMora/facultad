@@ -1,6 +1,7 @@
 import type { Question, SubjectContent, TheoryBlock } from '../types';
 import { VIDEOS } from '../videos/sym';
 import { SCENES } from '../visual/sym';
+import { FINAL_EXERCISES, FINAL_EX_SCENES, FINAL_QUESTIONS } from '../visual/sym-final';
 
 /** SyM · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y finales 2023 (Drive). */
 const A = 'autoevaluación de la cátedra';
@@ -122,7 +123,7 @@ const q: Question[] = [
 ];
 
 const content: SubjectContent = {
-  subjectId: 'sym', theory, questions: q, exercises: [], videos: VIDEOS,
+  subjectId: 'sym', theory, questions: [...q, ...FINAL_QUESTIONS], exercises: FINAL_EXERCISES, videos: VIDEOS,
   cheatsheet: [
     { t: 'Organización', d: 'formal = deliberada · matricial = mando múltiple · eficacia = lo correcto, eficiencia = pocos recursos · Porter: 5 fuerzas (sin reguladores).' },
     { t: 'Equipos', d: 'task force temporal · comité duradero · equipo = sinergia · puesto formal vs rol.' },
@@ -135,7 +136,15 @@ const content: SubjectContent = {
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: FINAL_EX_SCENES[e.id] }));
 content.lessons = [
+  {
+    id: 'sym-clase-2', examId: 'final', title: 'Final resuelto paso a paso · catorce puntos',
+    summary: 'Un final anterior reformulado: circuitos, liderazgo, equipos, estructura, control, estrategia, sistemas, poder y autoridad.',
+    intro: ['Vamos a resolver los catorce puntos de un final anterior de Sistemas y Métodos. Los enunciados están reformulados y convertidos en opción múltiple, con diagramas y una justificación de cada respuesta.', 'No tomes las respuestas marcadas por otro estudiante como una solución oficial. En este recorrido razonamos cada concepto: primero identificamos la propiedad relevante, después la comparamos con las opciones y recién entonces elegimos.'],
+    parts: FINAL_EXERCISES.map((e) => `ex:${e.id}`),
+    outro: ['Las distinciones clave del final son procedimiento frente a estructura, división frente a agrupación del trabajo, origen formal frente a vínculos espontáneos, y poder frente a autoridad.', 'Para repasar, volvé a los ejercicios visuales e intentá elegir la opción antes de recorrer la explicación. El simulacro te deja combinar estos puntos con el resto del banco y revisar tus errores al terminar.'],
+  },
   {
     id: 'sym-clase-1', examId: 'final', title: 'Final completo: organización, gestión y sistemas',
     summary: 'Estructuras y Porter, puestos y equipos, poder, dirección, planificación y control, procesos, teoría de sistemas, proyectos, tipos de SI, desarrollo e implementación, comunicación.',
