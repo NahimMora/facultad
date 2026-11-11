@@ -1,0 +1,91 @@
+{
+ "id": "fia-clase-2",
+ "title": "Final resuelto paso a paso · ocho puntos",
+ "src": "videos/fia/fia-clase-2.mp4",
+ "poster": "videos/fia/fia-clase-2.jpg",
+ "minutes": 12.8,
+ "chapters": [
+  {
+   "part": "ex:fia-final-e1",
+   "title": "Final resuelto · 1: Shell de un sistema experto",
+   "at": 25.8
+  },
+  {
+   "part": "ex:fia-final-e2",
+   "title": "Final resuelto · 2: Lógica difusa y binaria",
+   "at": 110.8
+  },
+  {
+   "part": "ex:fia-final-e3",
+   "title": "Final resuelto · 3: Neurona artificial y biológica",
+   "at": 201.0
+  },
+  {
+   "part": "ex:fia-final-e4",
+   "title": "Final resuelto · 4: Capacidad de una red multicapa",
+   "at": 288.1
+  },
+  {
+   "part": "ex:fia-final-e5",
+   "title": "Final resuelto · 5: Operadores genéticos",
+   "at": 370.5
+  },
+  {
+   "part": "ex:fia-final-e6",
+   "title": "Final resuelto · 6: Memético frente a evolutivo",
+   "at": 460.5
+  },
+  {
+   "part": "ex:fia-final-e7",
+   "title": "Final resuelto · 7: Tipos de agentes",
+   "at": 547.5
+  },
+  {
+   "part": "ex:fia-final-e8",
+   "title": "Final resuelto · 8: Desafíos de la robótica",
+   "at": 634.5
+  }
+ ],
+ "shorts": {
+  "ex:fia-final-e1": {
+   "src": "videos/fia/fia-clase-2.mp4#t=25.8,111.2",
+   "poster": "videos/fia/p/fia-clase-2-ex-fia-final-e1.jpg",
+   "minutes": 1.42
+  },
+  "ex:fia-final-e2": {
+   "src": "videos/fia/fia-clase-2.mp4#t=110.8,201.4",
+   "poster": "videos/fia/p/fia-clase-2-ex-fia-final-e2.jpg",
+   "minutes": 1.51
+  },
+  "ex:fia-final-e3": {
+   "src": "videos/fia/fia-clase-2.mp4#t=201.0,288.5",
+   "poster": "videos/fia/p/fia-clase-2-ex-fia-final-e3.jpg",
+   "minutes": 1.46
+  },
+  "ex:fia-final-e4": {
+   "src": "videos/fia/fia-clase-2.mp4#t=288.1,370.9",
+   "poster": "videos/fia/p/fia-clase-2-ex-fia-final-e4.jpg",
+   "minutes": 1.38
+  },
+  "ex:fia-final-e5": {
+   "src": "videos/fia/fia-clase-2.mp4#t=370.5,460.8",
+   "poster": "videos/fia/p/fia-clase-2-ex-fia-final-e5.jpg",
+   "minutes": 1.51
+  },
+  "ex:fia-final-e6": {
+   "src": "videos/fia/fia-clase-2.mp4#t=460.5,547.9",
+   "poster": "videos/fia/p/fia-clase-2-ex-fia-final-e6.jpg",
+   "minutes": 1.46
+  },
+  "ex:fia-final-e7": {
+   "src": "videos/fia/fia-clase-2.mp4#t=547.5,634.9",
+   "poster": "videos/fia/p/fia-clase-2-ex-fia-final-e7.jpg",
+   "minutes": 1.46
+  },
+  "ex:fia-final-e8": {
+   "src": "videos/fia/fia-clase-2.mp4#t=634.5,725.8",
+   "poster": "videos/fia/p/fia-clase-2-ex-fia-final-e8.jpg",
+   "minutes": 1.52
+  }
+ }
+}

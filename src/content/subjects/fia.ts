@@ -1,6 +1,7 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/fia';
 import { EX_SCENES, SCENES } from '../visual/fia';
+import { FINAL_EXERCISES, FINAL_QUESTIONS, FINAL_SCENES } from '../visual/fia-final';
 
 /** FIA · final (módulos 1 a 12). Redacción propia sobre los apuntes de la cátedra y los temas de finales 2023–2025. */
 const F = 'finales anteriores (Drive de estudiantes)';
@@ -139,7 +140,7 @@ const exercises: WorkedExercise[] = [
 
 const content: SubjectContent = {
   subjectId: 'fia',
-  theory, questions, exercises, videos: VIDEOS,
+  theory, questions: [...questions, ...FINAL_QUESTIONS], exercises: [...exercises, ...FINAL_EXERCISES], videos: VIDEOS,
   cheatsheet: [
     { t: 'IA ⊃ ML ⊃ DL', d: 'ML: el usuario define características; DL: la red aprende qué atributos importan. ML: supervisado, no supervisado, refuerzo.' },
     { t: 'Problema', d: 'Entidad que desea algo y no conoce la secuencia de acciones. Espacio de estados ⊃ árbol de exploración.' },
@@ -157,8 +158,15 @@ const content: SubjectContent = {
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
-content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] ?? FINAL_SCENES[e.id] }));
 content.lessons = [
+  {
+    id: 'fia-clase-2', examId: 'final', title: 'Final resuelto paso a paso · ocho puntos',
+    summary: 'Shells, lógica difusa, neuronas y redes multicapa, operadores genéticos, algoritmos meméticos, agentes y robótica.',
+    intro: ['Vamos a resolver ocho temas de un final anterior de Fundamentos de la Inteligencia Artificial. Reformulamos cada punto como una elección razonada y construimos su diagrama paso a paso.', 'No confundas una respuesta escrita por otro estudiante con una resolución oficial. Vamos a distinguir los conceptos y sus condiciones: qué aporta un shell, qué significa pertenencia difusa y cómo se combinan aprendizaje, búsqueda y acción.'],
+    parts: FINAL_EXERCISES.map((e) => `ex:${e.id}`),
+    outro: ['Un shell aporta infraestructura; el conocimiento del dominio debe adquirirse y validarse. La pertenencia difusa no es una probabilidad. Una neurona artificial es un modelo matemático y la activación se distingue de la suma ponderada.', 'El cruce combina y la mutación introduce cambios. El algoritmo memético agrega búsqueda local al proceso evolutivo. En agentes y robótica, conectá siempre percepción, decisión, acción y condiciones del entorno.', 'Volvé a los ejercicios de la web y elegí una opción antes de recorrer la explicación. Después probá el simulacro para revisar las distinciones que todavía confundís.'],
+  },
   {
     id: 'fia-clase-1', examId: 'final', title: 'Final completo: los 12 módulos',
     summary: 'IA, ML y DL; búsqueda en amplitud y profundidad; Prolog; sistemas expertos; lógica difusa; neuronas y perceptrón; genéticos y meméticos; agentes y robótica.',
