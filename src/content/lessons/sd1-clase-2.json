@@ -1,0 +1,81 @@
+{
+ "id": "sd1-clase-2",
+ "title": "Final resuelto paso a paso · siete puntos",
+ "src": "videos/sd1/sd1-clase-2.mp4",
+ "poster": "videos/sd1/sd1-clase-2.jpg",
+ "minutes": 12.8,
+ "chapters": [
+  {
+   "part": "ex:sd1-final-e1",
+   "title": "Final · 1: circuito y tabla parcial",
+   "at": 25.1
+  },
+  {
+   "part": "ex:sd1-final-e2",
+   "title": "Final · 2: primera forma canónica",
+   "at": 146.9
+  },
+  {
+   "part": "ex:sd1-final-e3",
+   "title": "Final · 3: Karnaugh e implementación",
+   "at": 298.7
+  },
+  {
+   "part": "ex:sd1-e2",
+   "title": "Final · sumador/restador: 3 − 5",
+   "at": 377.5
+  },
+  {
+   "part": "ex:sd1-final-e5",
+   "title": "Final · 5: multiplexor de dos etapas",
+   "at": 438.0
+  },
+  {
+   "part": "ex:sd1-final-e6",
+   "title": "Final · 6: forma de onda JK",
+   "at": 550.3
+  },
+  {
+   "part": "ex:sd1-final-e7",
+   "title": "Final · 7: contador cíclico 0 a 7",
+   "at": 627.5
+  }
+ ],
+ "shorts": {
+  "ex:sd1-final-e1": {
+   "src": "videos/sd1/sd1-clase-2.mp4#t=25.1,147.4",
+   "poster": "videos/sd1/p/sd1-clase-2-ex-sd1-final-e1.jpg",
+   "minutes": 2.04
+  },
+  "ex:sd1-final-e2": {
+   "src": "videos/sd1/sd1-clase-2.mp4#t=146.9,299.1",
+   "poster": "videos/sd1/p/sd1-clase-2-ex-sd1-final-e2.jpg",
+   "minutes": 2.54
+  },
+  "ex:sd1-final-e3": {
+   "src": "videos/sd1/sd1-clase-2.mp4#t=298.7,377.9",
+   "poster": "videos/sd1/p/sd1-clase-2-ex-sd1-final-e3.jpg",
+   "minutes": 1.32
+  },
+  "ex:sd1-e2": {
+   "src": "videos/sd1/sd1-clase-2.mp4#t=377.5,438.3",
+   "poster": "videos/sd1/p/sd1-clase-2-ex-sd1-e2.jpg",
+   "minutes": 1.01
+  },
+  "ex:sd1-final-e5": {
+   "src": "videos/sd1/sd1-clase-2.mp4#t=438.0,550.6",
+   "poster": "videos/sd1/p/sd1-clase-2-ex-sd1-final-e5.jpg",
+   "minutes": 1.88
+  },
+  "ex:sd1-final-e6": {
+   "src": "videos/sd1/sd1-clase-2.mp4#t=550.3,627.9",
+   "poster": "videos/sd1/p/sd1-clase-2-ex-sd1-final-e6.jpg",
+   "minutes": 1.29
+  },
+  "ex:sd1-final-e7": {
+   "src": "videos/sd1/sd1-clase-2.mp4#t=627.5,729.6",
+   "poster": "videos/sd1/p/sd1-clase-2-ex-sd1-final-e7.jpg",
+   "minutes": 1.7
+  }
+ }
+}

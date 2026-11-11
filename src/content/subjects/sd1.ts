@@ -1,6 +1,7 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/sd1';
 import { EX_SCENES, SCENES } from '../visual/sd1';
+import { FINAL_EXERCISES, FINAL_SCENES } from '../visual/sd1-final';
 
 /** SD I · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y los temas de final (Drive). */
 const F = 'temas de final de la cátedra (Drive de estudiantes)';
@@ -108,7 +109,7 @@ const ex: WorkedExercise[] = [
 ];
 
 const content: SubjectContent = {
-  subjectId: 'sd1', theory, questions: q, exercises: ex, videos: VIDEOS,
+  subjectId: 'sd1', theory, questions: q, exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
   cheatsheet: [
     { t: 'Numeración', d: 'C1: invertir · dos ceros · carry se suma · C2: invertir + 1 · carry se descarta · rango −2ⁿ⁻¹ … 2ⁿ⁻¹ − 1 · overflow = cambio de signo imposible.' },
     { t: 'Boole', d: 'De Morgan · A + AB = A · A + A\'B = A + B · A + BC = (A + B)(A + C) · XOR = A\'B + AB\' · NAND/NOR universales.' },
@@ -120,8 +121,15 @@ const content: SubjectContent = {
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
-content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] ?? FINAL_SCENES[e.id] }));
 content.lessons = [
+  {
+    id: 'sd1-clase-2', examId: 'final', title: 'Final resuelto paso a paso · siete puntos',
+    summary: 'Circuito y tabla parcial, SOP, Karnaugh, resta en C2, MUX 16:1, forma de onda JK y contador ascendente cíclico.',
+    intro: ['Vamos a resolver los siete puntos de un modelo de final de Sistemas Digitales I. Las figuras están redibujadas y la explicación conecta cada salida con una cuenta que puedas comprobar.', 'Usamos orden de variables de, ce, be, a en las tablas de cuatro entradas. Al llegar al flip-flop, leemos los valores del modelo únicamente en los flancos descendentes; el contador se implementa con reloj común.'],
+    parts: ['ex:sd1-final-e1', 'ex:sd1-final-e2', 'ex:sd1-final-e3', 'ex:sd1-e2', 'ex:sd1-final-e5', 'ex:sd1-final-e6', 'ex:sd1-final-e7'],
+    outro: ['En lógica combinatoria, comprobá que el circuito, la tabla y la expresión describan la misma función. En Karnaugh conservá solo las variables que no cambian dentro de cada grupo.', 'En la resta por complemento a dos, separá acarreo y overflow. En el multiplexor, los bits superiores eligen el grupo y los inferiores la posición. En JK, once conmuta y cero cero mantiene.', 'El contador síncrono ascendente usa te cero igual a uno, te uno igual a cu cero y te dos igual al producto de los dos bits inferiores. Repasá el paso de siete a cero para comprobar el reinicio cíclico.'],
+  },
   {
     id: 'sd1-clase-1', examId: 'final', title: 'Final completo: de los bits a los contadores',
     summary: 'Complemento a 2 y overflow, compuertas y De Morgan, formas canónicas, Karnaugh, hardware, MUX y sumador/restador, flip-flops y contadores, con los ejercicios del final.',
