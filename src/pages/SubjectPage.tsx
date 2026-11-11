@@ -145,7 +145,7 @@ function SubjectView({ s }: { s: Subject }) {
       {tab === 'practica' && (
         <section>
           <p className="hint">Opción múltiple y verdadero o falso. Al tocar una respuesta ves si está bien y por qué.</p>
-          <Quiz key={examId} storageKey={keys.quiz(s.id, examId)} items={content.questions.filter((q) => mods.includes(q.module))} tagOf={(q) => modTitle(q.module)} />
+          <Quiz key={examId} storageKey={keys.quiz(s.id, examId)} items={content.questions.filter((q) => mods.includes(q.module))} tagOf={(q) => modTitle(q.module)} shorts={shorts} />
         </section>
       )}
       {tab === 'ejercicios' && <ExercisesView content={content} modules={mods} shorts={shorts} />}

@@ -33,6 +33,7 @@ function scenesOf(c: SubjectContent): [string, VisScene][] {
   return [
     ...c.theory.flatMap((b) => (b.scenes ?? []).map((s) => [b.id, s] as [string, VisScene])),
     ...c.exercises.flatMap((e) => (e.scenes ?? []).map((s) => [e.id, s] as [string, VisScene])),
+    ...c.questions.flatMap((q) => (q.scenes ?? []).map((s) => [q.id, s] as [string, VisScene])),
   ];
 }
 

@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import type { Question } from '../content/types';
+import type { LessonMedia, Question } from '../content/types';
 import { load, save } from '../lib/storage';
 import { shuffledIndices } from '../lib/shuffle';
 import { Rich } from './Rich';
 import { StaticVis } from './Walkthrough';
+import { QuestionWalkthrough } from './QuestionWalkthrough';
 
 type Answers = Record<string, number | boolean>;
 
@@ -18,7 +19,7 @@ function orderOptions(options: string[], seed: string): number[] {
 const isRight = (q: Question, v: number | boolean | undefined) => v !== undefined && v === q.answer;
 
 /** Cuestionario de corrección inmediata: al tocar una opción se marca y aparece el porqué. */
-export function Quiz({ storageKey, items, tagOf }: { storageKey: string; items: Question[]; tagOf?: (q: Question) => string | undefined }) {
+export function Quiz({ storageKey, items, tagOf, shorts = {} }: { storageKey: string; items: Question[]; tagOf?: (q: Question) => string | undefined; shorts?: LessonMedia['shorts'] }) {
   const [ans, setAns] = useState<Answers>(() => load<Answers>(storageKey, {}));
   const done = items.filter((q) => ans[q.id] !== undefined).length;
   const ok = items.filter((q) => isRight(q, ans[q.id])).length;
@@ -40,12 +41,12 @@ export function Quiz({ storageKey, items, tagOf }: { storageKey: string; items: 
           {done > 0 && <button type="button" className="btn small ghost" onClick={reset}>Empezar de nuevo</button>}
         </span>
       </div>
-      {items.map((q, i) => <QuestionCard key={q.id} q={q} n={i + 1} tag={tagOf?.(q)} v={ans[q.id]} onPick={(v) => pick(q.id, v)} />)}
+      {items.map((q, i) => <QuestionCard key={q.id} q={q} n={i + 1} tag={tagOf?.(q)} v={ans[q.id]} onPick={(v) => pick(q.id, v)} short={shorts['q:' + q.id]} />)}
     </div>
   );
 }
 
-function QuestionCard({ q, n, tag, v, onPick }: { q: Question; n: number; tag?: string; v: number | boolean | undefined; onPick: (v: number | boolean) => void }) {
+function QuestionCard({ q, n, tag, v, onPick, short }: { q: Question; n: number; tag?: string; v: number | boolean | undefined; onPick: (v: number | boolean) => void; short?: LessonMedia['shorts'][string] }) {
   const answered = v !== undefined;
   const right = isRight(q, v);
   const opts: { label: string; value: number | boolean }[] = q.type === 'tf'
@@ -71,6 +72,7 @@ function QuestionCard({ q, n, tag, v, onPick }: { q: Question; n: number; tag?: 
         <div className="qfeedback">
           {wrongWhy && <p className="qwhy"><Rich text={wrongWhy} /></p>}
           <p><b>Por qué:</b> <Rich text={q.explain} /></p>
+          <QuestionWalkthrough q={q} short={short} />
           {q.source && <p className="hint">Fuente: {q.source}</p>}
         </div>
       )}

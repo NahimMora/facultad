@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import type { Question } from '../content/types';
+import type { LessonMedia, Question } from '../content/types';
 import { load, save } from '../lib/storage';
 import { startMock, validMock, type MockSession } from '../lib/mockExam';
 import { Rich } from './Rich';
 import { StaticVis } from './Walkthrough';
+import { QuestionWalkthrough } from './QuestionWalkthrough';
 
-export function MockExam({ storageKey, items }: { storageKey: string; items: Question[] }) {
+export function MockExam({ storageKey, items, shorts = {} }: { storageKey: string; items: Question[]; shorts?: LessonMedia['shorts'] }) {
   const [count, setCount] = useState(Math.min(20, items.length));
   const [session, setSession] = useState<MockSession | null>(() => {
     const s = load<unknown>(storageKey, null);
@@ -43,7 +44,7 @@ export function MockExam({ storageKey, items }: { storageKey: string; items: Que
         <header className="qhead"><span className="qnum">{i + 1}</span><span className="qtype">{q.type === 'tf' ? 'Verdadero o falso' : 'Opción múltiple'}</span></header>
         <p className="qprompt"><Rich text={q.prompt} /></p>{q.vis && <StaticVis v={q.vis} />}
         <div className={`opts ${q.type === 'tf' ? 'tf' : ''}`}>{opts.map((o) => <button type="button" key={String(o.value)} disabled={finished} aria-pressed={value === o.value} className={`opt ${finished ? o.value === q.answer ? 'right' : value === o.value ? 'wrong' : '' : ''}`} style={!finished && value === o.value ? { outline: '2px solid var(--accent, #6ea8ff)' } : undefined} onClick={() => commit({ ...session, answers: { ...session.answers, [q.id]: o.value } })}><Rich text={o.text} /></button>)}</div>
-        {finished && <div className="qfeedback"><p><b>{right ? 'Correcta.' : value === undefined ? 'Sin responder.' : 'Incorrecta.'}</b> <Rich text={q.explain} /></p>{q.source && <p className="hint">Fuente: {q.source}</p>}</div>}
+        {finished && <div className="qfeedback"><p><b>{right ? 'Correcta.' : value === undefined ? 'Sin responder.' : 'Incorrecta.'}</b> <Rich text={q.explain} /></p><QuestionWalkthrough q={q} short={shorts['q:' + q.id]} />{q.source && <p className="hint">Fuente: {q.source}</p>}</div>}
       </article>;
     })}
     {!finished && <div className="row"><p className="hint">Podés cambiar tus respuestas antes de entregar. {qs.length - answered} sin responder.</p><button type="button" className="btn primary" onClick={() => commit({ ...session, finishedAt: Date.now() })}>Terminar y corregir</button></div>}

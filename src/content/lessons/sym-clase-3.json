@@ -1,0 +1,131 @@
+{
+ "id": "sym-clase-3",
+ "title": "Práctica visual: pruebas, implementación y comunicación",
+ "src": "videos/sym/sym-clase-3.mp4",
+ "poster": "videos/sym/sym-clase-3.jpg",
+ "minutes": 12.1,
+ "chapters": [
+  {
+   "part": "y10",
+   "title": "Análisis, diseño e implementación",
+   "at": 30.6
+  },
+  {
+   "part": "y11",
+   "title": "Proceso de desarrollo de sistemas",
+   "at": 69.1
+  },
+  {
+   "part": "y12",
+   "title": "Comunicación oral y escrita",
+   "at": 100.6
+  },
+  {
+   "part": "q:sym-rep-1",
+   "title": "Recorrés las ramas y los bucles de un programa para comprobar su lógica interna. ¿Qué prueba estás realizando?",
+   "at": 127.0
+  },
+  {
+   "part": "q:sym-rep-2",
+   "title": "Querés comprobar que el sistema sigue respondiendo con muchos usuarios simultáneos. ¿Qué prueba responde directamente a ese objetivo?",
+   "at": 192.0
+  },
+  {
+   "part": "q:sym-rep-3",
+   "title": "Los usuarios registran operaciones reales que afectan la actividad diaria. ¿En qué entorno están trabajando?",
+   "at": 258.1
+  },
+  {
+   "part": "q:sym-rep-4",
+   "title": "Durante una transición mantenés funcionando los sistemas viejo y nuevo y comparás sus resultados. ¿Qué estrategia elegiste?",
+   "at": 318.3
+  },
+  {
+   "part": "q:sym-rep-5",
+   "title": "Primero reemplazás el módulo de stock y después el de compras. ¿Cómo clasificás la implementación?",
+   "at": 382.9
+  },
+  {
+   "part": "q:sym-rep-6",
+   "title": "El sistema ya funciona. Revisás si logró los objetivos y si los usuarios necesitan más capacitación. ¿Qué actividad hacés?",
+   "at": 445.5
+  },
+  {
+   "part": "q:sym-rep-7",
+   "title": "Después de explicar un procedimiento, recibís una respuesta que te permite comprobar qué entendieron. ¿Qué elemento del proceso comunicacional es?",
+   "at": 512.5
+  },
+  {
+   "part": "q:sym-rep-8",
+   "title": "Enviás un informe por correo electrónico. En ese intercambio, ¿qué representa el correo como medio de transmisión?",
+   "at": 574.1
+  },
+  {
+   "part": "q:sym-rep-9",
+   "title": "Tenés que presentar un informe objetivo. ¿Qué decisión mejora esa finalidad?",
+   "at": 636.2
+  }
+ ],
+ "shorts": {
+  "y10": {
+   "src": "videos/sym/sym-clase-3.mp4#t=30.6,69.5",
+   "poster": "videos/sym/p/sym-clase-3-y10.jpg",
+   "minutes": 0.65
+  },
+  "y11": {
+   "src": "videos/sym/sym-clase-3.mp4#t=69.1,101.0",
+   "poster": "videos/sym/p/sym-clase-3-y11.jpg",
+   "minutes": 0.53
+  },
+  "y12": {
+   "src": "videos/sym/sym-clase-3.mp4#t=100.6,127.4",
+   "poster": "videos/sym/p/sym-clase-3-y12.jpg",
+   "minutes": 0.45
+  },
+  "q:sym-rep-1": {
+   "src": "videos/sym/sym-clase-3.mp4#t=127.0,192.4",
+   "poster": "videos/sym/p/sym-clase-3-q-sym-rep-1.jpg",
+   "minutes": 1.09
+  },
+  "q:sym-rep-2": {
+   "src": "videos/sym/sym-clase-3.mp4#t=192.0,258.5",
+   "poster": "videos/sym/p/sym-clase-3-q-sym-rep-2.jpg",
+   "minutes": 1.11
+  },
+  "q:sym-rep-3": {
+   "src": "videos/sym/sym-clase-3.mp4#t=258.1,318.7",
+   "poster": "videos/sym/p/sym-clase-3-q-sym-rep-3.jpg",
+   "minutes": 1.01
+  },
+  "q:sym-rep-4": {
+   "src": "videos/sym/sym-clase-3.mp4#t=318.3,383.3",
+   "poster": "videos/sym/p/sym-clase-3-q-sym-rep-4.jpg",
+   "minutes": 1.08
+  },
+  "q:sym-rep-5": {
+   "src": "videos/sym/sym-clase-3.mp4#t=382.9,445.9",
+   "poster": "videos/sym/p/sym-clase-3-q-sym-rep-5.jpg",
+   "minutes": 1.05
+  },
+  "q:sym-rep-6": {
+   "src": "videos/sym/sym-clase-3.mp4#t=445.5,513.0",
+   "poster": "videos/sym/p/sym-clase-3-q-sym-rep-6.jpg",
+   "minutes": 1.12
+  },
+  "q:sym-rep-7": {
+   "src": "videos/sym/sym-clase-3.mp4#t=512.5,574.6",
+   "poster": "videos/sym/p/sym-clase-3-q-sym-rep-7.jpg",
+   "minutes": 1.03
+  },
+  "q:sym-rep-8": {
+   "src": "videos/sym/sym-clase-3.mp4#t=574.1,636.6",
+   "poster": "videos/sym/p/sym-clase-3-q-sym-rep-8.jpg",
+   "minutes": 1.04
+  },
+  "q:sym-rep-9": {
+   "src": "videos/sym/sym-clase-3.mp4#t=636.2,698.7",
+   "poster": "videos/sym/p/sym-clase-3-q-sym-rep-9.jpg",
+   "minutes": 1.04
+  }
+ }
+}

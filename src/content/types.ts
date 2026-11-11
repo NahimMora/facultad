@@ -86,6 +86,8 @@ export interface McqQuestion {
   explain: string;
   /** Diagrama de apoyo para la pregunta. */
   vis?: VisSpec;
+  /** Resolución visual: se muestra recién después de corregir. */
+  scenes?: VisScene[];
   /** Explicación específica de por qué cada opción incorrecta está mal (mismo índice que options). */
   why?: (string | null)[];
   source?: string;
@@ -99,6 +101,7 @@ export interface TfQuestion {
   answer: boolean;
   explain: string;
   vis?: VisSpec;
+  scenes?: VisScene[];
   source?: string;
 }
 

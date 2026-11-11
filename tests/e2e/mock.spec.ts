@@ -1,5 +1,25 @@
 import { expect, test } from '@playwright/test';
 
+test('las resoluciones visuales se revelan al responder o al terminar el simulacro', async ({ page }) => {
+  await page.goto('./#/m/sym?tab=practica');
+  const practice = page.locator('[data-qid="sym-rep-1"]');
+  await expect(practice).toBeVisible();
+  await expect(practice.locator('.walk')).toHaveCount(0);
+  await practice.locator('.opt').first().click();
+  await expect(practice.locator('.walk')).toHaveCount(1);
+  await practice.getByRole('button', { name: 'Paso siguiente', exact: true }).click();
+  await expect(practice.getByRole('tab', { name: 'Paso 2', exact: true })).toHaveAttribute('aria-selected', 'true');
+  await page.goto('./#/m/sym?tab=intensivo');
+  const mock = page.locator('#int-simulacro');
+  await mock.getByLabel('Cantidad de preguntas').fill('60');
+  await mock.getByRole('button', { name: 'Empezar simulacro' }).click();
+  const examQuestion = mock.locator('[data-qid="sym-rep-1"]');
+  await examQuestion.locator('.opt').first().click();
+  await expect(examQuestion.locator('.walk')).toHaveCount(0);
+  await mock.getByRole('button', { name: 'Terminar y corregir' }).click();
+  await expect(examQuestion.locator('.walk')).toHaveCount(1);
+});
+
 test('AID: guarda respuestas, corrige al final y permite repasar errores', async ({ page }) => {
   await page.goto('./#/m/aid');
   const mock = page.locator('#int-simulacro');

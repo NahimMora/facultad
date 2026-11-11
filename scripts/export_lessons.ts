@@ -40,13 +40,14 @@ function sceneBeats(part: string, heading: string, scenes: VisScene[], visuals: 
   return out;
 }
 
-function quizBeats(q: Question): Beat[] {
+function quizBeats(q: Question, visuals: Record<string, VisSpec>): Beat[] {
   const opts = q.type === 'tf' ? ['Verdadero', 'Falso'] : q.options;
   const ans = q.type === 'tf' ? (q.answer ? 0 : 1) : q.answer;
   const scene = { type: 'quiz', heading: 'Pregunta de repaso', q: speakable(q.prompt), options: opts.map(speakable), answer: ans, at: 0.99, why: speakable(q.explain).slice(0, 220) };
   return [
     { text: `Pregunta de repaso. ${speakable(q.prompt)} Pensalo un momento.`, part: 'q:' + q.id, scene, hold: 2.5 },
     { text: `La correcta es: ${speakable(opts[ans])}. ${speakable(q.explain)}`, part: 'q:' + q.id },
+    ...sceneBeats('q:' + q.id, q.prompt, q.scenes ?? [], visuals),
   ];
 }
 
@@ -66,7 +67,7 @@ function build(c: SubjectContent) {
       if (part.startsWith('q:')) {
         const q = c.questions.find((x) => x.id === part.slice(2));
         if (!q) throw new Error(`${L.id}: no existe la pregunta ${part}`);
-        beats.push(...quizBeats(q));
+        beats.push(...quizBeats(q, visuals));
       } else if (part.startsWith('ex:')) {
         const e = c.exercises.find((x) => x.id === part.slice(3));
         if (!e) throw new Error(`${L.id}: no existe el ejercicio ${part}`);

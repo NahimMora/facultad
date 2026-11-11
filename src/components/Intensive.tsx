@@ -4,7 +4,7 @@ import { keys } from '../lib/storage';
 import { Quiz } from './Quiz';
 import { MockExam } from './MockExam';
 import { Rich } from './Rich';
-import { CheatsheetView, LessonPlayer } from './Study';
+import { CheatsheetView, LessonPlayer, shortsOf } from './Study';
 
 /**
  * Repaso intensivo de un examen, en el orden en que conviene estudiarlo:
@@ -20,6 +20,7 @@ export function IntensiveView({ s, exam, content, media, mods, openTopic, openEx
   const blocks = content.theory.filter((b) => mods.includes(b.module));
   const ex = content.exercises.filter((e) => mods.includes(e.module));
   const qs = content.questions.filter((q) => mods.includes(q.module));
+  const shorts = shortsOf(media);
   const modTitle = (mid: string) => allModules(s).find((m) => m.id === mid)?.label;
   const vmin = Math.round(lessons.reduce((a, m) => a + m.minutes, 0));
 
@@ -91,13 +92,13 @@ export function IntensiveView({ s, exam, content, media, mods, openTopic, openEx
         <section id="int-practica" className="card">
           <h2>{steps.findIndex((x) => x.id === 'practica') + 1}. Práctica</h2>
           <p className="hint">Opción múltiple y verdadero o falso. Al tocar una respuesta ves al instante si está bien y por qué.</p>
-          <Quiz storageKey={keys.quiz(s.id, exam.id)} items={qs} tagOf={(q) => modTitle(q.module)} />
+          <Quiz storageKey={keys.quiz(s.id, exam.id)} items={qs} tagOf={(q) => modTitle(q.module)} shorts={shorts} />
         </section>
       )}
 
       {qs.length > 0 && <section id="int-simulacro" className="card">
         <h2>Simulacro con cronómetro</h2>
-        <MockExam key={`${s.id}-${exam.id}`} storageKey={`mock-${s.id}-${exam.id}`} items={qs} />
+        <MockExam key={`${s.id}-${exam.id}`} storageKey={`mock-${s.id}-${exam.id}`} items={qs} shorts={shorts} />
       </section>}
 
       {content.cheatsheet.length > 0 && (

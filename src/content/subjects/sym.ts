@@ -2,6 +2,7 @@ import type { Question, SubjectContent, TheoryBlock } from '../types';
 import { VIDEOS } from '../videos/sym';
 import { SCENES } from '../visual/sym';
 import { FINAL_EXERCISES, FINAL_EX_SCENES, FINAL_QUESTIONS } from '../visual/sym-final';
+import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/sym-repaso';
 
 /** SyM · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y finales 2023 (Drive). */
 const A = 'autoevaluación de la cátedra';
@@ -123,7 +124,7 @@ const q: Question[] = [
 ];
 
 const content: SubjectContent = {
-  subjectId: 'sym', theory, questions: [...q, ...FINAL_QUESTIONS], exercises: FINAL_EXERCISES, videos: VIDEOS,
+  subjectId: 'sym', theory, questions: [...q, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: FINAL_EXERCISES, videos: VIDEOS,
   cheatsheet: [
     { t: 'Organización', d: 'formal = deliberada · matricial = mando múltiple · eficacia = lo correcto, eficiencia = pocos recursos · Porter: 5 fuerzas (sin reguladores).' },
     { t: 'Equipos', d: 'task force temporal · comité duradero · equipo = sinergia · puesto formal vs rol.' },
@@ -161,4 +162,5 @@ content.lessons = [
   },
 ];
 
+content.lessons.push(...REVIEW_LESSONS);
 export default content;
