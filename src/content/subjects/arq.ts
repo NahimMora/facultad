@@ -1,6 +1,7 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/arq';
 import { EX_SCENES, SCENES } from '../visual/arq';
+import { FINAL_EXERCISES, FINAL_SCENES } from '../visual/arq-final';
 
 /** Arq · final. Redacción propia sobre los apuntes de la cátedra (módulos 2 a 14) y finales 2022–2023 (Drive). */
 const F = 'final 2023 (Drive de estudiantes)';
@@ -127,7 +128,7 @@ const ex: WorkedExercise[] = [
 ];
 
 const content: SubjectContent = {
-  subjectId: 'arq', theory, questions: q, exercises: ex, videos: VIDEOS,
+  subjectId: 'arq', theory, questions: q, exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
   cheatsheet: [
     { t: 'Desbordes', d: 'OF con signo: mismo signo → signo opuesto · nunca con signos distintos · CF sin signo · underflow: demasiado chico.' },
     { t: 'IEEE 754 simple', d: '1 + 8 + 23 bits · sesgo 127 · valor (−1)ˢ·1,m·2^(e−127) · −6,5 = C0D00000h.' },
@@ -141,8 +142,15 @@ const content: SubjectContent = {
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
-content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] ?? FINAL_SCENES[e.id] }));
 content.lessons = [
+  {
+    id: 'arq-clase-2', examId: 'final', title: 'Final resuelto paso a paso · diez puntos',
+    summary: 'Interrupciones, memorias, punto fijo, memoria virtual, caché, ciclo de instrucción, puertos, IEEE 754, estructura y pipeline.',
+    intro: ['Vamos a resolver los diez puntos de un final anterior de Arquitectura de Computadores, con diagramas propios. Las respuestas de estudiantes se contrastan con los conceptos: no son una resolución oficial.', 'En el ejercicio de punto fijo mostramos la decisión de cuantización que el modelo no especifica. En IEEE usamos el decimal menos doscientos setenta y ocho coma cero cinco y redondeo al más cercano con empates al par.'],
+    parts: ['ex:arq-final-e1', 'ex:arq-final-e2', 'ex:arq-final-e3', 'ex:arq-final-e4', 'ex:arq-final-e5', 'ex:arq-e3', 'ex:arq-final-e7', 'ex:arq-final-e8', 'ex:arq-final-e9', 'ex:arq-final-e10'],
+    outro: ['Separá traducción de direcciones y acceso a datos: memoria virtual y caché no son lo mismo. En caché directa, bloque, línea, etiqueta y desplazamiento se calculan con operaciones distintas.', 'En representaciones numéricas, explicitá escala y redondeo. El patrón IEEE de menos doscientos setenta y ocho coma cero cinco es ce tres ocho be cero seis seis seis, que no representa el decimal de forma exacta.', 'Para el procesador, conectá ciclo de instrucción, guardado de contexto, atención de E/S y superposición de etapas. Repasá cada diagrama antes de probar las preguntas del simulacro.'],
+  },
   {
     id: 'arq-clase-1', examId: 'final', title: 'Final completo: de los datos al procesador',
     summary: 'Overflow, IEEE 754, Von Neumann, memorias, caché, memoria virtual, ciclo de instrucción, pipeline, buses, E/S e interrupciones, 8086 y nuevas tecnologías.',

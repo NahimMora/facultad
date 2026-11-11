@@ -1,0 +1,111 @@
+{
+ "id": "arq-clase-2",
+ "title": "Final resuelto paso a paso · diez puntos",
+ "src": "videos/arq/arq-clase-2.mp4",
+ "poster": "videos/arq/arq-clase-2.jpg",
+ "minutes": 14.6,
+ "chapters": [
+  {
+   "part": "ex:arq-final-e1",
+   "title": "Final · 1: interrupción enmascarable",
+   "at": 25.7
+  },
+  {
+   "part": "ex:arq-final-e2",
+   "title": "Final · 2: celda estática, PROM y EPROM",
+   "at": 110.0
+  },
+  {
+   "part": "ex:arq-final-e3",
+   "title": "Final · 3: resta con punto fijo",
+   "at": 196.7
+  },
+  {
+   "part": "ex:arq-final-e4",
+   "title": "Final · 4: memoria virtual y jerarquía",
+   "at": 287.7
+  },
+  {
+   "part": "ex:arq-final-e5",
+   "title": "Final · 5: correspondencia directa",
+   "at": 372.5
+  },
+  {
+   "part": "ex:arq-e3",
+   "title": "Final · ciclo de instrucción",
+   "at": 452.3
+  },
+  {
+   "part": "ex:arq-final-e7",
+   "title": "Final · 7: puertos 8086 y polling",
+   "at": 487.1
+  },
+  {
+   "part": "ex:arq-final-e8",
+   "title": "Final · 8: IEEE de un decimal periódico",
+   "at": 571.3
+  },
+  {
+   "part": "ex:arq-final-e9",
+   "title": "Final · 9: niveles de estructura",
+   "at": 674.7
+  },
+  {
+   "part": "ex:arq-final-e10",
+   "title": "Final · 10: segmentación y riesgos",
+   "at": 753.5
+  }
+ ],
+ "shorts": {
+  "ex:arq-final-e1": {
+   "src": "videos/arq/arq-clase-2.mp4#t=25.7,110.3",
+   "poster": "videos/arq/p/arq-clase-2-ex-arq-final-e1.jpg",
+   "minutes": 1.41
+  },
+  "ex:arq-final-e2": {
+   "src": "videos/arq/arq-clase-2.mp4#t=110.0,197.2",
+   "poster": "videos/arq/p/arq-clase-2-ex-arq-final-e2.jpg",
+   "minutes": 1.45
+  },
+  "ex:arq-final-e3": {
+   "src": "videos/arq/arq-clase-2.mp4#t=196.7,288.1",
+   "poster": "videos/arq/p/arq-clase-2-ex-arq-final-e3.jpg",
+   "minutes": 1.52
+  },
+  "ex:arq-final-e4": {
+   "src": "videos/arq/arq-clase-2.mp4#t=287.7,372.9",
+   "poster": "videos/arq/p/arq-clase-2-ex-arq-final-e4.jpg",
+   "minutes": 1.42
+  },
+  "ex:arq-final-e5": {
+   "src": "videos/arq/arq-clase-2.mp4#t=372.5,452.7",
+   "poster": "videos/arq/p/arq-clase-2-ex-arq-final-e5.jpg",
+   "minutes": 1.34
+  },
+  "ex:arq-e3": {
+   "src": "videos/arq/arq-clase-2.mp4#t=452.3,487.5",
+   "poster": "videos/arq/p/arq-clase-2-ex-arq-e3.jpg",
+   "minutes": 0.59
+  },
+  "ex:arq-final-e7": {
+   "src": "videos/arq/arq-clase-2.mp4#t=487.1,571.7",
+   "poster": "videos/arq/p/arq-clase-2-ex-arq-final-e7.jpg",
+   "minutes": 1.41
+  },
+  "ex:arq-final-e8": {
+   "src": "videos/arq/arq-clase-2.mp4#t=571.3,675.1",
+   "poster": "videos/arq/p/arq-clase-2-ex-arq-final-e8.jpg",
+   "minutes": 1.73
+  },
+  "ex:arq-final-e9": {
+   "src": "videos/arq/arq-clase-2.mp4#t=674.7,754.0",
+   "poster": "videos/arq/p/arq-clase-2-ex-arq-final-e9.jpg",
+   "minutes": 1.32
+  },
+  "ex:arq-final-e10": {
+   "src": "videos/arq/arq-clase-2.mp4#t=753.5,837.2",
+   "poster": "videos/arq/p/arq-clase-2-ex-arq-final-e10.jpg",
+   "minutes": 1.39
+  }
+ }
+}
