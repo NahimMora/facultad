@@ -1,0 +1,151 @@
+{
+ "id": "pye-clase-5",
+ "title": "Práctica visual: inferencia y regresión",
+ "src": "videos/pye/pye-clase-5.mp4",
+ "poster": "videos/pye/pye-clase-5.jpg",
+ "minutes": 14.0,
+ "chapters": [
+  {
+   "part": "q:pye-rep-15",
+   "title": "Con observaciones independientes y el mismo σ, multiplicás n por cuatro. ¿Qué pasa con σ/√n?",
+   "at": 30.6
+  },
+  {
+   "part": "q:pye-rep-16",
+   "title": "¿Qué describe un p-valor bajo el modelo de una prueba?",
+   "at": 86.1
+  },
+  {
+   "part": "q:pye-rep-17",
+   "title": "El p-valor supera α y no rechazás H0. ¿Cuál es la conclusión estadística adecuada?",
+   "at": 137.7
+  },
+  {
+   "part": "q:pye-rep-18",
+   "title": "Mantenés muestra, método y estimación del desvío. Si aumentás el nivel de confianza, ¿qué ocurre con el intervalo usual para la media?",
+   "at": 193.2
+  },
+  {
+   "part": "q:pye-rep-19",
+   "title": "La media realmente aumentó, pero la prueba no detecta el aumento y no rechaza H0. ¿Qué error se cometió en ese escenario?",
+   "at": 246.5
+  },
+  {
+   "part": "q:pye-rep-20",
+   "title": "Construís una diferencia por cada par de mediciones y usás una t para su media. Con n pares, ¿cuántos grados de libertad tiene esa prueba usual?",
+   "at": 301.9
+  },
+  {
+   "part": "q:pye-rep-21",
+   "title": "Comparás medias de dos muestras independientes y no querés suponer varianzas poblacionales iguales. ¿Qué versión de t contempla esa situación?",
+   "at": 358.0
+  },
+  {
+   "part": "q:pye-rep-22",
+   "title": "Bajo una proporción histórica de 14 %, en una muestra de 120 clientes, ¿cuál es la frecuencia esperada de esa categoría?",
+   "at": 413.4
+  },
+  {
+   "part": "q:pye-rep-23",
+   "title": "Una prueba de bondad de ajuste usa cuatro categorías y probabilidades fijadas sin estimar parámetros de esa muestra. ¿Cuántos grados de libertad usa?",
+   "at": 468.5
+  },
+  {
+   "part": "q:pye-rep-24",
+   "title": "Querés evaluar asociación entre categoría de conexión y categoría de reclamo en una tabla cruzada. ¿Qué prueba corresponde bajo sus condiciones?",
+   "at": 520.7
+  },
+  {
+   "part": "q:pye-rep-25",
+   "title": "ŷ=5,5708+2,1896x; x es cantidad de integrantes e y horas de conexión semanal. ¿Cómo interpretás la pendiente?",
+   "at": 579.1
+  },
+  {
+   "part": "q:pye-rep-26",
+   "title": "En regresión, ¿cómo definís el residuo de una observación?",
+   "at": 639.3
+  },
+  {
+   "part": "q:pye-rep-27",
+   "title": "En una regresión lineal simple con intercepto, R²=0,74 y la pendiente es positiva. ¿Qué r corresponde?",
+   "at": 688.7
+  },
+  {
+   "part": "q:pye-rep-28",
+   "title": "El ajuste se obtuvo con hogares de 1 a 5 integrantes. ¿Un R² alto garantiza buenas predicciones para hogares de 20?",
+   "at": 753.5
+  }
+ ],
+ "shorts": {
+  "q:pye-rep-15": {
+   "src": "videos/pye/pye-clase-5.mp4#t=30.6,86.5",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-15.jpg",
+   "minutes": 0.93
+  },
+  "q:pye-rep-16": {
+   "src": "videos/pye/pye-clase-5.mp4#t=86.1,138.1",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-16.jpg",
+   "minutes": 0.87
+  },
+  "q:pye-rep-17": {
+   "src": "videos/pye/pye-clase-5.mp4#t=137.7,193.6",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-17.jpg",
+   "minutes": 0.93
+  },
+  "q:pye-rep-18": {
+   "src": "videos/pye/pye-clase-5.mp4#t=193.2,246.9",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-18.jpg",
+   "minutes": 0.89
+  },
+  "q:pye-rep-19": {
+   "src": "videos/pye/pye-clase-5.mp4#t=246.5,302.3",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-19.jpg",
+   "minutes": 0.93
+  },
+  "q:pye-rep-20": {
+   "src": "videos/pye/pye-clase-5.mp4#t=301.9,358.5",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-20.jpg",
+   "minutes": 0.94
+  },
+  "q:pye-rep-21": {
+   "src": "videos/pye/pye-clase-5.mp4#t=358.0,413.8",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-21.jpg",
+   "minutes": 0.93
+  },
+  "q:pye-rep-22": {
+   "src": "videos/pye/pye-clase-5.mp4#t=413.4,468.9",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-22.jpg",
+   "minutes": 0.92
+  },
+  "q:pye-rep-23": {
+   "src": "videos/pye/pye-clase-5.mp4#t=468.5,521.1",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-23.jpg",
+   "minutes": 0.88
+  },
+  "q:pye-rep-24": {
+   "src": "videos/pye/pye-clase-5.mp4#t=520.7,579.5",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-24.jpg",
+   "minutes": 0.98
+  },
+  "q:pye-rep-25": {
+   "src": "videos/pye/pye-clase-5.mp4#t=579.1,639.7",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-25.jpg",
+   "minutes": 1.01
+  },
+  "q:pye-rep-26": {
+   "src": "videos/pye/pye-clase-5.mp4#t=639.3,689.1",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-26.jpg",
+   "minutes": 0.83
+  },
+  "q:pye-rep-27": {
+   "src": "videos/pye/pye-clase-5.mp4#t=688.7,753.9",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-27.jpg",
+   "minutes": 1.09
+  },
+  "q:pye-rep-28": {
+   "src": "videos/pye/pye-clase-5.mp4#t=753.5,813.1",
+   "poster": "videos/pye/p/pye-clase-5-q-pye-rep-28.jpg",
+   "minutes": 0.99
+  }
+ }
+}

@@ -3,12 +3,17 @@
  "title": "Final · Clase 1: descriptiva, probabilidad y distribuciones",
  "src": "videos/pye/pye-clase-1.mp4",
  "poster": "videos/pye/pye-clase-1.jpg",
- "minutes": 8.5,
+ "minutes": 12.0,
  "chapters": [
   {
    "part": "p1",
    "title": "Estadística descriptiva",
    "at": 18.7
+  },
+  {
+   "part": "q:pye-03",
+   "title": "Si los valores más frecuentes están en las puntuaciones bajas (cola larga hacia la derecha), la distribución es:",
+   "at": 123.9
   },
   {
    "part": "p2",
@@ -34,6 +39,26 @@
    "part": "p5",
    "title": "Suma de variables y Teorema Central del Límite",
    "at": 407.2
+  },
+  {
+   "part": "q:pye-15",
+   "title": "X e Y independientes con V(X) = 4 y V(Y) = 9. ¿V(X − Y)?",
+   "at": 482.7
+  },
+  {
+   "part": "q:pye-rep-13",
+   "title": "Para calcular E(3X+Y−5Z−50), ¿necesitás que X,Y,Z sean independientes si sus esperanzas existen?",
+   "at": 508.5
+  },
+  {
+   "part": "q:pye-rep-14",
+   "title": "Sin suponer independencia, ¿qué término falta en V(X+Y)=V(X)+V(Y)+…?",
+   "at": 569.8
+  },
+  {
+   "part": "q:pye-rep-15",
+   "title": "Con observaciones independientes y el mismo σ, multiplicás n por cuatro. ¿Qué pasa con σ/√n?",
+   "at": 624.3
   }
  ],
  "shorts": {
@@ -41,6 +66,11 @@
    "src": "videos/pye/pye-clase-1.mp4#t=18.7,124.4",
    "poster": "videos/pye/p/pye-clase-1-p1.jpg",
    "minutes": 1.76
+  },
+  "q:pye-03": {
+   "src": "videos/pye/pye-clase-1.mp4#t=123.9,157.2",
+   "poster": "videos/pye/p/pye-clase-1-q-pye-03.jpg",
+   "minutes": 0.55
   },
   "p2": {
    "src": "videos/pye/pye-clase-1.mp4#t=156.8,218.9",
@@ -63,9 +93,29 @@
    "minutes": 1.07
   },
   "p5": {
-   "src": "videos/pye/pye-clase-1.mp4#t=407.2,446.7",
+   "src": "videos/pye/pye-clase-1.mp4#t=407.2,483.1",
    "poster": "videos/pye/p/pye-clase-1-p5.jpg",
-   "minutes": 0.66
+   "minutes": 1.27
+  },
+  "q:pye-15": {
+   "src": "videos/pye/pye-clase-1.mp4#t=482.7,508.9",
+   "poster": "videos/pye/p/pye-clase-1-q-pye-15.jpg",
+   "minutes": 0.44
+  },
+  "q:pye-rep-13": {
+   "src": "videos/pye/pye-clase-1.mp4#t=508.5,570.2",
+   "poster": "videos/pye/p/pye-clase-1-q-pye-rep-13.jpg",
+   "minutes": 1.03
+  },
+  "q:pye-rep-14": {
+   "src": "videos/pye/pye-clase-1.mp4#t=569.8,624.7",
+   "poster": "videos/pye/p/pye-clase-1-q-pye-rep-14.jpg",
+   "minutes": 0.91
+  },
+  "q:pye-rep-15": {
+   "src": "videos/pye/pye-clase-1.mp4#t=624.3,680.2",
+   "poster": "videos/pye/p/pye-clase-1-q-pye-rep-15.jpg",
+   "minutes": 0.93
   }
  }
 }

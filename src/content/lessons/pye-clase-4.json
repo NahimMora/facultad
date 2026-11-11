@@ -1,0 +1,151 @@
+{
+ "id": "pye-clase-4",
+ "title": "Práctica visual: distribuciones y probabilidades",
+ "src": "videos/pye/pye-clase-4.mp4",
+ "poster": "videos/pye/pye-clase-4.jpg",
+ "minutes": 14.8,
+ "chapters": [
+  {
+   "part": "q:pye-rep-1",
+   "title": "Administración tiene n=20 y media 2590,3; Comercial n=17 y media 2915,3. ¿Cómo obtenés la media conjunta?",
+   "at": 30.6
+  },
+  {
+   "part": "q:pye-rep-2",
+   "title": "Unos pocos valores extremadamente altos se alejan del resto. ¿Qué medida de centro suele ser más resistente a ese cambio?",
+   "at": 104.5
+  },
+  {
+   "part": "q:pye-rep-3",
+   "title": "Si una variable se mide en horas, ¿cómo se expresan su desvío estándar y su varianza?",
+   "at": 157.5
+  },
+  {
+   "part": "q:pye-rep-4",
+   "title": "R y P son independientes, con probabilidades 0,27 y 0,46. ¿Cuál es P(R∪P)?",
+   "at": 209.8
+  },
+  {
+   "part": "q:pye-rep-5",
+   "title": "Con P(R)=0,27, P(P)=0,46 e independencia, ¿cuál es la probabilidad de que no ocurra ninguno?",
+   "at": 269.5
+  },
+  {
+   "part": "q:pye-rep-6",
+   "title": "Zona A: 30 % de clientes y 12 % reclama; zona B: 70 % y 16 % reclama. Si hubo reclamo, ¿P(A|reclamo)?",
+   "at": 328.5
+  },
+  {
+   "part": "q:pye-rep-7",
+   "title": "X es binomial con n=16 y p=0,289. ¿Qué expresión calcula su varianza?",
+   "at": 408.0
+  },
+  {
+   "part": "q:pye-rep-8",
+   "title": "Para X~Poisson(4), ¿qué expresión da la probabilidad de observar cero sucesos?",
+   "at": 466.1
+  },
+  {
+   "part": "q:pye-rep-9",
+   "title": "Una binomial cuenta hogares de una muestra. ¿Hasta qué valor sumás para calcular P(X<6)?",
+   "at": 524.3
+  },
+  {
+   "part": "q:pye-rep-10",
+   "title": "X tiene una distribución normal. ¿Cuánto vale P(X=a) para un valor puntual a?",
+   "at": 577.3
+  },
+  {
+   "part": "q:pye-rep-11",
+   "title": "X~Normal(500, desvío 20). ¿Cuánto es aproximadamente P(X<480)?",
+   "at": 627.9
+  },
+  {
+   "part": "q:pye-rep-12",
+   "title": "En una distribución normal no degenerada, ¿qué probabilidad queda a la izquierda de μ?",
+   "at": 693.9
+  },
+  {
+   "part": "q:pye-rep-13",
+   "title": "Para calcular E(3X+Y−5Z−50), ¿necesitás que X,Y,Z sean independientes si sus esperanzas existen?",
+   "at": 743.7
+  },
+  {
+   "part": "q:pye-rep-14",
+   "title": "Sin suponer independencia, ¿qué término falta en V(X+Y)=V(X)+V(Y)+…?",
+   "at": 804.9
+  }
+ ],
+ "shorts": {
+  "q:pye-rep-1": {
+   "src": "videos/pye/pye-clase-4.mp4#t=30.6,104.9",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-1.jpg",
+   "minutes": 1.24
+  },
+  "q:pye-rep-2": {
+   "src": "videos/pye/pye-clase-4.mp4#t=104.5,157.9",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-2.jpg",
+   "minutes": 0.89
+  },
+  "q:pye-rep-3": {
+   "src": "videos/pye/pye-clase-4.mp4#t=157.5,210.3",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-3.jpg",
+   "minutes": 0.88
+  },
+  "q:pye-rep-4": {
+   "src": "videos/pye/pye-clase-4.mp4#t=209.8,269.9",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-4.jpg",
+   "minutes": 1.0
+  },
+  "q:pye-rep-5": {
+   "src": "videos/pye/pye-clase-4.mp4#t=269.5,328.9",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-5.jpg",
+   "minutes": 0.99
+  },
+  "q:pye-rep-6": {
+   "src": "videos/pye/pye-clase-4.mp4#t=328.5,408.4",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-6.jpg",
+   "minutes": 1.33
+  },
+  "q:pye-rep-7": {
+   "src": "videos/pye/pye-clase-4.mp4#t=408.0,466.5",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-7.jpg",
+   "minutes": 0.98
+  },
+  "q:pye-rep-8": {
+   "src": "videos/pye/pye-clase-4.mp4#t=466.1,524.7",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-8.jpg",
+   "minutes": 0.98
+  },
+  "q:pye-rep-9": {
+   "src": "videos/pye/pye-clase-4.mp4#t=524.3,577.7",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-9.jpg",
+   "minutes": 0.89
+  },
+  "q:pye-rep-10": {
+   "src": "videos/pye/pye-clase-4.mp4#t=577.3,628.3",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-10.jpg",
+   "minutes": 0.85
+  },
+  "q:pye-rep-11": {
+   "src": "videos/pye/pye-clase-4.mp4#t=627.9,694.3",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-11.jpg",
+   "minutes": 1.11
+  },
+  "q:pye-rep-12": {
+   "src": "videos/pye/pye-clase-4.mp4#t=693.9,744.1",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-12.jpg",
+   "minutes": 0.84
+  },
+  "q:pye-rep-13": {
+   "src": "videos/pye/pye-clase-4.mp4#t=743.7,805.4",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-13.jpg",
+   "minutes": 1.03
+  },
+  "q:pye-rep-14": {
+   "src": "videos/pye/pye-clase-4.mp4#t=804.9,859.8",
+   "poster": "videos/pye/p/pye-clase-4-q-pye-rep-14.jpg",
+   "minutes": 0.91
+  }
+ }
+}

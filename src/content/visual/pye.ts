@@ -1,7 +1,7 @@
 /** PyE · final · recorridos visuales propios. */
 import { FINAL_SCENES } from './pye-final';
 import type { VisScene } from '../../vis/types';
-import { arr, bars, box, head, line, plot, scene, table, tree, txt } from './h';
+import { bars, box, head, line, plot, scene, table, tree, txt } from './h';
 
 const NORMAL = 'exp(-x*x/2)/sqrt(2*PI)';
 const ci = [390, 420, 360, 405, 445, 380, 500, 410, 395, 430];
@@ -126,18 +126,22 @@ export const SCENES: Record<string, VisScene[]> = {
   p5: [
     scene([
       head('Teorema Central del Límite'),
-      plot(30, 60, 340, 240, [0, 5], [0, 1.1], { ticks: false, xl: 'x', fns: [{ f: 'exp(-x)', c: 'orange', area: [0, 5] }] }),
-      txt(200, 330, 'población: cualquier forma', { b: true, fs: 18, c: 'orange' }),
-      arr([380, 180], [440, 180], { c: 'white', s: 1, t: 'n ≥ 30', sw: 4 }),
-      plot(450, 60, 330, 240, [0, 2], [0, 1.1], { ticks: false, xl: 'x̄', s: 2, fns: [{ f: 'exp(-pow((x-1)/0.18,2)/2)', c: 'green', area: [0, 2] }] }),
-      txt(615, 330, 'x̄ ≈ Normal(μ, σ/√n)', { b: true, fs: 20, c: 'green', s: 2 }),
-      box(40, 365, 720, 70, 'Sumas: E(aX + bY) = aE(X) + bE(Y) · si son independientes V(aX + bY) = a²V(X) + b²V(Y)', { c: 'purple', fs: 17, s: 3 }),
+      plot(60, 75, 520, 230, [0, 5], [0, 1.1], { ticks: false, xl: 'x', fns: [{ f: 'exp(-x)', c: 'orange', area: [0, 5] }] }),
+      box(20, 370, 600, 110, 'Población posiblemente asimétrica\nObservaciones i.i.d. · varianza finita', { fs: 27, c: 'orange' }),
+      box(20, 550, 600, 110, 'Muestras suficientemente grandes\n30 no es un umbral universal', { fs: 28, c: 'blue', s: 1 }),
     ], [
-      'La población puede tener **cualquier forma**: esta es muy asimétrica.',
-      'Pero si tomamos muestras de tamaño **n grande**, 30 o más, y calculamos la **media** de cada una…',
-      '…las medias muestrales se distribuyen **aproximadamente normal**, centradas en mu y con desvío **sigma sobre raíz de n**: cada vez más angostas. Eso es el **Teorema Central del Límite**.',
-      'Para sumas de variables: la esperanza siempre es lineal. Y si son independientes, las varianzas se suman con los coeficientes al cuadrado: por eso V de X menos Y es V de X **más** V de Y.',
-    ]),
+      'La población puede ser asimétrica como la del dibujo. El teorema central del límite clásico requiere observaciones independientes e idénticamente distribuidas, con media y varianza finitas. No afirma que cualquier población sin esas condiciones tenga el mismo comportamiento.',
+      'Al crecer el tamaño de las muestras mejora la aproximación de la media estandarizada a una normal. La cantidad suficiente depende de la distribución y la precisión buscada. Treinta es una orientación frecuente, no una garantía universal; con poblaciones muy asimétricas puede hacer falta más información.',
+    ], 640, 705),
+    scene([
+      head('Media muestral: centro y error estándar'),
+      plot(60, 75, 520, 230, [0, 2], [0, 1.1], { ticks: false, xl: 'x̄', fns: [{ f: 'exp(-pow((x-1)/0.18,2)/2)', c: 'green', area: [0, 2] }] }),
+      box(20, 370, 600, 100, 'Centro μ · error estándar σ/√n', { fs: 30, c: 'green' }),
+      box(20, 540, 600, 150, 'E(aX+bY)=aE(X)+bE(Y)\nSi son independientes:\nV(aX+bY)=a²V(X)+b²V(Y)', { fs: 27, c: 'purple', s: 1 }),
+    ], [
+      'Las medias muestrales se concentran alrededor de mu, con error estándar sigma sobre raíz de ene bajo estos supuestos. Aumentar la muestra reduce ese error estándar. Si la población ya es normal, la media de observaciones independientes también es normal sin esperar a un umbral de treinta.',
+      'Para combinaciones, la esperanza es lineal cuando existe. Si las variables son independientes y sus varianzas existen, las varianzas se suman con coeficientes al cuadrado. Sin independencia debés considerar las covarianzas. Por eso la varianza de una resta de independientes también suma ambas varianzas.',
+    ], 640, 735),
   ],
 
   p6: [

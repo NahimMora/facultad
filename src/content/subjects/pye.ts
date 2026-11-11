@@ -2,6 +2,7 @@ import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../t
 import { VIDEOS } from '../videos/pye';
 import { EX_SCENES, SCENES } from '../visual/pye';
 import { FINAL_EXERCISES } from '../visual/pye-final';
+import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/pye-repaso';
 
 /** PyE · final. Redacción propia sobre el teórico/práctico de la cátedra y los modelos de final 2022–2025. */
 const F = 'modelos de final de la cátedra (Drive de estudiantes)';
@@ -30,7 +31,7 @@ const theory: TheoryBlock[] = [
   ] },
   { id: 'p5', module: 'u5', title: 'Suma de variables y Teorema Central del Límite', points: [
     'E(aX + bY) = aE(X) + bE(Y). Si son independientes, V(aX + bY) = a²V(X) + b²V(Y).',
-    '**TCL:** con n grande (n ≥ 30), la media muestral x̄ tiene distribución aproximadamente **normal** con media μ y desvío **σ / √n**, sea cual sea la distribución original.',
+    '**TCL clásico:** con observaciones independientes e idénticamente distribuidas y varianza finita, la media estandarizada se aproxima a una normal al crecer n. La media muestral tiene centro μ y error estándar σ/√n. Treinta es una orientación práctica, no una garantía universal.',
   ] },
   { id: 'p6', module: 'u6', title: 'Inferencia: intervalos y prueba de hipótesis', points: [
     '**Intervalo de confianza:** "con una confianza del 95 % se estima que la **media poblacional** está entre a y b". Se interpreta sobre el **parámetro**, no sobre los datos. σ desconocido → distribución **t de Student**.',
@@ -61,7 +62,7 @@ const q: Question[] = [
   { id: 'pye-02', module: 'u1', type: 'mcq', prompt: 'P(75) = 2809,8 (miles de $) en el sector administrativo significa que:', options: ['El 75 % de los empleados cobra menos de $2.809.800', 'El 75 % cobra más de $2.809.800', 'La media es 2809,8', 'El 25 % cobra menos de esa cifra'], answer: 0, explain: 'El percentil 75 deja **por debajo** al 75 % de los datos.', source: F },
   { id: 'pye-03', module: 'u1', type: 'mcq', prompt: 'Si los valores más frecuentes están en las puntuaciones **bajas** (cola larga hacia la derecha), la distribución es:', options: ['Asimétrica positiva: Mo < Me < x̄', 'Asimétrica negativa: Mo > Me > x̄', 'Simétrica', 'Uniforme'], answer: 0, explain: 'La moda queda a la izquierda y la cola larga arrastra la media a la derecha: **asimetría positiva**, Mo < Me < x̄. (Ojo: una respuesta de los modelos de final dice "negativa" con ese mismo orden; el orden Mo < Me < x̄ corresponde a la **positiva**).', source: F },
   { id: 'pye-04', module: 'u1', type: 'mcq', prompt: 'El coeficiente de variación sirve para:', options: ['Comparar la dispersión relativa de grupos con distintas medias o unidades', 'Medir la posición central', 'Calcular percentiles', 'Probar hipótesis'], answer: 0, explain: 'CV = s/x̄ no tiene unidades: compara homogeneidad entre grupos distintos.' },
-  { id: 'pye-05', module: 'u2', type: 'mcq', prompt: 'Errores independientes: respiración P = 0,27 y postura P = 0,46. ¿Probabilidad de que ocurran **ambos**?', options: ['0,1242', '0,73', '0,19', '0,5958'], answer: 0, explain: 'Independientes → P(R ∩ P) = 0,27 · 0,46 = **0,1242**. (0,5958 sería P(R ∪ P)).', source: F },
+  { id: 'pye-05', module: 'u2', type: 'mcq', prompt: 'Errores independientes: respiración P = 0,27 y postura P = 0,46. ¿Probabilidad de que ocurran **ambos**?', options: ['0,1242', '0,73', '0,19', '0,5958'], answer: 0, explain: 'Independientes → P(R ∩ P) = 0,27 · 0,46 = **0,1242**. La unión es 0,27+0,46−0,1242=0,6058; 0,5958 no corresponde a esa cuenta.', source: F },
   { id: 'pye-06', module: 'u2', type: 'mcq', prompt: 'Con los mismos datos, si hubo error de respiración, ¿probabilidad de error de postura?', options: ['0,46, porque son independientes', '0,27', '0,1242', '0,46 · 0,27 / 0,46'], answer: 0, explain: 'Si son independientes, P(P / R) = **P(P)** = 0,46: saber que hubo uno no cambia la probabilidad del otro.', source: F },
   { id: 'pye-07', module: 'u2', type: 'tf', prompt: 'Dos sucesos excluyentes con probabilidad positiva son independientes.', answer: false, explain: 'Si son excluyentes, P(A ∩ B) = 0 ≠ P(A)·P(B) > 0: son **dependientes** (que ocurra uno impide el otro).' },
   { id: 'pye-08', module: 'u2', type: 'mcq', prompt: 'El 30 % de los clientes es de la zona A (12 % reclama) y el 70 % de la zona B (16 % reclama). ¿P(reclamo)?', options: ['0,148', '0,28', '0,14', '0,112'], answer: 0, explain: 'Probabilidad total: 0,12·0,3 + 0,16·0,7 = 0,036 + 0,112 = **0,148**.', source: F },
@@ -70,7 +71,7 @@ const q: Question[] = [
   { id: 'pye-11', module: 'u3', type: 'tf', prompt: 'En la distribución de Poisson la media y la varianza son iguales.', answer: true, explain: 'En la Poisson, E(X) = V(X) = λ: la media y la varianza coinciden.' },
   { id: 'pye-12', module: 'u4', type: 'mcq', prompt: 'X ~ N(μ = 500, σ = 20). ¿Qué Z le corresponde a x = 530?', options: ['1,5', '30', '−1,5', '0,15'], answer: 0, explain: 'Z = (530 − 500)/20 = **1,5**.' },
   { id: 'pye-13', module: 'u4', type: 'mcq', prompt: 'En una normal, ¿qué porcentaje queda aproximadamente entre μ − 2σ y μ + 2σ?', options: ['95 %', '68 %', '99,7 %', '50 %'], answer: 0, explain: 'Regla práctica 68–95–99,7: μ ± 2σ concentra cerca del 95 %.' },
-  { id: 'pye-14', module: 'u5', type: 'mcq', prompt: 'Según el Teorema Central del Límite, para n grande la media muestral tiene distribución:', options: ['Aproximadamente normal con desvío σ/√n', 'Igual a la de la población', 'Binomial', 'Uniforme'], answer: 0, explain: 'Sea cual sea la distribución original, x̄ ≈ N(μ, σ/√n) con n ≥ 30.' },
+  { id: 'pye-14', module: 'u5', type: 'mcq', prompt: 'Bajo los supuestos del TCL clásico y con n suficientemente grande, la media muestral tiene distribución:', options: ['Aproximadamente normal con desvío σ/√n', 'Igual a la de la población', 'Binomial', 'Uniforme'], answer: 0, explain: 'Para observaciones i.i.d. con varianza finita, la aproximación mejora al crecer n. El tamaño suficiente depende de la distribución; n=30 no es una garantía universal.' },
   { id: 'pye-15', module: 'u5', type: 'mcq', prompt: 'X e Y independientes con V(X) = 4 y V(Y) = 9. ¿V(X − Y)?', options: ['13', '−5', '5', '36'], answer: 0, explain: 'V(X − Y) = V(X) + V(Y) = **13** (las varianzas se suman aunque se resten las variables).' },
   { id: 'pye-16', module: 'u6', type: 'mcq', prompt: 'IC del 90 % para la media: (18,12 ; 19,68) g/kg. La interpretación correcta es:', options: ['Con 90 % de confianza, el contenido MEDIO del lote está entre 18,12 y 19,68 g/kg', 'El 90 % de los productos tiene entre 18,12 y 19,68 g/kg', 'La media muestral está entre esos valores con 90 %', 'Hay 10 % de productos fuera de rango'], answer: 0, explain: 'El intervalo estima el **parámetro** (la media poblacional), no el porcentaje de unidades individuales.', source: F },
   { id: 'pye-17', module: 'u6', type: 'mcq', prompt: 'Se obtuvo p-v = 0,041 con α = 0,05. La decisión es:', options: ['Rechazar H0', 'No rechazar H0', 'Rechazar H1', 'Aumentar α'], answer: 0, explain: '**p-v < α** (0,041 < 0,05) → se rechaza H0.', source: F },
@@ -100,7 +101,7 @@ const ex: WorkedExercise[] = [
 ];
 
 const content: SubjectContent = {
-  subjectId: 'pye', theory, questions: q, exercises: ex, videos: VIDEOS,
+  subjectId: 'pye', theory, questions: [...q, ...REVIEW_QUESTIONS], exercises: ex, videos: VIDEOS,
   cheatsheet: [
     { t: 'Descriptiva', d: 'CV = s/x̄ (mayor = más heterogéneo) · P(k): el k % está por debajo · asimetría positiva: Mo < Me < x̄.' },
     { t: 'Probabilidad', d: 'Independientes: P(A∩B) = P(A)P(B), P(A/B) = P(A) · total: Σ P(R/Aᵢ)P(Aᵢ) · Bayes.' },
@@ -122,7 +123,7 @@ content.lessons = [
       'Primera clase para el final de Probabilidad y Estadística: la primera mitad de la materia, con los gráficos que conviene tener en la cabeza.',
       'Vamos a ver la forma de una distribución y el coeficiente de variación, probabilidad con un árbol de Bayes, binomial y Poisson, la normal y el Teorema Central del Límite.',
     ],
-    parts: ['p1', 'q:pye-03', 'p2', 'ex:pye-e3', 'p3', 'p4', 'p5', 'q:pye-15'],
+    parts: ['p1', 'q:pye-03', 'p2', 'ex:pye-e3', 'p3', 'p4', 'p5', 'q:pye-15', 'q:pye-rep-13', 'q:pye-rep-14', 'q:pye-rep-15'],
     outro: [
       'Asimetría positiva: Mo < Me < x̄. CV = s/x̄ (mayor, más heterogéneo). P(k): el k % está por debajo.',
       'Independientes: P(A∩B) = P(A)P(B). Total y Bayes con árbol. Binomial: n·p; Poisson: media = varianza = λ.',
@@ -158,4 +159,5 @@ content.lessons = [
   },
 ];
 
+content.lessons.push(...REVIEW_LESSONS);
 export default content;
