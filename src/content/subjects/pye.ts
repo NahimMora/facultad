@@ -1,6 +1,7 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/pye';
 import { EX_SCENES, SCENES } from '../visual/pye';
+import { FINAL_EXERCISES } from '../visual/pye-final';
 
 /** PyE · final. Redacción propia sobre el teórico/práctico de la cátedra y los modelos de final 2022–2025. */
 const F = 'modelos de final de la cátedra (Drive de estudiantes)';
@@ -91,18 +92,7 @@ const q: Question[] = [
 ];
 
 const ex: WorkedExercise[] = [
-  { id: 'pye-e1', module: 'u7', title: 'Final · remuneraciones por sector (CV, percentil y prueba de hipótesis)', statement: 'Administración: n = 20, x̄ = 2590,3, s = 395,7, P(75) = 2809,8. Comercial: n = 17, x̄ = 2915,3, s = 668,5. Se probó que comercial cobra más: p-v = 0,041, α = 0,05.', steps: [
-    { title: 'a) Heterogeneidad', body: 'CV adm = 395,7/2590,3 = **0,153** · CV com = 668,5/2915,3 = **0,229** → más heterogéneo: **comercial**.' },
-    { title: 'b) P(75)', body: 'El 75 % de los administrativos cobra menos de 2809,8 miles de pesos.' },
-    { title: 'c) Qué prueba', body: 'Diferencia de medias, muestras independientes (variable cuantitativa en dos sectores). Primero homogeneidad: H0: σc² = σa².' },
-    { title: 'Hipótesis y decisión', body: 'H0: μc = μa · H1: μc > μa (unilateral derecha). p-v = 0,041 < 0,05 → **se rechaza H0**: los comerciales cobran significativamente más.' },
-    { title: 'Error posible', body: '**Tipo I**: concluir que los comerciales cobran más cuando en realidad no es así.' },
-  ], result: 'Comercial más heterogéneo · se rechaza H0 · error tipo I.' },
-  { id: 'pye-e2', module: 'u9', title: 'Final · regresión de CO₂ y población (corregir afirmaciones falsas)', statement: 'ŷ = 5384,51 + 16,645x (x: millones de habitantes, y: ppm de CO₂), r = 0,931. Corregí: a) "el 93,1 % del CO₂ se explica por la población"; b) "en ciudades sin CO₂ hay 5384,51 millones de habitantes"; c) "la prueba de la pendiente muestra que el CO₂ es causa de la población".', steps: [
-    { title: 'a)', body: 'r² = 0,931² = 0,867 → el **86,7 % de la variación** del CO₂ se explica por la variación de la población.' },
-    { title: 'b)', body: 'La ordenada 5384,51 es el CO₂ estimado cuando la ciudad tiene **0 habitantes** (sin sentido práctico).' },
-    { title: 'c)', body: 'Se concluye que CO₂ y población están **linealmente asociados**; no hay causalidad.' },
-  ] },
+  ...FINAL_EXERCISES,
   { id: 'pye-e3', module: 'u2', title: 'Probabilidad total', statement: 'El 30 % de las llamadas viene de la zona A y el 70 % de la B. Reclaman el 12 % de A y el 16 % de B. ¿P(reclamo)? Si hubo reclamo, ¿P(zona A)?', steps: [
     { title: 'Total', body: 'P(R) = 0,12·0,3 + 0,16·0,7 = 0,036 + 0,112 = **0,148**.' },
     { title: 'Bayes', body: 'P(A / R) = 0,036 / 0,148 ≈ **0,243**.' },
@@ -140,17 +130,30 @@ content.lessons = [
     ],
   },
   {
-    id: 'pye-clase-2', examId: 'final', title: 'Final · Clase 2: inferencia, pruebas y regresión',
+    id: 'pye-clase-3', examId: 'final', title: 'Final · Inferencia, pruebas y regresión',
     summary: 'Intervalos de confianza, prueba de hipótesis y errores, qué prueba usar, Chi cuadrado y regresión, con los ejercicios del final.',
     intro: [
-      'Segunda clase para el final: la parte de inferencia, que es la que más pesa en los modelos de final.',
+      'Repasamos inferencia, comparación de medias y regresión con ejemplos de los modelos anteriores. Su presencia en una guía no confirma el formato del próximo examen.',
       'Vamos a ver intervalos de confianza, pruebas de hipótesis con sus errores, cómo elegir la prueba, Chi cuadrado, regresión, y dos ejercicios de finales resueltos.',
     ],
-    parts: ['p6', 'q:pye-16', 'p7', 'ex:pye-e1', 'p8', 'p9', 'ex:pye-e2'],
+    parts: ['p6', 'q:pye-16', 'ex:pye-final-e4', 'p7', 'ex:pye-e1', 'p8', 'p9', 'ex:pye-e2'],
     outro: [
       'IC: "con X % de confianza la MEDIA poblacional está entre a y b". H1 = lo que quiero probar; p-v < α → rechazo H0.',
       'Rechacé → posible error tipo I; no rechacé → tipo II. Grupos distintos → independientes; mismos individuos → apareadas.',
       'Regresión: b es el cambio por unidad, r² el % de variación explicada, y nunca causalidad.',
+    ],
+  },
+  {
+    id: 'pye-clase-2', examId: 'final', title: 'Final resuelto: cinco partes, con cuentas verificadas',
+    summary: 'Un modelo anterior completo: sectores, independencia, regresión, prueba t, intervalo, Poisson y percentil normal. Incluye dos erratas de la respuesta o del enunciado.',
+    intro: [
+      'Vamos a resolver las cinco partes de un modelo anterior de Probabilidad y Estadística con dibujos propios y cuentas verificadas. No confirma cómo será tu próximo examen. Antes de calcular, identificá la variable, la unidad y qué probabilidad o parámetro te piden.',
+      'El recorrido va de remuneraciones e independencia a regresión; después usamos ocho observaciones para una prueba y un intervalo, y cerramos con Poisson y normal. Hay un p-valor incorrecto en la respuesta adjunta y un cambio de sustancia en el enunciado que vamos a señalar sin inventar datos.',
+    ],
+    parts: ['ex:pye-e1', 'ex:pye-final-e2', 'ex:pye-e2', 'ex:pye-final-e4', 'ex:pye-final-e5', 'ex:pye-final-e6', 'ex:pye-final-e7'],
+    outro: [
+      'Elegí el procedimiento por la variable y el objetivo: CV para dispersión relativa, producto para sucesos independientes, t para la media con desvío desconocido bajo sus supuestos y Poisson con la tasa ajustada al volumen.',
+      'El intervalo estima la media, un percentil describe un umbral de observaciones y el p-valor se compara con alfa. En regresión, variación explicada y causalidad son ideas diferentes. Si el material se contradice, verificá la cuenta y dejá visible la limitación.',
     ],
   },
 ];

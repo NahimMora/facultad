@@ -1,0 +1,91 @@
+{
+ "id": "pye-clase-3",
+ "title": "Final · Inferencia, pruebas y regresión",
+ "src": "videos/pye/pye-clase-3.mp4",
+ "poster": "videos/pye/pye-clase-3.jpg",
+ "minutes": 12.5,
+ "chapters": [
+  {
+   "part": "p6",
+   "title": "Inferencia: intervalos y prueba de hipótesis",
+   "at": 21.0
+  },
+  {
+   "part": "q:pye-16",
+   "title": "IC del 90 % para la media: (18,12 ; 19,68) g/kg. La interpretación correcta es:",
+   "at": 160.1
+  },
+  {
+   "part": "ex:pye-final-e4",
+   "title": "Final · 4a. Prueba t con ocho observaciones",
+   "at": 192.4
+  },
+  {
+   "part": "p7",
+   "title": "Comparación de dos poblaciones",
+   "at": 314.0
+  },
+  {
+   "part": "ex:pye-e1",
+   "title": "Final · 1. Remuneraciones por sector",
+   "at": 350.3
+  },
+  {
+   "part": "p8",
+   "title": "Datos categóricos y pruebas no paramétricas",
+   "at": 479.1
+  },
+  {
+   "part": "p9",
+   "title": "Regresión y correlación lineal",
+   "at": 532.3
+  },
+  {
+   "part": "ex:pye-e2",
+   "title": "Final · 3. Regresión de población y CO₂",
+   "at": 605.4
+  }
+ ],
+ "shorts": {
+  "p6": {
+   "src": "videos/pye/pye-clase-3.mp4#t=21.0,160.5",
+   "poster": "videos/pye/p/pye-clase-3-p6.jpg",
+   "minutes": 2.32
+  },
+  "q:pye-16": {
+   "src": "videos/pye/pye-clase-3.mp4#t=160.1,192.9",
+   "poster": "videos/pye/p/pye-clase-3-q-pye-16.jpg",
+   "minutes": 0.55
+  },
+  "ex:pye-final-e4": {
+   "src": "videos/pye/pye-clase-3.mp4#t=192.4,314.4",
+   "poster": "videos/pye/p/pye-clase-3-ex-pye-final-e4.jpg",
+   "minutes": 2.03
+  },
+  "p7": {
+   "src": "videos/pye/pye-clase-3.mp4#t=314.0,350.7",
+   "poster": "videos/pye/p/pye-clase-3-p7.jpg",
+   "minutes": 0.61
+  },
+  "ex:pye-e1": {
+   "src": "videos/pye/pye-clase-3.mp4#t=350.3,479.5",
+   "poster": "videos/pye/p/pye-clase-3-ex-pye-e1.jpg",
+   "minutes": 2.15
+  },
+  "p8": {
+   "src": "videos/pye/pye-clase-3.mp4#t=479.1,532.7",
+   "poster": "videos/pye/p/pye-clase-3-p8.jpg",
+   "minutes": 0.89
+  },
+  "p9": {
+   "src": "videos/pye/pye-clase-3.mp4#t=532.3,605.7",
+   "poster": "videos/pye/p/pye-clase-3-p9.jpg",
+   "minutes": 1.22
+  },
+  "ex:pye-e2": {
+   "src": "videos/pye/pye-clase-3.mp4#t=605.4,714.9",
+   "poster": "videos/pye/p/pye-clase-3-ex-pye-e2.jpg",
+   "minutes": 1.82
+  }
+ }
+}

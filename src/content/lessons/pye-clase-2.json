@@ -1,71 +1,81 @@
 {
  "id": "pye-clase-2",
- "title": "Final · Clase 2: inferencia, pruebas y regresión",
+ "title": "Final resuelto: cinco partes, con cuentas verificadas",
  "src": "videos/pye/pye-clase-2.mp4",
  "poster": "videos/pye/pye-clase-2.jpg",
- "minutes": 9.2,
+ "minutes": 13.7,
  "chapters": [
   {
-   "part": "p6",
-   "title": "Inferencia: intervalos y prueba de hipótesis",
-   "at": 16.9
-  },
-  {
-   "part": "p7",
-   "title": "Comparación de dos poblaciones",
-   "at": 188.3
-  },
-  {
    "part": "ex:pye-e1",
-   "title": "Final · remuneraciones por sector (CV, percentil y prueba de hipótesis)",
-   "at": 224.7
+   "title": "Final · 1. Remuneraciones por sector",
+   "at": 33.5
   },
   {
-   "part": "p8",
-   "title": "Datos categóricos y pruebas no paramétricas",
-   "at": 313.3
-  },
-  {
-   "part": "p9",
-   "title": "Regresión y correlación lineal",
-   "at": 366.5
+   "part": "ex:pye-final-e2",
+   "title": "Final · 2. Dos errores independientes",
+   "at": 162.3
   },
   {
    "part": "ex:pye-e2",
-   "title": "Final · regresión de CO₂ y población (corregir afirmaciones falsas)",
-   "at": 439.6
+   "title": "Final · 3. Regresión de población y CO₂",
+   "at": 263.4
+  },
+  {
+   "part": "ex:pye-final-e4",
+   "title": "Final · 4a. Prueba t con ocho observaciones",
+   "at": 372.4
+  },
+  {
+   "part": "ex:pye-final-e5",
+   "title": "Final · 4b. Intervalo del 90 %",
+   "at": 494.0
+  },
+  {
+   "part": "ex:pye-final-e6",
+   "title": "Final · 5a. Bacterias y Poisson",
+   "at": 598.5
+  },
+  {
+   "part": "ex:pye-final-e7",
+   "title": "Final · 5b. Gasto máximo del 80 %",
+   "at": 692.3
   }
  ],
  "shorts": {
-  "p6": {
-   "src": "videos/pye/pye-clase-2.mp4#t=16.9,156.4",
-   "poster": "videos/pye/p/pye-clase-2-p6.jpg",
-   "minutes": 2.33
-  },
-  "p7": {
-   "src": "videos/pye/pye-clase-2.mp4#t=188.3,225.1",
-   "poster": "videos/pye/p/pye-clase-2-p7.jpg",
-   "minutes": 0.61
-  },
   "ex:pye-e1": {
-   "src": "videos/pye/pye-clase-2.mp4#t=224.7,313.7",
+   "src": "videos/pye/pye-clase-2.mp4#t=33.5,162.8",
    "poster": "videos/pye/p/pye-clase-2-ex-pye-e1.jpg",
-   "minutes": 1.48
+   "minutes": 2.15
   },
-  "p8": {
-   "src": "videos/pye/pye-clase-2.mp4#t=313.3,366.9",
-   "poster": "videos/pye/p/pye-clase-2-p8.jpg",
-   "minutes": 0.89
-  },
-  "p9": {
-   "src": "videos/pye/pye-clase-2.mp4#t=366.5,439.9",
-   "poster": "videos/pye/p/pye-clase-2-p9.jpg",
-   "minutes": 1.22
+  "ex:pye-final-e2": {
+   "src": "videos/pye/pye-clase-2.mp4#t=162.3,263.8",
+   "poster": "videos/pye/p/pye-clase-2-ex-pye-final-e2.jpg",
+   "minutes": 1.69
   },
   "ex:pye-e2": {
-   "src": "videos/pye/pye-clase-2.mp4#t=439.6,517.0",
+   "src": "videos/pye/pye-clase-2.mp4#t=263.4,372.8",
    "poster": "videos/pye/p/pye-clase-2-ex-pye-e2.jpg",
-   "minutes": 1.29
+   "minutes": 1.82
+  },
+  "ex:pye-final-e4": {
+   "src": "videos/pye/pye-clase-2.mp4#t=372.4,494.4",
+   "poster": "videos/pye/p/pye-clase-2-ex-pye-final-e4.jpg",
+   "minutes": 2.03
+  },
+  "ex:pye-final-e5": {
+   "src": "videos/pye/pye-clase-2.mp4#t=494.0,598.9",
+   "poster": "videos/pye/p/pye-clase-2-ex-pye-final-e5.jpg",
+   "minutes": 1.75
+  },
+  "ex:pye-final-e6": {
+   "src": "videos/pye/pye-clase-2.mp4#t=598.5,692.7",
+   "poster": "videos/pye/p/pye-clase-2-ex-pye-final-e6.jpg",
+   "minutes": 1.57
+  },
+  "ex:pye-final-e7": {
+   "src": "videos/pye/pye-clase-2.mp4#t=692.3,789.9",
+   "poster": "videos/pye/p/pye-clase-2-ex-pye-final-e7.jpg",
+   "minutes": 1.63
   }
  }
 }

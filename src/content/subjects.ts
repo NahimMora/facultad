@@ -278,7 +278,7 @@ export const SUBJECTS: Subject[] = [
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay teórico y práctico completos de la cátedra, modelos de 2º parcial con respuestas y 10 clases grabadas.' },
     material: { apuntes: 7, parciales: 8, practica: 3, clases: 11, nota: 'Además: finales viejos corregidos (2022 a 2024) del Drive de estudiantes.' },
-    missing: [FINAL_FORMAT_MISSING, 'Tabla o fórmulas permitidas en el final (si dan una)'],
+    missing: [FINAL_FORMAT_MISSING, 'Tabla o fórmulas permitidas en el final (si dan una)', 'Confirmar la errata del modelo: el inciso del intervalo cambia de sustancia sin dar otra muestra'],
   },
   {
     id: 'bd',

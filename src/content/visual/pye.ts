@@ -1,4 +1,5 @@
 /** PyE · final · recorridos visuales propios. */
+import { FINAL_SCENES } from './pye-final';
 import type { VisScene } from '../../vis/types';
 import { arr, bars, box, head, line, plot, scene, table, tree, txt } from './h';
 
@@ -265,42 +266,5 @@ export const EX_SCENES: Record<string, VisScene[]> = {
       '**Bayes** da vuelta la pregunta: si hubo reclamo, ¿qué probabilidad hay de que sea de A? La rama de A sobre el total: 0,036 sobre 0,148, cerca de **0,24**.',
     ]),
   ],
-  'pye-e1': [
-    scene([
-      head('Final: remuneraciones por sector'),
-      bars(40, 60, 300, 200, [{ t: 'CV Adm.', v: 0.153, c: 'blue' }, { t: 'CV Com.', v: 0.229, c: 'orange' }], { max: 0.25 }),
-      txt(190, 300, 'a) más heterogéneo: Comercial', { b: true, fs: 18, c: 'orange' }),
-      box(380, 60, 400, 70, 'c) Dos sectores distintos → diferencia de medias, muestras independientes', { c: 'green', fs: 16, s: 1 }),
-      box(380, 145, 400, 60, 'H0: μc = μa · H1: μc > μa (derecha)', { c: 'blue', fs: 18, s: 2 }),
-      box(380, 220, 400, 60, 'p-v = 0,041 < 0,05 → RECHAZO H0', { c: 'red', fs: 19, s: 3 }),
-      box(40, 340, 740, 90, 'Error posible: TIPO I → concluir que los comerciales cobran más cuando en realidad no es así', { c: 'yellow', fs: 18, s: 4 }),
-    ], [
-      'Primero: ¿qué sector es más heterogéneo? Coeficiente de variación: administración 0,153, comercial 0,229. **Comercial**.',
-      '¿Qué prueba? La remuneración es **cuantitativa** y son **dos grupos distintos** de empleados: diferencia de medias con **muestras independientes**, con la prueba previa de homogeneidad de varianzas.',
-      'Se quiere probar que comercial cobra **más**: eso va en H1. **Unilateral derecha**.',
-      'El p-valor 0,041 es menor que 0,05: **se rechaza H0**. Los comerciales cobran significativamente más.',
-      'Como se rechazó, el error posible es el **tipo I**, dicho en términos del problema: concluir que los comerciales cobran más cuando en realidad no es así.',
-    ]),
-  ],
-  'pye-e2': [
-    scene([
-      head('Final 2025: corregir 3 afirmaciones de regresión'),
-      box(30, 55, 740, 100, '', { c: 'red', dash: true }),
-      txt(50, 85, '✘ "el 93,1 % del CO₂ se explica por la población"', { anchor: 'start', fs: 18, c: 'red', b: true }),
-      txt(50, 125, '✔ r² = 0,931² = 0,867 → el 86,7 % de la VARIACIÓN del CO₂', { anchor: 'start', fs: 18, c: 'green', b: true, s: 1 }),
-      box(30, 170, 740, 100, '', { c: 'red', dash: true, s: 2 }),
-      txt(50, 200, '✘ "en ciudades sin CO₂ hay 5384,51 millones de habitantes"', { anchor: 'start', fs: 18, c: 'red', b: true, s: 2 }),
-      txt(50, 240, '✔ 5384,51 es el CO₂ estimado con 0 habitantes (sin sentido)', { anchor: 'start', fs: 18, c: 'green', b: true, s: 3 }),
-      box(30, 285, 740, 100, '', { c: 'red', dash: true, s: 4 }),
-      txt(50, 315, '✘ "el CO₂ es causa de la población"', { anchor: 'start', fs: 18, c: 'red', b: true, s: 4 }),
-      txt(50, 355, '✔ solo hay ASOCIACIÓN LINEAL entre CO₂ y población', { anchor: 'start', fs: 18, c: 'green', b: true, s: 5 }),
-    ], [
-      'Primera afirmación falsa: confunde **r con r cuadrado**.',
-      'Lo correcto: r cuadrado es 0,931 al cuadrado, **0,867**. El 86,7 % de la **variación** del CO₂ se explica por la variación de la población.',
-      'Segunda: interpreta mal la **ordenada**, invirtiendo las variables.',
-      'La ordenada es el valor de **y**, el CO₂, cuando **x**, la población, vale cero. Y en este contexto no tiene sentido práctico.',
-      'Tercera: habla de **causa**.',
-      'La prueba de la pendiente solo permite concluir que las variables están **linealmente asociadas**. Regresión nunca prueba causalidad.',
-    ]),
-  ],
+  ...FINAL_SCENES,
 };
