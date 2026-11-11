@@ -1,0 +1,161 @@
+{
+ "id": "arq-clase-4",
+ "title": "Práctica visual: control, paralelismo y E/S",
+ "src": "videos/arq/arq-clase-4.mp4",
+ "poster": "videos/arq/arq-clase-4.jpg",
+ "minutes": 14.4,
+ "chapters": [
+  {
+   "part": "q:arq-rep-15",
+   "title": "Alternás accesos a dos bloques que se asignan a la misma línea de una caché directa. ¿Qué puede ocurrir?",
+   "at": 30.6
+  },
+  {
+   "part": "q:arq-rep-16",
+   "title": "En una unidad de control microprogramada, ¿qué relación es correcta?",
+   "at": 84.9
+  },
+  {
+   "part": "q:arq-rep-17",
+   "title": "Una instrucción contiene directamente el valor que se debe sumar. ¿Qué modo de direccionamiento describe ese operando?",
+   "at": 137.7
+  },
+  {
+   "part": "q:arq-rep-18",
+   "title": "¿Por qué no podés afirmar que el PC siempre aumenta exactamente en uno después de cada instrucción?",
+   "at": 187.4
+  },
+  {
+   "part": "q:arq-rep-19",
+   "title": "Un pipeline ideal solapa etapas de distintas instrucciones. ¿Qué mejora busca principalmente?",
+   "at": 242.0
+  },
+  {
+   "part": "q:arq-rep-20",
+   "title": "Dos etapas del pipeline necesitan el mismo recurso físico en el mismo ciclo y no pueden compartirlo. ¿Qué riesgo aparece?",
+   "at": 298.0
+  },
+  {
+   "part": "q:arq-rep-21",
+   "title": "El procesador siguió una dirección predicha y después descubre que el salto tomaba otra. ¿Qué problema debe resolver?",
+   "at": 350.2
+  },
+  {
+   "part": "q:arq-rep-22",
+   "title": "¿Qué distingue el bus de datos del bus de direcciones?",
+   "at": 407.4
+  },
+  {
+   "part": "q:arq-rep-23",
+   "title": "Varios maestros solicitan usar un bus compartido. ¿Qué función cumple el arbitraje?",
+   "at": 459.3
+  },
+  {
+   "part": "q:arq-rep-24",
+   "title": "La CPU consulta repetidamente el estado del periférico hasta que está listo. ¿Qué mecanismo utiliza?",
+   "at": 515.1
+  },
+  {
+   "part": "q:arq-rep-25",
+   "title": "Deshabilitás IF en el 8086. ¿Eso enmascara también una NMI?",
+   "at": 570.8
+  },
+  {
+   "part": "q:arq-rep-26",
+   "title": "En ensamblador 8086, ¿qué hace CMP respecto de una resta usada para comparar?",
+   "at": 626.5
+  },
+  {
+   "part": "q:arq-rep-27",
+   "title": "Querés ver como instrucciones los bytes de código que ya están en memoria. ¿Qué función de DEBUG corresponde?",
+   "at": 683.0
+  },
+  {
+   "part": "q:arq-rep-28",
+   "title": "Aplicás una operación semejante a muchos datos independientes. ¿Qué característica de una GPU puede aprovecharse?",
+   "at": 732.5
+  },
+  {
+   "part": "q:arq-rep-29",
+   "title": "Usás capacidad de procesamiento remota ofrecida como servicio. ¿Qué concepto describe ese acceso?",
+   "at": 786.3
+  }
+ ],
+ "shorts": {
+  "q:arq-rep-15": {
+   "src": "videos/arq/arq-clase-4.mp4#t=30.6,85.3",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-15.jpg",
+   "minutes": 0.91
+  },
+  "q:arq-rep-16": {
+   "src": "videos/arq/arq-clase-4.mp4#t=84.9,138.1",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-16.jpg",
+   "minutes": 0.89
+  },
+  "q:arq-rep-17": {
+   "src": "videos/arq/arq-clase-4.mp4#t=137.7,187.9",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-17.jpg",
+   "minutes": 0.84
+  },
+  "q:arq-rep-18": {
+   "src": "videos/arq/arq-clase-4.mp4#t=187.4,242.4",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-18.jpg",
+   "minutes": 0.92
+  },
+  "q:arq-rep-19": {
+   "src": "videos/arq/arq-clase-4.mp4#t=242.0,298.4",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-19.jpg",
+   "minutes": 0.94
+  },
+  "q:arq-rep-20": {
+   "src": "videos/arq/arq-clase-4.mp4#t=298.0,350.6",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-20.jpg",
+   "minutes": 0.88
+  },
+  "q:arq-rep-21": {
+   "src": "videos/arq/arq-clase-4.mp4#t=350.2,407.9",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-21.jpg",
+   "minutes": 0.96
+  },
+  "q:arq-rep-22": {
+   "src": "videos/arq/arq-clase-4.mp4#t=407.4,459.7",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-22.jpg",
+   "minutes": 0.87
+  },
+  "q:arq-rep-23": {
+   "src": "videos/arq/arq-clase-4.mp4#t=459.3,515.5",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-23.jpg",
+   "minutes": 0.94
+  },
+  "q:arq-rep-24": {
+   "src": "videos/arq/arq-clase-4.mp4#t=515.1,571.2",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-24.jpg",
+   "minutes": 0.94
+  },
+  "q:arq-rep-25": {
+   "src": "videos/arq/arq-clase-4.mp4#t=570.8,626.9",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-25.jpg",
+   "minutes": 0.93
+  },
+  "q:arq-rep-26": {
+   "src": "videos/arq/arq-clase-4.mp4#t=626.5,683.4",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-26.jpg",
+   "minutes": 0.95
+  },
+  "q:arq-rep-27": {
+   "src": "videos/arq/arq-clase-4.mp4#t=683.0,732.9",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-27.jpg",
+   "minutes": 0.83
+  },
+  "q:arq-rep-28": {
+   "src": "videos/arq/arq-clase-4.mp4#t=732.5,786.8",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-28.jpg",
+   "minutes": 0.91
+  },
+  "q:arq-rep-29": {
+   "src": "videos/arq/arq-clase-4.mp4#t=786.3,837.9",
+   "poster": "videos/arq/p/arq-clase-4-q-arq-rep-29.jpg",
+   "minutes": 0.86
+  }
+ }
+}

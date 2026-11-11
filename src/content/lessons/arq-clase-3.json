@@ -1,0 +1,151 @@
+{
+ "id": "arq-clase-3",
+ "title": "Práctica visual: representación, ALU y memoria",
+ "src": "videos/arq/arq-clase-3.mp4",
+ "poster": "videos/arq/arq-clase-3.jpg",
+ "minutes": 13.5,
+ "chapters": [
+  {
+   "part": "q:arq-rep-1",
+   "title": "Ampliás una representación en complemento a dos sin cambiar su valor. ¿Cómo completás los bits nuevos?",
+   "at": 30.6
+  },
+  {
+   "part": "q:arq-rep-2",
+   "title": "¿Qué rango admite un entero de 8 bits con signo en complemento a dos?",
+   "at": 83.1
+  },
+  {
+   "part": "q:arq-rep-3",
+   "title": "En un número binario32 normalizado y finito, ¿qué bit encabeza el significando?",
+   "at": 138.1
+  },
+  {
+   "part": "q:arq-rep-4",
+   "title": "En binario32, exponente y fracción son cero. ¿Qué aporta el bit de signo?",
+   "at": 191.7
+  },
+  {
+   "part": "q:arq-rep-5",
+   "title": "Un decimal no tiene expansión binaria finita y se guarda con una cantidad fija de bits. ¿Qué necesitás considerar?",
+   "at": 243.0
+  },
+  {
+   "part": "q:arq-rep-6",
+   "title": "¿Qué diferencia al contador de programa del registro de instrucción?",
+   "at": 299.5
+  },
+  {
+   "part": "q:arq-rep-7",
+   "title": "Separás memorias y caminos de acceso para instrucciones y datos. ¿Qué modelo básico describís?",
+   "at": 352.5
+  },
+  {
+   "part": "q:arq-rep-8",
+   "title": "En una suma binaria, ¿por qué carry y overflow con signo no son equivalentes?",
+   "at": 404.8
+  },
+  {
+   "part": "q:arq-rep-9",
+   "title": "Con ancho fijo y complemento a dos, ¿qué operación implementa A−B?",
+   "at": 462.5
+  },
+  {
+   "part": "q:arq-rep-10",
+   "title": "Aplicás AND entre un registro y una máscara. ¿Qué hacen los ceros de esa máscara?",
+   "at": 516.4
+  },
+  {
+   "part": "q:arq-rep-11",
+   "title": "Una SRAM no requiere refresco periódico como DRAM. ¿Qué sigue necesitando para conservar normalmente sus datos?",
+   "at": 567.0
+  },
+  {
+   "part": "q:arq-rep-12",
+   "title": "Una memoria tiene 2ⁿ direcciones y cada dirección selecciona una palabra de w bits. ¿Cuál es su capacidad en bits?",
+   "at": 618.4
+  },
+  {
+   "part": "q:arq-rep-13",
+   "title": "La etiqueta coincide pero el bit de validez es cero. ¿Podés declarar un hit de caché?",
+   "at": 673.7
+  },
+  {
+   "part": "q:arq-rep-14",
+   "title": "Una caché usa bloques de 2ᵇ bytes y direcciones por byte. ¿Cuántos bits seleccionan el byte dentro del bloque?",
+   "at": 728.9
+  }
+ ],
+ "shorts": {
+  "q:arq-rep-1": {
+   "src": "videos/arq/arq-clase-3.mp4#t=30.6,83.5",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-1.jpg",
+   "minutes": 0.88
+  },
+  "q:arq-rep-2": {
+   "src": "videos/arq/arq-clase-3.mp4#t=83.1,138.5",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-2.jpg",
+   "minutes": 0.92
+  },
+  "q:arq-rep-3": {
+   "src": "videos/arq/arq-clase-3.mp4#t=138.1,192.1",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-3.jpg",
+   "minutes": 0.9
+  },
+  "q:arq-rep-4": {
+   "src": "videos/arq/arq-clase-3.mp4#t=191.7,243.4",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-4.jpg",
+   "minutes": 0.86
+  },
+  "q:arq-rep-5": {
+   "src": "videos/arq/arq-clase-3.mp4#t=243.0,299.9",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-5.jpg",
+   "minutes": 0.95
+  },
+  "q:arq-rep-6": {
+   "src": "videos/arq/arq-clase-3.mp4#t=299.5,352.9",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-6.jpg",
+   "minutes": 0.89
+  },
+  "q:arq-rep-7": {
+   "src": "videos/arq/arq-clase-3.mp4#t=352.5,405.2",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-7.jpg",
+   "minutes": 0.88
+  },
+  "q:arq-rep-8": {
+   "src": "videos/arq/arq-clase-3.mp4#t=404.8,462.9",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-8.jpg",
+   "minutes": 0.97
+  },
+  "q:arq-rep-9": {
+   "src": "videos/arq/arq-clase-3.mp4#t=462.5,516.8",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-9.jpg",
+   "minutes": 0.91
+  },
+  "q:arq-rep-10": {
+   "src": "videos/arq/arq-clase-3.mp4#t=516.4,567.4",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-10.jpg",
+   "minutes": 0.85
+  },
+  "q:arq-rep-11": {
+   "src": "videos/arq/arq-clase-3.mp4#t=567.0,618.8",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-11.jpg",
+   "minutes": 0.86
+  },
+  "q:arq-rep-12": {
+   "src": "videos/arq/arq-clase-3.mp4#t=618.4,674.1",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-12.jpg",
+   "minutes": 0.93
+  },
+  "q:arq-rep-13": {
+   "src": "videos/arq/arq-clase-3.mp4#t=673.7,729.3",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-13.jpg",
+   "minutes": 0.93
+  },
+  "q:arq-rep-14": {
+   "src": "videos/arq/arq-clase-3.mp4#t=728.9,781.2",
+   "poster": "videos/arq/p/arq-clase-3-q-arq-rep-14.jpg",
+   "minutes": 0.87
+  }
+ }
+}

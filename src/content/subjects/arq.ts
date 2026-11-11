@@ -1,5 +1,7 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/arq';
+import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/arq-repaso';
+import { theoryFromReview } from '../visual/review';
 import { EX_SCENES, SCENES } from '../visual/arq';
 import { FINAL_EXERCISES, FINAL_SCENES } from '../visual/arq-final';
 
@@ -128,7 +130,7 @@ const ex: WorkedExercise[] = [
 ];
 
 const content: SubjectContent = {
-  subjectId: 'arq', theory, questions: q, exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
+  subjectId: 'arq', theory, questions: [...q, ...REVIEW_QUESTIONS], exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
   cheatsheet: [
     { t: 'Desbordes', d: 'OF con signo: mismo signo → signo opuesto · nunca con signos distintos · CF sin signo · underflow: demasiado chico.' },
     { t: 'IEEE 754 simple', d: '1 + 8 + 23 bits · sesgo 127 · valor (−1)ˢ·1,m·2^(e−127) · −6,5 = C0D00000h.' },
@@ -167,4 +169,6 @@ content.lessons = [
   },
 ];
 
+content.lessons.push(...REVIEW_LESSONS);
+content.theory.push(...theoryFromReview(REVIEW_QUESTIONS, { u5: 'ALU: acarreo, resta y máscaras' }));
 export default content;
