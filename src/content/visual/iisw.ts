@@ -1,5 +1,6 @@
 /** IISW · final (módulos 1 a 7) · recorridos visuales propios. */
 import type { VisScene } from '../../vis/types';
+import { SECOND_SCENES } from './iisw-segunda';
 import { arr, bars, bits, box, head, ico, line, scene, table, txt } from './h';
 
 const spiral: [number, number][] = Array.from({ length: 90 }, (_, i) => {
@@ -8,6 +9,7 @@ const spiral: [number, number][] = Array.from({ length: 90 }, (_, i) => {
 });
 
 export const SCENES: Record<string, VisScene[]> = {
+  ...SECOND_SCENES,
   'm1-def': [
     scene([
       head('Ingeniería de software: por qué nace'),

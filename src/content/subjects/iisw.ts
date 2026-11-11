@@ -142,12 +142,31 @@ const content: SubjectContent = {
 };
 
 content.theory = content.theory.map((b) => {
+  if (['m8', 'm9', 'm10', 'm11', 'm12'].includes(b.module) && SCENES[b.id]) {
+    const scenes = SCENES[b.id];
+    const heading = scenes[0].v.items[0];
+    return { id: b.id, module: b.module, title: heading.k === 'text' ? heading.t : b.title, points: scenes.flatMap((s) => s.say), scenes };
+  }
   // los temas de la 2ª mitad vienen del sitio anterior: se les asocia el video de su capítulo (ch1-t3 → ch1-v1)
   const v = P.videos.find((x) => x.id === `${b.id.split('-')[0]}-v1`);
   return { ...b, scenes: SCENES[b.id] ?? b.scenes, video: v ? { src: v.src, poster: v.poster, minutes: v.minutes } : undefined };
 });
 content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
 content.lessons = [
+  {
+    id: 'iisw-clase-2', examId: 'final', title: 'Requerimientos, casos de uso, secuencia y pruebas',
+    summary: 'Módulos 8 a 10: de la necesidad del usuario a las interacciones y la evidencia de aceptación, con diagramas propios.',
+    intro: ['En esta clase vamos a unir requerimientos, casos de uso, secuencia y pruebas. Los diagramas se construyen paso a paso: seguí primero el objetivo del negocio y después las responsabilidades.', 'Usamos ejemplos propios de una biblioteca. Cada representación responde una pregunta distinta: qué necesita el actor, cómo interactúa, qué objetos colaboran y cómo verificamos el resultado.'],
+    parts: content.theory.filter((b) => ['m8', 'm9', 'm10'].includes(b.module)).map((b) => b.id),
+    outro: ['Revisá que requisitos, casos de uso y pruebas estén relacionados. El diagrama de casos de uso muestra objetivos; la descripción explica recorridos y la secuencia ordena mensajes entre participantes.', 'Volvé a las escenas en la web y practicá con las preguntas de opción múltiple y verdadero o falso. Cada explicación te permite comprobar por qué una respuesta corresponde al concepto.'],
+  },
+  {
+    id: 'iisw-clase-3', examId: 'final', title: 'Tipos de sistemas, evolución y métodos formales',
+    summary: 'Módulos 11 y 12: sistemas de información, tiempo real, distribución, dispositivos embebidos, mantenimiento, reingeniería y formalización.',
+    intro: ['En esta clase distinguimos tipos de sistemas y formas de mantenerlos y verificarlos. Mirá las propiedades de cada ejemplo: las etiquetas pueden combinarse y una no implica automáticamente las demás.', 'Después del desarrollo inicial, el software sigue cambiando. Vamos a conectar esos cambios con mantenimiento, reingeniería y métodos formales, siempre preguntando qué propiedad buscamos preservar y con qué evidencia la comprobamos.'],
+    parts: content.theory.filter((b) => ['m11', 'm12'].includes(b.module)).map((b) => b.id),
+    outro: ['Tiempo real exige cumplir plazos; distribuido reparte procesamiento entre máquinas; embebido integra cómputo en un dispositivo. Justificá cada propiedad por separado al clasificar un ejemplo.', 'Mantenimiento cambia el producto después de entregarlo. Reingeniería mejora su estructura conservando el comportamiento previsto. Los métodos formales razonan sobre modelos y supuestos precisos, que también deben validarse frente a las necesidades reales.', 'Para repasar, recorré los ocho diagramas de esta clase y respondé las preguntas de esos módulos. Al equivocarte, compará la explicación con la propiedad del sistema que habías pasado por alto.'],
+  },
   {
     id: 'iisw-clase-1', examId: 'final', title: 'Final · primera mitad: módulos 1 a 7',
     summary: 'Definiciones, cualidades y principios; ciclos de vida; Scrum; técnicas de extracción; diagrama de actividad y BPMN; ingeniería de requerimientos y SRS.',

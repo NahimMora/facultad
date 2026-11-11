@@ -279,6 +279,7 @@ function PrimView({ p, ctx }: { p: Prim; ctx: Ctx }): ReactNode {
     case 'seq': {
       const n = p.parts.length;
       const fs = p.fs ?? 19;
+      const partFs = p.partFs ?? 18;
       const px = (i: number) => p.x + (p.w * (i + 0.5)) / n;
       const hasIcon = p.parts.some((q) => q.n);
       const top = p.y + (hasIcon ? 104 : 58);
@@ -288,8 +289,8 @@ function PrimView({ p, ctx }: { p: Prim; ctx: Ctx }): ReactNode {
           const color = col(q.c, 'blue');
           return (
             <g key={i}>
-              {q.n ? <><Icon n={q.n} x={px(i)} y={p.y + 30} size={54} color={color} /><Lines x={px(i)} y={p.y + 80} lines={[q.t]} fs={18} b /></>
-                : <><rect x={px(i) - Math.min(90, p.w / n / 2 - 6)} y={p.y} width={Math.min(180, p.w / n - 12)} height={46} rx={10} fill={`${color}26`} stroke={color} strokeWidth={2.4} /><Lines x={px(i)} y={p.y + 23} lines={[q.t]} fs={18} b /></>}
+              {q.n ? <><Icon n={q.n} x={px(i)} y={p.y + 30} size={54} color={color} /><Lines x={px(i)} y={p.y + 80} lines={[q.t]} fs={partFs} b /></>
+                : <><rect x={px(i) - Math.min(90, p.w / n / 2 - 6)} y={p.y} width={Math.min(180, p.w / n - 12)} height={46} rx={10} fill={`${color}26`} stroke={color} strokeWidth={2.4} /><Lines x={px(i)} y={p.y + 23} lines={[q.t]} fs={partFs} b /></>}
               <line x1={px(i)} y1={top - 6} x2={px(i)} y2={p.y + p.h} stroke={color} strokeOpacity={0.55} strokeWidth={2} strokeDasharray="6 6" />
             </g>
           );

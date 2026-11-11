@@ -1,0 +1,271 @@
+{
+ "id": "iisw-clase-2",
+ "title": "Requerimientos, casos de uso, secuencia y pruebas",
+ "src": "videos/iisw/iisw-clase-2.mp4",
+ "poster": "videos/iisw/iisw-clase-2.jpg",
+ "minutes": 14.4,
+ "chapters": [
+  {
+   "part": "ch1-t0",
+   "title": "Del relato al requisito",
+   "at": 24.8
+  },
+  {
+   "part": "ch1-t1",
+   "title": "Un objetivo con valor",
+   "at": 53.7
+  },
+  {
+   "part": "ch1-t2",
+   "title": "Actor: un rol externo",
+   "at": 83.4
+  },
+  {
+   "part": "ch1-t3",
+   "title": "Modelá el negocio",
+   "at": 112.2
+  },
+  {
+   "part": "ch1-t4",
+   "title": "Construí el diagrama",
+   "at": 143.7
+  },
+  {
+   "part": "ch1-t5",
+   "title": "Del proceso al modelo",
+   "at": 172.9
+  },
+  {
+   "part": "ch2-t0",
+   "title": "Describí el caso de uso",
+   "at": 204.3
+  },
+  {
+   "part": "ch2-t1",
+   "title": "Ficha del caso de uso",
+   "at": 236.5
+  },
+  {
+   "part": "ch2-t2",
+   "title": "Curso normal",
+   "at": 266.6
+  },
+  {
+   "part": "ch2-t3",
+   "title": "Alternativa desde un paso",
+   "at": 295.8
+  },
+  {
+   "part": "ch2-t4",
+   "title": "Include y extend: direcciones",
+   "at": 325.5
+  },
+  {
+   "part": "ch2-t5",
+   "title": "Revisá la descripción",
+   "at": 357.2
+  },
+  {
+   "part": "ch3-t0",
+   "title": "Secuencia: el tiempo baja",
+   "at": 390.3
+  },
+  {
+   "part": "ch3-t1",
+   "title": "Interfaz · control · entidad",
+   "at": 422.7
+  },
+  {
+   "part": "ch3-t2",
+   "title": "Elementos de una secuencia",
+   "at": 453.8
+  },
+  {
+   "part": "ch3-t4",
+   "title": "Ejemplo propio: préstamo",
+   "at": 486.0
+  },
+  {
+   "part": "ch3-t5",
+   "title": "Participación secundaria",
+   "at": 517.8
+  },
+  {
+   "part": "ch3-t6",
+   "title": "Dos vistas de la interacción",
+   "at": 549.7
+  },
+  {
+   "part": "ch3-t7",
+   "title": "Del caso a la secuencia",
+   "at": 582.3
+  },
+  {
+   "part": "ch4-t0",
+   "title": "Prototipá para aprender",
+   "at": 614.3
+  },
+  {
+   "part": "ch4-t1",
+   "title": "Diseño centrado en el usuario",
+   "at": 645.5
+  },
+  {
+   "part": "ch4-t2",
+   "title": "Historia de usuario",
+   "at": 676.8
+  },
+  {
+   "part": "ch5-t0",
+   "title": "Trazabilidad",
+   "at": 709.1
+  },
+  {
+   "part": "ch5-t1",
+   "title": "Aceptación",
+   "at": 741.5
+  },
+  {
+   "part": "ch5-t3",
+   "title": "Estrategia de pruebas",
+   "at": 773.7
+  },
+  {
+   "part": "ch5-t4",
+   "title": "Pruebas dentro de la iteración",
+   "at": 808.0
+  }
+ ],
+ "shorts": {
+  "ch1-t0": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=24.8,54.1",
+   "poster": "videos/iisw/p/iisw-clase-2-ch1-t0.jpg",
+   "minutes": 0.49
+  },
+  "ch1-t1": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=53.7,83.8",
+   "poster": "videos/iisw/p/iisw-clase-2-ch1-t1.jpg",
+   "minutes": 0.5
+  },
+  "ch1-t2": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=83.4,112.6",
+   "poster": "videos/iisw/p/iisw-clase-2-ch1-t2.jpg",
+   "minutes": 0.49
+  },
+  "ch1-t3": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=112.2,144.1",
+   "poster": "videos/iisw/p/iisw-clase-2-ch1-t3.jpg",
+   "minutes": 0.53
+  },
+  "ch1-t4": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=143.7,173.3",
+   "poster": "videos/iisw/p/iisw-clase-2-ch1-t4.jpg",
+   "minutes": 0.49
+  },
+  "ch1-t5": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=172.9,204.7",
+   "poster": "videos/iisw/p/iisw-clase-2-ch1-t5.jpg",
+   "minutes": 0.53
+  },
+  "ch2-t0": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=204.3,236.9",
+   "poster": "videos/iisw/p/iisw-clase-2-ch2-t0.jpg",
+   "minutes": 0.54
+  },
+  "ch2-t1": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=236.5,267.0",
+   "poster": "videos/iisw/p/iisw-clase-2-ch2-t1.jpg",
+   "minutes": 0.51
+  },
+  "ch2-t2": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=266.6,296.2",
+   "poster": "videos/iisw/p/iisw-clase-2-ch2-t2.jpg",
+   "minutes": 0.49
+  },
+  "ch2-t3": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=295.8,325.9",
+   "poster": "videos/iisw/p/iisw-clase-2-ch2-t3.jpg",
+   "minutes": 0.5
+  },
+  "ch2-t4": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=325.5,357.5",
+   "poster": "videos/iisw/p/iisw-clase-2-ch2-t4.jpg",
+   "minutes": 0.53
+  },
+  "ch2-t5": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=357.2,390.7",
+   "poster": "videos/iisw/p/iisw-clase-2-ch2-t5.jpg",
+   "minutes": 0.56
+  },
+  "ch3-t0": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=390.3,423.1",
+   "poster": "videos/iisw/p/iisw-clase-2-ch3-t0.jpg",
+   "minutes": 0.55
+  },
+  "ch3-t1": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=422.7,454.2",
+   "poster": "videos/iisw/p/iisw-clase-2-ch3-t1.jpg",
+   "minutes": 0.53
+  },
+  "ch3-t2": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=453.8,486.4",
+   "poster": "videos/iisw/p/iisw-clase-2-ch3-t2.jpg",
+   "minutes": 0.54
+  },
+  "ch3-t4": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=486.0,518.2",
+   "poster": "videos/iisw/p/iisw-clase-2-ch3-t4.jpg",
+   "minutes": 0.54
+  },
+  "ch3-t5": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=517.8,550.1",
+   "poster": "videos/iisw/p/iisw-clase-2-ch3-t5.jpg",
+   "minutes": 0.54
+  },
+  "ch3-t6": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=549.7,582.7",
+   "poster": "videos/iisw/p/iisw-clase-2-ch3-t6.jpg",
+   "minutes": 0.55
+  },
+  "ch3-t7": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=582.3,614.6",
+   "poster": "videos/iisw/p/iisw-clase-2-ch3-t7.jpg",
+   "minutes": 0.54
+  },
+  "ch4-t0": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=614.3,645.9",
+   "poster": "videos/iisw/p/iisw-clase-2-ch4-t0.jpg",
+   "minutes": 0.53
+  },
+  "ch4-t1": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=645.5,677.2",
+   "poster": "videos/iisw/p/iisw-clase-2-ch4-t1.jpg",
+   "minutes": 0.53
+  },
+  "ch4-t2": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=676.8,709.5",
+   "poster": "videos/iisw/p/iisw-clase-2-ch4-t2.jpg",
+   "minutes": 0.55
+  },
+  "ch5-t0": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=709.1,741.9",
+   "poster": "videos/iisw/p/iisw-clase-2-ch5-t0.jpg",
+   "minutes": 0.55
+  },
+  "ch5-t1": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=741.5,774.1",
+   "poster": "videos/iisw/p/iisw-clase-2-ch5-t1.jpg",
+   "minutes": 0.54
+  },
+  "ch5-t3": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=773.7,808.4",
+   "poster": "videos/iisw/p/iisw-clase-2-ch5-t3.jpg",
+   "minutes": 0.58
+  },
+  "ch5-t4": {
+   "src": "videos/iisw/iisw-clase-2.mp4#t=808.0,840.2",
+   "poster": "videos/iisw/p/iisw-clase-2-ch5-t4.jpg",
+   "minutes": 0.54
+  }
+ }
+}
