@@ -116,9 +116,10 @@ function SubjectView({ s }: { s: Subject }) {
               </div>
               {exam.state !== 'rendido' && exam.state !== 'entregado' && <ExamDate subject={s.id} exam={exam.id} />}
             </div>
+            {exam.kind === 'final' && !exam.format?.some((f) => f.current) && <p>Formato actual: <b>A confirmar.</b></p>}
             {exam.format && (
               <ul className="format">
-                {exam.format.map((f, i) => <li key={i} className={f.sure ? 'sure' : 'guess'}><span className="ftag">{f.sure ? 'Confirmado' : 'Probable'}</span> {f.text} <span className="hint">({f.source})</span></li>)}
+                {exam.format.map((f, i) => <li key={i} className={f.sure ? 'sure' : 'guess'}><span className="ftag">{exam.kind === 'final' && !f.current ? 'Modelo anterior' : f.sure ? 'Confirmado' : 'Probable'}</span> {f.text} <span className="hint">({f.source})</span></li>)}
               </ul>
             )}
             {s.links?.map((l) => <a key={l.url} className="btn primary" href={l.url} target="_blank" rel="noreferrer">{l.label} ↗</a>)}

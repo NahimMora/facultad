@@ -25,6 +25,7 @@ export function Home() {
       <header className="hero">
         <h1>Mi carrera</h1>
         <p><b>{cursando.length}</b> materias con 2º parcial por rendir · <b>{finales.length}</b> regularizadas, con el final pendiente</p>
+        <Link className="btn primary" to="/plan">Organizá tus finales en el Plan</Link>
       </header>
 
       <h2 className="sec">Ahora: segundos parciales</h2>
@@ -33,7 +34,7 @@ export function Home() {
       </div>
 
       <h2 className="sec">Finales pendientes</h2>
-      <p className="hint">Están organizadas por módulo y el material quedó guardado. El contenido de estudio de cada final se arma cuando decidas rendirlo.</p>
+      <p className="hint">Tenés teoría visual, clases en video, finales resueltos, práctica con explicación, simulacros y machetes. Abrí una materia para empezar.</p>
       <div className="fin-grid">
         {finales.map((s) => <FinalCard key={s.id} s={s} />)}
       </div>

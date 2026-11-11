@@ -22,6 +22,7 @@ export const keys = {
   quiz: (subject: string, scope: string) => `quiz-${subject}-${scope}`,
   modules: (subject: string) => `mod-${subject}`,
   examDate: (subject: string, exam: string) => `date-${subject}-${exam}`,
+  planTopics: (subject: string) => `plan-topics-${subject}`,
 };
 
 /** Estado de estudio de un módulo: 0 sin ver, 1 visto, 2 dominado. */

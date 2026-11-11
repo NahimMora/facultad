@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { Home } from './pages/Home';
 import { SubjectPage } from './pages/SubjectPage';
 import { ProgressPage } from './pages/ProgressPage';
+import { PlanPage } from './pages/PlanPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 function ScrollTop() {
@@ -20,6 +21,7 @@ function Shell() {
         <Link to="/" className="brand"><span className="logo" aria-hidden>🎓</span> Mi carrera</Link>
         <nav className="topnav" aria-label="Principal">
           <NavLink to="/" end>Materias</NavLink>
+          <NavLink to="/plan">Plan</NavLink>
           <NavLink to="/progreso">Progreso</NavLink>
         </nav>
       </header>
@@ -29,12 +31,14 @@ function Shell() {
             <Route path="/" element={<Home />} />
             <Route path="/m/:id" element={<SubjectPage />} />
             <Route path="/progreso" element={<ProgressPage />} />
+            <Route path="/plan" element={<PlanPage />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </ErrorBoundary>
       </main>
       <nav className="bottomnav" aria-label="Navegación móvil">
         <NavLink to="/" end><span aria-hidden>📚</span>Materias</NavLink>
+        <NavLink to="/plan"><span aria-hidden>🗓️</span>Plan</NavLink>
         <NavLink to="/progreso"><span aria-hidden>📈</span>Progreso</NavLink>
       </nav>
       <footer className="foot">Contenido redactado para estudio personal. Los materiales originales de cada cátedra no se publican.</footer>

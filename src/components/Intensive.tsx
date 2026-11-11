@@ -25,7 +25,7 @@ export function IntensiveView({ s, exam, content, media, mods, openTopic, openEx
   const vmin = Math.round(lessons.reduce((a, m) => a + m.minutes, 0));
 
   const steps = [
-    { id: 'formato', t: 'Cómo es el examen', min: 3, show: !!exam.format?.length },
+    { id: 'formato', t: exam.kind === 'final' ? 'Formato y antecedentes' : 'Cómo es el examen', min: 3, show: exam.kind === 'final' || !!exam.format?.length },
     { id: 'clase', t: 'Clase completa en video', min: vmin || 15, show: lessons.length > 0 || pending.length > 0 },
     { id: 'temas', t: 'Tema por tema, con diagramas', min: blocks.length * 3, show: blocks.length > 0 },
     { id: 'ejercicios', t: 'Ejercicios modelo', min: ex.length * 5, show: ex.length > 0 },
@@ -46,10 +46,11 @@ export function IntensiveView({ s, exam, content, media, mods, openTopic, openEx
         <p className="hint">Total aproximado: {Math.round(steps.reduce((a, x) => a + x.min, 0) / 6) / 10} h. Tu avance en la práctica se guarda en este navegador.</p>
       </section>
 
-      {exam.format?.length ? (
+      {exam.kind === 'final' || exam.format?.length ? (
         <section id="int-formato" className="card">
-          <h2>1. Cómo es el examen</h2>
-          <div className="int-grid">{exam.format.map((f, i) => <div key={i} className={`int-tile ${f.sure ? 'sure' : 'guess'}`}><span className="ftag">{f.sure ? 'Confirmado' : 'Probable'}</span><p><Rich text={f.text} /></p><span className="hint">{f.source}</span></div>)}</div>
+          <h2>1. {exam.kind === 'final' ? 'Formato y antecedentes' : 'Cómo es el examen'}</h2>
+          {exam.kind === 'final' && !exam.format?.some((f) => f.current) && <p>Formato actual: <b>A confirmar.</b></p>}
+          <div className="int-grid">{exam.format?.map((f, i) => <div key={i} className={`int-tile ${f.sure ? 'sure' : 'guess'}`}><span className="ftag">{exam.kind === 'final' && !f.current ? 'Modelo anterior' : f.sure ? 'Confirmado' : 'Probable'}</span><p><Rich text={f.text} /></p><span className="hint">{f.source}</span></div>)}</div>
         </section>
       ) : null}
 

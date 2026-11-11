@@ -8,6 +8,7 @@ import type { Subject } from './types';
  */
 
 const FINAL_FORMAT_MISSING = 'Modalidad del final (escrito u oral, teórico o práctico, sincrónico o asincrónico, qué se puede usar)';
+const FINAL_DATE_MISSING = 'Fecha exacta del final por materia (la ventana indicada es del 30/11 al 18/12)';
 
 export const SUBJECTS: Subject[] = [
   /* ===================== CURSANDO ===================== */
@@ -116,7 +117,9 @@ export const SUBJECTS: Subject[] = [
           { text: 'El 2º parcial de años anteriores fue de **17 preguntas de opción múltiple** en Blackboard (algunas con varias respuestas correctas), sacadas del mismo banco que está en la práctica. El 1er parcial de este año, en cambio, tuvo mucho desarrollo y cálculo, así que hay que llevar las dos cosas preparadas.', source: '2º parcial de años anteriores (Drive de estudiantes) + 1er parcial del 13/10', sure: false },
         ],
       },
-      { id: 'final', name: 'Final (oral, entran todos los temas)', kind: 'final', state: 'pendiente', modules: [] },
+      { id: 'final', name: 'Final (oral, entran todos los temas)', kind: 'final', state: 'pendiente', modules: [], format: [
+        { text: 'Oral. Entra toda la materia.', source: 'clases de agosto y septiembre de 2026', sure: true, current: true },
+      ] },
     ],
     focus: { examId: 'p2', note: 'Preparar el 2º parcial (martes 10/11): IP y subnetting, transporte y aplicación (unidades 5 a 7).' },
     material: { apuntes: 12, parciales: 3, practica: 2, clases: 10, nota: 'Presentaciones de las unidades 1 a 7, guía 5.2, el 1er parcial con sus consignas y transcripciones de todas las clases (incluidas las del 06/10 al 03/11 bajadas de Zoom).' },
@@ -243,7 +246,7 @@ export const SUBJECTS: Subject[] = [
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay apuntes de los módulos 2 a 14, 6 clases grabadas y finales viejos.' },
     material: { apuntes: 14, parciales: 1, practica: 1, clases: 6, nota: 'Teoría del 2º parcial (142 páginas) y 6 clases grabadas. Además: 8 finales viejos (2020 a 2023) del Drive de estudiantes.' },
-    missing: ['Confirmar el formato del final actual (el último que hay es de 2023)', 'Política de cuantización de punto fijo del modelo: no aclara si se trunca o se redondea'],
+    missing: ['Confirmar el formato del final actual (el último que hay es de 2023)', 'Hoja de ruta de Arquitectura (para confirmar el alcance y la organización)', 'Política de cuantización de punto fijo del modelo: no aclara si se trunca o se redondea'],
   },
   {
     id: 'pye',
@@ -453,6 +456,14 @@ export const SUBJECTS: Subject[] = [
     missing: ['Fecha del final y si es presencial', 'Hoja de ruta (para confirmar módulos 3, 5, 6, 9 y 10)', 'Respuestas de las guías de los módulos 2 a 8'],
   },
 ];
+
+// La ventana del usuario no determina una fecha para ninguna materia.
+// Las fechas exactas se cargan en el Plan y se guardan solo en su navegador.
+for (const subject of SUBJECTS) {
+  if (!subject.missing.some((item) => /fecha.*final/i.test(item))) subject.missing.unshift(FINAL_DATE_MISSING);
+  const final = subject.exams.find((exam) => exam.kind === 'final');
+  if (!final?.format?.some((item) => item.current) && !subject.missing.some((item) => /(formato|modalidad).*final|final.*cuestionario/i.test(item))) subject.missing.push(FINAL_FORMAT_MISSING);
+}
 
 export const subjectById = (id: string) => SUBJECTS.find((s) => s.id === id);
 

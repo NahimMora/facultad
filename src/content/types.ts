@@ -34,8 +34,8 @@ export interface Exam {
   modules: string[];
   /** Cuándo es según la hoja de ruta (texto libre: "semana 14"). La fecha exacta la carga el usuario en la web. */
   when?: string;
-  /** Formato conocido. Cada ítem indica de dónde sale el dato. */
-  format?: { text: string; source: string; sure: boolean }[];
+  /** Cada ítem cita su fuente. `current` distingue una confirmación actual de un modelo anterior. */
+  format?: { text: string; source: string; sure: boolean; current?: boolean }[];
 }
 
 export interface Subject {

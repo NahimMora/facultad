@@ -244,6 +244,28 @@ th { background: var(--tint-soft); }
 .lesson .chapters ol { padding-left: 1.2em; margin: 6px 0; }
 .lesson .chapters li { margin: 3px 0; }
 .lesson .chapters .linklike { text-align: left; }
+
+/* Plan: fechas propias y repaso por tema. */
+.plan-page .eyebrow { margin: 0; color: var(--muted); font-size: .85rem; font-weight: 700; }
+.plan-list { list-style: none; margin: 16px 0; padding: 0; display: grid; gap: 12px; }
+.plan-card { --tint: hsl(var(--h) 70% 42%); background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--tint); border-radius: 12px; min-width: 0; }
+.plan-card summary { padding: 14px 12px; cursor: pointer; list-style-position: inside; }
+.plan-card summary::marker { color: var(--tint); }
+.plan-card-top { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 10px; align-items: center; justify-content: space-between; }
+.plan-card-top b { flex: 1 1 190px; min-width: 0; font-size: 1rem; overflow-wrap: anywhere; }
+.plan-progress { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; color: var(--muted); font-size: .8rem; }
+.plan-progress .bar { flex: 1 1 110px; min-width: 80px; margin: 0; }
+.plan-body { padding: 0 12px 14px; border-top: 1px solid var(--line); }
+.plan-date { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 14px; font-weight: 600; }
+.plan-date input { max-width: 100%; min-height: 44px; padding: 6px 8px; font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; color-scheme: light dark; }
+.plan-format { overflow-wrap: anywhere; }
+.plan-topic-title { margin: 20px 0 8px; font-size: 1rem; }
+.plan-topics { list-style: none; padding: 0; margin: 0; }
+.plan-topics li { display: grid; grid-template-columns: minmax(0, 1fr) 44px; gap: 8px; border-top: 1px solid var(--line); }
+.plan-topics label { display: flex; gap: 10px; align-items: flex-start; padding: 12px 0; min-height: 44px; cursor: pointer; font-size: .92rem; overflow-wrap: anywhere; }
+.plan-topics input { flex: 0 0 20px; width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--accent); }
+.plan-topics a { display: flex; align-items: center; justify-content: center; min-height: 44px; }
+@media (prefers-color-scheme: dark) { .plan-card { --tint: hsl(var(--h) 75% 68%); } }
 @media (max-width: 640px) {
   .tblock, .exercise { padding: 12px 12px; }
   .walk { margin-left: -12px; margin-right: -12px; border-radius: 0; border-left: 0; border-right: 0; }
