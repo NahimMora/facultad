@@ -29,7 +29,7 @@ export function IntensiveView({ s, exam, content, media, mods, openTopic, openEx
     { id: 'temas', t: 'Tema por tema, con diagramas', min: blocks.length * 3, show: blocks.length > 0 },
     { id: 'ejercicios', t: 'Ejercicios modelo', min: ex.length * 5, show: ex.length > 0 },
     { id: 'practica', t: 'Práctica con corrección', min: Math.round(qs.length * 0.7), show: qs.length > 0 },
-    { id: 'simulacro', t: 'Simulacro con cronómetro', min: 20, show: qs.length > 0 && s.id === 'aid' && exam.id === 'p2' },
+    { id: 'simulacro', t: 'Simulacro con cronómetro', min: 20, show: qs.length > 0 },
     { id: 'machete', t: 'Machete final', min: 8, show: content.cheatsheet.length > 0 },
   ].filter((x) => x.show);
   const jump = (id: string) => document.getElementById(`int-${id}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -95,7 +95,7 @@ export function IntensiveView({ s, exam, content, media, mods, openTopic, openEx
         </section>
       )}
 
-      {qs.length > 0 && s.id === 'aid' && exam.id === 'p2' && <section id="int-simulacro" className="card">
+      {qs.length > 0 && <section id="int-simulacro" className="card">
         <h2>Simulacro con cronómetro</h2>
         <MockExam key={`${s.id}-${exam.id}`} storageKey={`mock-${s.id}-${exam.id}`} items={qs} />
       </section>}

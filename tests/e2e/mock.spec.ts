@@ -20,3 +20,19 @@ test('AID: guarda respuestas, corrige al final y permite repasar errores', async
   await expect(mock.locator('.qfeedback')).toHaveCount(0);
   expect(await mock.locator('.qcard').count()).toBeGreaterThanOrEqual(2);
 });
+
+test('cada final tiene simulacro y funciona sin almacenamiento disponible', async ({ page }) => {
+  await page.addInitScript(() => {
+    Storage.prototype.getItem = () => { throw new Error('Almacenamiento no disponible'); };
+    Storage.prototype.setItem = () => { throw new Error('Almacenamiento no disponible'); };
+  });
+  for (const id of ['aid', 'itc', 'iisw', 'fia', 'sym', 'arq', 'pye', 'bd', 'am2', 'sd1', 'ca']) {
+    await page.goto(`./#/m/${id}?examen=final`);
+    const mock = page.locator('#int-simulacro');
+    await mock.getByRole('spinbutton').fill('1');
+    await mock.getByRole('button', { name: 'Empezar simulacro' }).click();
+    await expect(mock.locator('.qcard')).toHaveCount(1);
+    await mock.getByRole('button', { name: 'Terminar y corregir' }).click();
+    await expect(mock.locator('.qfeedback')).toHaveCount(1);
+  }
+});
