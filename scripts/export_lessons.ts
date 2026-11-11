@@ -96,7 +96,8 @@ function build(c: SubjectContent) {
 
     const dir = join(VIDEO, 'src', 'videos', L.id);
     mkdirSync(dir, { recursive: true });
-    const script = { voice: 'es-AR-TomasNeural', rate: '+4%', title: `${s.short} · ${L.title}`, beats: beats.map((b, i) => ({ id: `b${String(i + 1).padStart(3, '0')}`, ...b })), visuals };
+    const clipAliases = c.theory.filter((b) => b.videoParts?.length && b.videoParts.every((p) => L.parts.includes(p))).map((b) => ({ id: b.id, title: b.title, parts: b.videoParts }));
+    const script = { voice: 'es-AR-TomasNeural', rate: '+4%', title: `${s.short} · ${L.title}`, beats: beats.map((b, i) => ({ id: `b${String(i + 1).padStart(3, '0')}`, ...b })), visuals, clipAliases };
     writeFileSync(join(dir, 'script.json'), JSON.stringify(script, null, 1), 'utf-8');
     const words = beats.reduce((a, b) => a + b.text.split(/\s+/).length, 0);
     console.log(`${L.id}: ${beats.length} beats, ${words} palabras (~${(words / 150).toFixed(1)} min)`);

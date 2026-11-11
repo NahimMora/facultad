@@ -56,6 +56,6 @@ export function reviewLessons(subject: string, start: number, groups: Question[]
 export function theoryFromReview(qs: Question[], titles: Record<string, string>): TheoryBlock[] {
   return Object.entries(titles).map(([module, title]) => {
     const selected = qs.filter((q) => q.module === module);
-    return { id: `repaso-${module}`, module, title, points: selected.map((q) => q.explain), scenes: selected.flatMap((q) => q.scenes ?? []) };
+    return { id: `repaso-${module}`, module, title, points: selected.map((q) => q.explain), scenes: selected.flatMap((q) => q.scenes ?? []), videoParts: selected.map((q) => 'q:' + q.id) };
   });
 }

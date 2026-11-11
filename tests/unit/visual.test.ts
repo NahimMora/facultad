@@ -65,6 +65,9 @@ describe.each(CONTENT.map((c) => [c.subjectId, c] as const))('diagramas de %s', 
   });
 
   it('cada clase en video usa temas, ejercicios y preguntas que existen', () => {
+    for (const block of c.theory.filter((b) => b.videoParts?.length)) {
+      expect(c.lessons?.some((l) => block.videoParts!.every((p) => l.parts.includes(p))), `${block.id}: falta una clase con sus partes de video`).toBe(true);
+    }
     for (const l of c.lessons ?? []) {
       expect(l.id.startsWith(`${c.subjectId}-clase-`)).toBe(true);
       for (const part of l.parts) {

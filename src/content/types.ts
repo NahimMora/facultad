@@ -74,6 +74,8 @@ export interface TheoryBlock {
   scenes?: VisScene[];
   /** Video del tema cuando no sale de una clase (p. ej., los del sitio anterior de IISW). */
   video?: { src: string; poster?: string; minutes: number };
+  /** Partes contiguas de una clase que también explican este bloque de teoría. */
+  videoParts?: string[];
 }
 
 export interface McqQuestion {
