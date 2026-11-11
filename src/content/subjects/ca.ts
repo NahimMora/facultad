@@ -1,6 +1,7 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/ca';
 import { EX_SCENES, SCENES } from '../visual/ca';
+import { FINAL_EXERCISES, FINAL_QUESTIONS, FINAL_SCENES } from '../visual/ca-final';
 
 /** CA · final. Redacción propia sobre los apuntes de la cátedra (Debian) y las preguntas de finales 2023 y 2025 (Drive). */
 const F = 'preguntas de final 2023 y julio 2025 (Drive de estudiantes)';
@@ -118,7 +119,7 @@ const ex: WorkedExercise[] = [
 ];
 
 const content: SubjectContent = {
-  subjectId: 'ca', theory, questions: q, exercises: ex, videos: VIDEOS,
+  subjectId: 'ca', theory, questions: [...q, ...FINAL_QUESTIONS], exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
   cheatsheet: [
     { t: 'Rutas', d: '/etc/network/interfaces (+ interfaces.d) · /etc/resolv.conf DNS · /etc/hosts · /root · /etc/passwd · /etc/shadow · /etc/sudoers (visudo) · /etc/profile global · /etc/fstab · /etc/default/grub.' },
     { t: 'Software', d: 'apt (repos, dependencias) · dpkg (.deb sueltos) · > pisa · >> agrega · 2> errores · | pipe.' },
@@ -131,8 +132,22 @@ const content: SubjectContent = {
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
-content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] ?? FINAL_SCENES[e.id] }));
 content.lessons = [
+  {
+    id: 'ca-clase-2', examId: 'final', title: 'Final resuelto · procesos, accesos, discos y Bash',
+    summary: 'Primera mitad de los 22 temas conocidos: renice, SSH, sudoers, usuarios, ext4, fstab, condiciones, scripts, argumentos y máquinas virtuales.',
+    intro: ['Vamos a resolver la primera mitad de los temas recordados de un final anterior de Computación Aplicada. Las consignas están reformuladas y las respuestas se contrastan con los apuntes y manuales oficiales.', 'El registro disponible conserva veintidós temas de un final de veinticinco. Los tres que no están documentados quedan pendientes: no vamos a completar esa información con suposiciones. Empezamos por procesos, acceso remoto, usuarios y scripting.'],
+    parts: FINAL_EXERCISES.slice(0, 11).map((e) => `ex:${e.id}`),
+    outro: ['Renice modifica un proceso existente. SSH combina autenticación y transporte protegido. Visudo ayuda a editar y validar reglas de sudo. Separá las identidades de personas y de servicios.', 'En discos, distinguí dispositivo, sistema de archivos y montaje. En Bash, diferenciá el intérprete, el archivo y los argumentos. La segunda clase resuelta continúa con permisos, redirecciones, paquetes, arranque y enlaces.'],
+  },
+  {
+    id: 'ca-clase-3', examId: 'final', title: 'Final resuelto · permisos, red, arranque y archivos',
+    summary: 'Segunda mitad: chmod, redirecciones, apt, DNS, GRUB, variables, formato, enlaces, kill, profile y salida de un script.',
+    intro: ['Continuamos el final resuelto de Computación Aplicada con los once temas restantes que conserva el registro. En cada punto, identificá primero qué recurso cambia y qué comando o archivo cumple esa función.', 'Prestá atención al contexto: los ejemplos de paquetes y regeneración de GRUB corresponden a Debian. Los archivos de inicio de Bash dependen del tipo de sesión, y los nombres de dispositivos se muestran como marcadores sin elegir una partición real.'],
+    parts: FINAL_EXERCISES.slice(11).map((e) => `ex:${e.id}`),
+    outro: ['Un permiso, una redirección y una señal modifican cosas diferentes. Agregar lectura con chmod no equivale a ejecutar; anexar salida no equivale a truncar; sigterm no equivale a sigkill.', 'Conservá las distinciones entre un enlace duro y uno simbólico, entre formatear y montar, y entre configuración de entrada y archivo generado de GRUB. Para profile y bashrc, especificá el tipo de inicio del shell.', 'Ahora probá los ejercicios en la web y el simulacro. Si errás una respuesta, volvé al diagrama y explicá por qué el comando alternativo cumple otra función.'],
+  },
   {
     id: 'ca-clase-1', examId: 'final', title: 'Final completo: administrar Linux',
     summary: 'Directorios, terminal, apt y redirecciones, redes y SSH, usuarios y sudoers, permisos, discos y fstab, links, procesos, arranque y scripting.',

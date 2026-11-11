@@ -243,7 +243,7 @@ export const SUBJECTS: Subject[] = [
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay apuntes de los módulos 2 a 14, 6 clases grabadas y finales viejos.' },
     material: { apuntes: 14, parciales: 1, practica: 1, clases: 6, nota: 'Teoría del 2º parcial (142 páginas) y 6 clases grabadas. Además: 8 finales viejos (2020 a 2023) del Drive de estudiantes.' },
-    missing: ['Confirmar el formato del final actual (el último que hay es de 2023)'],
+    missing: ['Confirmar el formato del final actual (el último que hay es de 2023)', 'Política de cuantización de punto fijo del modelo: no aclara si se trunca o se redondea'],
   },
   {
     id: 'pye',
@@ -415,7 +415,7 @@ export const SUBJECTS: Subject[] = [
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay apuntes de los módulos 1 a 7, clases grabadas de los módulos 3 a 7 y el TP integrador.' },
     material: { apuntes: 10, parciales: 0, practica: 2, clases: 5, nota: 'Además: final 2023 y julio 2025 del Drive de estudiantes.' },
-    missing: ['Formato del final actual (los de 2023 y 2025 fueron distintos)'],
+    missing: ['Formato del final actual (los de 2023 y 2025 fueron distintos)', 'Tres preguntas no recordadas en el registro del final anterior: solo hay 22 de 25 temas documentados'],
   },
   {
     id: 'am2',

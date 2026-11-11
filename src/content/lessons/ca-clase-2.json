@@ -1,0 +1,121 @@
+{
+ "id": "ca-clase-2",
+ "title": "Final resuelto · procesos, accesos, discos y Bash",
+ "src": "videos/ca/ca-clase-2.mp4",
+ "poster": "videos/ca/ca-clase-2.jpg",
+ "minutes": 12.6,
+ "chapters": [
+  {
+   "part": "ex:ca-final-e1",
+   "title": "Final resuelto · 1 · Prioridad de un proceso",
+   "at": 28.2
+  },
+  {
+   "part": "ex:ca-final-e2",
+   "title": "Final resuelto · 2 · Acceso remoto con SSH",
+   "at": 85.8
+  },
+  {
+   "part": "ex:ca-final-e3",
+   "title": "Final resuelto · 3 · Editar sudoers",
+   "at": 150.7
+  },
+  {
+   "part": "ex:ca-final-e4",
+   "title": "Final resuelto · 4 · Clases de usuarios",
+   "at": 207.3
+  },
+  {
+   "part": "ex:ca-final-e5",
+   "title": "Final resuelto · 5 · Cuentas especiales de servicio",
+   "at": 277.2
+  },
+  {
+   "part": "ex:ca-final-e6",
+   "title": "Final resuelto · 6 · Reconocer ext4",
+   "at": 341.0
+  },
+  {
+   "part": "ex:ca-final-e7",
+   "title": "Final resuelto · 7 · Campos de fstab",
+   "at": 398.0
+  },
+  {
+   "part": "ex:ca-final-e8",
+   "title": "Final resuelto · 8 · Condición en Bash",
+   "at": 467.0
+  },
+  {
+   "part": "ex:ca-final-e9",
+   "title": "Final resuelto · 9 · Ejecutar un script",
+   "at": 529.7
+  },
+  {
+   "part": "ex:ca-final-e10",
+   "title": "Final resuelto · 10 · Parámetros posicionales",
+   "at": 591.5
+  },
+  {
+   "part": "ex:ca-final-e11",
+   "title": "Final resuelto · 11 · Máquina virtual",
+   "at": 657.5
+  }
+ ],
+ "shorts": {
+  "ex:ca-final-e1": {
+   "src": "videos/ca/ca-clase-2.mp4#t=28.2,86.1",
+   "poster": "videos/ca/p/ca-clase-2-ex-ca-final-e1.jpg",
+   "minutes": 0.97
+  },
+  "ex:ca-final-e2": {
+   "src": "videos/ca/ca-clase-2.mp4#t=85.8,151.1",
+   "poster": "videos/ca/p/ca-clase-2-ex-ca-final-e2.jpg",
+   "minutes": 1.09
+  },
+  "ex:ca-final-e3": {
+   "src": "videos/ca/ca-clase-2.mp4#t=150.7,207.7",
+   "poster": "videos/ca/p/ca-clase-2-ex-ca-final-e3.jpg",
+   "minutes": 0.95
+  },
+  "ex:ca-final-e4": {
+   "src": "videos/ca/ca-clase-2.mp4#t=207.3,277.7",
+   "poster": "videos/ca/p/ca-clase-2-ex-ca-final-e4.jpg",
+   "minutes": 1.17
+  },
+  "ex:ca-final-e5": {
+   "src": "videos/ca/ca-clase-2.mp4#t=277.2,341.4",
+   "poster": "videos/ca/p/ca-clase-2-ex-ca-final-e5.jpg",
+   "minutes": 1.07
+  },
+  "ex:ca-final-e6": {
+   "src": "videos/ca/ca-clase-2.mp4#t=341.0,398.3",
+   "poster": "videos/ca/p/ca-clase-2-ex-ca-final-e6.jpg",
+   "minutes": 0.96
+  },
+  "ex:ca-final-e7": {
+   "src": "videos/ca/ca-clase-2.mp4#t=398.0,467.3",
+   "poster": "videos/ca/p/ca-clase-2-ex-ca-final-e7.jpg",
+   "minutes": 1.16
+  },
+  "ex:ca-final-e8": {
+   "src": "videos/ca/ca-clase-2.mp4#t=467.0,530.1",
+   "poster": "videos/ca/p/ca-clase-2-ex-ca-final-e8.jpg",
+   "minutes": 1.05
+  },
+  "ex:ca-final-e9": {
+   "src": "videos/ca/ca-clase-2.mp4#t=529.7,591.9",
+   "poster": "videos/ca/p/ca-clase-2-ex-ca-final-e9.jpg",
+   "minutes": 1.04
+  },
+  "ex:ca-final-e10": {
+   "src": "videos/ca/ca-clase-2.mp4#t=591.5,657.9",
+   "poster": "videos/ca/p/ca-clase-2-ex-ca-final-e10.jpg",
+   "minutes": 1.11
+  },
+  "ex:ca-final-e11": {
+   "src": "videos/ca/ca-clase-2.mp4#t=657.5,724.1",
+   "poster": "videos/ca/p/ca-clase-2-ex-ca-final-e11.jpg",
+   "minutes": 1.11
+  }
+ }
+}

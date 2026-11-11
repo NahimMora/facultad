@@ -1,0 +1,121 @@
+{
+ "id": "ca-clase-3",
+ "title": "Final resuelto · permisos, red, arranque y archivos",
+ "src": "videos/ca/ca-clase-3.mp4",
+ "poster": "videos/ca/ca-clase-3.jpg",
+ "minutes": 13.2,
+ "chapters": [
+  {
+   "part": "ex:ca-final-e12",
+   "title": "Final resuelto · 12 · Agregar un permiso",
+   "at": 27.1
+  },
+  {
+   "part": "ex:ca-final-e13",
+   "title": "Final resuelto · 13 · Reemplazar o anexar salida",
+   "at": 90.8
+  },
+  {
+   "part": "ex:ca-final-e14",
+   "title": "Final resuelto · 14 · Paquetes en Debian",
+   "at": 155.2
+  },
+  {
+   "part": "ex:ca-final-e15",
+   "title": "Final resuelto · 15 · Servicio DNS",
+   "at": 215.3
+  },
+  {
+   "part": "ex:ca-final-e16",
+   "title": "Final resuelto · 16 · Tiempo del menú GRUB",
+   "at": 286.9
+  },
+  {
+   "part": "ex:ca-final-e17",
+   "title": "Final resuelto · 17 · Variables del entorno",
+   "at": 363.7
+  },
+  {
+   "part": "ex:ca-final-e18",
+   "title": "Final resuelto · 18 · Crear un sistema de archivos",
+   "at": 422.5
+  },
+  {
+   "part": "ex:ca-final-e19",
+   "title": "Final resuelto · 19 · Hard link y enlace simbólico",
+   "at": 490.5
+  },
+  {
+   "part": "ex:ca-final-e20",
+   "title": "Final resuelto · 20 · Enviar una señal con kill",
+   "at": 562.3
+  },
+  {
+   "part": "ex:ca-final-e21",
+   "title": "Final resuelto · 21 · Configuración global de login",
+   "at": 623.2
+  },
+  {
+   "part": "ex:ca-final-e22",
+   "title": "Final resuelto · 22 · Mostrar una expansión",
+   "at": 694.9
+  }
+ ],
+ "shorts": {
+  "ex:ca-final-e12": {
+   "src": "videos/ca/ca-clase-3.mp4#t=27.1,91.2",
+   "poster": "videos/ca/p/ca-clase-3-ex-ca-final-e12.jpg",
+   "minutes": 1.07
+  },
+  "ex:ca-final-e13": {
+   "src": "videos/ca/ca-clase-3.mp4#t=90.8,155.6",
+   "poster": "videos/ca/p/ca-clase-3-ex-ca-final-e13.jpg",
+   "minutes": 1.08
+  },
+  "ex:ca-final-e14": {
+   "src": "videos/ca/ca-clase-3.mp4#t=155.2,215.7",
+   "poster": "videos/ca/p/ca-clase-3-ex-ca-final-e14.jpg",
+   "minutes": 1.01
+  },
+  "ex:ca-final-e15": {
+   "src": "videos/ca/ca-clase-3.mp4#t=215.3,287.3",
+   "poster": "videos/ca/p/ca-clase-3-ex-ca-final-e15.jpg",
+   "minutes": 1.2
+  },
+  "ex:ca-final-e16": {
+   "src": "videos/ca/ca-clase-3.mp4#t=286.9,364.1",
+   "poster": "videos/ca/p/ca-clase-3-ex-ca-final-e16.jpg",
+   "minutes": 1.29
+  },
+  "ex:ca-final-e17": {
+   "src": "videos/ca/ca-clase-3.mp4#t=363.7,422.9",
+   "poster": "videos/ca/p/ca-clase-3-ex-ca-final-e17.jpg",
+   "minutes": 0.99
+  },
+  "ex:ca-final-e18": {
+   "src": "videos/ca/ca-clase-3.mp4#t=422.5,490.9",
+   "poster": "videos/ca/p/ca-clase-3-ex-ca-final-e18.jpg",
+   "minutes": 1.14
+  },
+  "ex:ca-final-e19": {
+   "src": "videos/ca/ca-clase-3.mp4#t=490.5,562.7",
+   "poster": "videos/ca/p/ca-clase-3-ex-ca-final-e19.jpg",
+   "minutes": 1.2
+  },
+  "ex:ca-final-e20": {
+   "src": "videos/ca/ca-clase-3.mp4#t=562.3,623.5",
+   "poster": "videos/ca/p/ca-clase-3-ex-ca-final-e20.jpg",
+   "minutes": 1.02
+  },
+  "ex:ca-final-e21": {
+   "src": "videos/ca/ca-clase-3.mp4#t=623.2,695.3",
+   "poster": "videos/ca/p/ca-clase-3-ex-ca-final-e21.jpg",
+   "minutes": 1.2
+  },
+  "ex:ca-final-e22": {
+   "src": "videos/ca/ca-clase-3.mp4#t=694.9,754.9",
+   "poster": "videos/ca/p/ca-clase-3-ex-ca-final-e22.jpg",
+   "minutes": 1.0
+  }
+ }
+}
