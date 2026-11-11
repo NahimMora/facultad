@@ -4,6 +4,7 @@ import { Home } from './pages/Home';
 import { SubjectPage } from './pages/SubjectPage';
 import { ProgressPage } from './pages/ProgressPage';
 import { PlanPage } from './pages/PlanPage';
+import { CareerPage } from './pages/CareerPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 function ScrollTop() {
@@ -22,6 +23,7 @@ function Shell() {
         <nav className="topnav" aria-label="Principal">
           <NavLink to="/" end>Materias</NavLink>
           <NavLink to="/plan">Plan</NavLink>
+          <NavLink to="/carrera">Carrera</NavLink>
           <NavLink to="/progreso">Progreso</NavLink>
         </nav>
       </header>
@@ -32,6 +34,7 @@ function Shell() {
             <Route path="/m/:id" element={<SubjectPage />} />
             <Route path="/progreso" element={<ProgressPage />} />
             <Route path="/plan" element={<PlanPage />} />
+            <Route path="/carrera" element={<CareerPage />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </ErrorBoundary>
@@ -39,6 +42,7 @@ function Shell() {
       <nav className="bottomnav" aria-label="Navegación móvil">
         <NavLink to="/" end><span aria-hidden>📚</span>Materias</NavLink>
         <NavLink to="/plan"><span aria-hidden>🗓️</span>Plan</NavLink>
+        <NavLink to="/carrera"><span aria-hidden>🎓</span>Carrera</NavLink>
         <NavLink to="/progreso"><span aria-hidden>📈</span>Progreso</NavLink>
       </nav>
       <footer className="foot">Contenido redactado para estudio personal. Los materiales originales de cada cátedra no se publican.</footer>

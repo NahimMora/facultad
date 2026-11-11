@@ -45,10 +45,12 @@ export function PlanPage() {
     <header className="hero">
       <p className="eyebrow">Tus once materias</p>
       <h1>Plan de finales</h1>
+      <Link to="/carrera">Ver el estado de todas las materias de la carrera</Link>
       <p>Los tenés repartidos del <b>30/11 al 18/12</b>. Cargá la fecha de cada materia para ordenar el repaso.</p>
       <p className="hint">{dated} de {FINALS.length} fechas cargadas. Primero aparecen las fechas conocidas; después, las que están <b>A confirmar</b>.</p>
     </header>
     <p className="hint">Abrí una materia y marcá cada tema cuando lo hayas repasado. Las fechas y la checklist se guardan en este navegador, en este dispositivo.</p>
+    <p className="hint">Este plan reúne las once materias con material de estudio. Inglés I, regularizada, figura en Carrera.</p>
     {failed && <p role="alert" className="empty">No pude cargar los temas. Recargá la página para intentarlo de nuevo.</p>}
     <ol className="plan-list" aria-label="Finales ordenados por fecha">
       {byExamDate(FINALS, dates).map((s) => {

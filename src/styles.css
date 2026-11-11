@@ -246,6 +246,16 @@ th { background: var(--tint-soft); }
 .lesson .chapters .linklike { text-align: left; }
 
 /* Plan: fechas propias y repaso por tema. */
+.career-counts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+.career-counts .card { margin: 0; display: grid; gap: 4px; padding: 12px; }
+.career-counts b { font-size: 1.5rem; color: var(--accent); }
+.career-counts span { font-size: .85rem; }
+.career-filter { display: grid; gap: 6px; margin: 18px 0; }
+.career-page select { max-width: 100%; min-width: 0; min-height: 44px; padding: 8px; font: inherit; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; color-scheme: light dark; }
+.career-course label { display: grid; gap: 4px; }
+.career-course h3 { margin-top: 0; }
+.career-course { overflow-wrap: anywhere; }
+.career-semester { margin-top: 28px; }
 .plan-page .eyebrow { margin: 0; color: var(--muted); font-size: .85rem; font-weight: 700; }
 .plan-list { list-style: none; margin: 16px 0; padding: 0; display: grid; gap: 12px; }
 .plan-card { --tint: hsl(var(--h) 70% 42%); background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--tint); border-radius: 12px; min-width: 0; }
