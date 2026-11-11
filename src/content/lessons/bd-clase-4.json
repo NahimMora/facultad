@@ -1,0 +1,141 @@
+{
+ "id": "bd-clase-4",
+ "title": "Práctica visual: álgebra y SQL",
+ "src": "videos/bd/bd-clase-4.mp4",
+ "poster": "videos/bd/bd-clase-4.jpg",
+ "minutes": 13.4,
+ "chapters": [
+  {
+   "part": "q:bd-rep-14",
+   "title": "Necesitás filtrar inscripciones por año, pero primero proyectaste una relación que ya no contiene año. ¿Qué problema aparece?",
+   "at": 30.6
+  },
+  {
+   "part": "q:bd-rep-15",
+   "title": "Combinás alumnos e inscripciones sin exigir igualdad de legajo. ¿Qué riesgo tiene ese producto cartesiano?",
+   "at": 90.2
+  },
+  {
+   "part": "q:bd-rep-16",
+   "title": "Una persona cursó y otra persona con el mismo nombre aprobó. Si intersecás nombres primero, ¿qué error podés cometer?",
+   "at": 145.4
+  },
+  {
+   "part": "q:bd-rep-17",
+   "title": "Querés todos los alumnos que no tienen ninguna aprobación registrada. ¿De qué conjunto debe partir una diferencia relacional?",
+   "at": 201.7
+  },
+  {
+   "part": "q:bd-rep-18",
+   "title": "Escribís INSERT con una lista explícita de columnas. ¿Cómo se relacionan con los valores de VALUES?",
+   "at": 256.5
+  },
+  {
+   "part": "q:bd-rep-19",
+   "title": "¿Qué distingue DELETE FROM Tabla de DROP TABLE Tabla?",
+   "at": 313.9
+  },
+  {
+   "part": "q:bd-rep-20",
+   "title": "Un alumno tiene exámenes y la FK está configurada para restringir el borrado del alumno. ¿Qué debe ocurrir al intentar eliminarlo?",
+   "at": 366.9
+  },
+  {
+   "part": "q:bd-rep-21",
+   "title": "Algunas filas tienen email NULL. ¿Qué diferencia hay entre COUNT(*) y COUNT(email)?",
+   "at": 424.7
+  },
+  {
+   "part": "q:bd-rep-22",
+   "title": "Hacés Alumno LEFT JOIN Examen por legajo, sin filtros posteriores. ¿Qué ocurre con un alumno sin exámenes?",
+   "at": 479.4
+  },
+  {
+   "part": "q:bd-rep-23",
+   "title": "La subconsulta de NOT IN devuelve un NULL y no encuentra una igualdad con el valor buscado. ¿Por qué puede fallar la interpretación de “no aparece”?",
+   "at": 534.0
+  },
+  {
+   "part": "q:bd-rep-24",
+   "title": "Filtraste WHERE nota=10. ¿Por qué COUNT(DISTINCT nota)>1 no encuentra alumnos con varios dieces?",
+   "at": 594.2
+  },
+  {
+   "part": "q:bd-rep-25",
+   "title": "Querés incluir todo 2023 y 2024 en una columna fecha-hora. ¿Qué intervalo evita perder el último día?",
+   "at": 653.5
+  },
+  {
+   "part": "q:bd-rep-26",
+   "title": "Dos alumnos comparten nombre. Para contar sus exámenes por separado, ¿qué agrupación corresponde?",
+   "at": 714.3
+  }
+ ],
+ "shorts": {
+  "q:bd-rep-14": {
+   "src": "videos/bd/bd-clase-4.mp4#t=30.6,90.6",
+   "poster": "videos/bd/p/bd-clase-4-q-bd-rep-14.jpg",
+   "minutes": 1.0
+  },
+  "q:bd-rep-15": {
+   "src": "videos/bd/bd-clase-4.mp4#t=90.2,145.8",
+   "poster": "videos/bd/p/bd-clase-4-q-bd-rep-15.jpg",
+   "minutes": 0.93
+  },
+  "q:bd-rep-16": {
+   "src": "videos/bd/bd-clase-4.mp4#t=145.4,202.0",
+   "poster": "videos/bd/p/bd-clase-4-q-bd-rep-16.jpg",
+   "minutes": 0.94
+  },
+  "q:bd-rep-17": {
+   "src": "videos/bd/bd-clase-4.mp4#t=201.7,256.9",
+   "poster": "videos/bd/p/bd-clase-4-q-bd-rep-17.jpg",
+   "minutes": 0.92
+  },
+  "q:bd-rep-18": {
+   "src": "videos/bd/bd-clase-4.mp4#t=256.5,314.4",
+   "poster": "videos/bd/p/bd-clase-4-q-bd-rep-18.jpg",
+   "minutes": 0.97
+  },
+  "q:bd-rep-19": {
+   "src": "videos/bd/bd-clase-4.mp4#t=313.9,367.3",
+   "poster": "videos/bd/p/bd-clase-4-q-bd-rep-19.jpg",
+   "minutes": 0.89
+  },
+  "q:bd-rep-20": {
+   "src": "videos/bd/bd-clase-4.mp4#t=366.9,425.0",
+   "poster": "videos/bd/p/bd-clase-4-q-bd-rep-20.jpg",
+   "minutes": 0.97
+  },
+  "q:bd-rep-21": {
+   "src": "videos/bd/bd-clase-4.mp4#t=424.7,479.8",
+   "poster": "videos/bd/p/bd-clase-4-q-bd-rep-21.jpg",
+   "minutes": 0.92
+  },
+  "q:bd-rep-22": {
+   "src": "videos/bd/bd-clase-4.mp4#t=479.4,534.4",
+   "poster": "videos/bd/p/bd-clase-4-q-bd-rep-22.jpg",
+   "minutes": 0.92
+  },
+  "q:bd-rep-23": {
+   "src": "videos/bd/bd-clase-4.mp4#t=534.0,594.6",
+   "poster": "videos/bd/p/bd-clase-4-q-bd-rep-23.jpg",
+   "minutes": 1.01
+  },
+  "q:bd-rep-24": {
+   "src": "videos/bd/bd-clase-4.mp4#t=594.2,653.9",
+   "poster": "videos/bd/p/bd-clase-4-q-bd-rep-24.jpg",
+   "minutes": 1.0
+  },
+  "q:bd-rep-25": {
+   "src": "videos/bd/bd-clase-4.mp4#t=653.5,714.7",
+   "poster": "videos/bd/p/bd-clase-4-q-bd-rep-25.jpg",
+   "minutes": 1.02
+  },
+  "q:bd-rep-26": {
+   "src": "videos/bd/bd-clase-4.mp4#t=714.3,772.7",
+   "poster": "videos/bd/p/bd-clase-4-q-bd-rep-26.jpg",
+   "minutes": 0.97
+  }
+ }
+}

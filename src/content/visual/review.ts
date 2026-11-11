@@ -1,5 +1,5 @@
 import type { Lesson, Question, TheoryBlock } from '../types';
-import type { VisScene } from '../../vis/types';
+import type { VisScene, VisSpec } from '../../vis/types';
 import { arr, box, head, ico, scene } from './h';
 
 /** Casos propios de práctica. Los valores ilustrativos no describen un examen futuro. */
@@ -13,6 +13,7 @@ export interface ReviewItem {
   say: [string, string, string];
   layout?: 'compare' | 'flow';
   scenes?: VisScene[];
+  vis?: VisSpec;
 }
 
 export function reviewBank(subject: string, start: number, items: ReviewItem[]): Question[] {
@@ -31,7 +32,7 @@ export function reviewBank(subject: string, start: number, items: ReviewItem[]):
       ...(compare ? [arr('n0', 'n2', { s: 2 }), arr('n1', 'n2', { s: 2 })] : [arr('n0', 'n1', { s: 1 }), arr('n1', 'n2', { s: 2 })]),
       ...(compare ? [] : [ico(320, 255, 'gear', { size: 32, s: 1, c: 'gray' }), ico(320, 480, 'chart', { size: 32, s: 2, c: 'gray' })]),
     ], item.say, 640, compare ? 625 : 700);
-    return { id, module: item.module, type: 'mcq', prompt: item.prompt, options, answer: (4 - rotation) % 4, explain: item.explain, scenes: item.scenes ?? [visual], source: 'práctica propia sobre los temas y modelos anteriores' };
+    return { id, module: item.module, type: 'mcq', prompt: item.prompt, options, answer: (4 - rotation) % 4, explain: item.explain, vis: item.vis, scenes: item.scenes ?? [visual], source: 'práctica propia sobre los temas y modelos anteriores' };
   });
 }
 

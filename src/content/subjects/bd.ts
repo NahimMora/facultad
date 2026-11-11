@@ -2,6 +2,7 @@ import type { Question, SubjectContent, TheoryBlock } from '../types';
 import { VIDEOS } from '../videos/bd';
 import { EX_SCENES, SCENES } from '../visual/bd';
 import { FINAL_EXERCISES } from '../visual/bd-final';
+import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/bd-repaso';
 
 /** BD · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y un final resuelto (2024). */
 const F = 'final 2024 resuelto (Drive de estudiantes)';
@@ -103,7 +104,7 @@ const q: Question[] = [
 const ex = FINAL_EXERCISES;
 
 const content: SubjectContent = {
-  subjectId: 'bd', theory, questions: q, exercises: ex, videos: VIDEOS,
+  subjectId: 'bd', theory, questions: [...q, ...REVIEW_QUESTIONS], exercises: ex, videos: VIDEOS,
   cheatsheet: [
     { t: 'Sistema de BD', d: 'BD = datos + metadatos · sistema = BD + SGBD + aplicaciones + hardware + usuarios · DBA: backups y permisos · ANSI-SPARC: independencia lógica y física.' },
     { t: 'DER', d: '|| uno y solo uno · o< cero o muchos · |< uno o muchos · N:M → entidad intermedia · escribir SUPUESTOS.' },
@@ -146,4 +147,5 @@ content.lessons = [
   },
 ];
 
+content.lessons.push(...REVIEW_LESSONS);
 export default content;

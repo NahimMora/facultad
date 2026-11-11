@@ -43,10 +43,17 @@ function sceneBeats(part: string, heading: string, scenes: VisScene[], visuals: 
 function quizBeats(q: Question, visuals: Record<string, VisSpec>): Beat[] {
   const opts = q.type === 'tf' ? ['Verdadero', 'Falso'] : q.options;
   const ans = q.type === 'tf' ? (q.answer ? 0 : 1) : q.answer;
-  const scene = { type: 'quiz', heading: 'Pregunta de repaso', q: speakable(q.prompt), options: opts.map(speakable), answer: ans, at: 0.99, why: speakable(q.explain).slice(0, 220) };
+  const scene = { type: 'quiz', heading: 'Pregunta de repaso', q: speakable(q.prompt), options: opts.map(speakable), answer: ans, at: q.vis ? 10 : 0.99, why: speakable(q.explain).slice(0, 220) };
+  const given: Beat[] = [];
+  if (q.vis) {
+    const key = `q:${q.id}#given`;
+    visuals[key] = q.vis;
+    given.push({ text: 'Observá los datos del diagrama y pausá si necesitás más tiempo para elegir.', part: 'q:' + q.id, scene: { type: 'vis', key, step: 999, heading: 'Datos para interpretar' }, hold: 4 });
+  }
   return [
     { text: `Pregunta de repaso. ${speakable(q.prompt)} Pensalo un momento.`, part: 'q:' + q.id, scene, hold: 2.5 },
-    { text: `La correcta es: ${speakable(opts[ans])}. ${speakable(q.explain)}`, part: 'q:' + q.id },
+    ...given,
+    { text: `La correcta es: ${speakable(opts[ans])}. ${speakable(q.explain)}`, part: 'q:' + q.id, ...(q.vis ? { scene: { ...scene, at: 0 } } : {}) },
     ...sceneBeats('q:' + q.id, q.prompt, q.scenes ?? [], visuals),
   ];
 }

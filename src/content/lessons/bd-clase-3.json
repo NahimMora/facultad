@@ -1,0 +1,141 @@
+{
+ "id": "bd-clase-3",
+ "title": "Práctica visual: diseño y normalización",
+ "src": "videos/bd/bd-clase-3.mp4",
+ "poster": "videos/bd/bd-clase-3.jpg",
+ "minutes": 12.9,
+ "chapters": [
+  {
+   "part": "q:bd-rep-1",
+   "title": "Cambiás la organización de almacenamiento y agregás un índice sin modificar las consultas de las aplicaciones. ¿Qué independencia ilustra?",
+   "at": 30.6
+  },
+  {
+   "part": "q:bd-rep-2",
+   "title": "Dos grupos de usuarios ven distintas selecciones de los mismos datos según sus necesidades. ¿Qué nivel de ANSI-SPARC describe esas vistas?",
+   "at": 85.8
+  },
+  {
+   "part": "q:bd-rep-3",
+   "title": "¿Qué componente del SGBD participa directamente en el acceso físico a archivos y páginas de datos?",
+   "at": 138.5
+  },
+  {
+   "part": "q:bd-rep-4",
+   "title": "Dos rutas pueden tener el mismo nombre, pero cada una tiene un código único. ¿Qué atributo elegís como identificador en ese caso?",
+   "at": 195.3
+  },
+  {
+   "part": "q:bd-rep-5",
+   "title": "RutaEquipo tiene un id propio y el requisito permite una sola fila por par ruta–equipo. ¿Qué restricción adicional conserva esa regla?",
+   "at": 250.5
+  },
+  {
+   "part": "q:bd-rep-6",
+   "title": "Una regla indica como máximo muchos vínculos, pero no aclara si puede haber cero. ¿Qué dato sigue faltando?",
+   "at": 306.0
+  },
+  {
+   "part": "q:bd-rep-7",
+   "title": "Un empleado supervisa a otros empleados de la misma entidad. ¿Cómo clasificás la relación?",
+   "at": 362.3
+  },
+  {
+   "part": "q:bd-rep-8",
+   "title": "Un número de línea distingue detalles solo dentro de su pedido. ¿Qué identificación natural corresponde al detalle?",
+   "at": 415.5
+  },
+  {
+   "part": "q:bd-rep-9",
+   "title": "Varios tipos de clientes comparten identificación y domicilio, pero tienen datos específicos diferentes. ¿Qué recurso del modelado evita repetir lo común?",
+   "at": 468.2
+  },
+  {
+   "part": "q:bd-rep-10",
+   "title": "El domicilio de un proveedor está repetido en cada equipo y solo corregís algunas filas. ¿Qué problema aparece?",
+   "at": 528.2
+  },
+  {
+   "part": "q:bd-rep-11",
+   "title": "Varios equipos pertenecen al mismo proveedor en una relación 1:N. ¿Pueden repetir su FK de proveedor?",
+   "at": 582.3
+  },
+  {
+   "part": "q:bd-rep-12",
+   "title": "Intentás guardar una fila con un componente nulo de su clave primaria. ¿Qué exige el modelo de integridad de entidad?",
+   "at": 636.0
+  },
+  {
+   "part": "q:bd-rep-13",
+   "title": "Una única tabla mezcla mascota y consulta, y no permite registrar una mascota antes de su primera consulta. ¿Qué anomalía ilustra ese diseño?",
+   "at": 692.3
+  }
+ ],
+ "shorts": {
+  "q:bd-rep-1": {
+   "src": "videos/bd/bd-clase-3.mp4#t=30.6,86.2",
+   "poster": "videos/bd/p/bd-clase-3-q-bd-rep-1.jpg",
+   "minutes": 0.93
+  },
+  "q:bd-rep-2": {
+   "src": "videos/bd/bd-clase-3.mp4#t=85.8,138.9",
+   "poster": "videos/bd/p/bd-clase-3-q-bd-rep-2.jpg",
+   "minutes": 0.89
+  },
+  "q:bd-rep-3": {
+   "src": "videos/bd/bd-clase-3.mp4#t=138.5,195.8",
+   "poster": "videos/bd/p/bd-clase-3-q-bd-rep-3.jpg",
+   "minutes": 0.95
+  },
+  "q:bd-rep-4": {
+   "src": "videos/bd/bd-clase-3.mp4#t=195.3,250.9",
+   "poster": "videos/bd/p/bd-clase-3-q-bd-rep-4.jpg",
+   "minutes": 0.93
+  },
+  "q:bd-rep-5": {
+   "src": "videos/bd/bd-clase-3.mp4#t=250.5,306.4",
+   "poster": "videos/bd/p/bd-clase-3-q-bd-rep-5.jpg",
+   "minutes": 0.93
+  },
+  "q:bd-rep-6": {
+   "src": "videos/bd/bd-clase-3.mp4#t=306.0,362.7",
+   "poster": "videos/bd/p/bd-clase-3-q-bd-rep-6.jpg",
+   "minutes": 0.95
+  },
+  "q:bd-rep-7": {
+   "src": "videos/bd/bd-clase-3.mp4#t=362.3,415.9",
+   "poster": "videos/bd/p/bd-clase-3-q-bd-rep-7.jpg",
+   "minutes": 0.89
+  },
+  "q:bd-rep-8": {
+   "src": "videos/bd/bd-clase-3.mp4#t=415.5,468.6",
+   "poster": "videos/bd/p/bd-clase-3-q-bd-rep-8.jpg",
+   "minutes": 0.88
+  },
+  "q:bd-rep-9": {
+   "src": "videos/bd/bd-clase-3.mp4#t=468.2,528.5",
+   "poster": "videos/bd/p/bd-clase-3-q-bd-rep-9.jpg",
+   "minutes": 1.01
+  },
+  "q:bd-rep-10": {
+   "src": "videos/bd/bd-clase-3.mp4#t=528.2,582.7",
+   "poster": "videos/bd/p/bd-clase-3-q-bd-rep-10.jpg",
+   "minutes": 0.91
+  },
+  "q:bd-rep-11": {
+   "src": "videos/bd/bd-clase-3.mp4#t=582.3,636.4",
+   "poster": "videos/bd/p/bd-clase-3-q-bd-rep-11.jpg",
+   "minutes": 0.9
+  },
+  "q:bd-rep-12": {
+   "src": "videos/bd/bd-clase-3.mp4#t=636.0,692.7",
+   "poster": "videos/bd/p/bd-clase-3-q-bd-rep-12.jpg",
+   "minutes": 0.95
+  },
+  "q:bd-rep-13": {
+   "src": "videos/bd/bd-clase-3.mp4#t=692.3,747.3",
+   "poster": "videos/bd/p/bd-clase-3-q-bd-rep-13.jpg",
+   "minutes": 0.92
+  }
+ }
+}
