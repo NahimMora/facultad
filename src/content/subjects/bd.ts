@@ -1,6 +1,7 @@
-import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
+import type { Question, SubjectContent, TheoryBlock } from '../types';
 import { VIDEOS } from '../videos/bd';
 import { EX_SCENES, SCENES } from '../visual/bd';
+import { FINAL_EXERCISES } from '../visual/bd-final';
 
 /** BD · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y un final resuelto (2024). */
 const F = 'final 2024 resuelto (Drive de estudiantes)';
@@ -76,7 +77,7 @@ const q: Question[] = [
   { id: 'bd-11', module: 't2', type: 'mcq', prompt: 'En pata de gallo, el símbolo **o<** del lado de una entidad indica:', options: ['Cero o muchos (opcional, máximo N)', 'Uno y solo uno', 'Uno o muchos', 'Exactamente cero'], answer: 0, explain: 'El círculo es la modalidad mínima 0; la pata de gallo, el máximo N.' },
   { id: 'bd-12', module: 't2', type: 'mcq', prompt: '"Un proveedor puede vender varios equipos o ninguno." Del lado de Equipo, la modalidad es:', options: ['Opcional (cero o muchos)', 'Obligatoria (uno o muchos)', 'Uno y solo uno', 'No se puede saber'], answer: 0, explain: '"o ninguno" → mínimo 0. En el final se escribe como **supuesto**.', source: F },
   { id: 'bd-13', module: 't2', type: 'mcq', prompt: '"Cada departamento tiene un solo jefe, pero cada jefe puede dirigir varios departamentos." ¿Dónde va la FK?', options: ['En Departamento (id del empleado jefe)', 'En Empleado (id del departamento)', 'En una tabla intermedia', 'En ambas'], answer: 0, explain: 'Es 1:N (jefe 1 — N departamentos): la FK va del lado N, Departamento.', source: A },
-  { id: 'bd-14', module: 't3', type: 'mcq', prompt: 'La **fecha** en que un guía da un paseo por una ruta (un guía hace muchas rutas y una ruta tiene muchos guías) va en:', options: ['La entidad intermedia Paseo_Guía', 'Guía', 'Ruta', 'Una tabla Fecha aparte'], answer: 0, explain: 'Depende de la combinación guía + ruta: es atributo de la relación N:M (y en el final 2024 forma parte de la clave).', source: F },
+  { id: 'bd-14', module: 't3', type: 'mcq', prompt: 'La **fecha** en que un guía da un paseo por una ruta (un guía hace muchas rutas y una ruta tiene muchos guías) va en:', options: ['La entidad intermedia Paseo_Guía', 'Guía', 'Ruta', 'Una tabla Fecha aparte'], answer: 0, explain: 'En este supuesto se pide registrar salidas realizadas. La fecha describe el evento guía–ruta; no es un requisito del modelo que solo indica habilitación universal.', source: F },
   { id: 'bd-15', module: 't3', type: 'tf', prompt: 'Una entidad débil puede identificarse por sí sola, sin la entidad de la que depende.', answer: false, explain: 'Justamente la débil **necesita** la clave de la fuerte para identificarse.' },
   { id: 'bd-16', module: 't4', type: 'mcq', prompt: 'Al pasar una relación 1:N al modelo relacional:', options: ['La PK del lado 1 va como FK en la tabla del lado N', 'La PK del lado N va como FK en el lado 1', 'Siempre se crea una tabla intermedia', 'Se fusionan las tablas'], answer: 0, explain: 'Cada fila del lado N apunta a una sola fila del lado 1.' },
   { id: 'bd-17', module: 't4', type: 'mcq', prompt: 'Una estructura **no** está en 1FN cuando:', options: ['Tiene grupos repetitivos (un veterinario con varias mascotas en la misma fila)', 'Tiene una dependencia transitiva', 'Tiene una dependencia parcial', 'Tiene clave compuesta'], answer: 0, explain: '1FN exige valores atómicos: se separa el grupo repetitivo en otra estructura con la clave como FK.', source: F },
@@ -99,28 +100,7 @@ const q: Question[] = [
   { id: 'bd-34', module: 't7', type: 'mcq', prompt: 'Nombre y apellido en una sola columna separados por un espacio:', options: ['SELECT nombre + \' \' + apellido FROM cliente', 'SELECT \'nombre\' + \' \' + \'apellido\' FROM cliente', 'SELECT nombre, apellido FROM cliente', 'SELECT nombre AND apellido FROM cliente'], answer: 0, explain: 'Con comillas, \'nombre\' es un texto literal, no la columna.', source: A },
 ];
 
-const ex: WorkedExercise[] = [
-  { id: 'bd-e1', module: 't2', title: 'Final · DER de paseos guiados', statement: 'Rutas (código, nombre, duración, nivel de dificultad), guías (matrícula, datos de contacto) que dan paseos por las rutas en distintas fechas, equipos que requiere cada ruta y proveedores que venden los equipos.', steps: [
-    { title: 'Entidades', body: 'Ruta, Nivel_Dificultad, Guía, Equipo, Proveedor.' },
-    { title: 'Relaciones', body: 'Nivel 1 — N Ruta · Ruta N — M Guía → **Paseo_Guía** (matrícula FK, cod_ruta FK, **fecha**) · Ruta N — M Equipo → **Equipo_Ruta** · Proveedor 1 — N Equipo (FK en Equipo).' },
-    { title: 'Supuestos (se escriben)', body: 'Cada ruta tiene un único nivel; cada guía hace al menos un paseo; toda ruta necesita al menos un equipo; un proveedor puede vender varios equipos o ninguno.' },
-  ], result: 'Las N:M se resuelven con entidades intermedias y los supuestos justifican cada modalidad.' },
-  { id: 'bd-e2', module: 't4', title: 'Final · normalizar consultas veterinarias hasta 3FN', statement: 'Estructura: Nro_Mascota, Nom_Mascota, Matr_Veterinario*, Nom_Veterinario, Cod_Especialidad, Nom_Especialidad, Fecha_Consulta, Diagnóstico.', steps: [
-    { title: '1FN', body: 'Un veterinario atiende varias mascotas en varias fechas (grupo repetitivo). Se separa: **Veterinario** (Matr*, Nom, Cod_Esp, Nom_Esp) y **Consulta** (Matr* FK, Nro_Mascota*, Fecha*, Nom_Mascota, Diagnóstico).' },
-    { title: '2FN', body: 'En Consulta, Nom_Mascota depende solo de Nro_Mascota (dependencia parcial) → **Mascota** (Nro_Mascota*, Nom_Mascota). Consulta queda (Matr*, Nro_Mascota*, Fecha*, Diagnóstico).' },
-    { title: '3FN', body: 'En Veterinario, Nom_Esp depende de Cod_Esp (transitiva) → **Especialidad** (Cod_Esp*, Nom_Esp); Cod_Esp queda como FK en Veterinario.' },
-  ], result: 'Veterinario · Especialidad · Mascota · Consulta, todas en 3FN.' },
-  { id: 'bd-e3', module: 't5', title: 'Final · álgebra relacional', statement: 'Alumno (legajo, nombre, …), Curso (legajo, materia, año, cuatrimestre), Materia (cod_materia, descripción), Examen (legajo, materia, nota, fecha, profesor). a) Alumnos que cursaron Álgebra I el 1er cuatrimestre de 2023. b) Nombres de quienes cursaron Análisis I y aprobaron su final.', steps: [
-    { title: 'a) intermedio', body: 'AlgI ← σ año=2023 ∧ cuatrimestre=1 (C ⨝ C.materia=M.cod_materia σ descripción=\'Álgebra I\'(M))' },
-    { title: 'a) resultado', body: 'π A.legajo, A.nombre, … (A ⨝ A.legajo=C.legajo AlgI)' },
-    { title: 'b)', body: 'Cursaron ← π nombre (A ⨝ (C ⨝ σ desc=\'Análisis I\'(M))) · Aprobaron ← π nombre (A ⨝ σ nota≥6 (E ⨝ σ desc=\'Análisis I\'(M))) · resultado: **Cursaron ∩ Aprobaron**.' },
-  ] },
-  { id: 'bd-e4', module: 't7', title: 'Final · SQL', statement: 'Con las mismas tablas: a) alumnos que rindieron con García y nunca aprobaron con ella; b) alumnos con más de un 10; c) dar de baja a quienes desaprobaron más de 10 exámenes entre 2023 y 2024.', steps: [
-    { title: 'a)', body: 'SELECT A.nombre FROM Alumno A INNER JOIN Examen E ON A.legajo = E.legajo WHERE E.profesor = \'García\' AND A.legajo NOT IN (SELECT legajo FROM Examen WHERE profesor = \'García\' AND nota >= 6)' },
-    { title: 'b)', body: 'SELECT A.nombre FROM Alumno A INNER JOIN Examen E ON A.legajo = E.legajo WHERE E.nota = 10 GROUP BY A.legajo, A.nombre HAVING COUNT(*) > 1' },
-    { title: 'c)', body: 'UPDATE Alumno SET estado = \'baja\' WHERE legajo IN (SELECT legajo FROM Examen WHERE nota < 6 AND fecha BETWEEN \'2023-01-01\' AND \'2024-12-31\' GROUP BY legajo HAVING COUNT(*) > 10)' },
-  ], result: 'NOT IN para "nunca", HAVING para conteos, UPDATE con subconsulta.' },
-];
+const ex = FINAL_EXERCISES;
 
 const content: SubjectContent = {
   subjectId: 'bd', theory, questions: q, exercises: ex, videos: VIDEOS,
@@ -139,16 +119,29 @@ content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id
 content.lessons = [
   {
     id: 'bd-clase-1', examId: 'final', title: 'Final completo: diseño, álgebra y SQL',
-    summary: 'Sistema y ANSI-SPARC, DER con pata de gallo, normalización hasta 3FN, álgebra relacional y SQL, con los cuatro ejercicios del final 2024.',
+    summary: 'Sistema, DER, normalización, álgebra y SQL con ejemplos del modelo anterior. La clase siguiente recorre todos sus incisos.',
     intro: [
-      'Esta es la clase completa para el final de Base de Datos. El final tiene cuatro partes: DER, normalización, álgebra relacional y SQL, y las vamos a ver en ese orden, con los ejercicios del final 2024 resueltos.',
+      'Esta es la clase completa para el final de Base de Datos. El modelo anterior reúne cuatro partes: DER, normalización, álgebra y SQL. Su estructura no confirma el formato del próximo examen.',
       'Arrancamos por el sistema de base de datos, después el modelo entidad-relación y la normalización, y cerramos con álgebra relacional y SQL.',
     ],
-    parts: ['b1', 'b2', 'b3', 'ex:bd-e1', 'b4', 'ex:bd-e2', 'q:bd-18', 'b5', 'ex:bd-e3', 'b6', 'b7', 'ex:bd-e4', 'q:bd-21'],
+    parts: ['b1', 'b2', 'b3', 'b4', 'q:bd-18', 'b5', 'ex:bd-e5', 'b6', 'b7', 'q:bd-21'],
     outro: [
       '1:N → la PK del lado 1 viaja como FK al lado N. N:M → entidad intermedia. 1FN sin grupos repetitivos · 2FN sin parciales · 3FN sin transitivas.',
       'σ filtra filas, π columnas, ⨝ combina; "y" → ∩, "no" → todos − los que sí. FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY.',
       'Escribí siempre los supuestos del DER y practicá con las preguntas de la web hasta el 80 %.',
+    ],
+  },
+  {
+    id: 'bd-clase-2', examId: 'final', title: 'Final resuelto: DER, dependencias y consultas',
+    summary: 'Los siete incisos de un modelo anterior: DER, 3FN, dos consultas de álgebra y tres de SQL. Incluye las correcciones y los casos límite.',
+    intro: [
+      'Vamos a resolver un modelo anterior de Base de Datos, con redacción y dibujos propios. No confirma el formato de tu próximo final. Vamos a justificar las relaciones, seguir las claves y comprobar qué filas debe devolver cada consulta.',
+      'Primero rutas y equipos; después consultas veterinarias y normalización; luego álgebra relacional y las tres consultas SQL. Prestá atención a quienes nunca rindieron, los nombres repetidos y los límites del período de fechas.',
+    ],
+    parts: ['ex:bd-e1', 'ex:bd-e2', 'ex:bd-e3', 'ex:bd-e5', 'ex:bd-e4', 'ex:bd-e6', 'ex:bd-e7'],
+    outro: [
+      'Identificá primero el universo de filas y conservá las claves hasta el último paso. En un DER no agregues eventos que el problema no pide. En normalización seguí las dependencias funcionales.',
+      'Nunca aprobó se comprueba buscando la ausencia de una aprobación. Para contar, filtrá filas, agrupá por legajo y aplicá HAVING. En fechas con hora, un intervalo semiabierto evita perder el último día.',
     ],
   },
 ];

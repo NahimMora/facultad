@@ -1,0 +1,81 @@
+{
+ "id": "bd-clase-2",
+ "title": "Final resuelto: DER, dependencias y consultas",
+ "src": "videos/bd/bd-clase-2.mp4",
+ "poster": "videos/bd/bd-clase-2.jpg",
+ "minutes": 13.0,
+ "chapters": [
+  {
+   "part": "ex:bd-e1",
+   "title": "Final · 1. DER de rutas y equipos",
+   "at": 29.7
+  },
+  {
+   "part": "ex:bd-e2",
+   "title": "Final · 2. Normalización veterinaria",
+   "at": 191.9
+  },
+  {
+   "part": "ex:bd-e3",
+   "title": "Final · 3a. Inscripciones de Álgebra I",
+   "at": 305.1
+  },
+  {
+   "part": "ex:bd-e5",
+   "title": "Final · 3b. Cursaron y aprobaron Análisis I",
+   "at": 398.1
+  },
+  {
+   "part": "ex:bd-e4",
+   "title": "Final · 4a. Nunca aprobaron con un docente",
+   "at": 486.3
+  },
+  {
+   "part": "ex:bd-e6",
+   "title": "Final · 4b. Alumnos con más de un diez",
+   "at": 578.3
+  },
+  {
+   "part": "ex:bd-e7",
+   "title": "Final · 4c. Baja por desaprobaciones",
+   "at": 661.7
+  }
+ ],
+ "shorts": {
+  "ex:bd-e1": {
+   "src": "videos/bd/bd-clase-2.mp4#t=29.7,192.3",
+   "poster": "videos/bd/p/bd-clase-2-ex-bd-e1.jpg",
+   "minutes": 2.71
+  },
+  "ex:bd-e2": {
+   "src": "videos/bd/bd-clase-2.mp4#t=191.9,305.5",
+   "poster": "videos/bd/p/bd-clase-2-ex-bd-e2.jpg",
+   "minutes": 1.89
+  },
+  "ex:bd-e3": {
+   "src": "videos/bd/bd-clase-2.mp4#t=305.1,398.5",
+   "poster": "videos/bd/p/bd-clase-2-ex-bd-e3.jpg",
+   "minutes": 1.56
+  },
+  "ex:bd-e5": {
+   "src": "videos/bd/bd-clase-2.mp4#t=398.1,486.7",
+   "poster": "videos/bd/p/bd-clase-2-ex-bd-e5.jpg",
+   "minutes": 1.48
+  },
+  "ex:bd-e4": {
+   "src": "videos/bd/bd-clase-2.mp4#t=486.3,578.7",
+   "poster": "videos/bd/p/bd-clase-2-ex-bd-e4.jpg",
+   "minutes": 1.54
+  },
+  "ex:bd-e6": {
+   "src": "videos/bd/bd-clase-2.mp4#t=578.3,662.1",
+   "poster": "videos/bd/p/bd-clase-2-ex-bd-e6.jpg",
+   "minutes": 1.4
+  },
+  "ex:bd-e7": {
+   "src": "videos/bd/bd-clase-2.mp4#t=661.7,753.1",
+   "poster": "videos/bd/p/bd-clase-2-ex-bd-e7.jpg",
+   "minutes": 1.52
+  }
+ }
+}
