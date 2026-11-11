@@ -1,0 +1,61 @@
+{
+ "id": "itc-clase-6",
+ "title": "Parcial · cinco ejercicios de direccionamiento",
+ "src": "videos/itc/itc-clase-6.mp4",
+ "poster": "videos/itc/itc-clase-6.jpg",
+ "minutes": 13.3,
+ "chapters": [
+  {
+   "part": "ex:itcb-e1",
+   "title": "Parcial · 2000 subredes de 15 hosts en 178.100.0.0",
+   "at": 22.8
+  },
+  {
+   "part": "ex:itcb-e2",
+   "title": "Parcial · 28 hosts en 172.50.0.0 (rangos y broadcast)",
+   "at": 174.6
+  },
+  {
+   "part": "ex:itcb-e3",
+   "title": "Parcial · 45 hosts en 220.100.100.0 (con trampa)",
+   "at": 338.1
+  },
+  {
+   "part": "ex:itcb-e4",
+   "title": "Parcial · sumarizar 10.2.4.0/24 a 10.2.16.0/24 (CIDR)",
+   "at": 454.1
+  },
+  {
+   "part": "ex:itcb-e5",
+   "title": "Parcial · VLSM en 192.168.0.0/24 (VLAN de estudiantes, profesores e invitados)",
+   "at": 612.3
+  }
+ ],
+ "shorts": {
+  "ex:itcb-e1": {
+   "src": "videos/itc/itc-clase-6.mp4#t=22.8,175.0",
+   "poster": "videos/itc/p/itc-clase-6-ex-itcb-e1.jpg",
+   "minutes": 2.54
+  },
+  "ex:itcb-e2": {
+   "src": "videos/itc/itc-clase-6.mp4#t=174.6,338.5",
+   "poster": "videos/itc/p/itc-clase-6-ex-itcb-e2.jpg",
+   "minutes": 2.73
+  },
+  "ex:itcb-e3": {
+   "src": "videos/itc/itc-clase-6.mp4#t=338.1,454.5",
+   "poster": "videos/itc/p/itc-clase-6-ex-itcb-e3.jpg",
+   "minutes": 1.94
+  },
+  "ex:itcb-e4": {
+   "src": "videos/itc/itc-clase-6.mp4#t=454.1,612.7",
+   "poster": "videos/itc/p/itc-clase-6-ex-itcb-e4.jpg",
+   "minutes": 2.64
+  },
+  "ex:itcb-e5": {
+   "src": "videos/itc/itc-clase-6.mp4#t=612.3,767.4",
+   "poster": "videos/itc/p/itc-clase-6-ex-itcb-e5.jpg",
+   "minutes": 2.58
+  }
+ }
+}

@@ -3,6 +3,7 @@
  * Se usan en la web (paso a paso) y en las clases en video (narradas).
  */
 import type { VisScene } from '../../vis/types';
+import { BANK_SCENES } from './itc-banco';
 import { arr, bars, bits, box, head, ico, line, plot, scene, seq, stack, table, tree, txt } from './h';
 
 const ms = (x: number, year: string, t: string, s: number, up: boolean, c: string) => [
@@ -1013,6 +1014,7 @@ export const SCENES: Record<string, VisScene[]> = {
 
 /* ======================= Ejercicios ======================= */
 export const EX_SCENES: Record<string, VisScene[]> = {
+  ...BANK_SCENES,
   'itc-e1': [
     scene([
       head('Clase, red y host: solo mirás el primer octeto'),

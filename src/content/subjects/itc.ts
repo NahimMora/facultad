@@ -513,6 +513,16 @@ content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
 content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
 content.lessons = [
   {
+    id: 'itc-clase-6', examId: 'p2', title: 'Parcial · cinco ejercicios de direccionamiento',
+    summary: 'Subredes, rangos, límites de capacidad, sumarización exacta y VLSM, resueltos visualmente.',
+    intro: [
+      'Vamos a resolver cinco ejercicios del banco del parcial, con diagramas que se construyen mientras avanzamos. Intentá cada cuenta antes de seguir con la explicación.',
+      'Primero repartimos bits para subredes y hosts. Después calculamos rangos, detectamos pedidos imposibles, resumimos rutas sin incluir redes ajenas y terminamos con VLSM.',
+    ],
+    parts: ['ex:itcb-e1', 'ex:itcb-e2', 'ex:itcb-e3', 'ex:itcb-e4', 'ex:itcb-e5'],
+    outro: ['Antes de cerrar, repasá el procedimiento: calculá capacidad, elegí el prefijo, comprobá alineación y separá red, hosts y broadcast. Para la sumarización exacta verificá que no queden huecos ni redes ajenas.', 'La regla clásica del banco excluye la subred cero y la última. CIDR moderno permite esos bloques. Volvé a los cinco ejercicios en la web y recorré los pasos sin mirar las cuentas finales.'],
+  },
+  {
     id: 'itc-clase-1', examId: 'p2', title: 'Clase 1 · IP, clases y subnetting',
     summary: 'Encapsulamiento, encabezado IPv4, clases, direcciones especiales, máscaras, subnetting e IPv6, con ejercicios de la guía 5.2.',
     intro: [
