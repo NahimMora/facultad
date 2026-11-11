@@ -3,6 +3,7 @@ import type { Question, SubjectContent, TheoryBlock, VideoItem, WorkedExercise }
 import port from '../banks/iisw-port.json';
 import { VIDEOS } from '../videos/iisw';
 import { EX_SCENES, SCENES } from '../visual/iisw';
+import { FINAL_EXERCISES, FINAL_QUESTIONS, FINAL_SCENES, FINAL_LESSON } from '../visual/iisw-final';
 
 /**
  * IISW · final. Módulos 1–7: redacción propia sobre los apuntes de la cátedra y los temas de finales viejos.
@@ -126,8 +127,8 @@ const P = port as { theory: TheoryBlock[]; questions: Question[]; videos: VideoI
 const content: SubjectContent = {
   subjectId: 'iisw',
   theory: [...theory, ...P.theory],
-  questions: [...questions, ...P.questions],
-  exercises,
+  questions: [...questions, ...P.questions, ...FINAL_QUESTIONS],
+  exercises: [...exercises, ...FINAL_EXERCISES],
   videos: [...VIDEOS, ...P.videos],
   cheatsheet: POCKET['iisw'],
 };
@@ -142,7 +143,7 @@ content.theory = content.theory.map((b) => {
   const v = P.videos.find((x) => x.id === `${b.id.split('-')[0]}-v1`);
   return { ...b, scenes: SCENES[b.id] ?? b.scenes, video: v ? { src: v.src, poster: v.poster, minutes: v.minutes } : undefined };
 });
-content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] ?? FINAL_SCENES[e.id] }));
 content.lessons = [
   {
     id: 'iisw-clase-2', examId: 'final', title: 'Requerimientos, casos de uso, secuencia y pruebas',
@@ -174,4 +175,5 @@ content.lessons = [
   },
 ];
 
+content.lessons.push(FINAL_LESSON);
 export default content;

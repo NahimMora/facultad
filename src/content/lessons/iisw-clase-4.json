@@ -1,0 +1,81 @@
+{
+ "id": "iisw-clase-4",
+ "title": "Final resuelto paso a paso · siete puntos del modelo anterior",
+ "src": "videos/iisw/iisw-clase-4.mp4",
+ "poster": "videos/iisw/iisw-clase-4.jpg",
+ "minutes": 13.8,
+ "chapters": [
+  {
+   "part": "ex:iisw-final-e1",
+   "title": "Final resuelto · 1 · Software y sistema",
+   "at": 22.9
+  },
+  {
+   "part": "ex:iisw-final-e2",
+   "title": "Final resuelto · 2 · UP, cascada y espiral",
+   "at": 110.0
+  },
+  {
+   "part": "ex:iisw-final-e3",
+   "title": "Final resuelto · 3 · Defectos en requerimientos",
+   "at": 239.7
+  },
+  {
+   "part": "ex:iisw-final-e4",
+   "title": "Final resuelto · 4 · Reconocer métodos formales",
+   "at": 326.0
+  },
+  {
+   "part": "ex:iisw-final-e5",
+   "title": "Final resuelto · 5 · Revisar casos de uso",
+   "at": 410.6
+  },
+  {
+   "part": "ex:iisw-final-e6",
+   "title": "Final resuelto · 6 · Encontrar objetos entidad",
+   "at": 536.3
+  },
+  {
+   "part": "ex:iisw-final-e7",
+   "title": "Final resuelto · 7 · Tres reparaciones de BPMN",
+   "at": 623.9
+  }
+ ],
+ "shorts": {
+  "ex:iisw-final-e1": {
+   "src": "videos/iisw/iisw-clase-4.mp4#t=22.9,110.4",
+   "poster": "videos/iisw/p/iisw-clase-4-ex-iisw-final-e1.jpg",
+   "minutes": 1.46
+  },
+  "ex:iisw-final-e2": {
+   "src": "videos/iisw/iisw-clase-4.mp4#t=110.0,240.1",
+   "poster": "videos/iisw/p/iisw-clase-4-ex-iisw-final-e2.jpg",
+   "minutes": 2.17
+  },
+  "ex:iisw-final-e3": {
+   "src": "videos/iisw/iisw-clase-4.mp4#t=239.7,326.4",
+   "poster": "videos/iisw/p/iisw-clase-4-ex-iisw-final-e3.jpg",
+   "minutes": 1.44
+  },
+  "ex:iisw-final-e4": {
+   "src": "videos/iisw/iisw-clase-4.mp4#t=326.0,411.1",
+   "poster": "videos/iisw/p/iisw-clase-4-ex-iisw-final-e4.jpg",
+   "minutes": 1.42
+  },
+  "ex:iisw-final-e5": {
+   "src": "videos/iisw/iisw-clase-4.mp4#t=410.6,536.7",
+   "poster": "videos/iisw/p/iisw-clase-4-ex-iisw-final-e5.jpg",
+   "minutes": 2.1
+  },
+  "ex:iisw-final-e6": {
+   "src": "videos/iisw/iisw-clase-4.mp4#t=536.3,624.3",
+   "poster": "videos/iisw/p/iisw-clase-4-ex-iisw-final-e6.jpg",
+   "minutes": 1.47
+  },
+  "ex:iisw-final-e7": {
+   "src": "videos/iisw/iisw-clase-4.mp4#t=623.9,806.7",
+   "poster": "videos/iisw/p/iisw-clase-4-ex-iisw-final-e7.jpg",
+   "minutes": 3.05
+  }
+ }
+}
