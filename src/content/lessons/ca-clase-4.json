@@ -1,0 +1,121 @@
+{
+ "id": "ca-clase-4",
+ "title": "Práctica visual: terminal, permisos, servicios y Bash",
+ "src": "videos/ca/ca-clase-4.mp4",
+ "poster": "videos/ca/ca-clase-4.jpg",
+ "minutes": 10.9,
+ "chapters": [
+  {
+   "part": "c1",
+   "title": "Instalación, máquina virtual y estructura de directorios",
+   "at": 30.6
+  },
+  {
+   "part": "c2",
+   "title": "La terminal",
+   "at": 92.9
+  },
+  {
+   "part": "c3",
+   "title": "Gestión de software y redirecciones",
+   "at": 117.5
+  },
+  {
+   "part": "c6",
+   "title": "Permisos de archivos",
+   "at": 161.9
+  },
+  {
+   "part": "c9",
+   "title": "Inicio del sistema",
+   "at": 211.8
+  },
+  {
+   "part": "q:ca-rep-1",
+   "title": "Compará /var/log con ../docs en Linux. ¿Cuál depende del directorio actual para resolverse?",
+   "at": 265.0
+  },
+  {
+   "part": "q:ca-rep-2",
+   "title": "Dentro de un script Bash querés reenviar sus argumentos conservando cada uno, incluidos espacios internos. ¿Qué expansión usás como argumentos de otro comando?",
+   "at": 325.6
+  },
+  {
+   "part": "q:ca-rep-3",
+   "title": "Un comando termina con estado 0 y se usa como condición de un if de Bash. ¿Qué rama se ejecuta?",
+   "at": 387.8
+  },
+  {
+   "part": "q:ca-rep-4",
+   "title": "Ejecutás systemctl start para una unidad que estaba deshabilitada. ¿Qué podés concluir por ese comando solamente?",
+   "at": 442.5
+  },
+  {
+   "part": "q:ca-rep-5",
+   "title": "Redirigís un comando con > salida.txt. ¿Adónde va por defecto su salida de error si no agregás otra redirección?",
+   "at": 506.5
+  },
+  {
+   "part": "q:ca-rep-6",
+   "title": "En un directorio, ¿qué permite el permiso x dentro de las reglas de acceso aplicables?",
+   "at": 566.3
+  }
+ ],
+ "shorts": {
+  "c1": {
+   "src": "videos/ca/ca-clase-4.mp4#t=30.6,93.3",
+   "poster": "videos/ca/p/ca-clase-4-c1.jpg",
+   "minutes": 1.05
+  },
+  "c2": {
+   "src": "videos/ca/ca-clase-4.mp4#t=92.9,117.8",
+   "poster": "videos/ca/p/ca-clase-4-c2.jpg",
+   "minutes": 0.41
+  },
+  "c3": {
+   "src": "videos/ca/ca-clase-4.mp4#t=117.5,162.3",
+   "poster": "videos/ca/p/ca-clase-4-c3.jpg",
+   "minutes": 0.75
+  },
+  "c6": {
+   "src": "videos/ca/ca-clase-4.mp4#t=161.9,212.1",
+   "poster": "videos/ca/p/ca-clase-4-c6.jpg",
+   "minutes": 0.84
+  },
+  "c9": {
+   "src": "videos/ca/ca-clase-4.mp4#t=211.8,265.4",
+   "poster": "videos/ca/p/ca-clase-4-c9.jpg",
+   "minutes": 0.89
+  },
+  "q:ca-rep-1": {
+   "src": "videos/ca/ca-clase-4.mp4#t=265.0,326.0",
+   "poster": "videos/ca/p/ca-clase-4-q-ca-rep-1.jpg",
+   "minutes": 1.02
+  },
+  "q:ca-rep-2": {
+   "src": "videos/ca/ca-clase-4.mp4#t=325.6,388.3",
+   "poster": "videos/ca/p/ca-clase-4-q-ca-rep-2.jpg",
+   "minutes": 1.04
+  },
+  "q:ca-rep-3": {
+   "src": "videos/ca/ca-clase-4.mp4#t=387.8,442.9",
+   "poster": "videos/ca/p/ca-clase-4-q-ca-rep-3.jpg",
+   "minutes": 0.92
+  },
+  "q:ca-rep-4": {
+   "src": "videos/ca/ca-clase-4.mp4#t=442.5,506.9",
+   "poster": "videos/ca/p/ca-clase-4-q-ca-rep-4.jpg",
+   "minutes": 1.07
+  },
+  "q:ca-rep-5": {
+   "src": "videos/ca/ca-clase-4.mp4#t=506.5,566.7",
+   "poster": "videos/ca/p/ca-clase-4-q-ca-rep-5.jpg",
+   "minutes": 1.0
+  },
+  "q:ca-rep-6": {
+   "src": "videos/ca/ca-clase-4.mp4#t=566.3,626.3",
+   "poster": "videos/ca/p/ca-clase-4-q-ca-rep-6.jpg",
+   "minutes": 1.0
+  }
+ }
+}

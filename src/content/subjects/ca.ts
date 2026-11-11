@@ -2,6 +2,7 @@ import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../t
 import { VIDEOS } from '../videos/ca';
 import { EX_SCENES, SCENES } from '../visual/ca';
 import { FINAL_EXERCISES, FINAL_QUESTIONS, FINAL_SCENES } from '../visual/ca-final';
+import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/ca-repaso';
 
 /** CA · final. Redacción propia sobre los apuntes de la cátedra (Debian) y las preguntas de finales 2023 y 2025 (Drive). */
 const F = 'preguntas de final 2023 y julio 2025 (Drive de estudiantes)';
@@ -78,7 +79,7 @@ const q: Question[] = [
   { id: 'ca-08', module: 'm4', type: 'mcq', prompt: 'Un servicio DNS:', options: ['Traduce nombres de dominio a direcciones IP', 'Asigna IP automáticamente', 'Cifra la conexión', 'Filtra paquetes'], answer: 0, explain: 'Asignar IP es DHCP. Los DNS que usa el equipo están en /etc/resolv.conf.', source: F },
   { id: 'ca-09', module: 'm5', type: 'mcq', prompt: 'El archivo sudoers se debe editar con:', options: ['visudo', 'nano /etc/sudoers directamente', 'sudo vi /etc/passwd', 'chmod'], answer: 0, explain: 'visudo valida la sintaxis antes de guardar: un error podría dejarte sin sudo.', source: F },
   { id: 'ca-10', module: 'm5', type: 'mcq', prompt: 'Los usuarios "especiales" o de sistema:', options: ['Ejecutan servicios (UID 1–999) y normalmente no tienen shell de login', 'Son los administradores con UID 0', 'Son los usuarios con UID ≥ 1000', 'Son los invitados'], answer: 0, explain: 'root es UID 0; los usuarios normales, UID ≥ 1000. Ejemplos de especiales: www-data, nobody.', source: F },
-  { id: 'ca-11', module: 'm5', type: 'mcq', prompt: 'Las contraseñas cifradas de los usuarios se guardan en:', options: ['/etc/shadow', '/etc/passwd', '/etc/group', '/home/usuario'], answer: 0, explain: '/etc/passwd tiene los datos de la cuenta con una x en lugar de la contraseña.' },
+  { id: 'ca-11', module: 'm5', type: 'mcq', prompt: 'En el esquema de cuentas locales estudiado, ¿dónde se guardan los hashes de contraseñas y los datos de caducidad?', options: ['/etc/shadow', '/etc/passwd', '/etc/group', '/home/usuario'], answer: 0, explain: '/etc/shadow guarda hashes, no contraseñas recuperables por descifrado. /etc/passwd conserva los datos públicos de la cuenta y normalmente una x en el campo correspondiente.' },
   { id: 'ca-12', module: 'm5', type: 'mcq', prompt: 'Las configuraciones globales (para todos los usuarios) del entorno se editan en:', options: ['/etc/profile', '~/.bashrc', '/etc/hostname', '/var/log'], answer: 0, explain: '/etc/profile (y /etc/bash.bashrc) aplica a todos; ~/.bashrc es de cada usuario.', source: F },
   { id: 'ca-13', module: 'm6', type: 'mcq', prompt: 'Agregar permiso de lectura a "otros" en archivo.txt, en forma simbólica:', options: ['chmod o+r archivo.txt', 'chmod 004 archivo.txt', 'chmod u+r archivo.txt', 'chown o+r archivo.txt'], answer: 0, explain: 'o = otros, + agrega, r = lectura. (004 sería octal y además quitaría los demás permisos).', source: F },
   { id: 'ca-14', module: 'm6', type: 'mcq', prompt: 'chmod 754 deja los permisos:', options: ['rwxr-xr--', 'rwxrwxr--', 'rw-r-xr--', 'rwxr--r-x'], answer: 0, explain: '7 = rwx (dueño), 5 = r-x (grupo), 4 = r-- (otros).' },
@@ -86,7 +87,7 @@ const q: Question[] = [
   { id: 'ca-16', module: 'm3', type: 'mcq', prompt: 'Diferencia entre ls > lista.txt y ls >> lista.txt:', options: ['> sobrescribe el archivo; >> agrega al final', '> agrega; >> sobrescribe', 'Son iguales', '>> redirige los errores'], answer: 0, explain: 'Los errores se redirigen con 2>.', source: F },
   { id: 'ca-17', module: 'm3', type: 'mcq', prompt: '¿Qué herramienta resuelve dependencias al instalar paquetes en Debian?', options: ['apt', 'dpkg', 'tar', 'mkfs'], answer: 0, explain: 'apt trabaja con repositorios y resuelve dependencias; dpkg instala .deb sueltos sin resolverlas.', source: F },
   { id: 'ca-18', module: 'm3', type: 'mcq', prompt: 'El operador | (pipe):', options: ['Pasa la salida de un comando como entrada del siguiente', 'Guarda la salida en un archivo', 'Ejecuta en segundo plano', 'Redirige errores'], answer: 0, explain: 'Ej.: ps aux | grep ssh.' },
-  { id: 'ca-19', module: 'm7', type: 'mcq', prompt: 'El sistema de archivos más usado en Linux es:', options: ['ext4', 'NTFS', 'FAT32', 'HFS+'], answer: 0, explain: 'ext4, con journaling. NTFS y FAT son de Windows.', source: F },
+  { id: 'ca-19', module: 'm7', type: 'mcq', prompt: '¿Cuál de estos sistemas de archivos corresponde al formato Linux trabajado en el ejemplo de la materia?', options: ['ext4', 'NTFS', 'FAT32', 'HFS+'], answer: 0, explain: 'El ejemplo trabaja ext4 y su journaling. Esto no afirma cuál es el sistema más usado actualmente ni impide que Linux acceda a otros formatos.', source: F },
   { id: 'ca-20', module: 'm7', type: 'mcq', prompt: 'Los campos de una línea de /etc/fstab, en orden:', options: ['dispositivo · punto de montaje · tipo · opciones · dump · pass', 'punto de montaje · dispositivo · tamaño · dueño', 'UUID · usuario · permisos · fecha', 'tipo · dispositivo · opciones'], answer: 0, explain: 'Ej.: UUID=… /mnt/datos ext4 defaults 0 2.', source: F },
   { id: 'ca-21', module: 'm7', type: 'mcq', prompt: 'Formatear la partición /dev/sdb1 con ext4:', options: ['mkfs.ext4 /dev/sdb1', 'format /dev/sdb1', 'fdisk ext4 /dev/sdb1', 'mount -t ext4 /dev/sdb1'], answer: 0, explain: 'fdisk crea particiones; mkfs las formatea; mount las monta.', source: F },
   { id: 'ca-22', module: 'm7', type: 'mcq', prompt: 'Si borro el archivo original, ¿qué link sigue funcionando?', options: ['El hard link', 'El soft link', 'Ninguno', 'Los dos'], answer: 0, explain: 'El hard link apunta al mismo inodo (los datos siguen ahí); el soft link apunta a la ruta y queda roto.', source: F },
@@ -119,7 +120,7 @@ const ex: WorkedExercise[] = [
 ];
 
 const content: SubjectContent = {
-  subjectId: 'ca', theory, questions: [...q, ...FINAL_QUESTIONS], exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
+  subjectId: 'ca', theory, questions: [...q, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
   cheatsheet: [
     { t: 'Rutas', d: '/etc/network/interfaces (+ interfaces.d) · /etc/resolv.conf DNS · /etc/hosts · /root · /etc/passwd · /etc/shadow · /etc/sudoers (visudo) · /etc/profile global · /etc/fstab · /etc/default/grub.' },
     { t: 'Software', d: 'apt (repos, dependencias) · dpkg (.deb sueltos) · > pisa · >> agrega · 2> errores · | pipe.' },
@@ -164,4 +165,5 @@ content.lessons = [
   },
 ];
 
+content.lessons.push(...REVIEW_LESSONS);
 export default content;
