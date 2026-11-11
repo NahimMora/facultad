@@ -25,7 +25,7 @@ test('Plan ordena las fechas ingresadas y conserva la checklist por tema al reca
   const topic = new URLSearchParams(href.split('?')[1]).get('tema');
   await link.click();
   await expect(page).toHaveURL(new RegExp(`tema=${topic}`));
-  await expect(page.locator(`[id="${topic}"] .walk`).first()).toBeVisible();
+  await expect(page.locator(`[id="t-${topic}"] .walk`).first()).toBeVisible();
   await page.goto('./#/m/am2?examen=final&tab=resumen');
   await expect(page.locator('.examdate input')).toHaveValue('2026-12-18');
   await page.goto('./#/plan');
@@ -60,6 +60,7 @@ test('Plan funciona sin almacenamiento y descarta datos guardados corruptos', as
 
 test('el formato del modelo viejo no se anuncia como formato actual confirmado', async ({ page }) => {
   await page.goto('./#/m/am2?examen=final');
+  await page.getByText('Información del examen y más material', {exact:true}).click();
   await expect(page.locator('#int-formato')).toContainText('Formato actual: A confirmar.');
   await expect(page.locator('#int-formato .ftag').first()).toHaveText('Modelo anterior');
   await page.goto('./#/plan');

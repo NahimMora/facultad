@@ -21,8 +21,8 @@ export function MockExam({ storageKey, items, shorts = {} }: { storageKey: strin
   const commit = (s: MockSession | null) => { setSession(s); save(storageKey, s); setNow(Date.now()); };
   if (!items.length) return <p className="empty">Todavía no hay preguntas para este examen.</p>;
   if (!session) return <div className="mock-exam">
-    <p>Elegí cuántas preguntas querés practicar. Se sortean del banco de este examen y se corrigen juntas al terminar.</p>
-    <p className="hint">El cronómetro mide tu tiempo de práctica, incluso si cerrás la página. La cantidad y el tiempo no representan el formato oficial del examen.</p>
+    <p>Practicá con preguntas al azar. Al terminar vas a ver el resultado y la explicación de cada respuesta.</p>
+    <p className="hint">El tiempo y la cantidad son para practicar. El formato real se confirma por materia.</p>
     <div className="row"><label>Preguntas <input aria-label="Cantidad de preguntas" type="number" min={1} max={items.length} value={count} onChange={(e) => setCount(Number(e.target.value))} style={{ width: '5rem' }} /></label><span className="hint">de {items.length} disponibles</span>
       <button type="button" className="btn primary" disabled={!Number.isInteger(count) || count < 1 || count > items.length} onClick={() => commit(startMock(items, count))}>Empezar simulacro</button></div>
   </div>;

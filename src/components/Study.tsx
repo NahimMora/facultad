@@ -34,7 +34,7 @@ export function TheoryView({ subject, content, modules, shorts }: { subject: Sub
   );
 }
 
-function TheoryCard({ b, subject, short }: { b: TheoryBlock; subject: Subject; short?: Shorts[string] }) {
+export function TheoryCard({ b, subject, short }: { b: TheoryBlock; subject: Subject; short?: Shorts[string] }) {
   const visual = !!b.scenes?.length;
   return (
     <article className="tblock" id={`t-${b.id}`}>
@@ -73,7 +73,7 @@ export function ExercisesView({ content, modules, shorts }: { content: SubjectCo
   return <div className="exercises">{ex.map((e) => <Exercise key={e.id} e={e} short={shorts['ex:' + e.id]} />)}</div>;
 }
 
-function Exercise({ e, short }: { e: WorkedExercise; short?: Shorts[string] }) {
+export function Exercise({ e, short }: { e: WorkedExercise; short?: Shorts[string] }) {
   const [shown, setShown] = useState(0);
   return (
     <article className="exercise" id={`e-${e.id}`}>

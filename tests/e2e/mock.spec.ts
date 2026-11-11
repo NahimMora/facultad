@@ -9,7 +9,7 @@ test('las resoluciones visuales se revelan al responder o al terminar el simulac
   await expect(practice.locator('.walk')).toHaveCount(1);
   await practice.getByRole('button', { name: 'Paso siguiente', exact: true }).click();
   await expect(practice.getByRole('tab', { name: 'Paso 2', exact: true })).toHaveAttribute('aria-selected', 'true');
-  await page.goto('./#/m/sym?tab=intensivo');
+  await page.goto('./#/m/sym?modo=simulacro');
   const mock = page.locator('#int-simulacro');
   await mock.getByLabel('Cantidad de preguntas').fill('60');
   await mock.getByRole('button', { name: 'Empezar simulacro' }).click();
@@ -21,7 +21,7 @@ test('las resoluciones visuales se revelan al responder o al terminar el simulac
 });
 
 test('AID: guarda respuestas, corrige al final y permite repasar errores', async ({ page }) => {
-  await page.goto('./#/m/aid');
+  await page.goto('./#/m/aid?modo=simulacro');
   const mock = page.locator('#int-simulacro');
   await mock.getByRole('spinbutton').fill('3');
   await mock.getByRole('button', { name: 'Empezar simulacro' }).click();
@@ -47,7 +47,7 @@ test('cada final tiene simulacro y funciona sin almacenamiento disponible', asyn
     Storage.prototype.setItem = () => { throw new Error('Almacenamiento no disponible'); };
   });
   for (const id of ['aid', 'itc', 'iisw', 'fia', 'sym', 'arq', 'pye', 'bd', 'am2', 'sd1', 'ca']) {
-    await page.goto(`./#/m/${id}?examen=final`);
+    await page.goto(`./#/m/${id}?examen=final&modo=simulacro`);
     const mock = page.locator('#int-simulacro');
     await mock.getByRole('spinbutton').fill('1');
     await mock.getByRole('button', { name: 'Empezar simulacro' }).click();

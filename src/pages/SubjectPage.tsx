@@ -9,6 +9,9 @@ import { Quiz } from '../components/Quiz';
 import { CheatsheetView, ExercisesView, shortsOf, TheoryView, VideosView } from '../components/Study';
 import { IntensiveView } from '../components/Intensive';
 import { keys } from '../lib/storage';
+import { StudyWorkspace } from '../components/StudyWorkspace';
+import { useAcademic } from '../lib/useAcademic';
+import { finalBlockers, courseName } from '../lib/academic';
 
 const TABS = [
   { id: 'intensivo', label: 'Repaso intensivo' },
@@ -33,6 +36,7 @@ export function SubjectPage() {
 
 function SubjectView({ s }: { s: Subject }) {
   const [params, setParams] = useSearchParams();
+  const {states}=useAcademic();
   const ready = hasContent(s.id);
   const [content, setContent] = useState<SubjectContent>(() => emptyContent(s.id));
   const [media, setMedia] = useState<LessonMedia[]>([]);
@@ -71,6 +75,20 @@ function SubjectView({ s }: { s: Subject }) {
 
   const studyExams = s.exams.filter((e) => e.kind !== 'tp');
   const modTitle = (mid: string) => allModules(s).find((m) => m.id === mid)?.label;
+
+  if (!params.has('tab') || params.get('tab') === 'intensivo') {
+    const blockers=exam.kind==='final'?finalBlockers(s.id,states):[];
+    return <div className={`page subject guided-subject${params.get('modo')==='machete'?' pocket-page':''}`} style={{['--h' as string]:s.hue}}>
+      <header className="shead"><Link className="back" to="/estudiar">← Estudiar</Link><h1><span aria-hidden>{s.icon}</span> {s.name}</h1></header>
+      <details className="exam-switch"><summary>Preparando: {exam.kind==='final'?'Final':exam.name} <small>· cambiar</small></summary><div className="exam-pick" role="group" aria-label="Preparar para">{studyExams.map(e=><button className={`pill ${e.id===examId?'on':''}`} key={e.id} aria-pressed={e.id===examId} onClick={()=>go({examen:e.id})}>{e.kind==='final'?'Final':e.name}{e.state==='rendido'?' ✓':''}</button>)}</div></details>
+      {blockers.length>0&&<p className="prerequisite-note">Podés preparar este final. Para rendirlo necesitás aprobar {blockers.map(courseName).join(' y ')}.</p>}
+      {content.theory.length ? <StudyWorkspace key={exam.id} s={s} exam={exam} content={content} media={media}/> : <p className="empty" role="status">Abriendo tus diagramas y clases…</p>}
+      <details className="quiet-details subject-options"><summary>Información del examen y más material</summary>
+        <div id="int-formato"><h2>{exam.kind==='final'?'Formato y antecedentes':'Cómo es el examen'}</h2>{exam.kind==='final'&&!exam.format?.some(f=>f.current)&&<p>Formato actual: <b>A confirmar.</b></p>}{exam.format?.map((f,i)=><p key={i}><span className="ftag">{exam.kind==='final'&&!f.current?'Modelo anterior':f.sure?'Confirmado':'Probable'}</span>{f.text} <small>({f.source})</small></p>)}</div>
+        <div className="secondary-tools">{visibleTabs.filter(t=>t.id!=='intensivo').map(t=><button className="btn" key={t.id} onClick={()=>go({tab:t.id})}>{t.label}</button>)}</div>
+      </details>
+    </div>;
+  }
 
   return (
     <div className={`page subject${tab === 'machete' ? ' pocket-page' : ''}`} style={{ ['--h' as string]: s.hue }}>

@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light;
   --bg: #f3f1ec; --paper: #fffdf9; --ink: #1b2233; --muted: #677086; --line: #e2ddd2;
   --accent: #2f5bd8; --accent-soft: #e5ecff;
   --good: #1d8a4e; --good-soft: #e1f4e8; --bad: #cc3737; --bad-soft: #fbe4e4; --warn: #b7791f; --warn-soft: #fbf0d9;
@@ -13,6 +14,7 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
+    color-scheme: dark;
     --bg: #11141c; --paper: #191d28; --ink: #e9ecf4; --muted: #9aa3b8; --line: #2b3142;
     --accent: #7c9cff; --accent-soft: #212b4a;
     --good: #4cc483; --good-soft: #15301f; --bad: #ff7272; --bad-soft: #3a1d20; --warn: #f0b84a; --warn-soft: #3a2f15;
@@ -214,7 +216,6 @@ th { background: var(--tint-soft); }
 .vin { animation: vin .55s cubic-bezier(.3, 0, .2, 1) both; }
 .vdraw { animation: vdraw .5s ease-out both; }
 .vgrow { transform-box: fill-box; transform-origin: bottom; animation: vgrow .7s cubic-bezier(.3, 0, .2, 1) both; }
-.vin, .vdraw { filter: drop-shadow(0 0 6px rgba(255, 209, 102, .55)); }
 @media (prefers-reduced-motion: reduce) { .vin, .vdraw, .vgrow { animation: none; } }
 
 .short-btn { display: flex; gap: 8px; align-items: center; width: 100%; text-align: left; font: inherit; font-weight: 600; padding: 10px 14px; margin: 4px 0 8px; border-radius: 12px; border: 1px dashed var(--tint); background: var(--tint-soft); color: var(--ink); cursor: pointer; min-height: 44px; }
