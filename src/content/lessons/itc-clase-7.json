@@ -1,0 +1,136 @@
+{
+ "id": "itc-clase-7",
+ "title": "Final: fundamentos de redes y transmisión",
+ "src": "videos/itc/itc-clase-7.mp4",
+ "poster": "videos/itc/itc-clase-7.jpg",
+ "minutes": 13.2,
+ "chapters": [
+  {
+   "part": "q:itc-rep-1",
+   "title": "En un modelo básico de comunicación, ¿qué hace el transmisor entre la fuente y el canal?",
+   "at": 30.6
+  },
+  {
+   "part": "q:itc-rep-2",
+   "title": "¿Qué asociación corresponde a los estándares de redes locales de la familia 802?",
+   "at": 95.3
+  },
+  {
+   "part": "q:itc-rep-3",
+   "title": "¿Qué clasificación expresa una red de alcance personal, como la conexión cercana entre dispositivos de una persona?",
+   "at": 193.3
+  },
+  {
+   "part": "q:itc-rep-4",
+   "title": "En la división de la capa de enlace de IEEE 802, ¿qué subcapa se ocupa del acceso al medio compartido?",
+   "at": 257.5
+  },
+  {
+   "part": "q:itc-rep-5",
+   "title": "Las reglas de comunicación entre entidades pares de la misma capa en sistemas distintos constituyen un…",
+   "at": 321.2
+  },
+  {
+   "part": "q:itc-rep-6",
+   "title": "Cuando los datos bajan por una pila de protocolos para ser enviados, ¿qué describe el encapsulamiento?",
+   "at": 380.9
+  },
+  {
+   "part": "q:itc-rep-7",
+   "title": "En conmutación de circuitos, ¿qué caracteriza a la comunicación una vez establecida?",
+   "at": 482.7
+  },
+  {
+   "part": "q:itc-rep-8",
+   "title": "En una red de paquetes con enlaces compartidos, ¿por qué el retardo puede variar con la carga?",
+   "at": 546.9
+  },
+  {
+   "part": "q:itc-rep-9",
+   "title": "¿Qué diferencia básica permite una ventana deslizante respecto de Stop & Wait?",
+   "at": 614.1
+  },
+  {
+   "part": "q:itc-rep-10",
+   "title": "¿Cuál distingue correctamente CRC, FEC y ARQ?",
+   "at": 681.6
+  }
+ ],
+ "shorts": {
+  "q:itc-rep-1": {
+   "src": "videos/itc/itc-clase-7.mp4#t=30.6,95.7",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-1.jpg",
+   "minutes": 1.09
+  },
+  "q:itc-rep-2": {
+   "src": "videos/itc/itc-clase-7.mp4#t=95.3,193.7",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-2.jpg",
+   "minutes": 1.64
+  },
+  "q:itc-rep-3": {
+   "src": "videos/itc/itc-clase-7.mp4#t=193.3,257.9",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-3.jpg",
+   "minutes": 1.08
+  },
+  "q:itc-rep-4": {
+   "src": "videos/itc/itc-clase-7.mp4#t=257.5,321.6",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-4.jpg",
+   "minutes": 1.07
+  },
+  "q:itc-rep-5": {
+   "src": "videos/itc/itc-clase-7.mp4#t=321.2,381.3",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-5.jpg",
+   "minutes": 1.0
+  },
+  "q:itc-rep-6": {
+   "src": "videos/itc/itc-clase-7.mp4#t=380.9,483.1",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-6.jpg",
+   "minutes": 1.7
+  },
+  "q:itc-rep-7": {
+   "src": "videos/itc/itc-clase-7.mp4#t=482.7,547.3",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-7.jpg",
+   "minutes": 1.08
+  },
+  "q:itc-rep-8": {
+   "src": "videos/itc/itc-clase-7.mp4#t=546.9,614.5",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-8.jpg",
+   "minutes": 1.13
+  },
+  "q:itc-rep-9": {
+   "src": "videos/itc/itc-clase-7.mp4#t=614.1,682.0",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-9.jpg",
+   "minutes": 1.13
+  },
+  "q:itc-rep-10": {
+   "src": "videos/itc/itc-clase-7.mp4#t=681.6,761.5",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-10.jpg",
+   "minutes": 1.33
+  },
+  "repaso-m1": {
+   "src": "videos/itc/itc-clase-7.mp4#t=30.6,193.7",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-1.jpg",
+   "minutes": 2.72
+  },
+  "repaso-m2": {
+   "src": "videos/itc/itc-clase-7.mp4#t=193.3,321.6",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-3.jpg",
+   "minutes": 2.14
+  },
+  "repaso-m3": {
+   "src": "videos/itc/itc-clase-7.mp4#t=321.2,483.1",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-5.jpg",
+   "minutes": 2.7
+  },
+  "repaso-m4": {
+   "src": "videos/itc/itc-clase-7.mp4#t=482.7,614.5",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-7.jpg",
+   "minutes": 2.2
+  },
+  "repaso-m5": {
+   "src": "videos/itc/itc-clase-7.mp4#t=614.1,761.5",
+   "poster": "videos/itc/p/itc-clase-7-q-itc-rep-9.jpg",
+   "minutes": 2.46
+  }
+ }
+}

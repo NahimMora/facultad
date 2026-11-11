@@ -2,6 +2,7 @@ import type { SubjectContent } from '../types';
 import { VIDEOS } from '../videos/itc';
 import { BANCO, BANCO_EJERCICIOS } from '../banks/itc-banco';
 import { EX_SCENES, SCENES } from '../visual/itc';
+import { REVIEW_QUESTIONS, REVIEW_THEORY, REVIEW_LESSONS } from '../visual/itc-repaso';
 
 /**
  * ITc · 2º parcial (unidades 4 a 7 = módulos 6 a 13).
@@ -593,5 +594,9 @@ content.lessons = [
     ],
   },
 ];
+
+content.questions.push(...REVIEW_QUESTIONS);
+content.theory.push(...REVIEW_THEORY);
+content.lessons.push(...REVIEW_LESSONS);
 
 export default content;

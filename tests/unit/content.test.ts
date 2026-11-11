@@ -75,6 +75,16 @@ describe('contenido de estudio', () => {
         expect(c.questions.some((q) => q.module === m), `preguntas ${m}`).toBe(true);
       }
     });
+
+    it(`${c.subjectId}: el banco del final alcanza 60 y cubre cada módulo con teoría visual`, () => {
+      const finalMods = examModules(s, 'final').map((m) => m.id);
+      expect(c.questions.filter((q) => finalMods.includes(q.module)).length).toBeGreaterThanOrEqual(60);
+      for (const module of finalMods) {
+        expect(c.questions.some((q) => q.module === module), `preguntas ${module}`).toBe(true);
+        expect(c.theory.some((b) => b.module === module && b.scenes?.length), `teoría visual ${module}`).toBe(true);
+      }
+      for (const item of [...c.theory, ...c.exercises]) expect(item.scenes?.length, `diagrama ${item.id}`).toBeGreaterThan(0);
+    });
   }
 });
 
