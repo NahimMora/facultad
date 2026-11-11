@@ -1,6 +1,7 @@
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/am2';
 import { EX_SCENES, SCENES } from '../visual/am2';
+import { FINAL_EXERCISES, FINAL_SCENES } from '../visual/am2-final';
 
 /** AM II · final. Redacción propia; ejercicios tomados de los modelos de final 2026 y resueltos acá. */
 const F = 'modelos de final 2026 (Drive de estudiantes)';
@@ -104,7 +105,7 @@ const ex: WorkedExercise[] = [
 ];
 
 const content: SubjectContent = {
-  subjectId: 'am2', theory, questions: q, exercises: ex, videos: VIDEOS,
+  subjectId: 'am2', theory, questions: q, exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
   cheatsheet: [
     { t: 'Una variable', d: 'f\' signo → crece/decrece · f\'\' signo → concavidad · inflexión: f\'\' CAMBIA de signo · verificar que el punto esté en la gráfica.' },
     { t: 'L\'Hôpital', d: 'solo 0/0 o ∞/∞ · 1^∞, ∞⁰, 0⁰ → L = e^(lim ln) · ln(e^(kx) + c)/x → k.' },
@@ -116,8 +117,15 @@ const content: SubjectContent = {
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
-content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
+content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] ?? FINAL_SCENES[e.id] }));
 content.lessons = [
+  {
+    id: 'am2-clase-2', examId: 'final', title: 'Final resuelto paso a paso · modelo completo',
+    summary: 'Los siete incisos de un modelo: primitiva logarítmica, límite con potencia, dominio y área, ensilladura y dos V/F sobre concavidad y extremos.',
+    intro: ['Vamos a resolver un modelo completo de final de Análisis Matemático II. Los gráficos están redibujados y las explicaciones son propias. Seguí cada cuenta y usá pausa antes de avanzar a la siguiente.', 'El recorrido tiene siete incisos: una integral por sustitución, un límite con potencia, un dominio con raíces y su área, un punto de ensilladura y dos afirmaciones de verdadero o falso. En cada uno buscamos una justificación que puedas reconstruir.'],
+    parts: ['ex:am2-final-1', 'ex:am2-e4', 'ex:am2-final-2', 'ex:am2-e2', 'ex:am2-final-3', 'ex:am2-final-4', 'ex:am2-final-5'],
+    outro: ['En las raíces, distinguí numerador y denominador: la frontera que anula el denominador queda afuera. Para el área, integrá arriba menos abajo entre los puntos de corte.', 'Un determinante hessiano negativo señala ensilladura. Para verificar extremos, primero comprobá que el punto pertenezca a la gráfica y luego analizá las derivadas. En concavidad, construí los intervalos de signo de la segunda derivada.', 'Ahora recorré los siete ejercicios en la web y respondé las preguntas del simulacro. Al corregir un error, explicá qué condición habías omitido: dominio, signo, punto crítico o comportamiento en distintas direcciones.'],
+  },
   {
     id: 'am2-clase-1', examId: 'final', title: 'Final completo: una y dos variables',
     summary: 'Extremos y concavidad, estudio de funciones, L’Hôpital, integración, impropias, dominios, límite doble, gradiente y hessiano, con los ejercicios de los modelos 2026.',

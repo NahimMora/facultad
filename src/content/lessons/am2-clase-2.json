@@ -1,0 +1,81 @@
+{
+ "id": "am2-clase-2",
+ "title": "Final resuelto paso a paso · modelo completo",
+ "src": "videos/am2/am2-clase-2.mp4",
+ "poster": "videos/am2/am2-clase-2.jpg",
+ "minutes": 10.9,
+ "chapters": [
+  {
+   "part": "ex:am2-final-1",
+   "title": "Final · 1a: sustitución logarítmica",
+   "at": 28.7
+  },
+  {
+   "part": "ex:am2-e4",
+   "title": "Final · límite 1^∞ / ∞⁰",
+   "at": 126.9
+  },
+  {
+   "part": "ex:am2-final-2",
+   "title": "Final · 2a: dominio con dos raíces",
+   "at": 180.1
+  },
+  {
+   "part": "ex:am2-e2",
+   "title": "Final · dominio y su área",
+   "at": 284.1
+  },
+  {
+   "part": "ex:am2-final-3",
+   "title": "Final · 3: crítico y ensilladura",
+   "at": 344.7
+  },
+  {
+   "part": "ex:am2-final-4",
+   "title": "Final · 4a: V/F sobre concavidad",
+   "at": 441.4
+  },
+  {
+   "part": "ex:am2-final-5",
+   "title": "Final · 4b: V/F sobre un mínimo",
+   "at": 526.1
+  }
+ ],
+ "shorts": {
+  "ex:am2-final-1": {
+   "src": "videos/am2/am2-clase-2.mp4#t=28.7,127.3",
+   "poster": "videos/am2/p/am2-clase-2-ex-am2-final-1.jpg",
+   "minutes": 1.64
+  },
+  "ex:am2-e4": {
+   "src": "videos/am2/am2-clase-2.mp4#t=126.9,180.5",
+   "poster": "videos/am2/p/am2-clase-2-ex-am2-e4.jpg",
+   "minutes": 0.89
+  },
+  "ex:am2-final-2": {
+   "src": "videos/am2/am2-clase-2.mp4#t=180.1,284.5",
+   "poster": "videos/am2/p/am2-clase-2-ex-am2-final-2.jpg",
+   "minutes": 1.74
+  },
+  "ex:am2-e2": {
+   "src": "videos/am2/am2-clase-2.mp4#t=284.1,345.1",
+   "poster": "videos/am2/p/am2-clase-2-ex-am2-e2.jpg",
+   "minutes": 1.02
+  },
+  "ex:am2-final-3": {
+   "src": "videos/am2/am2-clase-2.mp4#t=344.7,441.7",
+   "poster": "videos/am2/p/am2-clase-2-ex-am2-final-3.jpg",
+   "minutes": 1.62
+  },
+  "ex:am2-final-4": {
+   "src": "videos/am2/am2-clase-2.mp4#t=441.4,526.5",
+   "poster": "videos/am2/p/am2-clase-2-ex-am2-final-4.jpg",
+   "minutes": 1.42
+  },
+  "ex:am2-final-5": {
+   "src": "videos/am2/am2-clase-2.mp4#t=526.1,613.1",
+   "poster": "videos/am2/p/am2-clase-2-ex-am2-final-5.jpg",
+   "minutes": 1.45
+  }
+ }
+}
