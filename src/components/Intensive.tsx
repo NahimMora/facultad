@@ -14,9 +14,9 @@ export function IntensiveView({ s, exam, content, media, mods, openTopic, openEx
   s: Subject; exam: Exam; content: SubjectContent; media: LessonMedia[]; mods: string[];
   openTopic: (id: string) => void; openExercise: (id: string) => void;
 }) {
-  const lessonIds = new Set((content.lessons ?? []).filter((l) => l.examId === exam.id).map((l) => l.id));
+  const lessonIds = new Set((content.lessons ?? []).filter((l) => exam.kind === 'final' || l.examId === exam.id).map((l) => l.id));
   const lessons = media.filter((m) => lessonIds.has(m.id));
-  const pending = (content.lessons ?? []).filter((l) => l.examId === exam.id && !media.some((m) => m.id === l.id));
+  const pending = (content.lessons ?? []).filter((l) => lessonIds.has(l.id) && !media.some((m) => m.id === l.id));
   const blocks = content.theory.filter((b) => mods.includes(b.module));
   const ex = content.exercises.filter((e) => mods.includes(e.module));
   const qs = content.questions.filter((q) => mods.includes(q.module));

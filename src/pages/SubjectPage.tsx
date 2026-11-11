@@ -149,7 +149,7 @@ function SubjectView({ s }: { s: Subject }) {
         </section>
       )}
       {tab === 'ejercicios' && <ExercisesView content={content} modules={mods} shorts={shorts} />}
-      {tab === 'videos' && <VideosView content={content} modules={mods} media={media.filter((m) => (content.lessons ?? []).some((l) => l.id === m.id && l.examId === examId))} />}
+      {tab === 'videos' && <VideosView content={content} modules={mods} media={media.filter((m) => (content.lessons ?? []).some((l) => l.id === m.id && (exam.kind === 'final' || l.examId === examId)))} />}
       {tab === 'machete' && <CheatsheetView content={content} />}
       {tab === 'falta' && (
         <section className="card">

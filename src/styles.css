@@ -226,7 +226,8 @@ th { background: var(--tint-soft); }
 .toc-list a { font-size: .86rem; text-decoration: none; padding: 4px 9px; border-radius: 999px; background: var(--tint-soft); color: var(--ink); }
 
 /* ---------- repaso intensivo ---------- */
-.intensive { display: grid; gap: 12px; margin-top: 12px; }
+.intensive { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 12px; }
+.intensive > .card { min-width: 0; }
 .int-hero .eyebrow { margin: 0; font-weight: 700; color: var(--tint); text-transform: uppercase; font-size: .78rem; letter-spacing: .06em; }
 .int-steps { list-style: none; padding: 0; margin: 8px 0; display: grid; gap: 6px; }
 .int-steps li { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; background: var(--tint-soft); }
@@ -237,6 +238,8 @@ th { background: var(--tint-soft); }
 .int-tile p { margin: 6px 0; }
 .int-topics { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
 .int-topic { display: grid; gap: 2px; text-align: left; font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-left: 4px solid var(--tint); border-radius: 10px; padding: 10px 12px; cursor: pointer; min-height: 44px; }
+.video.lesson { margin: 14px 0; min-width: 0; }
+.qprompt, .qfeedback, .opt { overflow-wrap: anywhere; }
 .lesson .chapters { margin-top: 6px; }
 .lesson .chapters ol { padding-left: 1.2em; margin: 6px 0; }
 .lesson .chapters li { margin: 3px 0; }
