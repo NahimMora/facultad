@@ -47,16 +47,16 @@ describe('contenido de estudio', () => {
     const mods = allModules(s).map((m) => m.id);
 
     it(`${c.subjectId}: todo apunta a módulos existentes`, () => {
-      for (const x of [...c.theory, ...c.questions, ...c.exercises]) expect(mods, x.id).toContain(x.module);
+      for (const x of [...c.theory, ...c.questions, ...(c.selfAssessments ?? []), ...c.exercises]) expect(mods, x.id).toContain(x.module);
     });
 
     it(`${c.subjectId}: ids únicos`, () => {
-      const ids = [...c.theory, ...c.questions, ...c.exercises].map((x) => x.id);
+      const ids = [...c.theory, ...c.questions, ...(c.selfAssessments ?? []), ...c.exercises].map((x) => x.id);
       expect(new Set(ids).size).toBe(ids.length);
     });
 
     it(`${c.subjectId}: preguntas bien formadas (respuesta en rango, opciones distintas, explicación)`, () => {
-      for (const q of c.questions) {
+      for (const q of [...c.questions, ...(c.selfAssessments ?? [])]) {
         expect(q.explain.length, q.id).toBeGreaterThan(20);
         if (q.type === 'mcq') {
           expect(q.options.length, q.id).toBeGreaterThanOrEqual(3);

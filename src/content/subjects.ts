@@ -61,10 +61,11 @@ export const SUBJECTS: Subject[] = [
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [] },
     ],
     focus: { examId: 'p2', note: 'Preparar el 2º parcial: Data Mining (módulos 8 a 12).' },
-    material: { apuntes: 27, parciales: 3, practica: 4, clases: 1, nota: 'Presentaciones de los 12 módulos (Blackboard), instructivos de Weka para el TP y 51 preguntas de autoevaluaciones del 1er parcial.' },
+    material: { apuntes: 27, parciales: 3, practica: 4, clases: 1, nota: 'Presentaciones de los 12 módulos, instructivos de Weka y autoevaluaciones: 50 preguntas del 1er parcial y 46 del 2º parcial. El material del 1er parcial incluye además una portada sin pregunta.' },
     missing: [
       'Grabaciones de clases posteriores al 1er parcial (en Zoom solo hay una de 6 minutos)',
       'Modelo de 2º parcial o parciales viejos del 2º parcial',
+      'Resolución oficial de las autoevaluaciones de Data Mining (las explicaciones del sitio se fundamentan en los apuntes)',
       'Fecha exacta del 2º parcial',
     ],
   },

@@ -3,6 +3,7 @@ import type { SubjectContent } from '../types';
 import { VIDEOS } from '../videos/aid';
 import { EX_SCENES, SCENES } from '../visual/aid';
 import { REVIEW_QUESTIONS, REVIEW_THEORY, REVIEW_LESSONS } from '../visual/aid-repaso';
+import { AID_SELF_ASSESSMENTS } from '../autoevaluations/aid';
 
 /**
  * AID · 2º parcial (módulos 8 a 12): Data Mining.
@@ -10,6 +11,7 @@ import { REVIEW_QUESTIONS, REVIEW_THEORY, REVIEW_LESSONS } from '../visual/aid-r
  */
 const content: SubjectContent = {
   subjectId: 'aid',
+  selfAssessments: AID_SELF_ASSESSMENTS,
   theory: [
     /* ---------- Módulo 8 ---------- */
     {

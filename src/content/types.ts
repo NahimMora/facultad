@@ -166,6 +166,8 @@ export interface SubjectContent {
   videos: VideoItem[];
   cheatsheet: { t: string; d: string }[];
   lessons?: Lesson[];
+  /** Preguntas adaptadas exclusivamente de autoevaluaciones identificadas. */
+  selfAssessments?: Question[];
 }
 
 export const emptyContent = (subjectId: string): SubjectContent => ({ subjectId, theory: [], questions: [], exercises: [], videos: [], cheatsheet: [] });

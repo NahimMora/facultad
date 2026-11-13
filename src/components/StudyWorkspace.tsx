@@ -7,12 +7,14 @@ import { topicChecks } from '../lib/plan';
 import { CheatsheetView, Exercise, LessonPlayer, shortsOf, TheoryCard } from './Study';
 import { Quiz } from './Quiz';
 import { MockExam } from './MockExam';
+import { SelfAssessments } from './SelfAssessments';
 
 const MODES = [{id:'aprender',label:'Aprender'},{id:'practicar',label:'Practicar'},{id:'simulacro',label:'Simulacro'},{id:'machete',label:'Machete'}];
 export function StudyWorkspace({s,exam,content,media}:{s:Subject;exam:Exam;content:SubjectContent;media:LessonMedia[]}) {
   const [params,setParams] = useSearchParams();
-  const mode = MODES.some(m=>m.id===params.get('modo')) ? params.get('modo')! : 'aprender';
   const modules = examModules(s,exam.id).map(m=>m.id);
+  const selfAssessments = (content.selfAssessments ?? []).filter(q=>modules.includes(q.module));
+  const mode = MODES.some(m=>m.id===params.get('modo')) || (params.get('modo')==='autoevaluaciones' && selfAssessments.length) ? params.get('modo')! : 'aprender';
   const blocks = content.theory.filter(b=>modules.includes(b.module)).sort((a,b)=>modules.indexOf(a.module)-modules.indexOf(b.module));
   const selected = params.get('tema')?.replace(/^t-/,'');
   const index = Math.max(0,blocks.findIndex(b=>b.id===selected));
@@ -37,6 +39,8 @@ export function StudyWorkspace({s,exam,content,media}:{s:Subject;exam:Exam;conte
   const mark = () => { const next={...checked,[block.id]:!checked[block.id]};setChecked(next);save(keys.planTopics(s.id),next); };
   return <div className="study-workspace">
     <nav id="study-controls" className="study-modes" aria-label="Cómo querés estudiar">{MODES.map(m=><button key={m.id} className={mode===m.id?'active':''} aria-pressed={mode===m.id} onClick={()=>go({modo:m.id})}>{m.label}</button>)}</nav>
+    {selfAssessments.length > 0 && mode!=='machete' && <button className="btn self-assessments-entry" aria-pressed={mode==='autoevaluaciones'} onClick={()=>go({modo:'autoevaluaciones'})}>Autoevaluaciones · {selfAssessments.length} preguntas del parcial</button>}
+    {mode==='autoevaluaciones' && <SelfAssessments key={exam.id} subject={s} examId={exam.id} items={selfAssessments}/>}
     {mode==='aprender' && block && <>
       <div className="lesson-position"><span>Tema {index+1} de {blocks.length}</span><span>{blocks.filter(b=>checked[b.id]).length} repasados</span></div>
       <details className="topic-picker" key={block.id}><summary>Cambiar de tema</summary><div>{blocks.map((b,i)=><button key={b.id} className={i===index?'active':''} onClick={()=>go({tema:b.id})}><span>{checked[b.id]?'✓':i+1}</span>{b.title}</button>)}</div></details>

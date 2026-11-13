@@ -77,6 +77,7 @@ h1,h2,h3 { text-wrap: balance; }
 .study-modes button { min-width:0; min-height:44px; border:0; border-radius:10px; background:transparent; color:var(--muted); font:inherit; font-weight:650; font-size:.86rem; padding:8px 3px; }
 .study-modes button.active { background:var(--accent); color:var(--paper); }
 .study-workspace { min-width:0; }
+.self-assessments-entry { width:100%; margin:0 0 20px; border-color:var(--accent); color:var(--accent); background:var(--accent-soft); white-space:normal; }
 .lesson-position { display:flex; justify-content:space-between; color:var(--muted); font-size:.8rem; }
 .topic-picker { margin:12px 0; border:1px solid var(--line); background:var(--paper); border-radius:12px; }
 .topic-picker summary { padding:12px 14px; min-height:44px; cursor:pointer; font-size:.9rem; }
