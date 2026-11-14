@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import type { Exam, LessonMedia, Subject, SubjectContent } from '../content/types';
 import { examModules } from '../content/subjects';
 import { keys, load, save } from '../lib/storage';
@@ -39,6 +39,7 @@ export function StudyWorkspace({s,exam,content,media}:{s:Subject;exam:Exam;conte
   const mark = () => { const next={...checked,[block.id]:!checked[block.id]};setChecked(next);save(keys.planTopics(s.id),next); };
   return <div className="study-workspace">
     <nav id="study-controls" className="study-modes" aria-label="Cómo querés estudiar">{MODES.map(m=><button key={m.id} className={mode===m.id?'active':''} aria-pressed={mode===m.id} onClick={()=>go({modo:m.id})}>{m.label}</button>)}</nav>
+    {s.id==='pye'&&mode!=='machete'&&<Link className="btn self-assessments-entry" to="/m/pye/recuperatorio">Preparar el recuperatorio del 2º parcial · con desarrollo</Link>}
     {selfAssessments.length > 0 && mode!=='machete' && <button className="btn self-assessments-entry" aria-pressed={mode==='autoevaluaciones'} onClick={()=>go({modo:'autoevaluaciones'})}>Autoevaluaciones · {selfAssessments.length} preguntas del parcial</button>}
     {mode==='autoevaluaciones' && <SelfAssessments key={exam.id} subject={s} examId={exam.id} items={selfAssessments}/>}
     {mode==='aprender' && block && <>

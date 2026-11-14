@@ -13,8 +13,10 @@ export function load<T>(key: string, fallback: T): T {
 export function save(key: string, value: unknown) {
   try {
     localStorage.setItem(PREFIX + key, JSON.stringify(value));
+    return true;
   } catch {
     /* sin almacenamiento */
+    return false;
   }
 }
 

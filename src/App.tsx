@@ -1,5 +1,5 @@
 import { HashRouter, Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Home } from './pages/Home';
 import { SubjectPage } from './pages/SubjectPage';
 import { ProgressPage } from './pages/ProgressPage';
@@ -7,6 +7,7 @@ import { PlanPage } from './pages/PlanPage';
 import { CareerPage } from './pages/CareerPage';
 import { StudyPage } from './pages/StudyPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
+const PyeRecoveryPage = lazy(() => import('./pages/PyeRecoveryPage').then(m=>({default:m.PyeRecoveryPage})));
 
 function ScrollTop() {
   const { pathname } = useLocation();
@@ -33,6 +34,7 @@ function Shell() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/m/:id" element={<SubjectPage />} />
+            <Route path="/m/pye/recuperatorio" element={<Suspense fallback={<p className="page" role="status">Abriendo el entrenador…</p>}><PyeRecoveryPage/></Suspense>} />
             <Route path="/progreso" element={<ProgressPage />} />
             <Route path="/plan" element={<PlanPage />} />
             <Route path="/estudiar" element={<StudyPage />} />
