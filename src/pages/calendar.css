@@ -1,0 +1,43 @@
+.calendar-page { max-width:1100px; }
+.calendar-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:20px; align-items:start; }
+.calendar-layout>.card { min-width:0; margin:0; padding:20px; }
+.calendar-month-nav { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.calendar-month-nav h2 { font-size:1.2rem; margin:0; text-align:center; }
+.calendar-month-nav h2::first-letter,.calendar-journal h2::first-letter { text-transform:uppercase; }
+.calendar-month-nav .btn { padding:8px 12px; min-width:44px; }
+.calendar-shortcuts { display:flex; flex-wrap:wrap; gap:14px; margin:10px 0 14px; }
+.calendar-shortcuts button { min-height:44px; }
+.calendar-weekdays,.calendar-days { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:4px; }
+.calendar-weekdays span { color:var(--muted); font-size:.75rem; text-align:center; padding:8px 0; }
+.calendar-day { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; min-width:0; min-height:58px; border:1px solid var(--line); background:var(--paper); color:var(--ink); border-radius:10px; font:inherit; cursor:pointer; }
+.calendar-day[aria-current=date] { box-shadow:inset 0 -3px 0 var(--accent); }
+.calendar-day.exam-day { background:var(--warn-soft); }
+.calendar-day.selected { border:2px solid var(--accent); background:var(--accent-soft); }
+.calendar-day-flags { display:flex; gap:5px; align-items:center; min-height:16px; font-size:.8rem; }
+.calendar-exam-dot { color:var(--warn); }
+.calendar-log-mark { color:var(--accent); font-weight:800; }
+.calendar-legend { display:flex; gap:18px; flex-wrap:wrap; font-size:.8rem; }
+.calendar-journal h2 { font-size:1.12rem; margin:0 0 18px; scroll-margin-top:80px; }
+.calendar-subjects { border:0; padding:0; margin:16px 0; min-width:0; }
+.calendar-subjects legend { font-weight:700; margin-bottom:10px; }
+.calendar-subjects label { display:flex; align-items:center; gap:10px; min-height:48px; padding:8px 0; border-bottom:1px solid var(--line); cursor:pointer; }
+.calendar-subjects input { flex:0 0 20px; width:20px; height:20px; margin:0; accent-color:var(--accent); }
+.calendar-subjects span { font-size:.92rem; overflow-wrap:anywhere; }
+.calendar-other summary { min-height:44px; cursor:pointer; padding:10px 0; color:var(--muted); }
+.calendar-notes,.calendar-hours { display:grid; gap:8px; margin:18px 0; font-weight:600; }
+.calendar-notes textarea { width:100%; box-sizing:border-box; resize:vertical; border:1px solid var(--line); border-radius:10px; padding:12px; background:var(--paper); color:var(--ink); font:inherit; font-weight:400; line-height:1.5; }
+.calendar-hours input { max-width:130px; min-height:44px; padding:8px; font:inherit; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:8px; }
+.calendar-save-failed { color:var(--warn); padding:10px; background:var(--warn-soft); border-radius:8px; }
+.calendar-agenda { margin-top:32px; }
+.calendar-agenda ol { list-style:none; padding:0; display:grid; gap:12px; }
+.calendar-exam { display:grid; grid-template-columns:105px minmax(0,1fr); gap:18px; padding:18px; background:var(--paper); border:1px solid var(--line); border-radius:14px; }
+.calendar-exam time { font-weight:700; color:var(--accent); font-variant-numeric:tabular-nums; }
+.calendar-exam h3 { font-size:1rem; margin:0 0 6px; }
+.calendar-exam p { margin:6px 0; overflow-wrap:anywhere; }
+.calendar-exam.compact { display:block; background:var(--accent-soft); margin:0 0 20px; padding:14px; }
+.calendar-time { font-size:.9rem; }
+.calendar-registered { color:var(--good); font-size:.85rem; }
+.calendar-pending { color:var(--warn); font-size:.85rem; }
+.calendar-exam-links { display:flex; gap:20px; flex-wrap:wrap; align-items:center; margin-top:8px; }
+.calendar-exam-links a,.calendar-exam-links button { display:inline-flex; min-height:44px; align-items:center; font-size:.9rem; }
+@media(max-width:760px) { .calendar-layout { grid-template-columns:minmax(0,1fr); }.calendar-layout>.card { padding:16px; }.calendar-layout>.calendar-month { padding:12px; }.calendar-exam { grid-template-columns:minmax(0,1fr); gap:6px; padding:16px; }.calendar-month-nav h2 { font-size:1.1rem; } }

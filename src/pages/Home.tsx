@@ -41,6 +41,6 @@ export function Home() {
       <p className="hint">Propuesta por correlativas del plan 2023. La oferta, los horarios y la habilitación definitiva se confirman en MyUP.</p>
     </section>
     <section className="dash-section"><h2>Cuidá las cursadas que estás terminando</h2><div className="current-courses">{SUBJECTS.filter(s=>states[s.id]==='cursando').map(s=><Link to={`/m/${s.id}?examen=p2`} className="current-course" key={s.id}><span aria-hidden>{s.icon}</span><div><b>{s.name}</b><small>{s.id==='aid'?'2º parcial + TP de Data Mining':'2º parcial de red, transporte y aplicaciones'}</small></div><span aria-hidden>→</span></Link>)}</div>{!stateCount(states,'cursando')&&<p>Ya no tenés cursadas marcadas como en curso.</p>}</section>
-    <div className="dashboard-links"><Link className="btn" to="/estudiar">Ver todo para estudiar</Link><Link className="btn" to="/carrera">Ver mi carrera</Link></div>
+    <div className="dashboard-links"><Link className="btn primary" to="/calendario">Calendario y registro diario</Link><Link className="btn" to="/estudiar">Ver todo para estudiar</Link><Link className="btn" to="/carrera">Ver mi carrera</Link></div>
   </div>;
 }

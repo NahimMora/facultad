@@ -8,6 +8,7 @@ import { CareerPage } from './pages/CareerPage';
 import { StudyPage } from './pages/StudyPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 const PyeRecoveryPage = lazy(() => import('./pages/PyeRecoveryPage').then(m=>({default:m.PyeRecoveryPage})));
+const CalendarPage = lazy(() => import('./pages/CalendarPage').then(m=>({default:m.CalendarPage})));
 
 function ScrollTop() {
   const { pathname } = useLocation();
@@ -26,6 +27,7 @@ function Shell() {
         <nav className="topnav" aria-label="Principal">
           <NavLink to="/" end>Hoy</NavLink>
           <NavLink to="/estudiar" className={loc.pathname.startsWith('/m/')?'active':undefined}>Estudiar</NavLink>
+          <NavLink to="/calendario">Calendario</NavLink>
           <NavLink to="/carrera">Mi carrera</NavLink>
         </nav>
       </header>
@@ -37,6 +39,7 @@ function Shell() {
             <Route path="/m/pye/recuperatorio" element={<Suspense fallback={<p className="page" role="status">Abriendo el entrenador…</p>}><PyeRecoveryPage/></Suspense>} />
             <Route path="/progreso" element={<ProgressPage />} />
             <Route path="/plan" element={<PlanPage />} />
+            <Route path="/calendario" element={<Suspense fallback={<p className="page" role="status">Abriendo tu calendario…</p>}><CalendarPage/></Suspense>} />
             <Route path="/estudiar" element={<StudyPage />} />
             <Route path="/carrera" element={<CareerPage />} />
             <Route path="*" element={<Home />} />
@@ -46,6 +49,7 @@ function Shell() {
       <nav className="bottomnav" aria-label="Navegación móvil">
         <NavLink to="/" end><span aria-hidden>⌂</span>Hoy</NavLink>
         <NavLink to="/estudiar" className={loc.pathname.startsWith('/m/')?'active':undefined}><span aria-hidden>▤</span>Estudiar</NavLink>
+        <NavLink to="/calendario"><span aria-hidden>▦</span>Calendario</NavLink>
         <NavLink to="/carrera"><span aria-hidden>◉</span>Mi carrera</NavLink>
       </nav>
       <footer className="foot">Contenido redactado para estudio personal. Los materiales originales de cada cátedra no se publican.</footer>

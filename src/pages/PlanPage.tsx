@@ -48,6 +48,7 @@ export function PlanPage() {
     <header className="hero">
       <Link className="back" to="/carrera">← Mi carrera</Link>
       <h1>Mesas y checklist</h1>
+      <Link className="btn primary" to="/calendario">Calendario de exámenes y registro diario</Link>
       <p>Herramientas opcionales para los finales del <b>30/11 al 18/12</b>. Podés estudiar sin cargar fechas.</p>
       <p className="hint">{dated} fechas guardadas. Las materias con fecha aparecen primero.</p>
     </header>
