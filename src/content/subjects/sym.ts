@@ -5,6 +5,7 @@ import { SCENES } from '../visual/sym';
 import { FINAL_EXERCISES, FINAL_EX_SCENES, FINAL_QUESTIONS } from '../visual/sym-final';
 import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/sym-repaso';
 import { M1_QUESTIONS, M1_THEORY } from '../visual/sym-m1';
+import { M2_QUESTIONS, M2_THEORY } from '../visual/sym-m2';
 
 /** SyM · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y finales 2023 (Drive). */
 const A = 'autoevaluación de la cátedra';
@@ -12,11 +13,7 @@ const F = 'final 2023 (Drive de estudiantes)';
 
 const theory: TheoryBlock[] = [
   ...M1_THEORY,
-  { id: 'y2', module: 'm2', title: 'Puestos y equipos', points: [
-    '**Puesto**: descripción formal y escrita (tareas, ubicación en el organigrama, objetivos y cómo se miden). **Rol**: además incluye los comportamientos que se esperan de quien lo ocupa.',
-    '**Grupo de trabajo**: un gerente y sus empleados directos, parte del organigrama. **Equipo**: genera **sinergia** (más que la suma de los esfuerzos individuales).',
-    '**Task force**: especialistas de distintas áreas reunidos para una tarea concreta y **temporal** (lanzar un producto en seis meses). **Comité**: existencia **duradera**, para temas estratégicos o recurrentes. Ambos comparten la composición **interdisciplinaria**.',
-  ] },
+  ...M2_THEORY,
   { id: 'y3', module: 'm3', title: 'Poder y autoridad', points: [
     '**Poder**: capacidad de cambiar actitudes o conductas. **Influencia**: el acto que produce ese cambio. **Autoridad**: poder formal que da el puesto.',
     'Bases del poder: **legítimo** (por el cargo), **de recompensa**, **coercitivo** (sanción), **experto** y **referente** (carisma). "Como su jefe les pido… si lo logran tendrán un bono" = legítimo + recompensa.',
@@ -120,10 +117,10 @@ const q: Question[] = [
 ];
 
 /** Preguntas anteriores del Módulo 1 que se ofrecen como práctica dentro de su tema. */
-const OLD_TOPIC: Record<string, string> = { 'sym-01': 'y1e', 'sym-02': 'y1', 'sym-03': 'y1o', 'sym-04': 'y1e' };
+const OLD_TOPIC: Record<string, string> = { 'sym-01': 'y1e', 'sym-02': 'y1', 'sym-03': 'y1o', 'sym-04': 'y1e', 'sym-05': 'y2t', 'sym-06': 'y2', 'sym-07': 'y2r' };
 
 const content: SubjectContent = {
-  subjectId: 'sym', theory, questions: [...q.map((x) => ({ ...x, topic: OLD_TOPIC[x.id] })), ...M1_QUESTIONS, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: FINAL_EXERCISES, videos: VIDEOS,
+  subjectId: 'sym', theory, questions: [...q.map((x) => ({ ...x, topic: OLD_TOPIC[x.id] })), ...M1_QUESTIONS, ...M2_QUESTIONS, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: FINAL_EXERCISES, videos: VIDEOS,
   cheatsheet: POCKET['sym'],
 };
 
