@@ -240,12 +240,12 @@ export const SUBJECTS: Subject[] = [
     ],
     exams: [
       { id: 'p1', name: '1er parcial', kind: 'parcial', state: 'rendido', modules: ['u2', 'u3', 'u4', 'u5', 'u6', 'u7'] },
-      { id: 'p2', name: '2º parcial', kind: 'parcial', state: 'rendido', modules: ['t2', 't3', 't4', 't5', 't6', 't7'] },
+      { id: 'p2', name: '2º parcial · oral', kind: 'parcial', state: 'proximo', modules: ['t2', 't3', 't4', 't5', 't6', 't7'], when: 'oral pendiente (fecha a confirmar)' },
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [], format: [
         { text: 'Cuestionario en Blackboard: preguntas con varios ítems (a, b, c…) que se responden escribiendo (overflow, ciclo de instrucción, memorias…).', source: 'final 2023 (Drive)', sure: false },
       ] },
     ],
-    focus: { examId: 'final', note: 'Regularizada. Hay apuntes de los módulos 2 a 14, 6 clases grabadas y finales viejos.' },
+    focus: { examId: 'p2', note: 'Oral del 2º parcial pendiente. Hay apuntes de los módulos 2 a 14, 6 clases grabadas y finales viejos.' },
     material: { apuntes: 14, parciales: 1, practica: 1, clases: 6, nota: 'Teoría del 2º parcial (142 páginas) y 6 clases grabadas. Además: 8 finales viejos (2020 a 2023) del Drive de estudiantes.' },
     missing: ['Confirmar el formato del final actual (el último que hay es de 2023)', 'Hoja de ruta de Arquitectura (para confirmar el alcance y la organización)', 'Política de cuantización de punto fijo del modelo: no aclara si se trunca o se redondea'],
   },

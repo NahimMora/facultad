@@ -8,6 +8,7 @@ export function ConceptMapView({ map, open }: { map: ConceptMap; open: (topic: s
     <ul className="cmap-branches">
       {map.branches.map((b, i) => <li key={i} className="cmap-branch" style={{ ['--bh' as string]: (i * 67 + 200) % 360 }}><Node n={b} open={open} depth={1} /></li>)}
     </ul>
+    {map.oral?.length ? <section className="cmap-oral"><h4><span aria-hidden>🎤</span> Preguntas de oral · respondé en voz alta y después tocá para comparar</h4>{map.oral.map((o, i) => <details key={i}><summary><Rich text={o.q} /></summary><p><Rich text={o.a} /></p></details>)}</section> : null}
     {map.links?.length ? <section className="cmap-links"><h4><span aria-hidden>🔗</span> Conexiones</h4><ul>{map.links.map((l, i) => <li key={i}><Rich text={l} /></li>)}</ul></section> : null}
   </div>;
 }

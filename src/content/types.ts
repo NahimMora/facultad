@@ -186,6 +186,8 @@ export interface ConceptMap {
   branches: MapNode[];
   /** Relaciones entre ramas o con otros módulos. */
   links?: string[];
+  /** Preguntas típicas de oral con una respuesta modelo para decir en voz alta. */
+  oral?: { q: string; a: string }[];
 }
 
 export interface SubjectContent {

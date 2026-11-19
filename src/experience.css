@@ -293,3 +293,9 @@ button.cmap-node:hover { border-color:hsl(var(--bh) 55% 55%); }
 .mod-map-btn { display:flex; align-items:center; gap:8px; width:100%; margin:10px 0 2px; padding:10px 12px; border-radius:12px; border:1.5px solid hsl(var(--mh) 55% 60%); background:hsl(var(--mh) 70% 50% / .1); color:var(--ink); font:inherit; font-weight:700; font-size:.9rem; cursor:pointer; text-align:left; }
 .mod-map-btn small { margin-left:auto; color:var(--muted); font-weight:500; font-size:.75rem; }
 .topic-strip .map-chip span { background:var(--tint-soft); }
+.cmap-oral { margin-top:18px; border-top:1px dashed var(--line); padding-top:12px; }
+.cmap-oral h4 { font-size:.82rem; margin:0 0 8px; display:flex; gap:8px; align-items:center; }
+.cmap-oral details { border:1px solid var(--line); border-radius:12px; margin:8px 0; background:var(--bg); }
+.cmap-oral summary { cursor:pointer; padding:10px 12px; font-weight:650; font-size:.9rem; min-height:44px; }
+.cmap-oral details[open] summary { border-bottom:1px solid var(--line); }
+.cmap-oral details p { margin:0; padding:10px 12px; font-size:.88rem; background:var(--good-soft); border-radius:0 0 12px 12px; }

@@ -1,4 +1,5 @@
 import { POCKET } from '../cheatsheets';
+import { ARQ_MAPS } from '../visual/arq-maps';
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/arq';
 import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/arq-repaso';
@@ -133,6 +134,7 @@ const ex: WorkedExercise[] = [
 const content: SubjectContent = {
   subjectId: 'arq', theory, questions: [...q, ...REVIEW_QUESTIONS], exercises: [...ex, ...FINAL_EXERCISES], videos: VIDEOS,
   cheatsheet: POCKET['arq'],
+  maps: ARQ_MAPS,
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
