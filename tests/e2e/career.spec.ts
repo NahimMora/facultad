@@ -39,7 +39,7 @@ test('Carrera permite editar sin almacenamiento y cerrar el diálogo con Escape'
 test('aprobar una previa actualiza las cadenas y los finales pendientes', async ({page})=>{
   await page.clock.install({time:new Date('2026-11-20T10:00:00-03:00')});
   await page.goto('./#/m/am2?examen=final');
-  await expect(page.locator('.study-workspace .tblock')).toHaveCount(1);
+  await expect(page.locator('.study-workspace .index-module').first()).toBeVisible();
   await page.goto('./#/carrera');
   await page.locator('[data-course="am2"]').getByRole('button',{name:/Actualizar estado/}).click();
   await page.getByRole('dialog').getByRole('button',{name:/Aprobada con final/}).click();

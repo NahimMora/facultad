@@ -348,12 +348,16 @@ export const SUBJECTS: Subject[] = [
       { id: 'p1', name: '1er parcial', kind: 'parcial', state: 'rendido', modules: ['m1', 'm2', 'm3', 'm4', 'm5', 'm6'] },
       { id: 'p2', name: '2º parcial', kind: 'parcial', state: 'rendido', modules: ['m7', 'm8', 'm9', 'm10', 'm11', 'm12'] },
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [], format: [
-        { text: 'Cuestionario en Blackboard de unas 14 preguntas de opción múltiple y verdadero/falso sobre todos los módulos.', source: 'final 2023 (Drive)', sure: false },
+        { text: 'Mezcla de preguntas de desarrollo breve (definir, detallar, explicar) con opción múltiple y verdadero/falso, sobre todos los módulos.', source: 'final 2023 resuelto por estudiantes (Drive)', sure: false },
       ] },
     ],
     focus: { examId: 'final', note: 'Regularizada. Hay módulos 1 a 7, apuntes de sistemas de información, casos de estudio y resúmenes del 2º parcial.' },
     material: { apuntes: 22, parciales: 3, practica: 3, clases: 0, nota: 'Además: 3 finales viejos del Drive de estudiantes.' },
-    missing: ['Confirmar si el final sigue siendo un cuestionario en Blackboard'],
+    missing: [
+      'Confirmar el formato del final del 02/12: el único modelo disponible (2023) mezcla desarrollo con choice y V/F',
+      'El programa del Módulo 1 menciona el modelo ACME y la organización horizontal, pero los apuntes no los desarrollan: no se agregaron para no inventar',
+      'Módulos 2 a 12: falta revisarlos tema por tema con el mismo criterio que el Módulo 1',
+    ],
   },
   {
     id: 'sd1',

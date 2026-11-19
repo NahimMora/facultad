@@ -4,19 +4,14 @@ import { VIDEOS } from '../videos/sym';
 import { SCENES } from '../visual/sym';
 import { FINAL_EXERCISES, FINAL_EX_SCENES, FINAL_QUESTIONS } from '../visual/sym-final';
 import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/sym-repaso';
+import { M1_QUESTIONS, M1_THEORY } from '../visual/sym-m1';
 
 /** SyM · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y finales 2023 (Drive). */
 const A = 'autoevaluación de la cátedra';
 const F = 'final 2023 (Drive de estudiantes)';
 
 const theory: TheoryBlock[] = [
-  { id: 'y1', module: 'm1', title: 'Tipos de organización', points: [
-    '**Organización formal**: estructura creada **deliberadamente** (organigrama, normas). La informal surge de las relaciones espontáneas.',
-    '**Departamentalización**: agrupar departamentos o gerencias por actividades similares (por función, producto, zona, cliente).',
-    'Estructuras: lineal, funcional, divisional y **matricial** (mando múltiple: cada empleado depende de un gerente funcional **y** de uno de proyecto).',
-    '**Eficacia**: hacer lo que se debe (lograr los objetivos correctos). **Eficiencia**: hacerlo con el mínimo de recursos.',
-    '**Cinco fuerzas de Porter**: rivalidad entre competidores, amenaza de nuevos entrantes, de sustitutos, poder de negociación de proveedores y de clientes. (Los grupos reguladores **no** son una fuerza).',
-  ] },
+  ...M1_THEORY,
   { id: 'y2', module: 'm2', title: 'Puestos y equipos', points: [
     '**Puesto**: descripción formal y escrita (tareas, ubicación en el organigrama, objetivos y cómo se miden). **Rol**: además incluye los comportamientos que se esperan de quien lo ocupa.',
     '**Grupo de trabajo**: un gerente y sus empleados directos, parte del organigrama. **Equipo**: genera **sinergia** (más que la suma de los esfuerzos individuales).',
@@ -124,12 +119,15 @@ const q: Question[] = [
   { id: 'sym-37', module: 'm12', type: 'mcq', prompt: 'La concisión en la oratoria es:', options: ['Expresar lo esencial con la menor cantidad de palabras', 'Hablar rápido', 'Usar términos técnicos', 'Repetir las ideas'], answer: 0, explain: 'Primer paso del discurso: elegir el tema.', source: A },
 ];
 
+/** Preguntas anteriores del Módulo 1 que se ofrecen como práctica dentro de su tema. */
+const OLD_TOPIC: Record<string, string> = { 'sym-01': 'y1e', 'sym-02': 'y1', 'sym-03': 'y1o', 'sym-04': 'y1e' };
+
 const content: SubjectContent = {
-  subjectId: 'sym', theory, questions: [...q, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: FINAL_EXERCISES, videos: VIDEOS,
+  subjectId: 'sym', theory, questions: [...q.map((x) => ({ ...x, topic: OLD_TOPIC[x.id] })), ...M1_QUESTIONS, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: FINAL_EXERCISES, videos: VIDEOS,
   cheatsheet: POCKET['sym'],
 };
 
-content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
+content.theory = content.theory.map((b) => ({ ...b, scenes: b.scenes ?? SCENES[b.id] }));
 content.exercises = content.exercises.map((e) => ({ ...e, scenes: FINAL_EX_SCENES[e.id] }));
 content.lessons = [
   {

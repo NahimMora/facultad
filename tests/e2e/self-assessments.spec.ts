@@ -25,7 +25,7 @@ test('AIyD: autoevaluaciones separadas, filtro, explicación y avance persistido
   await expect(page.locator('.quiz-bar')).toContainText('bien de 0');
   await expect(page.locator('.qcard')).not.toHaveAttribute('data-qid', /^aid-auto-/);
   await page.goto('./#/m/aid?examen=p1');
-  await expect(page.locator('.study-workspace .tblock')).toBeVisible();
+  await expect(page.locator('.study-workspace .index-module').first()).toBeVisible();
   await expect(page.locator('.self-assessments-entry')).toHaveCount(0);
 });
 

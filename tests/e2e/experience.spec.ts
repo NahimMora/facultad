@@ -1,20 +1,26 @@
 import { expect, test } from '@playwright/test';
 
-test('un tema guarda el avance y se retoma desde Hoy sin elegirlo de nuevo', async ({page})=>{
-  await page.goto('./#/m/am2?examen=final');
+test('el índice muestra los módulos, un tema guarda el avance y se retoma desde Hoy', async ({page})=>{
+  await page.goto('./#/m/sym?examen=final');
+  await expect(page.locator('.index-module')).toHaveCount(12);
+  await page.locator('#mod-m1 ol button').first().click();
   await expect(page.locator('.study-workspace .tblock')).toHaveCount(1);
+  await expect(page.locator('.topic-strip button')).toHaveCount(7);
+  await expect(page.locator('.tblock .topic-lead').first()).toBeVisible();
   await page.getByRole('button',{name:'Marcar como repasado'}).click();
   await expect(page.locator('.lesson-position')).toContainText('1 repasados');
   await page.getByRole('button',{name:'Tema siguiente →'}).click();
   const topic=new URLSearchParams(page.url().split('?').pop()).get('tema');
-  await expect(page.locator('.lesson-position')).toContainText('Tema 2 de');
+  await expect(page.locator('.lesson-position')).toContainText('Tema 2 de 7');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(page.viewportSize()!.width);
   await page.goto('./#/');
-  await page.getByRole('link',{name:'Retomar AM II'}).click();
-  await expect(page.locator('.lesson-position')).toContainText('Tema 2 de');
+  await page.getByRole('link',{name:'Retomar SyM'}).click();
+  await expect(page.locator('.lesson-position')).toContainText('Tema 2 de 7');
   expect(new URLSearchParams(page.url().split('?').pop()).get('tema')).toBe(topic);
+  await page.getByRole('button',{name:'← Índice de módulos'}).click();
+  await expect(page.locator('#mod-m1 header small')).toHaveText('1/7');
   await page.goto('./#/plan');
-  const plan=page.locator('[data-plan-subject="am2"]');
-  await expect(plan.locator('.plan-progress')).toContainText('1/');
+  await expect(page.locator('[data-plan-subject="sym"] .plan-progress')).toContainText('1/');
 });
 
 test('la biblioteca filtra y la práctica muestra una pregunta explicada por vez', async ({page})=>{

@@ -64,8 +64,14 @@ export interface TheoryBlock {
   id: string;
   module: string;
   title: string;
+  /** Explicación breve y visible (párrafos): el porqué del tema. */
+  lead?: string[];
   /** Párrafos o viñetas con marcado simple: **negrita**, `código`, saltos de línea. */
   points: string[];
+  /** Ejemplo concreto, idealmente de la empresa ficticia que conecta los temas de la materia. */
+  example?: { title: string; body: string[] };
+  /** Modelo breve de respuesta escrita, para finales con preguntas de desarrollo. */
+  written?: string;
   /** Comparaciones o tablas cortas. */
   table?: { head: string[]; rows: string[][] };
   /** Lo que suelen preguntar / trampa típica. */
@@ -76,6 +82,8 @@ export interface TheoryBlock {
   video?: { src: string; poster?: string; minutes: number };
   /** Partes contiguas de una clase que también explican este bloque de teoría. */
   videoParts?: string[];
+  /** Aclaración honesta sobre lo que cubre (o no) el video del tema. */
+  videoNote?: string;
 }
 
 export interface McqQuestion {
@@ -93,6 +101,8 @@ export interface McqQuestion {
   /** Explicación específica de por qué cada opción incorrecta está mal (mismo índice que options). */
   why?: (string | null)[];
   source?: string;
+  /** Tema (id de TheoryBlock) donde la pregunta se ofrece como práctica de aplicación. */
+  topic?: string;
 }
 
 export interface TfQuestion {
@@ -105,6 +115,7 @@ export interface TfQuestion {
   vis?: VisSpec;
   scenes?: VisScene[];
   source?: string;
+  topic?: string;
 }
 
 export type Question = McqQuestion | TfQuestion;
