@@ -4,7 +4,7 @@
  * "La organización · tipos de estructura", "Introducción a SyM" y un final 2023 de estudiantes.
  * Redacción y diagramas propios. Empresa ficticia que conecta los temas: Yerbatera Ñandú (Misiones).
  */
-import type { Question, TheoryBlock } from '../types';
+import type { ConceptMap, Question, TheoryBlock } from '../types';
 import type { VisScene } from '../../vis/types';
 import { arr, box, head, scene, txt, tree } from './h';
 
@@ -433,3 +433,50 @@ export const M1_QUESTIONS: Question[] = [
     'Es "la quinta disciplina": integra las otras cuatro y es la base de la mirada sistémica que retoma el Módulo 7.',
     [null, 'Trabaja sobre la visión personal, no integra a las demás.', 'Revisa supuestos, pero no es la que integra.', 'Construye compromiso común, pero no es la que integra.']),
 ];
+
+export const M1_MAP: ConceptMap = {
+  module: 'm1', root: 'Tipos de organización',
+  branches: [
+    { t: 'Organización', d: '2 o más personas que trabajan coordinadas y estructuradas para alcanzar metas', topic: 'y1o', kids: [
+      { rel: 'toda organización tiene', t: 'Meta · plan o método · recursos' },
+      { rel: 'la conduce la', t: 'Administración', d: 'planificar, organizar, dirigir y controlar. La ejerce el **gerente**' },
+      { rel: 'su desempeño se mide con', t: 'Eficacia + eficiencia', d: 'las dos a la vez', kids: [
+        { t: 'Eficacia', d: 'elegir y lograr el objetivo correcto: "hacer lo que se debe hacer"' },
+        { t: 'Eficiencia', d: 'usar el mínimo de recursos: "hacerlo al menor costo"' },
+      ] },
+      { rel: 'la optimiza la función de', t: 'Organización y Métodos (O&M)', d: 'analiza estructura y procedimientos (instrucciones detalladas para tareas que se repiten)' },
+    ] },
+    { t: 'Entorno', d: 'lo externo que puede cambiar los objetivos de la organización', topic: 'y1e', kids: [
+      { rel: 'cercano: la empresa decide', t: 'Microambiente', d: 'clientes, proveedores, competencia, grupos reguladores' },
+      { rel: 'general: la empresa solo se adapta', t: 'Macroambiente', d: 'fuerzas económicas, político-legales, socioculturales, tecnológicas y ecológicas' },
+      { rel: 'la competencia se analiza con', t: '5 fuerzas de Porter', d: 'rivalidad · nuevos participantes · sustitutos · poder de proveedores · poder de clientes. ✘ Los grupos reguladores **no** son fuerza' },
+    ] },
+    { t: 'Estructura', d: 'cómo se divide, agrupa y coordina el trabajo. El **diseño organizacional** decide cuál conviene', topic: 'y1s', kids: [
+      { rel: '1º se separa', t: 'División del trabajo', d: 'tarea compleja → subtareas especializadas (Adam Smith: alfileres)' },
+      { rel: '2º se agrupa', t: 'Departamentalización', d: 'tareas afines en áreas: por función, producto, cliente, zona o proceso' },
+      { rel: 'se ordena con', t: 'Jerarquía', d: 'niveles de autoridad: quién reporta a quién' },
+      { rel: 'se integra con', t: 'Coordinación', d: 'que las áreas trabajen sincronizadas hacia la meta' },
+      { rel: 'adopta uno de 4 tipos', t: 'Estructuras clásicas', topic: 'y1', kids: [
+        { t: 'Lineal (piramidal)', d: 'mando directo, sin tramos definidos · ✔ rápida y clara · ✘ rígida, sobrecarga al dueño · muy pequeñas' },
+        { t: 'Funcional', d: 'áreas por especialidad · ✔ especialización · ✘ silos, lenta · medianas, pocos productos' },
+        { t: 'Por producto/mercado (divisional)', d: 'divisiones con sus propias áreas · ✔ foco, adaptación · ✘ duplicación · grandes diversificadas' },
+        { t: 'Matricial', d: 'funcional + proyecto: **dos jefes** · ✔ flexible · ✘ rompe la unidad de mando, conflictos · entornos complejos' },
+        { rel: 'para reconocerla preguntá en orden', t: '¿2 jefes? → ¿divisiones con áreas propias? → ¿áreas por especialidad? → si no, lineal', topic: 'y1c' },
+      ] },
+    ] },
+    { t: 'Formal e informal', d: 'dos estructuras que conviven', topic: 'y1f', kids: [
+      { t: 'Formal', d: 'deliberada, organigrama, reglas · ✔ claridad, sin superposición · ✘ pérdida de iniciativa, necesidades sociales insatisfechas' },
+      { t: 'Informal', d: 'espontánea, líderes informales, radiopasillo · ✔ comunicación rápida, pertenencia · ✘ rumores, conformidad, resistencia al cambio' },
+      { rel: 'el gerente no la elimina:', t: 'la alinea con los objetivos' },
+    ] },
+    { t: 'Organización que aprende (Senge)', d: 'expande su capacidad de crear resultados; crea su futuro', topic: 'y1a', kids: [
+      { rel: 'mediante 5 disciplinas', t: 'Pensamiento sistémico (la 5ª, integra) · dominio personal · modelos mentales · visión compartida · aprendizaje en equipo' },
+    ] },
+  ],
+  links: [
+    'Departamentalizar **por producto o región** da la estructura **divisional**; combinar **dos criterios** da la **matricial**.',
+    'La lista de estructuras clásicas **no** incluye la "horizontal" (pregunta de final).',
+    'Ser **formal** depende del origen deliberado, no de aparecer en el organigrama: los comités (Módulo 2) son formales y no figuran.',
+    'El **pensamiento sistémico** de Senge se desarrolla en el Módulo 7 (teoría de sistemas).',
+  ],
+};

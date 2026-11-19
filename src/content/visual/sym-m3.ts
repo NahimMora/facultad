@@ -4,7 +4,7 @@
  * "La organización: el poder y la autoridad", solución del caso "Presión en la sala de proyectos" y un final 2023.
  * Redacción y diagramas propios. Empresa ficticia: Yerbatera Ñandú.
  */
-import type { Question, TheoryBlock } from '../types';
+import type { ConceptMap, Question, TheoryBlock } from '../types';
 import type { VisScene } from '../../vis/types';
 import { arr, box, head, scene, txt } from './h';
 
@@ -236,3 +236,45 @@ export const M3_QUESTIONS: Question[] = [
     'Lo estandarizado es la formación de quienes trabajan.',
     [null, 'No se fija una meta numérica.', 'Ninguno ordena al otro.', 'La clave del caso es la formación compartida, no un manual.']),
 ];
+
+export const M3_MAP: ConceptMap = {
+  module: 'm3', root: 'Poder y autoridad',
+  branches: [
+    { t: 'Poder', d: 'capacidad de cambiar actitudes o conductas de otros. No requiere cargo', topic: 'y3', kids: [
+      { rel: 'en acción se llama', t: 'Influencia', d: 'el acto que efectivamente produce el cambio' },
+      { rel: 'si lo legitima el cargo es', t: 'Autoridad', d: 'derecho a dar órdenes; baja por la cadena de mando' },
+    ] },
+    { t: 'Fuentes del poder (French y Raven)', d: '¿por qué el otro obedece?', topic: 'y3f', kids: [
+      { t: 'Recompensa', d: 'puede dar algo valorado: bono, ascenso, reconocimiento' },
+      { t: 'Coercitivo', d: 'puede castigar: sanción, despido. Sirve a corto plazo, genera resentimiento' },
+      { t: 'Legítimo', d: 'por el cargo. **Sinónimo de autoridad**' },
+      { t: 'Experto', d: 'por el conocimiento. No depende del cargo' },
+      { t: 'Referente', d: 'por las cualidades personales (carisma). Típico del líder informal' },
+    ] },
+    { t: 'Tipos de autoridad', d: '¿puede ordenar?, ¿a quién?, ¿sobre qué?', topic: 'y3a', kids: [
+      { t: 'Lineal', d: 'gerentes de la cadena de mando: ordenan a sus subordinados' },
+      { t: 'Staff', d: 'asesora y presta servicios a la línea (RR. HH., Legales). **No ordena**' },
+      { t: 'Funcional', d: 'un staff controla **su especialidad** en todas las áreas (Sistemas obliga a todos a un curso)' },
+      { rel: 'se distribuye mediante', t: 'Delegación', d: 'qué y a quién delegar, dar recursos, intervenir si hace falta, dar feedback' },
+    ] },
+    { t: '¿Dónde se decide?', topic: 'y3d', kids: [
+      { t: 'Jerarquía', d: 'niveles: quién reporta a quién' },
+      { t: 'Centralización', d: 'decisiones arriba · ✔ control, uniformidad · ✘ lenta, sobrecarga, desmotiva' },
+      { t: 'Descentralización', d: 'decisiones hacia abajo · ✔ rápida, adaptable, motiva · ✘ pérdida de control', kids: [
+        { t: 'Vertical', d: 'se delega bajando por la cadena de mando' },
+        { t: 'Horizontal', d: 'pasa a analistas, staff o expertos fuera de la línea' },
+      ] },
+    ] },
+    { t: 'Coordinación (Mintzberg)', d: 'integrar partes independientes; más división → más coordinación', topic: 'y3m', kids: [
+      { t: 'Ajuste mutuo', d: 'comunicación informal' },
+      { t: 'Supervisión directa', d: 'un jefe ordena y controla' },
+      { t: 'Estandarizar procesos · resultados · habilidades', d: '**cómo** se hace (manuales) · **qué** lograr (cuota) · **formación** de quien lo hace' },
+    ] },
+  ],
+  links: [
+    'V/F del final: la definición de **poder** presentada como si fuera de **autoridad** → **falso**.',
+    '"Como su jefe… si lo logran, bono" = **legítimo + recompensa**. Leé cada parte de la frase.',
+    'La autoridad **funcional** rompe la unidad de mando en un tema, como la estructura **matricial** (Módulo 1).',
+    'El poder **referente** explica a los **líderes informales** (Módulo 1). La estandarización de procesos se apoya en los **manuales** (Módulo 6).',
+  ],
+};

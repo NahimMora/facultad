@@ -4,9 +4,9 @@ import { VIDEOS } from '../videos/sym';
 import { SCENES } from '../visual/sym';
 import { FINAL_EXERCISES, FINAL_EX_SCENES, FINAL_QUESTIONS } from '../visual/sym-final';
 import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/sym-repaso';
-import { M1_QUESTIONS, M1_THEORY } from '../visual/sym-m1';
-import { M2_QUESTIONS, M2_THEORY } from '../visual/sym-m2';
-import { M3_QUESTIONS, M3_THEORY } from '../visual/sym-m3';
+import { M1_MAP, M1_QUESTIONS, M1_THEORY } from '../visual/sym-m1';
+import { M2_MAP, M2_QUESTIONS, M2_THEORY } from '../visual/sym-m2';
+import { M3_MAP, M3_QUESTIONS, M3_THEORY } from '../visual/sym-m3';
 
 /** SyM · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y finales 2023 (Drive). */
 const A = 'autoevaluación de la cátedra';
@@ -118,6 +118,7 @@ const OLD_TOPIC: Record<string, string> = { 'sym-01': 'y1e', 'sym-02': 'y1', 'sy
 const content: SubjectContent = {
   subjectId: 'sym', theory, questions: [...q.map((x) => ({ ...x, topic: OLD_TOPIC[x.id] })), ...M1_QUESTIONS, ...M2_QUESTIONS, ...M3_QUESTIONS, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: FINAL_EXERCISES, videos: VIDEOS,
   cheatsheet: POCKET['sym'],
+  maps: [M1_MAP, M2_MAP, M3_MAP],
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: b.scenes ?? SCENES[b.id] }));

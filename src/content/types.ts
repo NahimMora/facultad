@@ -169,6 +169,25 @@ export interface LessonMedia {
   shorts: Record<string, { src: string; poster: string; minutes: number }>;
 }
 
+/** Mapa conceptual de un módulo: conceptos con definición breve y la frase que los une a su padre. */
+export interface MapNode {
+  t: string;
+  /** Definición o dato clave, en una línea. */
+  d?: string;
+  /** Frase de enlace desde el concepto padre ("se divide en", "se mide con"). */
+  rel?: string;
+  /** Tema (id de TheoryBlock) donde se desarrolla. */
+  topic?: string;
+  kids?: MapNode[];
+}
+export interface ConceptMap {
+  module: string;
+  root: string;
+  branches: MapNode[];
+  /** Relaciones entre ramas o con otros módulos. */
+  links?: string[];
+}
+
 export interface SubjectContent {
   subjectId: string;
   theory: TheoryBlock[];
@@ -179,6 +198,8 @@ export interface SubjectContent {
   lessons?: Lesson[];
   /** Preguntas adaptadas exclusivamente de autoevaluaciones identificadas. */
   selfAssessments?: Question[];
+  /** Mapas conceptuales por módulo. */
+  maps?: ConceptMap[];
 }
 
 export const emptyContent = (subjectId: string): SubjectContent => ({ subjectId, theory: [], questions: [], exercises: [], videos: [], cheatsheet: [] });

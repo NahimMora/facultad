@@ -4,7 +4,7 @@
  * "Descripción de puestos y tipos de equipos", "La organización · descripción" y un final 2023 de estudiantes.
  * Redacción y diagramas propios. Empresa ficticia: Yerbatera Ñandú.
  */
-import type { Question, TheoryBlock } from '../types';
+import type { ConceptMap, Question, TheoryBlock } from '../types';
 import type { VisScene } from '../../vis/types';
 import { arr, bars, box, head, scene, txt } from './h';
 
@@ -246,3 +246,32 @@ export const M2_QUESTIONS: Question[] = [
     'Tiene una misión concreta con principio y fin: se disuelve cuando termina la mudanza.',
     [null, 'Un comité es duradero y gobierna o asesora.', 'No es la unidad permanente de un área.', 'Lo crea la organización.']),
 ];
+
+export const M2_MAP: ConceptMap = {
+  module: 'm2', root: 'Puestos y equipos',
+  branches: [
+    { t: 'Puesto de trabajo', d: 'posición formal del organigrama con tareas, deberes y responsabilidades', topic: 'y2p', kids: [
+      { rel: 'se compone de', t: 'Tareas · responsabilidad · autoridad', d: 'qué se hace · sobre qué rinde cuentas · qué decide sin consultar' },
+      { rel: 'se documenta en la', t: 'Descripción del puesto', d: 'responsabilidades, requisitos, lugar en el organigrama, dimensiones, objetivos, acciones y resultados, medición de logros' },
+      { rel: 'sirve para', t: 'Evaluar al empleado', d: 'méritos y premios según objetivos medibles' },
+      { rel: 'en la práctica se vive como', t: 'Rol', d: 'conductas y expectativas, también las no escritas. Mismo puesto ≠ mismo rol', topic: 'y2r' },
+    ] },
+    { t: 'Trabajo colectivo', d: 'no toda reunión de personas es un equipo', topic: 'y2', kids: [
+      { t: 'Grupo', d: 'metas individuales · resultado = **suma** · responsabilidad individual · líder único y fuerte' },
+      { t: 'Equipo', d: '2+ personas que interactúan con propósito común · meta colectiva · **sinergia (1+1=3)** · responsabilidad individual y mutua · liderazgo compartido' },
+    ] },
+    { t: 'Equipos formales', d: 'los crea la organización', topic: 'y2t', kids: [
+      { t: 'Grupo de trabajo', d: 'gerente + empleados directos · operar una función · **permanente** · **unifuncional** · ✔ en el organigrama' },
+      { t: 'Task force', d: 'resolver un problema puntual · **temporal** (se disuelve) · multifuncional · ✘ no figura en el organigrama' },
+      { t: 'Comité', d: 'gobernar, asesorar, decidir temas transversales · **duradero** · multifuncional · ✘ no figura en el organigrama' },
+      { rel: 'para elegir en un caso', t: '¿lo creó la organización? → ¿función continua? → ¿problema con fin? → si no, comité', topic: 'y2c' },
+    ] },
+    { t: 'Equipos informales', d: 'surgen espontáneamente por afinidad. Ej. del final: **grupo de estudio**', topic: 'y2t' },
+  ],
+  links: [
+    '"Grupo de trabajo" tiene dos usos: en **grupo vs. equipo** (suma vs. sinergia) y como **tipo de equipo formal** (gerente + directos).',
+    'Task force y comité son **los dos multifuncionales**: los distinguen la **duración** y el **propósito**.',
+    'V/F del final: "los comités figuran en el organigrama" → **falso**, aunque son formales (Módulo 1: formal ≠ dibujado).',
+    'La **autoridad** del puesto se desarrolla en el Módulo 3.',
+  ],
+};

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import type { Exam, LessonMedia, Module, Subject, SubjectContent, TheoryBlock } from '../content/types';
+import type { ConceptMap, Exam, LessonMedia, Module, Subject, SubjectContent, TheoryBlock } from '../content/types';
 import { examModules } from '../content/subjects';
 import { keys, load, save } from '../lib/storage';
 import { topicChecks } from '../lib/plan';
@@ -8,6 +8,7 @@ import { CheatsheetView, Exercise, LessonPlayer, shortsOf, TheoryCard } from './
 import { Quiz } from './Quiz';
 import { MockExam } from './MockExam';
 import { SelfAssessments } from './SelfAssessments';
+import { ConceptMapView } from './ConceptMap';
 import { CALENDAR_EXAMS } from '../content/examCalendar';
 import { countdownLabel, daysUntil } from '../lib/dates';
 
@@ -29,6 +30,8 @@ export function StudyWorkspace({ s, exam, content, media }: { s: Subject; exam: 
   const blocks = content.theory.filter((b) => modIds.includes(b.module)).sort((a, b) => modIds.indexOf(a.module) - modIds.indexOf(b.module));
   const selected = params.get('tema')?.replace(/^t-/, '');
   const block = blocks.find((b) => b.id === selected);
+  const maps = content.maps ?? [];
+  const map = !block ? maps.find((m) => m.module === params.get('mapa') && modIds.includes(m.module)) : undefined;
   const [checked, setChecked] = useState(() => topicChecks(load<unknown>(keys.planTopics(s.id), {})));
   const lessons = media.filter((m) => content.lessons?.some((l) => l.id === m.id && (exam.kind === 'final' || l.examId === exam.id)));
   const exercises = content.exercises.filter((e) => modIds.includes(e.module));
@@ -37,11 +40,12 @@ export function StudyWorkspace({ s, exam, content, media }: { s: Subject; exam: 
 
   useEffect(() => { if (block && mode === 'aprender') save('study-resume', { subject: s.id, exam: exam.id, topic: block.id, mode }); }, [s.id, exam.id, block, mode]);
 
-  const go = (next: { modo?: string; tema?: string | null; mod?: string | null }) => {
+  const go = (next: { modo?: string; tema?: string | null; mod?: string | null; mapa?: string | null }) => {
     const p = new URLSearchParams(params); p.delete('tab');
     if (next.modo) p.set('modo', next.modo);
     if (next.tema === null) p.delete('tema'); else if (next.tema) p.set('tema', next.tema);
     if (next.mod === null) p.delete('mod'); else if (next.mod) p.set('mod', next.mod);
+    if (next.mapa) { p.set('mapa', next.mapa); p.delete('tema'); } else if (next.tema !== undefined || next.modo) p.delete('mapa');
     setParams(p, { replace: true });
     document.getElementById('study-controls')?.scrollIntoView({ block: 'start', behavior: 'instant' });
   };
@@ -50,7 +54,8 @@ export function StudyWorkspace({ s, exam, content, media }: { s: Subject; exam: 
 
   return <div className="study-workspace">
     <nav id="study-controls" className="study-modes" aria-label="Cómo querés estudiar">{MODES.map((m) => <button key={m.id} className={navMode === m.id ? 'active' : ''} aria-pressed={navMode === m.id} onClick={() => go({ modo: m.id, tema: m.id === 'aprender' ? null : undefined })}>{m.label}</button>)}</nav>
-    {mode === 'aprender' && !block && <ModuleIndex s={s} exam={exam} modules={modules} blocks={blocks} checked={checked} questions={qs.length} exercises={exercises.length} lessons={lessons.length} selfAssessments={selfAssessments.length} go={go} />}
+    {mode === 'aprender' && map && <MapView map={map} modules={modules} blocks={blocks} go={go} />}
+    {mode === 'aprender' && !block && !map && <ModuleIndex s={s} exam={exam} maps={maps} modules={modules} blocks={blocks} checked={checked} questions={qs.length} exercises={exercises.length} lessons={lessons.length} selfAssessments={selfAssessments.length} go={go} />}
     {mode === 'aprender' && block && <TopicView s={s} modules={modules} blocks={blocks} block={block} checked={checked} toggle={toggle} content={content} shorts={shorts} go={go} />}
     {mode === 'practicar' && <Practice s={s} exam={exam} modules={modules} qs={qs} shorts={shorts} mod={params.get('mod')} go={go} />}
     {mode === 'simulacro' && <section id="int-simulacro"><h2>Probate como en un examen</h2><MockExam key={exam.id} storageKey={`mock-${s.id}-${exam.id}`} items={qs} shorts={shorts} /></section>}
@@ -61,12 +66,13 @@ export function StudyWorkspace({ s, exam, content, media }: { s: Subject; exam: 
   </div>;
 }
 
-type Go = (next: { modo?: string; tema?: string | null; mod?: string | null }) => void;
+type Go = (next: { modo?: string; tema?: string | null; mod?: string | null; mapa?: string | null }) => void;
 type Shorts = ReturnType<typeof shortsOf>;
 
-function ModuleIndex({ s, exam, modules, blocks, checked, questions, exercises, lessons, selfAssessments, go }: { s: Subject; exam: Exam; modules: Module[]; blocks: TheoryBlock[]; checked: Record<string, boolean>; questions: number; exercises: number; lessons: number; selfAssessments: number; go: Go }) {
+function ModuleIndex({ s, exam, maps, modules, blocks, checked, questions, exercises, lessons, selfAssessments, go }: { s: Subject; exam: Exam; maps: ConceptMap[]; modules: Module[]; blocks: TheoryBlock[]; checked: Record<string, boolean>; questions: number; exercises: number; lessons: number; selfAssessments: number; go: Go }) {
   const done = blocks.filter((b) => checked[b.id]).length;
   const next = blocks.find((b) => !checked[b.id]) ?? blocks[0];
+  const startModule = (b: TheoryBlock) => maps.some((m) => m.module === b.module) && !blocks.some((x) => x.module === b.module && checked[x.id]) ? go({ mapa: b.module }) : go({ tema: b.id });
   const pct = blocks.length ? Math.round((done / blocks.length) * 100) : 0;
   const date = CALENDAR_EXAMS.find((e) => e.subject === s.id && (exam.kind === 'final' ? e.kind === 'final' : e.kind === 'recuperatorio'));
   const days = date ? daysUntil(date.date) : null;
@@ -81,7 +87,7 @@ function ModuleIndex({ s, exam, modules, blocks, checked, questions, exercises, 
         <small>{done ? `${done} de ${blocks.length} temas repasados` : `${blocks.length} temas en ${modules.length} módulos`}</small>
         <b>{done ? 'Seguí con' : 'Empezá por'}: {next.title}</b>
       </div>
-      <button className="btn primary hero-go" onClick={() => go({ tema: next.id })}>{done ? 'Continuar →' : 'Empezar →'}</button>
+      <button className="btn primary hero-go" onClick={() => startModule(next)}>{done ? 'Continuar →' : 'Empezar →'}</button>
     </div>}
     {units.map((u) => <section key={u.title} className="index-unit">
       {units.length > 1 && <h2>{u.title}</h2>}
@@ -98,6 +104,7 @@ function ModuleIndex({ s, exam, modules, blocks, checked, questions, exercises, 
             <small className={complete ? 'complete' : ''}>{list.length ? `${ok}/${list.length}` : 'sin temas'}</small>
           </header>
           {list.length > 0 && <div className="mod-bar" aria-hidden><i style={{ width: `${(ok / list.length) * 100}%` }} /></div>}
+          {maps.some((x) => x.module === m.id) && <button className="mod-map-btn" onClick={() => go({ mapa: m.id })}><span aria-hidden>🗺️</span> Mapa conceptual del módulo<small>empezá por acá</small></button>}
           {brief && <p className="mod-brief">Versión breve: todavía no está ampliado tema por tema.</p>}
           {list.length > 0 && <ol>{list.map((b) => <li key={b.id}><button onClick={() => go({ tema: b.id })}><span aria-hidden>{checked[b.id] ? '✓' : ''}</span>{b.title}{b.scenes?.length ? null : <em> · solo texto</em>}</button></li>)}</ol>}
           {list.length > 0 && questions > 0 && <button className="linklike index-practice" onClick={() => go({ modo: 'practicar', mod: m.id })}>🎯 Practicar este módulo</button>}
@@ -118,6 +125,7 @@ function TopicView({ s, modules, blocks, block, checked, toggle, content, shorts
   const nextModule = blocks[blocks.indexOf(siblings[siblings.length - 1]) + 1];
   const checks = content.questions.filter((q) => q.topic === block.id);
   const hasModuleQs = content.questions.some((q) => q.module === block.module);
+  const hasMap = (content.maps ?? []).some((m) => m.module === block.module);
   return <>
     <div className="topic-crumbs">
       <button className="linklike" onClick={() => go({ tema: null })}>← Índice de módulos</button>
@@ -126,7 +134,7 @@ function TopicView({ s, modules, blocks, block, checked, toggle, content, shorts
     <div className="lesson-position"><span>Tema {i + 1} de {siblings.length}</span><span>{blocks.filter((b) => checked[b.id]).length} repasados de {blocks.length}</span></div>
     <div className="mod-bar topic-bar" aria-hidden><i style={{ width: `${(siblings.filter((b) => checked[b.id]).length / siblings.length) * 100}%` }} /></div>
     {siblings.every((b) => checked[b.id]) && <p className="module-done" role="status">🎉 ¡{mod?.label ?? 'Módulo'} completo! Probá practicarlo para fijarlo.</p>}
-    {siblings.length > 1 && <ol className="topic-strip" aria-label="Temas del módulo">{siblings.map((b, k) => <li key={b.id}><button className={`${b.id === block.id ? 'active' : ''} ${checked[b.id] ? 'done' : ''}`} aria-current={b.id === block.id ? 'step' : undefined} onClick={() => go({ tema: b.id })} title={b.title}><span>{checked[b.id] ? '✓' : k + 1}</span><small>{b.title}</small></button></li>)}</ol>}
+    {(siblings.length > 1 || hasMap) && <ol className="topic-strip" aria-label="Temas del módulo">{hasMap && <li><button className="map-chip" onClick={() => go({ mapa: block.module })}><span aria-hidden>🗺️</span><small>Mapa del módulo</small></button></li>}{siblings.map((b, k) => <li key={b.id}><button className={`${b.id === block.id ? 'active' : ''} ${checked[b.id] ? 'done' : ''}`} aria-current={b.id === block.id ? 'step' : undefined} onClick={() => go({ tema: b.id })} title={b.title}><span>{checked[b.id] ? '✓' : k + 1}</span><small>{b.title}</small></button></li>)}</ol>}
     <TheoryCard key={block.id} b={block} subject={s} short={shorts[block.id] ?? block.video} checks={checks} checksKey={`topic-${s.id}-${block.id}`} />
     <div className="study-next">
       <button className={`btn ${checked[block.id] ? 'reviewed' : ''}`} aria-pressed={checked[block.id] === true} onClick={() => toggle(block.id)}>{checked[block.id] ? '✓ Tema repasado' : 'Marcar como repasado'}</button>
@@ -138,6 +146,20 @@ function TopicView({ s, modules, blocks, block, checked, toggle, content, shorts
         </>}
     </div>
   </>;
+}
+
+function MapView({ map, modules, blocks, go }: { map: ConceptMap; modules: Module[]; blocks: TheoryBlock[]; go: Go }) {
+  const mod = modules.find((m) => m.id === map.module);
+  const first = blocks.find((b) => b.module === map.module);
+  return <section>
+    <div className="topic-crumbs"><button className="linklike" onClick={() => go({ tema: null })}>← Índice de módulos</button><span>{mod ? `${mod.label} · ${mod.title}` : ''}</span></div>
+    <div className="map-head"><h2>🗺️ Mapa conceptual</h2><span className="hint">Tocá un concepto para ir a su tema</span></div>
+    <ConceptMapView map={map} open={(topic) => go({ tema: topic })} />
+    <div className="study-next">
+      <button className="btn" onClick={() => go({ modo: 'practicar', mod: map.module, tema: null })}>🎯 Practicar el módulo</button>
+      {first && <button className="btn primary" onClick={() => go({ tema: first.id })}>Leer los temas →</button>}
+    </div>
+  </section>;
 }
 
 function Practice({ s, exam, modules, qs, shorts, mod, go }: { s: Subject; exam: Exam; modules: Module[]; qs: SubjectContent['questions']; shorts: Shorts; mod: string | null; go: Go }) {
