@@ -1,4 +1,5 @@
 import { POCKET } from '../cheatsheets';
+import { IISW_MAPS } from '../visual/iisw-maps';
 import type { Question, SubjectContent, TheoryBlock, VideoItem, WorkedExercise } from '../types';
 import port from '../banks/iisw-port.json';
 import { VIDEOS } from '../videos/iisw';
@@ -131,6 +132,7 @@ const content: SubjectContent = {
   exercises: [...exercises, ...FINAL_EXERCISES],
   videos: [...VIDEOS, ...P.videos],
   cheatsheet: POCKET['iisw'],
+  maps: IISW_MAPS,
 };
 
 content.theory = content.theory.map((b) => {
