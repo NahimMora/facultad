@@ -42,3 +42,30 @@
 .interval-axis { height:28px; background:var(--bg); position:relative; border-radius:8px; margin:16px 0; }
 .interval-axis span { position:absolute; height:100%; background:var(--accent); border-radius:5px; }
 @media(max-width:480px) { .recovery .card { padding:16px; }.recovery-metrics b { font-size:1.3rem; }.recovery-metrics { gap:6px; }.recovery .walk-cap { font-size:1rem; } }
+
+/* ---------- parcial y recu resueltos ---------- */
+.route { list-style:none; padding:0; margin:0 0 16px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.route li>div, .route li>button { display:flex; gap:10px; align-items:center; width:100%; height:100%; text-align:left; font:inherit; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:10px 12px; }
+.route li>button { cursor:pointer; }
+.route li { display:flex; }
+.route li > * { flex:1; }
+.route li b { flex:none; width:28px; height:28px; border-radius:50%; display:grid; place-items:center; background:var(--bg); color:var(--muted); font-size:.9rem; }
+.route li.on b { background:var(--tint); color:#fff; }
+.route li span span, .route span { font-weight:650; font-size:.88rem; line-height:1.3; }
+.route small { display:block; font-weight:400; color:var(--muted); font-size:.75rem; }
+.route li.on { }
+.rules ol { padding-left:22px; }
+.rules li { margin:10px 0; }
+.rules li small { display:block; color:var(--bad); font-size:.78rem; margin-top:2px; }
+.solved-pick { display:flex; gap:8px; flex-wrap:wrap; margin:18px 0 6px; }
+.solved-strip button { width:64px; }
+.solved-strip button small { font-weight:700; }
+.solved-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:14px; }
+.solved-grid section { border-radius:12px; padding:10px 12px; background:var(--bg); }
+.solved-grid h4 { margin:0 0 6px; font-size:.8rem; }
+.solved-grid p { margin:0; font-size:.88rem; }
+.solved-comment { border-left:3px solid var(--bad); }
+.solved-model { background:var(--good-soft); border-radius:14px; padding:12px 14px; border-top:0; }
+.solved-model p { margin:8px 0; }
+.solved-note { margin-top:10px; }
+@media (max-width:520px) { .solved-grid, .route { grid-template-columns:minmax(0,1fr); } }

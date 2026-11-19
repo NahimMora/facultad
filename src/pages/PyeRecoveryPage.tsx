@@ -6,17 +6,18 @@ import { gradeTask, type RecoveryTask } from '../lib/recoveryGrading';
 import { finishRecovery, hasMastery, readRecovery, recoveryResult, startRecovery, writeRecovery, type RecoverySession, type RecoveryState } from '../lib/recoveryState';
 import { proportionMargin } from '../lib/statistics';
 import { Rich } from '../components/Rich';
+import { PyeSolved } from '../components/PyeSolved';
 import { ShortVideo, Walkthrough } from '../components/Walkthrough';
 import media from '../content/lessons/pye-clase-3.json';
 import './pyeRecovery.css';
 
-const VIEWS=[['inicio','Mi recorrido'],['parcial','Mi examen corregido'],['tutor','Aprender'],['practica','Practicar'],['simulacro','Simulacro'],['historial','Historial']];
+const VIEWS=[['resueltos','1 · Resueltos'],['tutor','2 · Aprender'],['practica','3 · Practicar'],['simulacro','4 · Simulacro'],['inicio','Mi progreso'],['parcial','Rehacer el parcial'],['historial','Historial']];
 const clockText=(seconds:number)=>`${Math.floor(seconds/60)}:${String(Math.max(0,seconds)%60).padStart(2,'0')}`;
 const dateText=(ms:number)=>new Date(ms).toLocaleString('es-AR',{dateStyle:'short',timeStyle:'short'});
 
 export function PyeRecoveryPage() {
   const [params,setParams]=useSearchParams();
-  const view=VIEWS.some(([id])=>id===params.get('vista'))?params.get('vista')!:'inicio';
+  const view=VIEWS.some(([id])=>id===params.get('vista'))?params.get('vista')!:'resueltos';
   const skill=SKILLS.find(s=>s.id===params.get('habilidad'))??SKILLS[2];
   const [state,setState]=useState<RecoveryState>(readRecovery);
   const [reviewId,setReviewId]=useState<string|null>(null);
@@ -72,6 +73,7 @@ export function PyeRecoveryPage() {
       <button className="btn primary" onClick={finish}>Entregar y corregir</button>
       {!examLock&&<p><button className="linklike" onClick={()=>{setReviewId(null);setParams({vista:'tutor',habilidad:skill.id});}}>Consultar teoría (el borrador sigue guardado)</button></p>}
     </section>:<>
+      {view==='resueltos'&&<PyeSolved go={go}/>}
       {view==='inicio'&&<>
         <section className="card"><h2>De reconocer conceptos a desarrollar respuestas</h2><div className="recovery-metrics"><div><b>48/100</b><span>Parcial analizado</span></div><div><b>60/100</b><span>Mínimo del parcial</span></div><div><b>80/100</b><span>Meta de práctica</span></div></div><p>El PDF muestra que el resultado correcto no alcanzó cuando faltaron variables, hipótesis, cálculos o conclusiones. El recuperatorio se entrena escribiendo cada inciso.</p><p className="hint">Fecha y duración real del recuperatorio: a confirmar. Los pesos globales son 24 + 24 + 10 + 24 + 18. El reparto interno de la rúbrica es pedagógico; el PDF no publica ese detalle.</p><button className="btn primary" onClick={()=>go('tutor','chi')}>Empezar por chi² y la conclusión</button></section>
         <section className="card"><h2>Tu mapa de trabajo</h2><SkillProgress history={state.history}/><p>{hasMastery(state.history)?'Meta orientativa alcanzada: dos simulacros nuevos consecutivos de al menos 80, sin omisiones ni fallos críticos detectados.':'Meta pendiente: dos simulacros nuevos consecutivos ≥80/100, sin omisiones ni errores críticos detectados.'}</p><p className="hint">Esto acredita los criterios del entrenador; no garantiza aprobación ni reemplaza la revisión de la redacción.</p></section>

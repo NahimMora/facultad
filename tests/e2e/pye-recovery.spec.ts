@@ -5,6 +5,11 @@ test('PyE: aprender, escribir, retomar borrador, recibir corrección y guardar e
   await page.goto('./#/m/pye');
   await page.getByRole('link',{name:/Preparar el recuperatorio/}).click();
   await expect(page.getByRole('heading',{name:'Recuperatorio PyE',exact:true})).toBeVisible();
+  await expect(page.locator('.solved-item')).toHaveAttribute('data-solved','p1');
+  await page.getByRole('button',{name:'Recu 16/11 · 40/100'}).click();
+  await expect(page.locator('.solved-item')).toHaveAttribute('data-solved','r1');
+  await expect(page.locator('.solved-model')).toContainText('EM = A/2');
+  await page.getByRole('button',{name:'Mi progreso'}).click();
   await page.getByRole('button',{name:'Empezar por chi² y la conclusión'}).click();
   await expect(page.locator('.recovery-tutor .walk')).toBeVisible();
   await page.locator('.recovery-tutor .walk').getByRole('button',{name:'Paso siguiente',exact:true}).click();
