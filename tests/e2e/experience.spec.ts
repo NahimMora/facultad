@@ -5,7 +5,11 @@ test('el índice muestra los módulos, un tema guarda el avance y se retoma desd
   await expect(page.locator('.index-module')).toHaveCount(12);
   await page.locator('#mod-m1 ol button').first().click();
   await expect(page.locator('.study-workspace .tblock')).toHaveCount(1);
-  await expect(page.locator('.topic-strip button')).toHaveCount(7);
+  await expect(page.locator('.topic-strip button:not(.map-chip)')).toHaveCount(7);
+  await page.locator('.topic-strip .map-chip').click();
+  await expect(page.locator('.cmap-branch')).toHaveCount(5);
+  await page.locator('.cmap-node.d1').first().click();
+  await expect(page.locator('.study-workspace .tblock')).toHaveCount(1);
   await expect(page.locator('.tblock .topic-lead').first()).toBeVisible();
   await page.getByRole('button',{name:'Marcar como repasado'}).click();
   await expect(page.locator('.lesson-position')).toContainText('1 repasados');
