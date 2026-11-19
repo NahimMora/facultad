@@ -6,6 +6,7 @@ import { FINAL_EXERCISES, FINAL_EX_SCENES, FINAL_QUESTIONS } from '../visual/sym
 import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/sym-repaso';
 import { M1_QUESTIONS, M1_THEORY } from '../visual/sym-m1';
 import { M2_QUESTIONS, M2_THEORY } from '../visual/sym-m2';
+import { M3_QUESTIONS, M3_THEORY } from '../visual/sym-m3';
 
 /** SyM · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y finales 2023 (Drive). */
 const A = 'autoevaluación de la cátedra';
@@ -14,12 +15,7 @@ const F = 'final 2023 (Drive de estudiantes)';
 const theory: TheoryBlock[] = [
   ...M1_THEORY,
   ...M2_THEORY,
-  { id: 'y3', module: 'm3', title: 'Poder y autoridad', points: [
-    '**Poder**: capacidad de cambiar actitudes o conductas. **Influencia**: el acto que produce ese cambio. **Autoridad**: poder formal que da el puesto.',
-    'Bases del poder: **legítimo** (por el cargo), **de recompensa**, **coercitivo** (sanción), **experto** y **referente** (carisma). "Como su jefe les pido… si lo logran tendrán un bono" = legítimo + recompensa.',
-    '**Autoridad lineal**: de los gerentes con responsabilidad directa en la cadena de mando. **Staff**: asesora. **Funcional**: un área de staff impone una norma de su especialidad a toda la empresa (TI obliga a todos a hacer una capacitación de seguridad).',
-    '**Centralización**: grado en que las decisiones se concentran arriba. **Descentralización vertical**: delegar hacia abajo en la cadena de mando.',
-  ] },
+  ...M3_THEORY,
   { id: 'y4', module: 'm4', title: 'La dirección', points: [
     '**Motivación**: factores que ocasionan, canalizan y sostienen la conducta. **Maslow**: fisiológicas → seguridad → **sociales** (amistad, afecto) → estima → autorrealización.',
     '**Teoría del reforzamiento**: la conducta se modifica con sus consecuencias (refuerzos y castigos).',
@@ -117,10 +113,10 @@ const q: Question[] = [
 ];
 
 /** Preguntas anteriores del Módulo 1 que se ofrecen como práctica dentro de su tema. */
-const OLD_TOPIC: Record<string, string> = { 'sym-01': 'y1e', 'sym-02': 'y1', 'sym-03': 'y1o', 'sym-04': 'y1e', 'sym-05': 'y2t', 'sym-06': 'y2', 'sym-07': 'y2r' };
+const OLD_TOPIC: Record<string, string> = { 'sym-01': 'y1e', 'sym-02': 'y1', 'sym-03': 'y1o', 'sym-04': 'y1e', 'sym-05': 'y2t', 'sym-06': 'y2', 'sym-07': 'y2r', 'sym-08': 'y3f', 'sym-09': 'y3a', 'sym-10': 'y3a' };
 
 const content: SubjectContent = {
-  subjectId: 'sym', theory, questions: [...q.map((x) => ({ ...x, topic: OLD_TOPIC[x.id] })), ...M1_QUESTIONS, ...M2_QUESTIONS, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: FINAL_EXERCISES, videos: VIDEOS,
+  subjectId: 'sym', theory, questions: [...q.map((x) => ({ ...x, topic: OLD_TOPIC[x.id] })), ...M1_QUESTIONS, ...M2_QUESTIONS, ...M3_QUESTIONS, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: FINAL_EXERCISES, videos: VIDEOS,
   cheatsheet: POCKET['sym'],
 };
 
