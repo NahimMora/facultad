@@ -11,7 +11,8 @@ test('las resoluciones visuales se revelan al responder o al terminar el simulac
   await expect(practice.getByRole('tab', { name: 'Paso 2', exact: true })).toHaveAttribute('aria-selected', 'true');
   await page.goto('./#/m/sym?modo=simulacro');
   const mock = page.locator('#int-simulacro');
-  await mock.getByLabel('Cantidad de preguntas').fill('60');
+  const size = mock.getByLabel('Cantidad de preguntas');
+  await size.fill((await size.getAttribute('max'))!); // todas: la pregunta buscada tiene que entrar en el sorteo
   await mock.getByRole('button', { name: 'Empezar simulacro' }).click();
   const examQuestion = mock.locator('[data-qid="sym-rep-1"]');
   await examQuestion.locator('.opt').first().click();

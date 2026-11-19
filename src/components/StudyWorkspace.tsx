@@ -8,6 +8,8 @@ import { CheatsheetView, Exercise, LessonPlayer, shortsOf, TheoryCard } from './
 import { Quiz } from './Quiz';
 import { MockExam } from './MockExam';
 import { SelfAssessments } from './SelfAssessments';
+import { CALENDAR_EXAMS } from '../content/examCalendar';
+import { countdownLabel, daysUntil } from '../lib/dates';
 
 /**
  * Espacio de estudio de una materia. Recorrido:
@@ -48,7 +50,7 @@ export function StudyWorkspace({ s, exam, content, media }: { s: Subject; exam: 
 
   return <div className="study-workspace">
     <nav id="study-controls" className="study-modes" aria-label="Cómo querés estudiar">{MODES.map((m) => <button key={m.id} className={navMode === m.id ? 'active' : ''} aria-pressed={navMode === m.id} onClick={() => go({ modo: m.id, tema: m.id === 'aprender' ? null : undefined })}>{m.label}</button>)}</nav>
-    {mode === 'aprender' && !block && <ModuleIndex s={s} modules={modules} blocks={blocks} checked={checked} questions={qs.length} exercises={exercises.length} lessons={lessons.length} selfAssessments={selfAssessments.length} go={go} />}
+    {mode === 'aprender' && !block && <ModuleIndex s={s} exam={exam} modules={modules} blocks={blocks} checked={checked} questions={qs.length} exercises={exercises.length} lessons={lessons.length} selfAssessments={selfAssessments.length} go={go} />}
     {mode === 'aprender' && block && <TopicView s={s} modules={modules} blocks={blocks} block={block} checked={checked} toggle={toggle} content={content} shorts={shorts} go={go} />}
     {mode === 'practicar' && <Practice s={s} exam={exam} modules={modules} qs={qs} shorts={shorts} mod={params.get('mod')} go={go} />}
     {mode === 'simulacro' && <section id="int-simulacro"><h2>Probate como en un examen</h2><MockExam key={exam.id} storageKey={`mock-${s.id}-${exam.id}`} items={qs} shorts={shorts} /></section>}
@@ -62,32 +64,49 @@ export function StudyWorkspace({ s, exam, content, media }: { s: Subject; exam: 
 type Go = (next: { modo?: string; tema?: string | null; mod?: string | null }) => void;
 type Shorts = ReturnType<typeof shortsOf>;
 
-function ModuleIndex({ s, modules, blocks, checked, questions, exercises, lessons, selfAssessments, go }: { s: Subject; modules: Module[]; blocks: TheoryBlock[]; checked: Record<string, boolean>; questions: number; exercises: number; lessons: number; selfAssessments: number; go: Go }) {
+function ModuleIndex({ s, exam, modules, blocks, checked, questions, exercises, lessons, selfAssessments, go }: { s: Subject; exam: Exam; modules: Module[]; blocks: TheoryBlock[]; checked: Record<string, boolean>; questions: number; exercises: number; lessons: number; selfAssessments: number; go: Go }) {
   const done = blocks.filter((b) => checked[b.id]).length;
   const next = blocks.find((b) => !checked[b.id]) ?? blocks[0];
+  const pct = blocks.length ? Math.round((done / blocks.length) * 100) : 0;
+  const date = CALENDAR_EXAMS.find((e) => e.subject === s.id && (exam.kind === 'final' ? e.kind === 'final' : e.kind === 'recuperatorio'));
+  const days = date ? daysUntil(date.date) : null;
   const units = s.units.map((u) => ({ title: u.title, modules: u.modules.filter((m) => modules.some((x) => x.id === m.id)) })).filter((u) => u.modules.length);
   return <div className="module-index">
     {s.id === 'pye' && <Link className="btn self-assessments-entry" to="/m/pye/recuperatorio">Preparar el recuperatorio del 2º parcial · con desarrollo</Link>}
     {selfAssessments > 0 && <button className="btn self-assessments-entry" onClick={() => go({ modo: 'autoevaluaciones' })}>Autoevaluaciones · {selfAssessments} preguntas del parcial</button>}
-    {next && <div className="index-resume">
-      <div><small>{done ? `${done} de ${blocks.length} temas repasados` : `${blocks.length} temas para estudiar`}</small><b>{done ? 'Seguí con' : 'Empezá por'}: {next.title}</b></div>
-      <button className="btn primary" onClick={() => go({ tema: next.id })}>{done ? 'Continuar →' : 'Empezar →'}</button>
+    {next && <div className="index-hero">
+      <div className="hero-ring" style={{ ['--p' as string]: pct }} role="img" aria-label={`${pct} % repasado`}><b>{pct}%</b></div>
+      <div className="hero-text">
+        {days !== null && days >= 0 && <span className="hero-count">{exam.kind === 'final' ? 'Final' : exam.name} · {countdownLabel(days)} · {date!.date.slice(8, 10)}/{date!.date.slice(5, 7)}{date!.start ? ` ${date!.start} h` : ''}</span>}
+        <small>{done ? `${done} de ${blocks.length} temas repasados` : `${blocks.length} temas en ${modules.length} módulos`}</small>
+        <b>{done ? 'Seguí con' : 'Empezá por'}: {next.title}</b>
+      </div>
+      <button className="btn primary hero-go" onClick={() => go({ tema: next.id })}>{done ? 'Continuar →' : 'Empezar →'}</button>
     </div>}
     {units.map((u) => <section key={u.title} className="index-unit">
       {units.length > 1 && <h2>{u.title}</h2>}
       {u.modules.map((m) => {
         const list = blocks.filter((b) => b.module === m.id);
         const ok = list.filter((b) => checked[b.id]).length;
-        return <article key={m.id} className="index-module" id={`mod-${m.id}`}>
-          <header><span className="tmod">{m.label}</span><h3>{m.title}</h3><small className={ok && ok === list.length ? 'complete' : ''}>{list.length ? `${ok}/${list.length}` : 'sin temas'}</small></header>
+        const n = modules.indexOf(m) + 1;
+        const brief = list.length > 0 && !list.some((b) => b.lead);
+        const complete = list.length > 0 && ok === list.length;
+        return <article key={m.id} className={`index-module ${complete ? 'is-complete' : ''}`} id={`mod-${m.id}`} style={{ ['--mh' as string]: (n * 37) % 360 }}>
+          <header>
+            <span className="mod-num" aria-hidden>{complete ? '✓' : n}</span>
+            <div className="mod-title"><span className="tmod">{m.label}</span><h3>{m.title}</h3></div>
+            <small className={complete ? 'complete' : ''}>{list.length ? `${ok}/${list.length}` : 'sin temas'}</small>
+          </header>
+          {list.length > 0 && <div className="mod-bar" aria-hidden><i style={{ width: `${(ok / list.length) * 100}%` }} /></div>}
+          {brief && <p className="mod-brief">Versión breve: todavía no está ampliado tema por tema.</p>}
           {list.length > 0 && <ol>{list.map((b) => <li key={b.id}><button onClick={() => go({ tema: b.id })}><span aria-hidden>{checked[b.id] ? '✓' : ''}</span>{b.title}{b.scenes?.length ? null : <em> · solo texto</em>}</button></li>)}</ol>}
-          {list.length > 0 && questions > 0 && <button className="linklike index-practice" onClick={() => go({ modo: 'practicar', mod: m.id })}>Practicar este módulo</button>}
+          {list.length > 0 && questions > 0 && <button className="linklike index-practice" onClick={() => go({ modo: 'practicar', mod: m.id })}>🎯 Practicar este módulo</button>}
         </article>;
       })}
     </section>)}
     <section className="index-extras" aria-label="Más material">
-      {exercises > 0 && <button className="index-extra" onClick={() => go({ modo: 'ejercicios' })}><b>Ejercicios y finales resueltos</b><small>{exercises} resoluciones paso a paso</small></button>}
-      {lessons > 0 && <button className="index-extra" onClick={() => go({ modo: 'clases' })}><b>Clases en video</b><small>{lessons} clases · son resúmenes: el detalle está en los temas</small></button>}
+      {exercises > 0 && <button className="index-extra" onClick={() => go({ modo: 'ejercicios' })}><span aria-hidden>🧩</span><b>Ejercicios y finales resueltos</b><small>{exercises} resoluciones paso a paso</small></button>}
+      {lessons > 0 && <button className="index-extra" onClick={() => go({ modo: 'clases' })}><span aria-hidden>🎬</span><b>Clases en video</b><small>{lessons} clases · son resúmenes: el detalle está en los temas</small></button>}
     </section>
   </div>;
 }
@@ -105,6 +124,8 @@ function TopicView({ s, modules, blocks, block, checked, toggle, content, shorts
       <span>{mod ? `${mod.label} · ${mod.title}` : ''}</span>
     </div>
     <div className="lesson-position"><span>Tema {i + 1} de {siblings.length}</span><span>{blocks.filter((b) => checked[b.id]).length} repasados de {blocks.length}</span></div>
+    <div className="mod-bar topic-bar" aria-hidden><i style={{ width: `${(siblings.filter((b) => checked[b.id]).length / siblings.length) * 100}%` }} /></div>
+    {siblings.every((b) => checked[b.id]) && <p className="module-done" role="status">🎉 ¡{mod?.label ?? 'Módulo'} completo! Probá practicarlo para fijarlo.</p>}
     {siblings.length > 1 && <ol className="topic-strip" aria-label="Temas del módulo">{siblings.map((b, k) => <li key={b.id}><button className={`${b.id === block.id ? 'active' : ''} ${checked[b.id] ? 'done' : ''}`} aria-current={b.id === block.id ? 'step' : undefined} onClick={() => go({ tema: b.id })} title={b.title}><span>{checked[b.id] ? '✓' : k + 1}</span><small>{b.title}</small></button></li>)}</ol>}
     <TheoryCard key={block.id} b={block} subject={s} short={shorts[block.id] ?? block.video} checks={checks} checksKey={`topic-${s.id}-${block.id}`} />
     <div className="study-next">

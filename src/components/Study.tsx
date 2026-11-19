@@ -40,18 +40,18 @@ export function TheoryCard({ b, subject, short, checks, checksKey }: { b: Theory
     <article className="tblock" id={`t-${b.id}`}>
       <span className="tmod">{modName(subject, b.module)}</span>
       <h3>{b.title}</h3>
-      {b.lead?.map((p, i) => <p key={i} className="topic-lead"><Rich text={p} /></p>)}
+      {b.lead && <div className="topic-intro">{b.lead.map((p, i) => <p key={i} className="topic-lead"><Rich text={p} /></p>)}</div>}
       {b.scenes?.map((sc, i) => <Walkthrough key={i} scene={sc} title={b.title} />)}
       {short && <div className="topic-video"><ShortVideo src={short.src} poster={short.poster} minutes={short.minutes} label={b.videoNote ? 'Ver el resumen en video' : undefined} />{b.videoNote && <small className="hint">{b.videoNote}</small>}</div>}
-      <section className="topic-sec"><h4>{b.lead ? 'Lo que tenés que saber' : 'En texto'}</h4><ul>{b.points.map((p, i) => <li key={i}><Rich text={p} /></li>)}</ul></section>
-      {b.table && <section className="topic-sec"><h4>Comparación</h4><div className="tablewrap"><table>
+      <section className="topic-sec"><h4><span aria-hidden>🧭</span> {b.lead ? 'Lo que tenés que saber' : 'En texto'}</h4><ul>{b.points.map((p, i) => <li key={i}><Rich text={p} /></li>)}</ul></section>
+      {b.table && <section className="topic-sec"><h4><span aria-hidden>⚖️</span> Comparación</h4><div className="tablewrap"><table>
         <thead><tr>{b.table.head.map((h) => <th key={h}>{h}</th>)}</tr></thead>
         <tbody>{b.table.rows.map((r, i) => <tr key={i}>{r.map((c, j) => <td key={j}><Rich text={c} /></td>)}</tr>)}</tbody>
       </table></div></section>}
-      {b.example && <aside className="topic-example"><h4>Ejemplo · {b.example.title}</h4>{b.example.body.map((p, i) => <p key={i}><Rich text={p} /></p>)}</aside>}
-      {b.written && <section className="topic-sec topic-written"><h4>Si te lo piden por escrito</h4><p><Rich text={b.written} /></p></section>}
-      {b.trap && <p className="trap"><b>Ojo en el examen:</b> <Rich text={b.trap} /></p>}
-      {checks && checks.length > 0 && <section className="topic-sec topic-check"><h4>Aplicalo a un caso</h4><Quiz storageKey={checksKey ?? `topic-${b.id}`} items={checks} /></section>}
+      {b.example && <aside className="topic-example"><h4><span aria-hidden>🧉</span> Ejemplo · {b.example.title}</h4>{b.example.body.map((p, i) => <p key={i}><Rich text={p} /></p>)}</aside>}
+      {b.written && <section className="topic-sec topic-written"><h4><span aria-hidden>✍️</span> Si te lo piden por escrito</h4><p><Rich text={b.written} /></p></section>}
+      {b.trap && <p className="trap"><b><span aria-hidden>⚠️</span> Ojo en el examen:</b> <Rich text={b.trap} /></p>}
+      {checks && checks.length > 0 && <section className="topic-sec topic-check"><h4><span aria-hidden>🎯</span> Aplicalo a un caso</h4><Quiz storageKey={checksKey ?? `topic-${b.id}`} items={checks} /></section>}
     </article>
   );
 }
