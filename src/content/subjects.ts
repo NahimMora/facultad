@@ -170,7 +170,7 @@ export const SUBJECTS: Subject[] = [
     ],
     focus: { examId: 'final', note: 'Final: teoría y preguntas de los 12 módulos, los 7 videos del 2º parcial y ejercicios tipo final (BPMN, lista de requerimientos, errores de CU, entidades).' },
     material: { apuntes: 7, parciales: 4, practica: 9, clases: 3, nota: 'Incluye teoría, práctica, autoevaluación y parciales viejos ya procesados. Además: 4 finales viejos del Drive de estudiantes.' },
-    missing: [FINAL_FORMAT_MISSING],
+    missing: [FINAL_FORMAT_MISSING, 'Módulos 7 a 12: falta ampliarlos tema por tema con el mismo criterio que 1 a 6'],
     links: [{ label: 'Plataforma del 2º parcial (videos, práctica y modo urgente)', url: 'https://nahimmora.github.io/iisw-parcial2/' }],
   },
   {
@@ -259,30 +259,36 @@ export const SUBJECTS: Subject[] = [
     icon: '🎲',
     units: [
       { title: 'Primera parte', modules: [
-        { id: 'u1', label: 'Unidad', title: 'Estadística descriptiva', topics: ['Presentación de datos', 'Medidas resumen'] },
-        { id: 'u2', label: 'Unidad', title: 'Cálculo de probabilidades' },
-        { id: 'u3', label: 'Unidad', title: 'Variables aleatorias discretas', topics: ['Binomial', 'Poisson'] },
-        { id: 'u4', label: 'Unidad', title: 'Variables continuas: distribución normal' },
-        { id: 'u5', label: 'Unidad', title: 'Suma de variables y Teorema Central del Límite' },
+        { id: 'u1', label: 'Unidad 1', title: 'Estadística descriptiva', topics: ['Presentación de datos', 'Medidas resumen'] },
+        { id: 'u2', label: 'Unidad 2', title: 'Cálculo de probabilidades' },
+        { id: 'u3', label: 'Unidad 3', title: 'Variables aleatorias discretas', topics: ['Binomial', 'Poisson'] },
+        { id: 'u4', label: 'Unidad 4', title: 'Variables continuas: distribución normal' },
+        { id: 'u5', label: 'Unidad 5', title: 'Suma de variables y Teorema Central del Límite' },
       ] },
       { title: 'Segunda parte (inferencia)', modules: [
-        { id: 'u6', label: 'Unidad', title: 'Inferencia para una población', topics: ['Intervalos de confianza', 'Test de hipótesis', 'Proporciones'] },
-        { id: 'u7', label: 'Unidad', title: 'Comparación de dos poblaciones' },
-        { id: 'u8', label: 'Unidad', title: 'Datos categóricos y pruebas no paramétricas' },
-        { id: 'u9', label: 'Unidad', title: 'Regresión y correlación' },
+        { id: 'u6', label: 'Unidad 6', title: 'Inferencia para una población', topics: ['Intervalos de confianza', 'Test de hipótesis', 'Proporciones'] },
+        { id: 'u7', label: 'Unidad 7', title: 'Comparación de dos poblaciones' },
+        { id: 'u8', label: 'Unidad 8', title: 'Datos categóricos y pruebas no paramétricas' },
+        { id: 'u9', label: 'Unidad 9', title: 'Regresión y correlación' },
       ] },
     ],
     exams: [
       { id: 'p1', name: '1er parcial', kind: 'parcial', state: 'rendido', modules: ['u1', 'u2', 'u3', 'u4', 'u5'] },
       { id: 'p2', name: '2º parcial', kind: 'parcial', state: 'rendido', modules: ['u6', 'u7', 'u8', 'u9'] },
+      { id: 'recu', name: 'Recuperatorio del 2º parcial', kind: 'recuperatorio', state: 'proximo', modules: ['u6', 'u7', 'u8', 'u9'], when: 'fuera de cursada: lunes 30/11', format: [
+        { text: 'Recuperatorio fuera de cursada: lunes 30/11. Se recupera un solo parcial; hay que tener el otro aprobado y todas las autoevaluaciones aprobadas. Se aprueba con 60.', source: 'fechas y condiciones de la cátedra', sure: true },
+        { text: 'Si lo aprobás, ese mismo 30/11 a las 10 h es la evaluación sincrónica oral sobre los temas del 2º parcial. Es eliminatoria: si no te presentás o desaprobás, se recursa.', source: 'fechas y condiciones de la cátedra', sure: true },
+        { text: 'Quien aprueba por esta vía no puede rendir el final en los llamados de diciembre: recién desde febrero.', source: 'condiciones de la cátedra', sure: true },
+        { text: 'Desarrollo en el editor, con cada cálculo y justificación. Te dan la hoja de fórmulas permitidas y salidas de Jamovi para elegir.', source: 'parcial rendido, modelos y fórmulas de la cátedra', sure: false },
+      ] },
       { id: 'final', name: 'Final', kind: 'final', state: 'pendiente', modules: [], format: [
         { text: 'Escrito con ejercicios de desarrollo: te dan las salidas o los datos ya procesados (no hace falta Infostat) y pedís interpretar.', source: 'modelos de final 2022–2025 (Drive)', sure: false },
         { text: 'Temas que se repiten: CV y percentiles, probabilidad con sucesos independientes, prueba de hipótesis con p-valor y tipo de error, IC, χ², regresión (corregir afirmaciones falsas).', source: 'modelos de final 2022–2025 (Drive)', sure: false },
       ] },
     ],
-    focus: { examId: 'final', note: 'Regularizada. Hay teórico y práctico completos de la cátedra, modelos de 2º parcial con respuestas y 10 clases grabadas.' },
+    focus: { examId: 'recu', note: 'Recuperatorio del 2º parcial el 30/11 y oral ese día a las 10 h. Hay teórico y práctico completos de la cátedra, modelos de 2º parcial con respuestas y 10 clases grabadas.' },
     material: { apuntes: 7, parciales: 8, practica: 3, clases: 11, nota: 'Además: finales viejos corregidos (2022 a 2024) del Drive de estudiantes.' },
-    missing: [FINAL_FORMAT_MISSING, 'Fecha, duración y formato vigente del recuperatorio del 2º parcial', 'Tabla o fórmulas permitidas en el final (si dan una)', 'Confirmar la errata del modelo: el inciso del intervalo cambia de sustancia sin dar otra muestra'],
+    missing: [FINAL_FORMAT_MISSING, 'Horario y duración del recuperatorio del 30/11: el oral es ese mismo día a las 10 h, confirmá cuándo abre y cuándo cierra el escrito', 'Tabla o fórmulas permitidas en el final (si dan una)', 'Confirmar la errata del modelo: el inciso del intervalo cambia de sustancia sin dar otra muestra'],
   },
   {
     id: 'bd',
@@ -356,7 +362,8 @@ export const SUBJECTS: Subject[] = [
     missing: [
       'Confirmar el formato del final del 02/12: el único modelo disponible (2023) mezcla desarrollo con choice y V/F',
       'El programa del Módulo 1 menciona el modelo ACME y la organización horizontal, pero los apuntes no los desarrollan: no se agregaron para no inventar',
-      'Módulos 2 a 12: falta revisarlos tema por tema con el mismo criterio que el Módulo 1',
+      'Módulos 7 a 12: falta ampliarlos tema por tema con el mismo criterio que 1 a 6',
+      'Un final 2023 pregunta por el producto "perro" (matriz BCG), que no está en los apuntes del Módulo 5: no se agregó para no inventar',
     ],
   },
   {

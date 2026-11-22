@@ -58,7 +58,7 @@ export function PyeRecoveryPage() {
   const examLock=hasDraft&&active.mode!=='guided';
   const completed=state.history.filter(s=>s.mode==='exam');
   return <div className="page recovery" style={{['--h' as string]:152}}>
-    <header className="shead"><Link className="back" to="/m/pye">← Probabilidad y Estadística</Link><h1>Recuperatorio PyE</h1><p>Segundo parcial · Respuestas desarrolladas</p></header>
+    <header className="shead"><Link className="back" to="/m/pye">← Probabilidad y Estadística</Link><h1>Recuperatorio PyE</h1><p>Segundo parcial · Respuestas desarrolladas</p><Link to="/m/pye?examen=recu">Temas, mapas y preguntas de oral de las unidades 6 a 9</Link></header>
     {!examLock&&<nav className="recovery-tabs" aria-label="Entrenador del recuperatorio">{VIEWS.map(([id,label])=><button key={id} className={`pill ${view===id?'on':''}`} aria-current={view===id?'page':undefined} onClick={()=>go(id)}>{label}</button>)}</nav>}
     <p className="hint recovery-limit">Corrección local por criterios explícitos. La nota es una estimación de práctica, no una calificación oficial ni una evaluación semántica docente. Si una redacción válida no se reconoce, contrastala con la rúbrica.</p>
     {storageFailed&&<p className="recovery-warning" role="status">Este navegador no pudo guardar el progreso. Podés practicar, pero copiá tus respuestas antes de salir o recargar.</p>}

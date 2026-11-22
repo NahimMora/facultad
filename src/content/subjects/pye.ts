@@ -1,61 +1,22 @@
 import { POCKET } from '../cheatsheets';
 import type { Question, SubjectContent, TheoryBlock, WorkedExercise } from '../types';
 import { VIDEOS } from '../videos/pye';
-import { EX_SCENES, SCENES } from '../visual/pye';
+import { EX_SCENES } from '../visual/pye';
+import { U1_MAP, U1_QUESTIONS, U1_THEORY, U2_MAP, U2_QUESTIONS, U2_THEORY } from '../visual/pye-u1-u2';
+import { U3_MAP, U3_QUESTIONS, U3_THEORY, U4_MAP, U4_QUESTIONS, U4_THEORY, U5_MAP, U5_QUESTIONS, U5_THEORY } from '../visual/pye-u3-u5';
+import { U6_MAP, U6_QUESTIONS, U6_THEORY } from '../visual/pye-u6';
+import { U7_MAP, U7_QUESTIONS, U7_THEORY } from '../visual/pye-u7';
+import { U8_MAP, U8_QUESTIONS, U8_THEORY } from '../visual/pye-u8';
+import { U9_MAP, U9_QUESTIONS, U9_THEORY } from '../visual/pye-u9';
 import { FINAL_EXERCISES } from '../visual/pye-final';
 import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/pye-repaso';
 
-/** PyE · final. Redacción propia sobre el teórico/práctico de la cátedra y los modelos de final 2022–2025. */
+/** PyE · recuperatorio, oral y final. Redacción propia sobre el teórico/práctico de la cátedra y los modelos de final 2022–2025. */
 const F = 'modelos de final de la cátedra (Drive de estudiantes)';
 
 const theory: TheoryBlock[] = [
-  { id: 'p1', module: 'u1', title: 'Estadística descriptiva', points: [
-    '**Población** (todos) vs **muestra** (parte). **Parámetro** (de la población: μ, σ, p) vs **estadístico** (de la muestra: x̄, s, p̂).',
-    'Variables **cualitativas** (nominales u ordinales) y **cuantitativas** (discretas o continuas).',
-    'Posición: **media**, **mediana** (deja 50 % a cada lado), **moda** (valor más frecuente), **percentiles**: P(75) = valor por debajo del cual está el 75 % de los datos.',
-    'Dispersión: rango, varianza, desvío estándar y **coeficiente de variación CV = s / x̄** (sin unidades: sirve para **comparar la homogeneidad** de grupos con medias distintas). **Mayor CV = más heterogéneo.**',
-    'Forma: **simétrica** (media = mediana = moda), **asimétrica positiva o a derecha** (cola larga a la derecha: Mo < Me < x̄) y **negativa o a izquierda** (Mo > Me > x̄).',
-  ], trap: 'Para decir "en qué grupo los datos son más heterogéneos" se compara el **CV**, no el desvío solo, porque las medias son distintas.' },
-  { id: 'p2', module: 'u2', title: 'Probabilidad', points: [
-    'P(A ∪ B) = P(A) + P(B) − P(A ∩ B). **Excluyentes:** P(A ∩ B) = 0.',
-    '**Condicional:** P(A / B) = P(A ∩ B) / P(B). **Independientes:** P(A ∩ B) = P(A)·P(B), y entonces P(A / B) = P(A).',
-    '**Probabilidad total:** P(R) = Σ P(R / Aᵢ)·P(Aᵢ). **Bayes:** P(Aᵢ / R) = P(R / Aᵢ)·P(Aᵢ) / P(R).',
-  ], trap: 'No confundir **excluyentes** (no pueden ocurrir juntos) con **independientes** (uno no cambia la probabilidad del otro).' },
-  { id: 'p3', module: 'u3', title: 'Variables discretas: binomial y Poisson', points: [
-    '**Binomial (n, p):** n ensayos independientes con probabilidad de éxito p constante; X = cantidad de éxitos. E(X) = n·p · V(X) = n·p·(1 − p).',
-    '**Poisson (λ):** cantidad de ocurrencias en un intervalo (de tiempo, espacio…) con tasa media λ. E(X) = V(X) = λ. Si cambia el intervalo, λ cambia proporcionalmente.',
-  ] },
-  { id: 'p4', module: 'u4', title: 'Distribución normal', points: [
-    'Campana simétrica: media = mediana = moda. Se estandariza con **Z = (X − μ) / σ** ~ N(0, 1).',
-    'Regla práctica: μ ± σ ≈ 68 %, μ ± 2σ ≈ 95 %, μ ± 3σ ≈ 99,7 %.',
-    'Percentil de la normal: x = μ + z·σ (ej.: P(80) usa z ≈ 0,84).',
-  ] },
-  { id: 'p5', module: 'u5', title: 'Suma de variables y Teorema Central del Límite', points: [
-    'E(aX + bY) = aE(X) + bE(Y). Si son independientes, V(aX + bY) = a²V(X) + b²V(Y).',
-    '**TCL clásico:** con observaciones independientes e idénticamente distribuidas y varianza finita, la media estandarizada se aproxima a una normal al crecer n. La media muestral tiene centro μ y error estándar σ/√n. Treinta es una orientación práctica, no una garantía universal.',
-  ] },
-  { id: 'p6', module: 'u6', title: 'Inferencia: intervalos y prueba de hipótesis', points: [
-    '**Intervalo de confianza:** "con una confianza del 95 % se estima que la **media poblacional** está entre a y b". Se interpreta sobre el **parámetro**, no sobre los datos. σ desconocido → distribución **t de Student**.',
-    '**Prueba de hipótesis:** H0 (lo que se supone, lleva el =) y H1 (lo que se quiere probar: >, < o ≠, que define si la prueba es unilateral derecha, izquierda o bilateral).',
-    '**Regla de decisión con p-valor:** si **p-v < α → se rechaza H0**; si p-v ≥ α, no se rechaza.',
-    '**Error tipo I** (α): rechazar H0 siendo verdadera. **Error tipo II** (β): no rechazar H0 siendo falsa. **Potencia** = 1 − β: rechazar H0 cuando es falsa.',
-    'Si se rechazó H0, el error posible es **tipo I**; si no se rechazó, **tipo II**. Hay que expresarlo **en términos del problema**.',
-  ], trap: 'Trampa de autoevaluación: "si α es **menor** al p-valor se rechaza H1" → no: con α < p-v **no se rechaza H0** (H1 nunca "se rechaza", se acepta o no hay evidencia).' },
-  { id: 'p7', module: 'u7', title: 'Comparación de dos poblaciones', points: [
-    '**Diferencia de medias, muestras independientes** (dos grupos distintos, ej.: sector administrativo vs comercial). Antes se prueba la **homogeneidad de varianzas** (H0: σ₁² = σ₂²).',
-    '**Muestras apareadas** (los mismos individuos medidos dos veces, antes y después): se trabaja con las diferencias.',
-    '**Diferencia de proporciones** para variables cualitativas en dos grupos.',
-  ] },
-  { id: 'p8', module: 'u8', title: 'Datos categóricos y pruebas no paramétricas', points: [
-    '**Chi cuadrado de bondad de ajuste:** ¿la distribución observada sigue una proporción teórica o histórica? g.l. = categorías − 1.',
-    '**Chi cuadrado de independencia:** tabla de contingencia de dos variables cualitativas; g.l. = (filas − 1)(columnas − 1).',
-    '**No paramétricas:** no suponen una distribución (normal) para la población; se usan con muestras chicas o datos ordinales.',
-  ] },
-  { id: 'p9', module: 'u9', title: 'Regresión y correlación lineal', points: [
-    'ŷ = a + b·x. **Pendiente b:** por cada unidad que aumenta x, y cambia en b unidades (en promedio). **Ordenada a:** valor de y cuando x = 0 (a veces no tiene sentido práctico).',
-    '**r** (correlación) mide fuerza y sentido de la asociación lineal (−1 a 1). **r²** (determinación): **porcentaje de la variación de y explicada por la variación de x**. Si dan r = 0,931, entonces r² = 0,867.',
-    'La prueba sobre la pendiente concluye si las variables están **linealmente asociadas**, **nunca causalidad**. Modelo útil para pronosticar si r² > 0,5 (criterio de la cátedra).',
-  ], trap: 'Las tres trampas del final 2025: confundir r con r², interpretar la ordenada fuera de contexto y concluir **causalidad** a partir de la regresión.' },
+  ...U1_THEORY, ...U2_THEORY, ...U3_THEORY, ...U4_THEORY, ...U5_THEORY,
+  ...U6_THEORY, ...U7_THEORY, ...U8_THEORY, ...U9_THEORY,
 ];
 
 const q: Question[] = [
@@ -101,12 +62,48 @@ const ex: WorkedExercise[] = [
   ], result: 'P(R) = 0,148 · P(A/R) ≈ 0,24.' },
 ];
 
-const content: SubjectContent = {
-  subjectId: 'pye', theory, questions: [...q, ...REVIEW_QUESTIONS], exercises: ex, videos: VIDEOS,
-  cheatsheet: POCKET['pye'],
+/** Preguntas anteriores que se ofrecen como práctica dentro de su tema. */
+const OLD_TOPIC: Record<string, string> = {
+  'pye-01': 'p1d', 'pye-04': 'p1d', 'pye-rep-3': 'p1d',
+  'pye-02': 'p1c', 'pye-rep-1': 'p1c', 'pye-rep-2': 'p1c',
+  'pye-03': 'p1a',
+  'pye-05': 'p2c', 'pye-06': 'p2c', 'pye-07': 'p2c',
+  'pye-08': 'p2b', 'pye-rep-6': 'p2b',
+  'pye-rep-4': 'p2u', 'pye-rep-5': 'p2u',
+  'pye-09': 'p3e',
+  'pye-10': 'p3b', 'pye-rep-7': 'p3b', 'pye-rep-9': 'p3b',
+  'pye-11': 'p3p', 'pye-rep-8': 'p3p',
+  'pye-13': 'p4', 'pye-rep-10': 'p4', 'pye-rep-12': 'p4',
+  'pye-12': 'p4z', 'pye-rep-11': 'p4z',
+  'pye-15': 'p5', 'pye-rep-13': 'p5', 'pye-rep-14': 'p5',
+  'pye-14': 'p5t', 'pye-rep-15': 'p5t',
+  'pye-16': 'p6i', 'pye-22': 'p6i',
+  'pye-17': 'p6t', 'pye-rep-16': 'p6t', 'pye-rep-17': 'p6t',
+  'pye-18': 'p6a', 'pye-21': 'p6a', 'pye-rep-19': 'p6a',
+  'pye-19': 'p6h', 'pye-20': 'p6h',
+  'pye-rep-18': 'p6e',
+  'pye-23': 'p7',
+  'pye-24': 'p7a', 'pye-rep-20': 'p7a',
+  'pye-rep-21': 'p7l',
+  'pye-25': 'p8b', 'pye-26': 'p8b', 'pye-rep-22': 'p8b', 'pye-rep-23': 'p8b',
+  'pye-27': 'p8',
+  'pye-rep-24': 'p8i',
+  'pye-28': 'p9', 'pye-32': 'p9', 'pye-rep-25': 'p9',
+  'pye-29': 'p9r', 'pye-30': 'p9r', 'pye-rep-27': 'p9r',
+  'pye-31': 'p9b',
+  'pye-rep-26': 'p9x', 'pye-rep-28': 'p9x',
 };
 
-content.theory = content.theory.map((b) => ({ ...b, scenes: SCENES[b.id] }));
+const content: SubjectContent = {
+  subjectId: 'pye', theory, questions: [
+    ...[...q, ...REVIEW_QUESTIONS].map((x) => ({ ...x, topic: OLD_TOPIC[x.id] })),
+    ...U1_QUESTIONS, ...U2_QUESTIONS, ...U3_QUESTIONS, ...U4_QUESTIONS, ...U5_QUESTIONS,
+    ...U6_QUESTIONS, ...U7_QUESTIONS, ...U8_QUESTIONS, ...U9_QUESTIONS,
+  ], exercises: ex, videos: VIDEOS,
+  cheatsheet: POCKET['pye'],
+  maps: [U1_MAP, U2_MAP, U3_MAP, U4_MAP, U5_MAP, U6_MAP, U7_MAP, U8_MAP, U9_MAP],
+};
+
 content.exercises = content.exercises.map((e) => ({ ...e, scenes: EX_SCENES[e.id] }));
 content.lessons = [
   {

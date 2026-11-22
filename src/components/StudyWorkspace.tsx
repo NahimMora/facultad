@@ -33,7 +33,7 @@ export function StudyWorkspace({ s, exam, content, media }: { s: Subject; exam: 
   const maps = content.maps ?? [];
   const map = !block ? maps.find((m) => m.module === params.get('mapa') && modIds.includes(m.module)) : undefined;
   const [checked, setChecked] = useState(() => topicChecks(load<unknown>(keys.planTopics(s.id), {})));
-  const lessons = media.filter((m) => content.lessons?.some((l) => l.id === m.id && (exam.kind === 'final' || l.examId === exam.id)));
+  const lessons = media.filter((m) => content.lessons?.some((l) => l.id === m.id && (exam.kind === 'final' || l.examId === exam.id || (exam.kind === 'recuperatorio' && coversOnly(l.parts, content.theory, modIds)))));
   const exercises = content.exercises.filter((e) => modIds.includes(e.module));
   const qs = content.questions.filter((q) => modIds.includes(q.module));
   const shorts = shortsOf(media);
@@ -64,6 +64,12 @@ export function StudyWorkspace({ s, exam, content, media }: { s: Subject; exam: 
     {mode === 'ejercicios' && <Exercises list={exercises} shorts={shorts} go={go} />}
     {mode === 'clases' && <Classes lessons={lessons} go={go} />}
   </div>;
+}
+
+/** Una clase del final también sirve para el recuperatorio si todos sus temas entran en él. */
+function coversOnly(parts: string[], theory: TheoryBlock[], modIds: string[]) {
+  const topics = theory.filter((b) => parts.includes(b.id));
+  return topics.length > 0 && topics.every((b) => modIds.includes(b.module));
 }
 
 type Go = (next: { modo?: string; tema?: string | null; mod?: string | null; mapa?: string | null }) => void;
@@ -113,7 +119,7 @@ function ModuleIndex({ s, exam, maps, modules, blocks, checked, questions, exerc
     </section>)}
     <section className="index-extras" aria-label="Más material">
       {exercises > 0 && <button className="index-extra" onClick={() => go({ modo: 'ejercicios' })}><span aria-hidden>🧩</span><b>Ejercicios y finales resueltos</b><small>{exercises} resoluciones paso a paso</small></button>}
-      {lessons > 0 && <button className="index-extra" onClick={() => go({ modo: 'clases' })}><span aria-hidden>🎬</span><b>Clases en video</b><small>{lessons} clases · son resúmenes: el detalle está en los temas</small></button>}
+      {lessons > 0 && <button className="index-extra" onClick={() => go({ modo: 'clases' })}><span aria-hidden>🎬</span><b>Clases en video</b><small>{lessons} {lessons === 1 ? 'clase' : 'clases'} · son resúmenes: el detalle está en los temas</small></button>}
     </section>
   </div>;
 }
