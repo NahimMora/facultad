@@ -7,6 +7,9 @@ import { REVIEW_LESSONS, REVIEW_QUESTIONS } from '../visual/sym-repaso';
 import { M1_MAP, M1_QUESTIONS, M1_THEORY } from '../visual/sym-m1';
 import { M2_MAP, M2_QUESTIONS, M2_THEORY } from '../visual/sym-m2';
 import { M3_MAP, M3_QUESTIONS, M3_THEORY } from '../visual/sym-m3';
+import { M4_MAP, M4_QUESTIONS, M4_THEORY } from '../visual/sym-m4';
+import { M5_MAP, M5_QUESTIONS, M5_THEORY } from '../visual/sym-m5';
+import { M6_MAP, M6_QUESTIONS, M6_THEORY } from '../visual/sym-m6';
 
 /** SyM · final. Redacción propia sobre los apuntes de la cátedra, las autoevaluaciones y finales 2023 (Drive). */
 const A = 'autoevaluación de la cátedra';
@@ -16,25 +19,9 @@ const theory: TheoryBlock[] = [
   ...M1_THEORY,
   ...M2_THEORY,
   ...M3_THEORY,
-  { id: 'y4', module: 'm4', title: 'La dirección', points: [
-    '**Motivación**: factores que ocasionan, canalizan y sostienen la conducta. **Maslow**: fisiológicas → seguridad → **sociales** (amistad, afecto) → estima → autorrealización.',
-    '**Teoría del reforzamiento**: la conducta se modifica con sus consecuencias (refuerzos y castigos).',
-    '**Rejilla administrativa**: 9.1 = dirección de **tareas** (resultados, poco interés en la gente) · 1.9 = club campestre · 9.9 = equipo.',
-    'Decisión racional: identificar el problema → generar alternativas → **evaluarlas** → **elegir** → implementar → evaluar. Negociación: enfoque **duro** (posición rígida, desconfianza, ganar) vs blando vs por principios.',
-  ] },
-  { id: 'y5', module: 'm5', title: 'Planificación y control', points: [
-    'Niveles: **estratégico** (largo plazo, alta dirección), **táctico** (decisiones programadas y no programadas de los mandos medios), **operativo**.',
-    '**Metas**: enfocan esfuerzos, guían planes y sirven para evaluar. **Administración estratégica**: adaptar recursos y habilidades al entorno cambiante.',
-    '**FODA**: fortalezas y debilidades (internas), oportunidades y **amenazas** (externas: la entrada de competidores más tecnificados es una amenaza).',
-    '**Cadena de valor** (Porter): actividades **primarias** (logística, operaciones, **marketing y ventas**, servicio) y de apoyo. **Balanced scorecard**: perspectivas financiera, clientes, **procesos internos** y aprendizaje.',
-    'Control: establecer estándares → **medir** → **evaluar** → corregir. El balance general es un control **financiero**.',
-  ] },
-  { id: 'y6', module: 'm6', title: 'El proceso administrativo', points: [
-    'Sistema de operaciones: **insumos** (materias primas, RR. HH., equipos, información) → transformación → productos.',
-    '**Manuales**: de **organización** (diseño funcional, estructura), de **procedimientos** (circuitos y procesos de las operaciones).',
-    '**Flujogramas** de circuitos administrativos: el **rombo** es una decisión; sirven para detectar deficiencias y duplicidad de tareas.',
-    '**Six Sigma**: máximo **3,4 defectos por millón** (99,9996 %); ciclo DMAIC: definir, medir, analizar, mejorar, controlar.',
-  ] },
+  ...M4_THEORY,
+  ...M5_THEORY,
+  ...M6_THEORY,
   { id: 'y7', module: 'm7', title: 'Teoría de sistemas', points: [
     '**Sistema**: conjunto de componentes que interactúan para lograr un objetivo común.',
     '**Homeostasis**: equilibrio dinámico logrado por **autorregulación**. Sistemas abiertos (intercambian con el entorno) y cerrados.',
@@ -112,13 +99,39 @@ const q: Question[] = [
   { id: 'sym-37', module: 'm12', type: 'mcq', prompt: 'La concisión en la oratoria es:', options: ['Expresar lo esencial con la menor cantidad de palabras', 'Hablar rápido', 'Usar términos técnicos', 'Repetir las ideas'], answer: 0, explain: 'Primer paso del discurso: elegir el tema.', source: A },
 ];
 
-/** Preguntas anteriores del Módulo 1 que se ofrecen como práctica dentro de su tema. */
-const OLD_TOPIC: Record<string, string> = { 'sym-01': 'y1e', 'sym-02': 'y1', 'sym-03': 'y1o', 'sym-04': 'y1e', 'sym-05': 'y2t', 'sym-06': 'y2', 'sym-07': 'y2r', 'sym-08': 'y3f', 'sym-09': 'y3a', 'sym-10': 'y3a' };
+/** Preguntas anteriores que se ofrecen como práctica dentro de su tema. */
+const OLD_TOPIC: Record<string, string> = {
+  'sym-01': 'y1e', 'sym-04': 'y1e',
+  'sym-02': 'y1', 'sym-final-q7': 'y1',
+  'sym-03': 'y1o',
+  'sym-final-q10': 'y1s',
+  'sym-05': 'y2t', 'sym-final-q6': 'y2t', 'sym-final-q8': 'y2t',
+  'sym-06': 'y2', 'sym-final-q5': 'y2',
+  'sym-07': 'y2r',
+  'sym-final-q13': 'y2c',
+  'sym-08': 'y3f',
+  'sym-09': 'y3a', 'sym-10': 'y3a',
+  'sym-final-q14': 'y3',
+  'sym-final-q3': 'y4',
+  'sym-11': 'y4m',
+  'sym-12': 'y4l',
+  'sym-13': 'y4d', 'sym-final-q4': 'y4d',
+  'sym-14': 'y4n',
+  'sym-15': 'y5f',
+  'sym-16': 'y5v',
+  'sym-17': 'y5b',
+  'sym-18': 'y5c', 'sym-final-q9': 'y5c',
+  'sym-final-q11': 'y5e',
+  'sym-19': 'y6m',
+  'sym-20': 'y6s',
+  'sym-21': 'y6g', 'sym-final-q1': 'y6g',
+  'sym-final-q2': 'y6c',
+};
 
 const content: SubjectContent = {
-  subjectId: 'sym', theory, questions: [...q.map((x) => ({ ...x, topic: OLD_TOPIC[x.id] })), ...M1_QUESTIONS, ...M2_QUESTIONS, ...M3_QUESTIONS, ...FINAL_QUESTIONS, ...REVIEW_QUESTIONS], exercises: FINAL_EXERCISES, videos: VIDEOS,
+  subjectId: 'sym', theory, questions: [...q.map((x) => ({ ...x, topic: OLD_TOPIC[x.id] })), ...M1_QUESTIONS, ...M2_QUESTIONS, ...M3_QUESTIONS, ...M4_QUESTIONS, ...M5_QUESTIONS, ...M6_QUESTIONS, ...FINAL_QUESTIONS.map((x) => ({ ...x, topic: OLD_TOPIC[x.id] })), ...REVIEW_QUESTIONS], exercises: FINAL_EXERCISES, videos: VIDEOS,
   cheatsheet: POCKET['sym'],
-  maps: [M1_MAP, M2_MAP, M3_MAP],
+  maps: [M1_MAP, M2_MAP, M3_MAP, M4_MAP, M5_MAP, M6_MAP],
 };
 
 content.theory = content.theory.map((b) => ({ ...b, scenes: b.scenes ?? SCENES[b.id] }));
