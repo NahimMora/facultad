@@ -3,22 +3,16 @@ import { RULES, SOLVED } from '../content/recovery/pyeSolved';
 import { Rich } from './Rich';
 import { Walkthrough } from './Walkthrough';
 
-/** Parcial y recuperatorio resueltos: reglas de corrección + un punto por vez, con diagrama y respuesta modelo. */
-export function PyeSolved({ go }: { go: (vista: string) => void }) {
-  const [exam, setExam] = useState<'parcial' | 'recu'>('parcial');
-  const [i, setI] = useState(0);
+/** Mis errores: reglas de corrección y cada punto del parcial y del recu del 16/11, con lo que respondí y la respuesta que sumaba. */
+export function PyeSolved({ go, start }: { go: (vista: string) => void; start?: string }) {
+  const first = SOLVED.find((s) => s.id === start);
+  const [exam, setExam] = useState<'parcial' | 'recu'>(first?.exam ?? 'parcial');
+  const [i, setI] = useState(first ? SOLVED.filter((s) => s.exam === first.exam).indexOf(first) : 0);
   const items = SOLVED.filter((s) => s.exam === exam);
   const it = items[Math.min(i, items.length - 1)];
   const pick = (e: 'parcial' | 'recu') => { setExam(e); setI(0); };
   const move = (k: number) => { setI(k); document.getElementById('solved-item')?.scrollIntoView({ block: 'start', behavior: 'instant' }); };
   return <div className="solved">
-    <ol className="route" aria-label="Cómo usar esta página">
-      <li className="on"><div><b>1</b><span>Leé las reglas de la profe<small>5 min · abajo</small></span></div></li>
-      <li className="on"><div><b>2</b><span>Recorré los 9 puntos resueltos<small>diagrama + respuesta modelo</small></span></div></li>
-      <li><button onClick={() => go('tutor')}><b>3</b><span>Aprender por habilidad<small>teoría con diagramas</small></span></button></li>
-      <li><button onClick={() => go('practica')}><b>4</b><span>Practicar escribiendo<small>y después un simulacro</small></span></button></li>
-    </ol>
-
     <section className="card rules">
       <h2>📏 Cómo corrige la profe</h2>
       <p className="hint">Sale de sus comentarios en tu parcial y en el recu. Cada regla dice dónde te costó puntos.</p>
@@ -49,7 +43,7 @@ export function PyeSolved({ go }: { go: (vista: string) => void }) {
       <button className="btn" disabled={i === 0} onClick={() => move(i - 1)}>← Anterior</button>
       {i + 1 < items.length ? <button className="btn primary" onClick={() => move(i + 1)}>Punto siguiente →</button>
         : exam === 'parcial' ? <button className="btn primary" onClick={() => { pick('recu'); document.getElementById('solved-item')?.scrollIntoView({ block: 'start', behavior: 'instant' }); }}>Seguir con el recu →</button>
-          : <button className="btn primary" onClick={() => go('practica')}>Practicar escribiendo →</button>}
+          : <button className="btn primary" onClick={() => go('practica')}>Ir a escribir →</button>}
     </div>
   </div>;
 }

@@ -1,4 +1,4 @@
-import { ALL_RECOVERY_TASKS, SKILLS, TASK_BY_ID, VARIANT_TASKS } from '../content/recovery/pyeTasks';
+import { ALL_RECOVERY_TASKS, EXAM_SKILLS, TASK_BY_ID, VARIANT_TASKS } from '../content/recovery/pyeTasks';
 import { gradeTask, type WrittenAnswers } from './recoveryGrading';
 import { load, save } from './storage';
 
@@ -9,7 +9,7 @@ export function validRecoverySession(value:unknown):value is RecoverySession {
   if(!value||typeof value!=='object')return false;
   const s=value as RecoverySession;
   if(s.version!==1||typeof s.id!=='string'||!['guided','exam','original'].includes(s.mode)||!Array.isArray(s.taskIds)||!s.taskIds.length||new Set(s.taskIds).size!==s.taskIds.length||!s.taskIds.every(id=>TASK_BY_ID.has(id)))return false;
-  if(s.mode!=='guided'&&(s.taskIds.length!==5||SKILLS.some(k=>!s.taskIds.some(id=>TASK_BY_ID.get(id)?.skill===k.id))))return false;
+  if(s.mode!=='guided'&&(s.taskIds.length!==5||EXAM_SKILLS.some(k=>!s.taskIds.some(id=>TASK_BY_ID.get(id)?.skill===k.id))))return false;
   if(!Number.isFinite(s.startedAt)||s.startedAt<=0||s.startedAt>Date.now()+60_000||typeof s.assisted!=='boolean'||typeof s.fresh!=='boolean')return false;
   if(s.limitSeconds!==undefined&&(!Number.isInteger(s.limitSeconds)||s.limitSeconds<60||s.limitSeconds>86400))return false;
   if(s.finishedAt!==undefined&&(!Number.isFinite(s.finishedAt)||s.finishedAt<s.startedAt))return false;
@@ -31,7 +31,7 @@ export function startRecovery(mode:RecoverySession['mode'],history:RecoverySessi
   else if(mode==='guided') {
     const pool=VARIANT_TASKS.filter(t=>t.skill===skill), task=pool.find(t=>!seen.has(t.id))??pool[Math.floor(Math.random()*pool.length)];
     ids=[task.id];
-  } else ids=SKILLS.map(k=>{
+  } else ids=EXAM_SKILLS.map(k=>{
     const pool=VARIANT_TASKS.filter(t=>t.skill===k.id), available=pool.filter(t=>!seen.has(t.id));
     const choices=available.length?available:pool;
     return choices[Math.floor(Math.random()*choices.length)].id;

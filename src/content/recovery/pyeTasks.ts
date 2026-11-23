@@ -173,6 +173,67 @@ export const ORIGINAL_TASKS:RecoveryTask[]=[
   interval('original-ic','módulos sin errores críticos',.82,.88,.05,true,true),
 ];
 
+/** «Qué prueba usarías»: tres situaciones cortas por consigna, como el punto 4 del recu del 16/11. */
+type Kind='prop2'|'prop1'|'paired'|'indep2'|'one'|'gof'|'indep';
+interface Case { kind:Kind; story:string; ask:string; model:string; gl?:number; h1?:'<'|'>'|'!=' }
+const NAME:Record<Kind,[RegExp[],string]>={
+  prop2:[[/(diferencia de|dos) proporciones/],'Z de diferencia de proporciones.'],
+  prop1:[[/(una|la) proporcion/,/\bz\b/],'Z para una proporción.'],
+  paired:[[/aparead/],'t para muestras apareadas.'],
+  indep2:[[/(muestras|grupos) independientes/,/student|welch/],'Levene y después t de Student o Welch para muestras independientes.'],
+  one:[[/una (sola )?(media|poblacion)/,/\bt\b|student/],'t para una media.'],
+  gof:[[/bondad de ajuste/],'χ² de bondad de ajuste.'],
+  indep:[[/independencia/,/chi|χ|ji/],'χ² de independencia.'],
+};
+const WHY:Record<Kind,[RegExp[],string]>={
+  prop2:[[/proporci|porcentaj/,/distint|independient/],'Decí que comparás porcentajes (proporciones) de dos grupos distintos.'],
+  prop1:[[/proporci|porcentaj/,/referencia|p0|valor/],'Decí que es un porcentaje de un solo grupo contra un valor de referencia.'],
+  paired:[[/mism/],'Decí que son las mismas unidades medidas dos veces: eso define apareadas, no la normalidad.'],
+  indep2:[[/distint|independient/,/levene|varianza/],'Decí que son unidades distintas y que primero va Levene para elegir Student o Welch.'],
+  one:[[/media/,/referencia|mu0|valor/],'Decí que es la media de un solo grupo contra un valor de referencia.'],
+  gof:[[/una (sola )?variable/,/esperad|teoric|patron|referencia|uniforme/],'Decí que es una sola variable categórica comparada con una distribución esperada.'],
+  indep:[[/dos variables/,/categ|cualitativ/],'Decí que son dos variables categóricas cruzadas en una tabla.'],
+};
+const H1:Record<'<'|'>'|'!=',RegExp>={'<':/h\s*1\s*:?[^;\n]{0,60}?</,'>':/h\s*1\s*:?[^;\n]{0,60}?>/,'!=':/h\s*1\s*:?[^;\n]{0,60}?!=/};
+const hyp=(op:'<'|'>'|'!=')=>(s:string)=>has(s,/h\s*0/,H1[op]);
+function choose(id:string,cases:[Case,Case,Case]):RecoveryTask {
+  const weights=[[4,3,3],[4,3,2],[4,3,2]];
+  return {id,skill:'elegir',title:'Elegir la prueba en tres situaciones',story:'Para cada situación nombrá la prueba exacta, justificá con el tipo de variable y el diseño de las muestras, y completá lo que pide el inciso. No hace falta calcular el estadístico.',parts:cases.map((c,i)=>{
+    const [w1,w2,w3]=weights[i], letter=String.fromCharCode(97+i);
+    const last=c.gl!==undefined
+      ?criterion('dato','Grados de libertad',w3,s=>has(s,/gl|grados de libertad/)&&numberIn(s,c.gl!),`Escribí la fórmula de los gl y su valor: ${c.gl}.`,false,'numérico')
+      :criterion('dato','H0 y H1 con la dirección correcta',w3,hyp(c.h1!),`Escribí H0 y H1; la H1 de esta situación lleva «${c.h1==='!='?'≠':c.h1}».`);
+    return {id:letter,prompt:`${letter}) ${c.story} ${c.ask}`,requiresWork:true,model:c.model,criteria:[
+      criterion('prueba','Nombre exacto de la prueba',w1,s=>has(s,...NAME[c.kind][0]),`La prueba es: ${NAME[c.kind][1]}`,true),
+      criterion('porque','Justificación por variable y diseño',w2,s=>has(s,...WHY[c.kind][0]),WHY[c.kind][1]),
+      last,
+    ]};
+  })};
+}
+const glAsk='Indicá los grados de libertad con su fórmula.', hAsk='Escribí H0 y H1.';
+const CHOOSE_TASKS:RecoveryTask[]=[
+  choose('elegir-1',[
+    {kind:'prop2',story:'Se toman 200 piezas de la línea A y 180 de la línea B, que son líneas distintas, y se registra el porcentaje de piezas defectuosas. Se quiere probar que la línea A tiene un porcentaje mayor.',ask:hAsk,h1:'>',model:'Z de diferencia de proporciones, porque comparo el porcentaje (proporción) de defectuosas de dos grupos distintos e independientes. H0: pA ≤ pB · H1: pA > pB, con pA y pB las proporciones poblacionales de defectuosas.'},
+    {kind:'paired',story:'A los mismos 12 operarios se les cuentan los errores antes y después de una capacitación. Las diferencias son normales.',ask:glAsk,gl:11,model:'t para muestras apareadas, porque son los mismos operarios medidos dos veces; trabajo con d = después − antes. gl = n − 1 = 12 − 1 = 11.'},
+    {kind:'gof',story:'Se clasifican 300 fallas en 4 tipos y se quiere ver si siguen los porcentajes que informa el fabricante.',ask:glAsk,gl:3,model:'χ² de bondad de ajuste, porque hay una sola variable categórica (tipo de falla) que se compara con una distribución esperada (la del fabricante). gl = k − 1 = 4 − 1 = 3.'},
+  ]),
+  choose('elegir-2',[
+    {kind:'indep',story:'Se cruzan el turno de trabajo (mañana, tarde, noche) y el tipo de error (4 categorías) en una tabla.',ask:glAsk,gl:6,model:'χ² de independencia, porque son dos variables categóricas (turno y tipo de error) cruzadas en una tabla de contingencia. gl = (f − 1)(c − 1) = (3 − 1)(4 − 1) = 6.'},
+    {kind:'one',story:'Se mide la duración de 15 baterías y se quiere probar que la media supera las 10 horas que promete el fabricante.',ask:glAsk,gl:14,model:'t para una media, porque es la media de una sola población contra un valor de referencia (μ0 = 10 h) y σ es desconocido. gl = n − 1 = 15 − 1 = 14.'},
+    {kind:'prop2',story:'Dos campañas se envían a clientes distintos y se registra el porcentaje que compra en cada una. Se quiere saber si hay diferencia.',ask:hAsk,h1:'!=',model:'Z de diferencia de proporciones, porque comparo el porcentaje (proporción) que compra en dos grupos distintos de clientes. H0: p1 = p2 · H1: p1 ≠ p2.'},
+  ]),
+  choose('elegir-3',[
+    {kind:'indep2',story:'Se mide el tiempo de respuesta de 10 servidores con el sistema A y de otros 12 servidores distintos con el sistema B. Se supone normalidad.',ask:'Indicá los grados de libertad si las varianzas resultan iguales.',gl:20,model:'Primero Levene (H0: σ²A = σ²B) y después t de Student o Welch para muestras independientes, porque son servidores distintos. Si Levene no rechaza, Student con gl = n1 + n2 − 2 = 10 + 12 − 2 = 20; si rechaza, Welch.'},
+    {kind:'gof',story:'Se cuentan los reclamos de cada día hábil (5 categorías) y se quiere ver si se reparten de forma uniforme.',ask:glAsk,gl:4,model:'χ² de bondad de ajuste, porque hay una sola variable categórica (día del reclamo) que se compara con una distribución esperada uniforme. gl = k − 1 = 5 − 1 = 4.'},
+    {kind:'paired',story:'Las mismas 9 notebooks arrancan una vez con cada sistema operativo y se mide el tiempo de arranque. Las diferencias son normales.',ask:glAsk,gl:8,model:'t para muestras apareadas, porque son las mismas notebooks medidas con los dos sistemas; uso d = A − B. gl = n − 1 = 9 − 1 = 8.'},
+  ]),
+  choose('elegir-4',[
+    {kind:'prop1',story:'En 250 envíos se registra el porcentaje entregado a tiempo y se quiere probar que es menor que el 90 % prometido.',ask:hAsk,h1:'<',model:'Z para una proporción, porque es el porcentaje (proporción) de un solo grupo contra un valor de referencia p0 = 0,90. H0: p ≥ 0,90 · H1: p < 0,90.'},
+    {kind:'indep',story:'Se cruzan el nivel de estudios (4 categorías) y si usa o no la aplicación del banco.',ask:glAsk,gl:3,model:'χ² de independencia, porque son dos variables categóricas (nivel de estudios y uso de la aplicación) cruzadas en una tabla. gl = (f − 1)(c − 1) = (4 − 1)(2 − 1) = 3.'},
+    {kind:'indep2',story:'Se compara el consumo de 8 motores con el control nuevo y de otros 8 motores distintos con el control habitual. Se supone normalidad.',ask:'Indicá los grados de libertad si las varianzas resultan iguales.',gl:14,model:'Primero Levene (H0: σ²N = σ²H) y después t de Student o Welch para muestras independientes, porque son motores distintos. Si Levene no rechaza, Student con gl = n1 + n2 − 2 = 8 + 8 − 2 = 14; si rechaza, Welch.'},
+  ]),
+];
+
 export const VARIANT_TASKS:RecoveryTask[]=[
   regression('reg-1','Se estudia un servicio de impresión.','cantidad de páginas','tiempo de impresión','cientos de páginas','segundos',8,3.4,.9,[2,12]),
   regression('reg-2','Se estudia el mantenimiento preventivo.','horas de mantenimiento','cantidad media de fallas','horas','fallas',25,-1.8,-.8,[1,8]),
@@ -194,13 +255,19 @@ export const VARIANT_TASKS:RecoveryTask[]=[
   interval('ic-2','usuarios satisfechos',.6,.72,.1,false),
   interval('ic-3','piezas sin defectos',.9,.96,.01,true),
   interval('ic-4','consultas resueltas',.45,.55,.05,false),
+  ...CHOOSE_TASKS,
 ];
 export const ALL_RECOVERY_TASKS=[...ORIGINAL_TASKS,...VARIANT_TASKS];
 export const TASK_BY_ID=new Map(ALL_RECOVERY_TASKS.map(t=>[t.id,t]));
-export const SKILLS=[
-  {id:'regresion',title:'Regresión y Jamovi',score:12,max:24,original:0,tip:'Leé primero Constante y predictor. Después poné nombre y unidad a cada coeficiente.'},
-  {id:'dos-medias',title:'Dos medias y diseño',score:14,max:24,original:1,tip:'Primero quién fue medido, después VD, factor y niveles. Normalidad e independencia responden preguntas distintas.'},
-  {id:'chi',title:'Chi² y conclusión',score:2,max:10,original:2,tip:'Empezá por esta habilidad: faltó una conclusión completa y los nombres exactos de las variables.'},
-  {id:'una-media',title:'Una media y p-valor',score:12,max:24,original:3,tip:'Separá mu, mu0 y xbar antes de escribir hipótesis. El p-valor requiere una probabilidad bajo H0.'},
-  {id:'intervalos',title:'Intervalos y precisión',score:8,max:18,original:4,tip:'Con n fijo, dibujá las cinco flechas: alfa, confianza, crítico, amplitud y precisión.'},
+/** Habilidades del entrenador, de la que más puntos costó a la que menos. `from` dice en qué examen se perdieron; `exam: false` queda fuera del simulacro de 100. */
+export interface Skill { id:string; title:string; score:number; max:number; from:'parcial'|'recu'; original?:number; topic:string; tip:string; exam?:false }
+export const SKILLS:Skill[]=[
+  {id:'elegir',title:'Elegir la prueba',score:5,max:28,from:'recu',topic:'p7',exam:false,tip:'Antes de nombrar la prueba preguntate tres cosas: ¿número, porcentaje o categorías? ¿Cuántos grupos? ¿Son las mismas unidades?'},
+  {id:'chi',title:'Chi² y conclusión',score:2,max:10,from:'parcial',original:2,topic:'p8i',tip:'Faltó una conclusión completa y los nombres exactos de las variables.'},
+  {id:'intervalos',title:'Intervalos y precisión',score:8,max:18,from:'parcial',original:4,topic:'p6p',tip:'Con n fijo, dibujá las cinco flechas: alfa, confianza, crítico, amplitud y precisión.'},
+  {id:'regresion',title:'Regresión y Jamovi',score:12,max:24,from:'parcial',original:0,topic:'p9',tip:'Leé primero Constante y predictor. Después poné nombre y unidad a cada coeficiente.'},
+  {id:'una-media',title:'Una media y p-valor',score:12,max:24,from:'parcial',original:3,topic:'p6t',tip:'Separá mu, mu0 y xbar antes de escribir hipótesis. El p-valor requiere una probabilidad bajo H0.'},
+  {id:'dos-medias',title:'Dos medias y diseño',score:14,max:24,from:'parcial',original:1,topic:'p7i',tip:'Primero quién fue medido, después VD, factor y niveles. Normalidad e independencia responden preguntas distintas.'},
 ];
+/** Las cinco habilidades del 2º parcial, en el orden y con los pesos del examen (24 + 24 + 10 + 24 + 18). */
+export const EXAM_SKILLS=['regresion','dos-medias','chi','una-media','intervalos'].map(id=>SKILLS.find(s=>s.id===id)!);

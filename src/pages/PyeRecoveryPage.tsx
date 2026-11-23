@@ -1,24 +1,34 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { ORIGINAL_TASKS, SKILLS, TASK_BY_ID, VARIANT_TASKS, fmt } from '../content/recovery/pyeTasks';
-import { DIAGNOSIS, RECOVERY_LESSONS } from '../content/recovery/pyeLessons';
+import { ORIGINAL_TASKS, SKILLS, TASK_BY_ID, VARIANT_TASKS, fmt, type Skill } from '../content/recovery/pyeTasks';
+import { RECOVERY_LESSONS } from '../content/recovery/pyeLessons';
 import { gradeTask, type RecoveryTask } from '../lib/recoveryGrading';
 import { finishRecovery, hasMastery, readRecovery, recoveryResult, startRecovery, writeRecovery, type RecoverySession, type RecoveryState } from '../lib/recoveryState';
 import { proportionMargin } from '../lib/statistics';
 import { Rich } from '../components/Rich';
 import { PyeSolved } from '../components/PyeSolved';
-import { ShortVideo, Walkthrough } from '../components/Walkthrough';
-import media from '../content/lessons/pye-clase-3.json';
+import { Walkthrough } from '../components/Walkthrough';
 import './pyeRecovery.css';
 
-const VIEWS=[['resueltos','1 · Resueltos'],['tutor','2 · Aprender'],['practica','3 · Practicar'],['simulacro','4 · Simulacro'],['inicio','Mi progreso'],['parcial','Rehacer el parcial'],['historial','Historial']];
+/**
+ * Entrenador de escritura del recuperatorio de PyE.
+ * Propósito único: pasar de entender un tema a escribir la respuesta completa que suma puntos.
+ * La teoría vive en los temas (?examen=recu); acá solo se ve lo necesario para armar la respuesta.
+ */
+const VIEWS=[['inicio','Empezar'],['errores','1 · Mis errores'],['practica','2 · Escribir'],['simulacro','3 · Simulacro'],['progreso','Mi progreso']] as const;
+/** Direcciones viejas que pueden estar guardadas o compartidas. */
+const LEGACY:Record<string,string>={resueltos:'errores',parcial:'errores',tutor:'practica',historial:'progreso'};
+const TOPICS='/m/pye?examen=recu';
+const examName=(s:Skill)=>s.from==='recu'?'recu del 16/11':'2º parcial';
 const clockText=(seconds:number)=>`${Math.floor(seconds/60)}:${String(Math.max(0,seconds)%60).padStart(2,'0')}`;
 const dateText=(ms:number)=>new Date(ms).toLocaleString('es-AR',{dateStyle:'short',timeStyle:'short'});
+const attemptsOf=(skill:string,history:RecoverySession[])=>history.flatMap(h=>h.taskIds.filter(id=>TASK_BY_ID.get(id)!.skill===skill).map(id=>gradeTask(TASK_BY_ID.get(id)!,h.answers)));
 
 export function PyeRecoveryPage() {
   const [params,setParams]=useSearchParams();
-  const view=VIEWS.some(([id])=>id===params.get('vista'))?params.get('vista')!:'resueltos';
-  const skill=SKILLS.find(s=>s.id===params.get('habilidad'))??SKILLS[2];
+  const asked=params.get('vista')??'inicio';
+  const view=LEGACY[asked]??(VIEWS.some(([id])=>id===asked)?asked:'inicio');
+  const skill=SKILLS.find(s=>s.id===params.get('habilidad'))??SKILLS[0];
   const [state,setState]=useState<RecoveryState>(readRecovery);
   const [reviewId,setReviewId]=useState<string|null>(null);
   const [minutes,setMinutes]=useState('');
@@ -52,66 +62,85 @@ export function PyeRecoveryPage() {
     if(mode==='guided'&&taskId&&TASK_BY_ID.get(taskId)?.skill===selectedSkill)session.taskIds=[taskId];
     commit({...state,active:session});setReviewId(null);setNow(Date.now());setParams({vista:'resolver'});window.scrollTo({top:0});
   };
-  const pickSkill=(id:string)=>go(view==='practica'?'practica':'tutor',id);
   const resume=()=>{setReviewId(null);setParams({vista:'resolver'});};
   const hasDraft=!!active&&!review&&(active.mode!=='guided'||params.get('vista')==='resolver'||!params.has('vista'));
   const examLock=hasDraft&&active.mode!=='guided';
-  const completed=state.history.filter(s=>s.mode==='exam');
+  const activeSkill=active?TASK_BY_ID.get(active.taskIds[0])!.skill:skill.id;
+  /** Sugerencia: la primera habilidad, en orden de puntos perdidos, que todavía no practicaste. */
+  const next=SKILLS.find(s=>!attemptsOf(s.id,state.history).length);
+  const exams=state.history.filter(s=>s.mode==='exam');
   return <div className="page recovery" style={{['--h' as string]:152}}>
-    <header className="shead"><Link className="back" to="/m/pye">← Probabilidad y Estadística</Link><h1>Recuperatorio PyE</h1><p>Segundo parcial · Respuestas desarrolladas</p><Link to="/m/pye?examen=recu">Temas, mapas y preguntas de oral de las unidades 6 a 9</Link></header>
-    {!examLock&&<nav className="recovery-tabs" aria-label="Entrenador del recuperatorio">{VIEWS.map(([id,label])=><button key={id} className={`pill ${view===id?'on':''}`} aria-current={view===id?'page':undefined} onClick={()=>go(id)}>{label}</button>)}</nav>}
-    <p className="hint recovery-limit">Corrección local por criterios explícitos. La nota es una estimación de práctica, no una calificación oficial ni una evaluación semántica docente. Si una redacción válida no se reconoce, contrastala con la rúbrica.</p>
+    <header className="shead"><Link className="back" to={TOPICS}>← PyE · Recuperatorio</Link><h1>Entrenador de escritura</h1><p>Practicá cómo escribir cada respuesta del recu del 30/11 para que sume todos los puntos.</p></header>
+    {!examLock&&<nav className="recovery-tabs" aria-label="Entrenador de escritura">{VIEWS.map(([id,label])=><button key={id} className={`pill ${view===id&&!hasDraft&&!review?'on':''}`} aria-current={view===id?'page':undefined} onClick={()=>go(id)}>{label}</button>)}</nav>}
     {storageFailed&&<p className="recovery-warning" role="status">Este navegador no pudo guardar el progreso. Podés practicar, pero copiá tus respuestas antes de salir o recargar.</p>}
     {active&&!hasDraft&&<button className="btn" onClick={resume}>Retomar borrador guardado</button>}
-    {review?<div ref={resultRef} tabIndex={-1}><SessionResult session={review} onPractice={id=>{const task=TASK_BY_ID.get(id)!;start('guided',task.skill,task.id);}} onClose={()=>{setReviewId(null);go('historial');}}/></div>:hasDraft?<section className="recovery-session">
-      <header className="card recovery-session-bar"><h2>{active.mode==='exam'?'Simulacro con desarrollo':active.mode==='original'?'Rehacer el parcial analizado':'Práctica escrita'}</h2><p>{active.mode==='exam'?(active.fresh?'Consignas nuevas para tu historial de práctica.':'Incluye consignas ya practicadas: este intento no acredita dos simulacros nuevos.'):active.mode==='original'?'Reconstrucción propia del examen; los modelos se muestran al entregar.':'Pistas opcionales; los intentos guiados no acreditan dominio por simulacro.'}</p>
+    {review?<div ref={resultRef} tabIndex={-1}><SessionResult session={review} onPractice={id=>{const task=TASK_BY_ID.get(id)!;start('guided',task.skill,task.id);}} onClose={()=>{setReviewId(null);go('progreso');}}/></div>:hasDraft?<section className="recovery-session">
+      <header className="card recovery-session-bar"><h2>{active.mode==='exam'?'Simulacro con desarrollo':active.mode==='original'?'Rehacer el 2º parcial':'Práctica escrita'}</h2><p>{active.mode==='exam'?(active.fresh?'Consignas nuevas para tu historial de práctica.':'Incluye consignas ya practicadas: este intento no acredita dos simulacros nuevos.'):active.mode==='original'?'Las cinco consignas de tu parcial; los modelos se muestran al entregar.':'Pistas opcionales; los intentos guiados no cuentan como simulacro.'}</p>
         <span role="timer" aria-label={active.limitSeconds?'Tiempo restante':'Tiempo transcurrido'}>{active.limitSeconds?'Restante':'Transcurrido'}: {clockText(Math.max(0,Math.floor(active.limitSeconds?active.limitSeconds-(now-active.startedAt)/1000:(now-active.startedAt)/1000)))}</span>
         <p className="hint">{active.taskIds.reduce((n,id)=>n+TASK_BY_ID.get(id)!.parts.filter(p=>active.answers[`${id}:${p.id}`]?.trim()).length,0)} de {active.taskIds.reduce((n,id)=>n+TASK_BY_ID.get(id)!.parts.length,0)} subítems escritos. Se conserva el borrador al recargar.</p>
       </header>
       {active.taskIds.map((id,i)=><WrittenTask key={id} task={TASK_BY_ID.get(id)!} index={i} session={active} onAnswer={(key,text)=>commit({...state,active:{...active,answers:{...active.answers,[key]:text}}})} onHint={()=>commit({...state,active:{...active,assisted:true}})}/>)}
       <p>Los subítems vacíos valen 0. Si falta el desarrollo pedido, no se otorga el puntaje del resultado.</p>
       <button className="btn primary" onClick={finish}>Entregar y corregir</button>
-      {!examLock&&<p><button className="linklike" onClick={()=>{setReviewId(null);setParams({vista:'tutor',habilidad:skill.id});}}>Consultar teoría (el borrador sigue guardado)</button></p>}
+      {!examLock&&<p><button className="linklike" onClick={()=>go('practica',activeSkill)}>Ver cómo armar la respuesta (el borrador sigue guardado)</button></p>}
     </section>:<>
-      {view==='resueltos'&&<PyeSolved go={go}/>}
       {view==='inicio'&&<>
-        <section className="card"><h2>De reconocer conceptos a desarrollar respuestas</h2><div className="recovery-metrics"><div><b>48/100</b><span>Parcial analizado</span></div><div><b>60/100</b><span>Mínimo del parcial</span></div><div><b>80/100</b><span>Meta de práctica</span></div></div><p>El PDF muestra que el resultado correcto no alcanzó cuando faltaron variables, hipótesis, cálculos o conclusiones. El recuperatorio se entrena escribiendo cada inciso.</p><p className="hint">Fecha y duración real del recuperatorio: a confirmar. Los pesos globales son 24 + 24 + 10 + 24 + 18. El reparto interno de la rúbrica es pedagógico; el PDF no publica ese detalle.</p><button className="btn primary" onClick={()=>go('tutor','chi')}>Empezar por chi² y la conclusión</button></section>
-        <section className="card"><h2>Tu mapa de trabajo</h2><SkillProgress history={state.history}/><p>{hasMastery(state.history)?'Meta orientativa alcanzada: dos simulacros nuevos consecutivos de al menos 80, sin omisiones ni fallos críticos detectados.':'Meta pendiente: dos simulacros nuevos consecutivos ≥80/100, sin omisiones ni errores críticos detectados.'}</p><p className="hint">Esto acredita los criterios del entrenador; no garantiza aprobación ni reemplaza la revisión de la redacción.</p></section>
-        <section className="card"><h2>Cómo usar el recorrido</h2><ol><li>Revisá dónde se perdieron puntos en «Mi examen corregido».</li><li>En «Aprender», recorré los diagramas, escribí las respuestas de control y contrastá la resolución guiada.</li><li>Resolvé variantes sin pistas y revisá cada criterio que quedó sin crédito.</li><li>Hacé un simulacro nuevo; reforzá las dos habilidades con mayor pérdida y repetí con otras consignas.</li></ol><p>{completed.length} simulacros completos guardados · 20 variantes nuevas disponibles.</p></section>
+        <section className="card recovery-purpose">
+          <h2>Para qué sirve</h2>
+          <p>En el parcial y en el recu del 16/11 perdiste puntos aunque <b>sabías el tema</b>: faltaron cálculos, hipótesis, nombres de variables o la conclusión. Acá practicás eso: <b>escribir la respuesta completa</b>, y la corrección te marca qué faltó.</p>
+          <p>Si un tema no lo entendés, primero estudialo en <Link to={TOPICS}>los temas de las unidades 6 a 9</Link> y después volvé.</p>
+          <div className="recovery-metrics"><div><b>48/100</b><span>2º parcial</span></div><div><b>40/100</b><span>Recu 16/11</span></div><div><b>60/100</b><span>Para aprobar</span></div></div>
+          <p className="hint">Recu del lunes 30/11: si lo aprobás, ese mismo día a las 10 h es el oral eliminatorio. Confirmá el horario y la duración del escrito: no figuran en el material.</p>
+        </section>
+        <section className="card">
+          <h2>Cómo usarlo</h2>
+          <ol className="recovery-steps">
+            <li><button className="linklike" onClick={()=>go('errores')}><b>Mis errores</b></button> · cómo corrige la profe y cada punto de tus dos exámenes, con la respuesta que sumaba. Una vez, al principio.</li>
+            <li><button className="linklike" onClick={()=>go('practica')}><b>Escribir</b></button> · una habilidad por vez: mirás cómo se arma la respuesta y escribís un ejercicio nuevo. Empezá por las que más puntos te costaron.</li>
+            <li><button className="linklike" onClick={()=>go('simulacro')}><b>Simulacro</b></button> · cinco consignas de 100 puntos, sin pistas. Ideal el 28 y el 29.</li>
+          </ol>
+          {next?<button className="btn primary" onClick={()=>go('practica',next.id)}>Seguir con: {next.title} ({examName(next)}: {next.score}/{next.max})</button>
+            :<button className="btn primary" onClick={()=>go('simulacro')}>Ya practicaste todas: hacé un simulacro</button>}
+        </section>
       </>}
-      {view==='parcial'&&<>
-        <h2>Mi examen corregido</h2><p>Reconstrucción con palabras propias de las cinco consignas. Las frases entre comillas son fragmentos literales de la corrección; las respuestas modelo y la rúbrica son reconstrucciones de estudio.</p>
-        {ORIGINAL_TASKS.map((task,i)=><details className="card recovery-original" key={task.id}><summary>{i+1}. {SKILLS[i].title} · {SKILLS[i].score}/{SKILLS[i].max}</summary><TaskStatement task={task}/><h3>Respuesta presentada · síntesis</h3><p>{DIAGNOSIS[i].answer}</p><h3>Hecho del PDF · comentarios</h3>{DIAGNOSIS[i].comments.map(c=><blockquote key={c}>“{c}”</blockquote>)}<h3>Reconstrucción del descuento</h3><p>{DIAGNOSIS[i].loss}</p><h3>Respuesta modelo verificada</h3>{task.parts.map(p=><div key={p.id}><b>{p.id})</b><p className="recovery-model"><Rich text={p.model}/></p></div>)}<p className="hint">Recomendación pedagógica: {SKILLS[i].tip}</p></details>)}
-        <button className="btn primary" disabled={!!active} onClick={()=>start('original')}>Rehacer las cinco consignas</button>
+      {view==='errores'&&<>
+        <PyeSolved go={go} start={params.get('punto')??undefined}/>
+        <section className="card"><h2>Rehacer tu 2º parcial</h2><p>Las mismas cinco consignas, sin mirar las respuestas. Sirve para comprobar que ya no repetís los errores.</p><button className="btn" disabled={!!active} onClick={()=>start('original')}>Rehacer las cinco consignas</button></section>
       </>}
-      {(view==='tutor'||view==='practica')&&<>
-        <SkillPicker selected={skill.id} onPick={pickSkill}/>
-        {view==='tutor'?<Tutor key={skill.id} skillId={skill.id} onPractice={()=>start('guided',skill.id)} disabled={!!active}/>:<section className="card"><h2>{skill.title}: escribí tu desarrollo</h2><p>Hay cuatro variantes con otras historias y datos. La práctica prioriza una variante que todavía no completaste. Cada intento pide todos sus subítems.</p><p>{skill.tip}</p><button className="btn primary" disabled={!!active} onClick={()=>start('guided',skill.id)}>Empezar ejercicio nuevo</button><button className="btn" onClick={()=>go('tutor',skill.id)}>Revisar cómo responder</button></section>}
+      {view==='practica'&&<>
+        <SkillPicker selected={skill.id} history={state.history} onPick={id=>go('practica',id)}/>
+        <Guide key={skill.id} skill={skill} done={attemptsOf(skill.id,state.history).length} onPractice={()=>start('guided',skill.id)} onSolved={()=>{setParams({vista:'errores',punto:'r4'});window.scrollTo({top:0});}} disabled={!!active}/>
       </>}
-      {view==='simulacro'&&<section className="card"><h2>Cinco consignas, 100 puntos</h2><p>Una variante de cada habilidad, con pesos 24, 24, 10, 24 y 18. Sin modelos ni pistas hasta entregar. Las consignas se seleccionan entre las que todavía no completaste.</p><label className="recovery-duration">Límite de práctica en minutos (opcional)<input inputMode="numeric" type="number" min={1} max={240} value={minutes} onChange={e=>setMinutes(e.target.value)}/></label><p className="hint">Vacío: cronómetro sin límite. No es la duración oficial. Con límite, al vencer se entrega el borrador y los subítems vacíos quedan en cero.</p><button className="btn primary" disabled={!!active||!!minutes&&(!Number.isInteger(Number(minutes))||Number(minutes)<1||Number(minutes)>240)} onClick={()=>start('exam')}>Empezar simulacro escrito</button><p className="hint">Después de agotar las 20 variantes se pueden repetir para practicar; un intento repetido se identifica y no suma como simulacro nuevo.</p></section>}
-      {view==='historial'&&<section className="card"><h2>Historial y errores recurrentes</h2><p>Referencia real: 48/100. Los demás resultados son estimaciones del entrenador, calculadas desde tus respuestas.</p><SkillProgress history={state.history}/>{state.history.length?<ol className="recovery-history">{[...state.history].reverse().map(s=>{const r=recoveryResult(s);return <li key={s.id}><button className="linklike" onClick={()=>setReviewId(s.id)}>{dateText(s.finishedAt!)} · {s.mode==='exam'?'Simulacro':s.mode==='original'?'Parcial reconstruido':'Práctica'} · {r.score}/{r.max}</button><small>{r.omissions} omisiones · {s.mode==='exam'?(s.fresh?'nuevo':'repetido'):'guiado'}{s.assisted?' · usaste pistas':''}</small></li>;})}</ol>:<p>Todavía no completaste intentos. El borrador se guarda mientras escribís.</p>}</section>}
+      {view==='simulacro'&&<section className="card"><h2>Simulacro: cinco consignas, 100 puntos</h2><p>Una consigna de cada habilidad del 2º parcial, con sus pesos (24, 24, 10, 24 y 18). No hay modelos ni pistas hasta entregar, y se eligen consignas que todavía no hiciste.</p><p className="hint">«Elegir la prueba» se practica aparte, en Escribir: no se sabe cuánto pesa en el recu del 30/11.</p><label className="recovery-duration">Límite de práctica en minutos (opcional)<input inputMode="numeric" type="number" min={1} max={240} value={minutes} onChange={e=>setMinutes(e.target.value)}/></label><p className="hint">Vacío: cronómetro sin límite. No es la duración oficial. Con límite, al vencer se entrega el borrador y los subítems vacíos quedan en cero.</p><button className="btn primary" disabled={!!active||!!minutes&&(!Number.isInteger(Number(minutes))||Number(minutes)<1||Number(minutes)>240)} onClick={()=>start('exam')}>Empezar simulacro escrito</button><p className="hint">{exams.length} simulacros hechos. Meta: dos seguidos con 80 o más, sin subítems vacíos.</p></section>}
+      {view==='progreso'&&<section className="card"><h2>Mi progreso</h2><p>{hasMastery(state.history)?'Meta alcanzada: dos simulacros nuevos seguidos de al menos 80, sin omisiones ni fallos críticos.':'Meta: dos simulacros nuevos seguidos de al menos 80/100, sin omisiones ni fallos críticos.'}</p><p className="hint">Las notas de práctica son estimaciones por criterios, no una nota oficial.</p><SkillProgress history={state.history}/><h3>Intentos</h3>{state.history.length?<ol className="recovery-history">{[...state.history].reverse().map(s=>{const r=recoveryResult(s);return <li key={s.id}><button className="linklike" onClick={()=>setReviewId(s.id)}>{dateText(s.finishedAt!)} · {s.mode==='exam'?'Simulacro':s.mode==='original'?'Parcial rehecho':'Práctica'} · {r.score}/{r.max}</button><small>{r.omissions} omisiones · {s.mode==='exam'?(s.fresh?'nuevo':'repetido'):'guiado'}{s.assisted?' · usaste pistas':''}</small></li>;})}</ol>:<p>Todavía no completaste intentos. El borrador se guarda mientras escribís.</p>}</section>}
     </>}
   </div>;
 }
 
-function SkillPicker({selected,onPick}:{selected:string;onPick:(id:string)=>void}) {
-  return <div className="recovery-skills" role="group" aria-label="Elegir habilidad">{SKILLS.map(s=><button key={s.id} className={`pill ${selected===s.id?'on':''}`} aria-pressed={selected===s.id} onClick={()=>onPick(s.id)}>{s.title}</button>)}</div>;
+function SkillPicker({selected,history,onPick}:{selected:string;history:RecoverySession[];onPick:(id:string)=>void}) {
+  return <div className="recovery-skills" role="group" aria-label="Elegir habilidad">{SKILLS.map(s=><button key={s.id} className={`pill ${selected===s.id?'on':''}`} aria-pressed={selected===s.id} onClick={()=>onPick(s.id)}>{s.title} <small>{s.score}/{s.max}{attemptsOf(s.id,history).length?' · ✓':''}</small></button>)}</div>;
 }
-function Tutor({skillId,onPractice,disabled}:{skillId:string;onPractice:()=>void;disabled:boolean}) {
-  const skill=SKILLS.find(s=>s.id===skillId)!;
-  const lesson=RECOVERY_LESSONS[skillId], example=ORIGINAL_TASKS[skill.original];
-  const [step,setStep]=useState(0);
-  const [reflection,setReflection]=useState('');
+/** Cómo se arma la respuesta de una habilidad: todo a la vista, sin teoría de más, y el botón para escribir. */
+function Guide({skill,done,onPractice,onSolved,disabled}:{skill:Skill;done:number;onPractice:()=>void;onSolved:()=>void;disabled:boolean}) {
+  const lesson=RECOVERY_LESSONS[skill.id], example=skill.original!==undefined?ORIGINAL_TASKS[skill.original]:undefined;
   const [model,setModel]=useState(false);
-  const short=media.shorts[lesson.videoTopic as keyof typeof media.shorts];
-  return <section className="recovery-tutor" key={skillId}>
-    <h2>{skill.title}: cómo construir la respuesta</h2><p className="hint">Recorrido sugerido de 5–10 minutos: diagrama, explicación, respuesta de control y ejemplo. El tiempo depende de tu ritmo.</p><p><b>Reconocelo:</b> {lesson.recognize}</p>
-    <Walkthrough key={skillId} scene={lesson.scene} title={skill.title}/>
-    {short&&<ShortVideo {...short} label="Repasar este tema en la clase existente"/>}
-    <div className="card"><p className="hint">Paso {step+1} de {lesson.steps.length}</p><h3>{lesson.steps[Math.min(step,lesson.steps.length-1)].title}</h3><p>{lesson.steps[Math.min(step,lesson.steps.length-1)].text}</p><label>Control de comprensión: {lesson.steps[Math.min(step,lesson.steps.length-1)].check}<textarea value={reflection} onChange={e=>setReflection(e.target.value)} rows={3}/></label><p className="hint">Esta reflexión es para contrastar y defender tu razonamiento; no recibe una nota automática.</p><div className="study-next"><button className="btn" disabled={step===0} onClick={()=>{setStep(i=>i-1);setReflection('');}}>Paso anterior</button><button className="btn primary" disabled={step>=lesson.steps.length-1} onClick={()=>{setStep(i=>i+1);setReflection('');}}>Paso siguiente</button></div></div>
-    <section className="card"><h3>Resolución guiada</h3><TaskStatement task={example}/><p>Antes de mirar, escribí cómo empezarías cada inciso. Después compará con la respuesta modelo.</p><button className="btn" aria-expanded={model} onClick={()=>setModel(v=>!v)}>{model?'Ocultar':'Ver'} resolución guiada</button>{model&&example.parts.map(p=><p key={p.id} className="recovery-model"><b>{p.id}) </b><Rich text={p.model}/></p>)}</section>
-    {skillId==='intervalos'&&<IntervalExplorer/>}
-    <section className="card"><h3>Errores a evitar</h3><ul>{lesson.traps.map(t=><li key={t}>{t}</li>)}</ul><h3>Plantilla de cierre</h3><p>{lesson.conclusion}</p><button className="btn primary" disabled={disabled} onClick={onPractice}>Practicar esta habilidad sin modelo</button></section>
+  const variants=VARIANT_TASKS.filter(t=>t.skill===skill.id).length;
+  return <section className="recovery-tutor">
+    <div className="card">
+      <h2>{skill.title}</h2>
+      <p className="recovery-lost">En el {examName(skill)} sacaste <b>{skill.score}/{skill.max}</b>. {skill.tip}</p>
+      <p><b>Reconocelo:</b> {lesson.recognize}</p>
+      <p className="hint">¿No te acordás del tema? <Link to={`${TOPICS}&tema=${skill.topic}`}>Repasalo en los temas</Link>.</p>
+      <button className="btn primary" disabled={disabled} onClick={onPractice}>Escribir un ejercicio nuevo</button>
+      <p className="hint">{done?`Hiciste ${done} de ${variants} variantes.`:`${variants} variantes con otros datos.`} {disabled?'Terminá o entregá el borrador abierto antes de empezar otro.':''}</p>
+    </div>
+    <Walkthrough key={skill.id} scene={lesson.scene} title={skill.title}/>
+    <section className="card"><h3>Cómo armar la respuesta</h3><ol className="recovery-steps">{lesson.steps.map(s=><li key={s.title}><b>{s.title.replace(/^\d+\.\s*/,'').replace(/([^?!])$/,'$1.')}</b> {s.text}<small>Control: {s.check}</small></li>)}</ol></section>
+    <section className="card"><h3>Plantilla para escribir</h3><p className="recovery-model">{lesson.conclusion}</p><h3>Errores que restan puntos</h3><ul>{lesson.traps.map(t=><li key={t}>{t}</li>)}</ul></section>
+    {example?<section className="card"><h3>Tu consigna del parcial, resuelta</h3><TaskStatement task={example}/><p>Antes de mirar, pensá cómo empezarías cada inciso.</p><button className="btn" aria-expanded={model} onClick={()=>setModel(v=>!v)}>{model?'Ocultar':'Ver'} respuesta modelo</button>{model&&example.parts.map(p=><p key={p.id} className="recovery-model"><b>{p.id}) </b><Rich text={p.model}/></p>)}</section>
+      :<section className="card"><h3>Tu consigna del recu, resuelta</h3><p>Está en Mis errores, recu del 16/11, punto 4: qué respondiste, el comentario de la profe y la respuesta que sumaba.</p><button className="btn" onClick={onSolved}>Verla en Mis errores</button></section>}
+    {skill.id==='intervalos'&&<IntervalExplorer/>}
+    <button className="btn primary" disabled={disabled} onClick={onPractice}>Escribir un ejercicio nuevo</button>
   </section>;
 }
 function TaskStatement({task}:{task:RecoveryTask}) {
@@ -135,7 +164,7 @@ function SessionResult({session,onPractice,onClose}:{session:RecoverySession;onP
   </section>;
 }
 function SkillProgress({history}:{history:RecoverySession[]}) {
-  return <div className="recovery-progress">{SKILLS.map(s=>{const attempts=history.flatMap(h=>h.taskIds.filter(id=>TASK_BY_ID.get(id)!.skill===s.id).map(id=>gradeTask(TASK_BY_ID.get(id)!,h.answers)));const last=attempts[attempts.length-1];const misses=new Map<string,number>();attempts.forEach(a=>a.parts.forEach(p=>p.checks.filter(c=>!c.passed).forEach(c=>misses.set(c.label,(misses.get(c.label)??0)+1))));const recurrent=[...misses].sort((a,b)=>b[1]-a[1])[0];return <div key={s.id}><b>{s.title}</b><p>Parcial: {s.score}/{s.max} · {last?`Último: ${last.score}/${last.max}`:'Sin práctica todavía'} · {attempts.length} intentos</p>{recurrent&&<small>Para reforzar: {recurrent[0]} ({recurrent[1]} veces).</small>}</div>;})}</div>;
+  return <div className="recovery-progress">{SKILLS.map(s=>{const attempts=attemptsOf(s.id,history);const last=attempts[attempts.length-1];const misses=new Map<string,number>();attempts.forEach(a=>a.parts.forEach(p=>p.checks.filter(c=>!c.passed).forEach(c=>misses.set(c.label,(misses.get(c.label)??0)+1))));const recurrent=[...misses].sort((a,b)=>b[1]-a[1])[0];return <div key={s.id}><b>{s.title}</b><p>{examName(s)}: {s.score}/{s.max} · {last?`Último: ${last.score}/${last.max}`:'Sin práctica todavía'} · {attempts.length} intentos</p>{recurrent&&<small>Para reforzar: {recurrent[0]} ({recurrent[1]} veces).</small>}</div>;})}</div>;
 }
 function IntervalExplorer() {
   const [confidence,setConfidence]=useState(.95),[n,setN]=useState(200);

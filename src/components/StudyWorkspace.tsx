@@ -84,7 +84,7 @@ function ModuleIndex({ s, exam, maps, modules, blocks, checked, questions, exerc
   const days = date ? daysUntil(date.date) : null;
   const units = s.units.map((u) => ({ title: u.title, modules: u.modules.filter((m) => modules.some((x) => x.id === m.id)) })).filter((u) => u.modules.length);
   return <div className="module-index">
-    {s.id === 'pye' && <Link className="btn self-assessments-entry" to="/m/pye/recuperatorio">Preparar el recuperatorio del 2º parcial · con desarrollo</Link>}
+    {s.id === 'pye' && <Link className="btn self-assessments-entry" to="/m/pye/recuperatorio">✍️ Entrenador de escritura: tus errores, práctica corregida y simulacros</Link>}
     {selfAssessments > 0 && <button className="btn self-assessments-entry" onClick={() => go({ modo: 'autoevaluaciones' })}>Autoevaluaciones · {selfAssessments} preguntas del parcial</button>}
     {next && <div className="index-hero">
       <div className="hero-ring" style={{ ['--p' as string]: pct }} role="img" aria-label={`${pct} % repasado`}><b>{pct}%</b></div>

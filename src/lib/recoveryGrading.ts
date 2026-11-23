@@ -3,7 +3,7 @@ export interface Criterion { id:string; label:string; points:number; kind:ErrorK
 export interface AnswerPart { id:string; prompt:string; model:string; criteria:Criterion[]; requiresWork?:boolean; gate?:(text:string)=>boolean }
 export interface RecoveryTask { id:string; skill:string; title:string; story:string; table?:{head:string[];rows:string[][]}; parts:AnswerPart[]; original?:boolean; warning?:string; audit?:{samples:number[][];statistic:number;df1:number;df2:number;p:number} }
 export type WrittenAnswers = Record<string,string>;
-export const normalize = (s:string) => s.replace(/x̄/g,'xbar').replace(/p̂/g,'phat').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[μµ]/g,'mu').replace(/[σ]/g,'sigma').replace(/α/g,'alfa').replace(/β/g,'beta').replace(/[₀₁₂₉]/g,c=>({'₀':'0','₁':'1','₂':'2','₉':'9'}[c]!)).replace(/−|–/g,'-').replace(/≥/g,'>=').replace(/≤/g,'<=').replace(/≠/g,'!=').replace(/,/g,'.');
+export const normalize = (s:string) => s.replace(/≠/g,'!=').replace(/x̄/g,'xbar').replace(/p̂/g,'phat').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[μµ]/g,'mu').replace(/[σ]/g,'sigma').replace(/α/g,'alfa').replace(/β/g,'beta').replace(/[₀₁₂₉]/g,c=>({'₀':'0','₁':'1','₂':'2','₉':'9'}[c]!)).replace(/−|–/g,'-').replace(/≥/g,'>=').replace(/≤/g,'<=').replace(/≠/g,'!=').replace(/,/g,'.');
 export const has = (s:string,...groups:RegExp[]) => groups.every(r=>r.test(normalize(s)));
 export function numberIn(s:string,value:number,tolerance=.00011) {
   return [...normalize(s).matchAll(/-?\d+(?:\.\d+)?(?:e[+-]?\d+)?/g)].some(m=>Math.abs(Number(m[0])-value)<=tolerance);

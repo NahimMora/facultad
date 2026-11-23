@@ -9,10 +9,20 @@ const chain=(title:string,labels:string[],say:string[]):VisScene=>scene([
   ]),
 ],say,640,labels.length*140+60);
 
-export interface RecoveryLesson { recognize:string; steps:{title:string;text:string;check:string}[]; traps:string[]; conclusion:string; scene:VisScene; videoTopic:string }
+export interface RecoveryLesson { recognize:string; steps:{title:string;text:string;check:string}[]; traps:string[]; conclusion:string; scene:VisScene }
 export const RECOVERY_LESSONS:Record<string,RecoveryLesson>={
+  elegir:{
+    recognize:'Te dan situaciones cortas y la consigna pregunta qué prueba usarías. No hay que calcular: hay que leer qué se midió y a quién.',
+    steps:[
+      {title:'1. ¿Qué se mide?',text:'Un número por unidad (tiempo, consumo, nota) lleva a medias. Un sí/no resumido en porcentaje lleva a proporciones. Categorías contadas en una tabla llevan a χ².',check:'Subrayá en el enunciado la variable y decí de qué tipo es.'},
+      {title:'2. ¿Cuántos grupos y son los mismos?',text:'Un grupo contra un valor de referencia: prueba de una población. Dos grupos de unidades distintas: independientes. Las mismas unidades medidas dos veces: apareadas. La normalidad no decide esto.',check:'¿Quién fue medido en cada condición?'},
+      {title:'3. Nombre exacto',text:'Z de diferencia de proporciones · t apareadas · Levene y después Student o Welch · t para una media · Z para una proporción · χ² de bondad de ajuste (una variable contra un patrón) · χ² de independencia (dos variables en una tabla). «Chi cuadrado» solo no alcanza.',check:'¿Tu nombre distingue esta prueba de las otras dos χ²?'},
+      {title:'4. Completá lo que piden',text:'Si piden hipótesis, H1 lleva la dirección del enunciado: «mayor» >, «menor» <, «diferencia» ≠. Si piden gl: n − 1 en una media o apareadas, n1 + n2 − 2 en Student, k − 1 en bondad de ajuste y (f − 1)(c − 1) en independencia.',check:'Escribí la fórmula de gl antes del número.'},
+    ],traps:['Usar χ² para comparar dos porcentajes de grupos distintos.','Decidir apareadas o independientes por la normalidad.','Escribir «chi cuadrado» sin decir de qué.','Nombrar t para dos muestras independientes sin Levene.'],conclusion:'Uso … porque la variable es … y las muestras son … (distintas / las mismas). H0: … · H1: … (o gl = … = …).',
+    scene:chain('Elegir la prueba en tres preguntas',['¿Número, porcentaje o categorías?','¿Uno o dos grupos?','¿Las mismas unidades?','Nombre exacto + H1 o gl'],['El tipo de variable separa medias, proporciones y χ².','Un grupo se compara con un valor de referencia; dos grupos se comparan entre sí.','Las mismas unidades medidas dos veces son apareadas; unidades distintas, independientes con Levene.','Escribí el nombre completo de la prueba y después lo que pida el inciso: hipótesis o grados de libertad.']),
+  },
   regresion:{
-    recognize:'Hay una respuesta cuantitativa Y y un predictor X; recibís coeficientes y medidas de ajuste de una recta.',videoTopic:'p9',
+    recognize:'Hay una respuesta cuantitativa Y y un predictor X; recibís coeficientes y medidas de ajuste de una recta.',
     steps:[
       {title:'1. Leé las filas antes de calcular',text:'Constante es a; la fila del predictor es b. Copiá ŷ=a+b·x y anotá qué mide cada variable. En el parcial, a=2,3507 y b=5,1809: invertirlos cambia todo el sentido.',check:'Tapá la tabla: ¿qué coeficiente multiplica a X y qué unidad tiene?'},
       {title:'2. Interpretá un incremento, no una duración total',text:'Si X está en miles de registros, +1 en X representa +1000 registros. La pendiente indica cuánto CAMBIA el tiempo medio: no cuánto tarda todo el entrenamiento. El signo indica aumento o disminución.',check:'Escribí una oración que tenga «por cada», escala de X, cambio medio, valor y unidad de Y.'},
@@ -23,7 +33,7 @@ export const RECOVERY_LESSONS:Record<string,RecoveryLesson>={
     scene:chain('Regresión: nombre, unidad y rango',['Constante a → valor con X=0','Predictor b → cambio por unidad','R² × 100 → variación explicada','¿X=0 pertenece al rango?'],['Primero identificá la constante y sustituí X por cero. Ese resultado es un valor del modelo, no el cambio por unidad.','La pendiente multiplica al predictor. Su unidad es unidad de Y por unidad de X; conservá la escala de miles o cientos.','El porcentaje explicado se obtiene de R² y se refiere a la variabilidad de la respuesta. No prueba que X sea causa de Y.','Separá interpretación de confiabilidad. Si cero queda fuera de los datos, la predicción es extrapolación aunque tenga significado conceptual.']),
   },
   'dos-medias':{
-    recognize:'Una variable cuantitativa se compara entre dos condiciones. Primero identificá las unidades: distintas o las mismas medidas dos veces.',videoTopic:'p7',
+    recognize:'Una variable cuantitativa se compara entre dos condiciones. Primero identificá las unidades: distintas o las mismas medidas dos veces.',
     steps:[
       {title:'1. Definí las variables',text:'VD es lo medido: por ejemplo error de medición. Factor es lo que distingue condiciones: método de calibración. Niveles son tradicional y automatizado. Que una variable «dependa» del factor en el diseño no demuestra causalidad.',check:'Escribí VD, factor y los dos niveles antes del nombre de la prueba.'},
       {title:'2. Justificá independencia por el diseño',text:'Sensores distintos en cada grupo → muestras independientes, si el muestreo lo respalda. El mismo sensor antes y después → apareadas. Una distribución normal no crea independencia.',check:'¿Qué dato del enunciado te dice quién fue medido y cuántas veces?'},
@@ -35,7 +45,7 @@ export const RECOVERY_LESSONS:Record<string,RecoveryLesson>={
     scene:chain('Dos condiciones: primero el diseño',['VD + factor + dos niveles','¿Unidades distintas o repetidas?','Normalidad ≠ independencia','Independientes: Levene → t'],['Nombrá la medida y las condiciones explícitamente. En el parcial se exigieron VD, factor y ambos niveles para dar crédito al inciso.','La identidad de las unidades determina si son grupos independientes o medidas apareadas. No alcanza con contar dos columnas.','Normalidad describe una distribución; independencia describe la relación entre observaciones. Son supuestos diferentes.','En el recorrido del curso, Levene orienta Student agrupada o Welch para independientes. En apareadas analizá las diferencias y sus supuestos.']),
   },
   chi:{
-    recognize:'Hay dos variables categóricas cruzadas en una tabla; la pregunta es asociación, no comparación de medias.',videoTopic:'p8',
+    recognize:'Hay dos variables categóricas cruzadas en una tabla; la pregunta es asociación, no comparación de medias.',
     steps:[
       {title:'1. Nombrá ambas variables',text:'Usá nombres completos: frecuencia de publicación y tipo de interacción con publicaciones ajenas. «Frecuencia e interacción» puede ocultar qué se midió. No reemplaces las variables por sus categorías.',check:'¿Se entiende qué representa cada fila y cada columna sin releer la consigna?'},
       {title:'2. Respondé la hipótesis solicitada',text:'H0: independencia. H1: asociación entre las dos variables. Si piden solo H1, escribí H1; no una lista sin distinguir cuál responde al inciso.',check:'Redactá H1 como una frase afirmativa de asociación con ambos nombres.'},
@@ -46,7 +56,7 @@ export const RECOVERY_LESSONS:Record<string,RecoveryLesson>={
     scene:chain('Chi²: no omitas la conclusión',['Dos variables categóricas','gl = (filas−1)(columnas−1)','p ≤ alfa → rechazo H0','No rechazo ≠ demostrar H0'],['Especificá las dos variables en H1. La prueba responde si sus distribuciones muestran asociación, sin establecer causalidad.','Mostrá el cálculo: una tabla de cuatro por cinco categorías tiene doce grados de libertad, no diecinueve ni n menos uno.','La probabilidad de cola derecha se compara con el alfa elegido. Un p de 0,07 no permite rechazar al 5%.','La conclusión tiene que expresar el grado de evidencia y el contexto. No rechazar independencia no equivale a demostrarla.']),
   },
   'una-media':{
-    recognize:'Se mide una población y se compara su media desconocida con un valor de referencia; xbar no es otra población.',videoTopic:'p6',
+    recognize:'Se mide una población y se compara su media desconocida con un valor de referencia; xbar no es otra población.',
     steps:[
       {title:'1. Separá cinco símbolos',text:'mu es media poblacional; mu0 es el valor de referencia; xbar es media muestral; s estima el desvío poblacional y n es el tamaño. En el parcial: mu0=6,7; xbar=5,9; s=1,68; n=10.',check:'¿Por qué 5,9 no es una segunda mu?'},
       {title:'2. Escribí hipótesis y elegí cola',text:'Para demostrar menor media: H0: mu>=mu0; H1: mu<mu0. La distribución se calcula en el límite mu=mu0. Mayor usa derecha; diferente usa bilateral.',check:'Elegí la cola por H1 antes de mirar qué número p resulta conveniente.'},
@@ -58,7 +68,7 @@ export const RECOVERY_LESSONS:Record<string,RecoveryLesson>={
     scene:chain('Una media: datos, t y cola',['mu: población · xbar: muestra','t = (xbar−mu0)/(s/√n)','gl=n−1 · cola según H1','p es probabilidad bajo H0'],['Definí una sola media poblacional. El promedio observado resume una muestra y no se convierte en un segundo parámetro.','El numerador compara la muestra con la referencia. El denominador es el error estándar estimado; conservá el signo del estadístico.','Los grados de libertad son n menos uno. La alternativa fija izquierda, derecha o dos colas antes de elegir la salida.','El p-valor mide cuán extremo sería el estadístico bajo H0. No es la probabilidad de H0; comparalo con alfa y concluí en contexto.']),
   },
   intervalos:{
-    recognize:'Un intervalo simétrico estima una proporción poblacional; te piden centro, margen o efecto de cambiar la confianza.',videoTopic:'p6',
+    recognize:'Un intervalo simétrico estima una proporción poblacional; te piden centro, margen o efecto de cambiar la confianza.',
     steps:[
       {title:'1. Leé qué estima',text:'El intervalo [0,82;0,88] estima p poblacional. Para el intervalo simétrico del ejercicio, phat=(LI+LS)/2=0,85. Otros métodos pueden no ser simétricos: no generalices esa identidad a todo intervalo.',check:'¿El intervalo se refiere a un parámetro o al porcentaje de datos dentro de límites?'},
       {title:'2. Calculá un margen positivo',text:'EM=(LS−LI)/2=0,03. También LS−phat=0,03 y phat−LI=0,03. phat−LS da −0,03: no cambies el signo sin justificar. Amplitud=LS−LI=2·EM.',check:'Mostrá las tres cantidades: centro, margen y ancho total.'},
@@ -69,11 +79,3 @@ export const RECOVERY_LESSONS:Record<string,RecoveryLesson>={
     scene:chain('Con n fijo: confianza vs precisión',['alfa ↓ → confianza (1−alfa) ↑','Confianza ↑ → valor crítico ↑','Crítico ↑ → EM y amplitud ↑','Intervalo más ancho → precisión ↓'],['Alfa es el riesgo complementario de la confianza del método. Si alfa baja, la confianza aumenta; no son dos cambios independientes.','Para aumentar cobertura con el mismo tamaño de muestra, el método necesita un valor crítico más grande.','Al aumentar el crítico también aumenta el margen de error. El ancho total es dos veces ese margen en un intervalo simétrico.','Mayor confianza implica aquí menor precisión. Para ganar precisión sin sacrificar confianza, podés aumentar el tamaño de muestra.']),
   },
 };
-
-export const DIAGNOSIS=[
-  {answer:'Interpreté 2,350 como el incremento por mil registros.',comments:['a) mal','b) bien','en realidad es el tiempo de entrenamiento,'],loss:'Se usó la constante en lugar del coeficiente del predictor y se cambió el fenómeno al interpretar el intercepto.'},
-  {answer:'Justifiqué independencia por la distribución normal y omití hipótesis de homogeneidad.',comments:['la distribución normal no indica que son independientes','Debe realizarse primero la prueba de homogeneidad de las varianzas'],loss:'Faltaron VD, factor, niveles y un planteo auxiliar completo. Independencia y normalidad se justifican de maneras diferentes.'},
-  {answer:'Escribí una H1 genérica; calculé gl=12 y dejé sin concluir el inciso c.',comments:['¿cuál es la hipótesis alternativa?','¿cuales son las variables?','b) bien','c) no concluye-'],loss:'La hipótesis no nombró con precisión ambas variables. La omisión completa de la conclusión perdió un inciso.'},
-  {answer:'Traté 5,9 como una segunda media poblacional. Elegí p=0,0832 y no rechacé, pero no desarrollé t ni la probabilidad.',comments:['5,9 no es un parámetro.','Es una prueba para una población','¿y que probabilidad representa el pv? ¿cuánto vale el estadístico tm?','c) bien'],loss:'La decisión y el error tipo II estaban bien, pero faltaban la distinción parámetro/estadístico y el desarrollo solicitado.'},
-  {answer:'Hallé phat=0,85, pero afirmé que bajar alfa aumenta precisión con n fijo.',comments:['a) bien','si alpha disminuye, la confianza aumenta, entonces menos preciso'],loss:'Se invirtió la relación entre confianza y precisión. Además hay que mantener positivo el margen de error.'},
-];

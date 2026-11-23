@@ -54,5 +54,5 @@ test('el calendario tolera datos inválidos, avisa si no puede guardar y abre el
   await expect(journal.getByRole('status')).toContainText('No se pudo guardar');
   await journal.getByRole('link',{name:'Estudiar PyE →',exact:true}).click();
   await expect(page).toHaveURL(/#\/m\/pye\/recuperatorio$/);
-  await expect(page.getByRole('heading',{name:'Recuperatorio PyE',exact:true})).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Entrenador de escritura',exact:true})).toBeVisible();
 });

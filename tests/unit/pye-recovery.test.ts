@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { ALL_RECOVERY_TASKS, ORIGINAL_TASKS, SKILLS, VARIANT_TASKS } from '../../src/content/recovery/pyeTasks';
+import { ALL_RECOVERY_TASKS, EXAM_SKILLS, ORIGINAL_TASKS, SKILLS, VARIANT_TASKS } from '../../src/content/recovery/pyeTasks';
 import { RECOVERY_LESSONS } from '../../src/content/recovery/pyeLessons';
-import { contradictions, gradeTask, type WrittenAnswers } from '../../src/lib/recoveryGrading';
+import { contradictions, gradeTask, normalize, type WrittenAnswers } from '../../src/lib/recoveryGrading';
 import { finishRecovery, hasMastery, readRecovery, recoveryKey, recoveryResult, startRecovery, validRecoverySession } from '../../src/lib/recoveryState';
 import { oneSampleT, proportionMargin, studentP, twoSampleT, leveneTest, sampleWithSummary, contingencyTest } from '../../src/lib/statistics';
 import { save } from '../../src/lib/storage';
@@ -61,8 +61,8 @@ describe('cálculos independientes del recuperatorio',()=>{
 
 describe('rúbrica estricta por desarrollo',()=>{
   it('hay 4 variantes por habilidad, pesos correctos, ids únicos y modelos completos',()=>{
-    expect(VARIANT_TASKS).toHaveLength(20);
-    expect(new Set(ALL_RECOVERY_TASKS.map(t=>t.id)).size).toBe(25);
+    expect(VARIANT_TASKS).toHaveLength(24);
+    expect(new Set(ALL_RECOVERY_TASKS.map(t=>t.id)).size).toBe(29);
     const failures:string[]=[];
     for(const skill of SKILLS){
       expect(VARIANT_TASKS.filter(t=>t.skill===skill.id)).toHaveLength(4);
@@ -73,6 +73,22 @@ describe('rúbrica estricta por desarrollo',()=>{
       }
     }
     expect(failures).toEqual([]);
+  });
+  it('el simulacro usa las cinco habilidades del parcial con sus pesos y «Elegir la prueba» queda aparte',()=>{
+    expect(EXAM_SKILLS.map(s=>s.max)).toEqual([24,24,10,24,18]);
+    expect(EXAM_SKILLS.some(s=>s.id==='elegir')).toBe(false);
+    expect(startRecovery('exam',[],undefined).taskIds.map(id=>id.split('-')[0])).not.toContain('elegir');
+    for(const s of SKILLS)expect(RECOVERY_LESSONS[s.id],s.id).toBeDefined();
+  });
+  it('elegir la prueba exige el nombre exacto: «chi cuadrado» no vale para dos porcentajes',()=>{
+    const t=VARIANT_TASKS.find(v=>v.id==='elegir-1')!;
+    const a=models(t);expect(gradeTask(t,a).score).toBe(28);
+    a[`${t.id}:a`]='Chi cuadrado de independencia, porque comparo dos líneas distintas. H0: pA ≤ pB · H1: pA > pB.';
+    const g=gradeTask(t,a).parts[0];
+    expect(g.checks.find(c=>c.id==='prueba')!.passed).toBe(false);
+    expect(gradeTask(t,a).critical).toBe(true);
+    a[`${t.id}:b`]='t para muestras apareadas porque las diferencias son normales; gl = n − 1 = 11.';
+    expect(gradeTask(t,a).parts[1].checks.find(c=>c.id==='porque')!.passed).toBe(false);
   });
   it('vacíos y respuestas con solo resultados no reciben crédito de desarrollo',()=>{
     for(const task of ALL_RECOVERY_TASKS){expect(gradeTask(task,{}).score).toBe(0);expect(gradeTask(task,Object.fromEntries(task.parts.map(p=>[`${task.id}:${p.id}`,'0,0832; no rechazo H0']))).score).toBe(0);}
@@ -108,6 +124,9 @@ describe('rúbrica estricta por desarrollo',()=>{
     expect(gradeTask(t,correct).parts[1].checks.find(c=>c.id==='probabilidad')!.passed).toBe(false);
     correct[`${t.id}:b`]=t.parts[1].model.replace('(5,9−6,7)','(5,9+6,7)');
     expect(gradeTask(t,correct).parts[1].checks.find(c=>c.id==='calculo')!.passed).toBe(false);
+  });
+  it('«≠» se lee como distinto y no como igual',()=>{
+    expect(normalize('H1: μ ≠ 5')).toContain('!=');
   });
   it('rechaza afirmaciones de H0 verdadera y causalidad; permite negar esas afirmaciones',()=>{
     expect(contradictions('No rechazo H0; H0 es verdadera.').length).toBeGreaterThan(0);

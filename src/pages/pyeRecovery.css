@@ -69,3 +69,7 @@
 .solved-model p { margin:8px 0; }
 .solved-note { margin-top:10px; }
 @media (max-width:520px) { .solved-grid, .route { grid-template-columns:minmax(0,1fr); } }
+.recovery-steps { display:grid; gap:12px; padding-left:1.3em; margin:12px 0; }
+.recovery-steps small { display:block; margin-top:4px; }
+.recovery-lost { padding:10px 12px; border-left:3px solid var(--accent); background:color-mix(in srgb,var(--accent) 8%,transparent); border-radius:6px; }
+.recovery-skills .pill small { margin-left:4px; }
